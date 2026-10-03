@@ -4,7 +4,8 @@ Store each game in `games/<format>/YYYY-MM-DD-001/`.
 Use a consistent format ID and fill in the metadata from `templates/game.json`.
 Record the banlist and rules version so the game remains reproducible.
 
-Before play, save immutable decklist copies in the game's `decks/` subfolder,
+Before play, snapshot each deck bundle in `decks/<deck-name>/` under the game's
+folder, retaining `deck.ydk`, `deck.json`, and `guide.md`,
 select a format profile, and configure the starting LP, hand size, first-turn
 rules, and field layout. Shared templates leave these settings unset.
 

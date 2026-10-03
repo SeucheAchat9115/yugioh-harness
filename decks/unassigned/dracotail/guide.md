@@ -1,7 +1,7 @@
 ---
 deck_id: dracotail-v1
-deck_json: dracotail.json
-ydk: dracotail.ydk
+deck_json: deck.json
+ydk: deck.ydk
 deck_json_sha256: bf35130add8575cd9becc27df03d5df1f7cbce67d6b2f29d48079ae2232bc210
 format: null
 banlist: null
@@ -13,7 +13,7 @@ review_status: card-text-reviewed-not-engine-tested
 ## Overview
 
 Exact list: **40 Main / 15 Extra / 15 Side**, with 36 distinct card records.
-[Gameplay JSON](dracotail.json) · [Original YDK](dracotail.ydk).
+[Gameplay JSON](deck.json) · [Original YDK](deck.ydk).
 Format and banlist remain unassigned; verify legality before playing.
 
 The engine turns hand/field Fusion Materials into searchable set Dracotail cards
@@ -283,7 +283,7 @@ win rate is asserted without a selected format and observed opponent list.
 
 ## Agent piloting checklist
 
-Follow the [shared play protocol](../../docs/agent-play.md):
+Follow the [shared play protocol](../../../docs/agent-play.md):
 
 1. Use own hand and public information; separate an inferred opposing response
    from a revealed card. Read the full JSON text for the selected card.

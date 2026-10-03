@@ -12,10 +12,10 @@ its own format, banlist, and rules version.
 
 1. **Import the deck:** obtain a Cardcluster YDK and preserve its original contents.
 2. **Prepare card data:** use [YDK to JSON](skills/ydk-to-json/SKILL.md) to create a
-   same-basename `.json` with ordered Main/Extra/Side IDs and gameplay-only card
+   `deck.json` in the deck folder with ordered Main/Extra/Side IDs and gameplay-only card
    records: names, full text, types, stats, and applicable Link/Pendulum details.
 3. **Prepare decisions:** use [Deck playbook](skills/deck-playbook/SKILL.md) to create
-   a same-basename `.md` with card roles, search/recovery maps, synergies, conditional
+   `guide.md` in that folder with card roles, search/recovery maps, synergies, conditional
    combo lines, first/second play, interactions, and agent-specific state tracking.
 4. **Agree on the game:** select a rules profile, check deck legality, assign players,
    and choose a game engine, referee agent, or human to maintain authoritative state.
@@ -30,7 +30,7 @@ rules engine, or autonomous agent orchestration.
 
 ## Structure
 
-- `decks/<format>/`: Deck bundles: `<deck>.ydk`, `<deck>.json`, and `<deck>.md`.
+- `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`, `guide.md`, and optional `README.md`.
 - `decks/unassigned/`: Imported decks awaiting a confirmed format and banlist.
 - `skills/`: Reusable card-data conversion and strategic-analysis workflows.
 - `docs/agent-play.md`: Shared action, response, information, and recording protocol.
@@ -46,8 +46,8 @@ refresh it when the deck or relevant text changes.
 
 | Deck | Main / Extra / Side | Gameplay data | Agent playbook |
 | --- | --- | --- | --- |
-| Branded Despia | 53 / 14 / 12 | [JSON](decks/unassigned/branded-despia-v1.json) | [Guide](decks/unassigned/branded-despia-v1.md) |
-| Dracotail | 40 / 15 / 15 | [JSON](decks/unassigned/dracotail.json) | [Guide](decks/unassigned/dracotail.md) |
+| Branded Despia | 53 / 14 / 12 | [JSON](decks/unassigned/branded-despia/deck.json) | [Guide](decks/unassigned/branded-despia/guide.md) |
+| Dracotail | 40 / 15 / 15 | [JSON](decks/unassigned/dracotail/deck.json) | [Guide](decks/unassigned/dracotail/guide.md) |
 
 Both original exports came from Cardcluster via user uploads. Source links remain
 in the YDK headers and [deck index](decks/unassigned/README.md). The guides are
@@ -56,8 +56,8 @@ not been executed in a duel engine. Format and banlist assignment remain pending
 The [planned Branded Despia versus Dracotail matchup](games/planned/branded-despia-vs-dracotail.json)
 has not started. No games have been played yet.
 
-Preliminary [Edison Blackwings](decks/edison/blackwings.md) and
-[Lightsworn](decks/edison/lightsworn.md) notes live beside their deck index;
+Preliminary [Edison Blackwings](decks/edison/blackwings/guide.md) and
+[Lightsworn](decks/edison/lightsworn/guide.md) notes live beside their deck index;
 their Cardcluster deck imports are pending.
 
 ## Sources and versioning
@@ -95,7 +95,7 @@ Deck playbooks are reasoned analyses. Run the bundled audit to check a guide's
 structure, exact card inventory, counts, and JSON hash:
 
 ```sh
-python skills/deck-playbook/scripts/audit.py check decks/unassigned/dracotail.json
+python skills/deck-playbook/scripts/audit.py check decks/unassigned/dracotail/deck.json
 ```
 
 This audit does not simulate combos or certify legality; unresolved rulings must

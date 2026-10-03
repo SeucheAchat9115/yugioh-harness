@@ -1,7 +1,7 @@
 ---
 deck_id: branded-despia-v1
-deck_json: branded-despia-v1.json
-ydk: branded-despia-v1.ydk
+deck_json: deck.json
+ydk: deck.ydk
 deck_json_sha256: 236e9c0421a6b096acb9982e122ed2cdfd25b75cfee0ec8a438bce63b2d13e48
 format: null
 banlist: null
@@ -13,7 +13,7 @@ review_status: card-text-reviewed-not-engine-tested
 ## Overview
 
 Exact list: **53 Main / 14 Extra / 12 Side**, with 50 distinct card records.
-[Gameplay JSON](branded-despia-v1.json) · [Original YDK](branded-despia-v1.ydk).
+[Gameplay JSON](deck.json) · [Original YDK](deck.ydk).
 Format and banlist are unassigned; this is strategic preparation, not a legality certification.
 
 The plan is to establish an Albaz Fusion, turn Extra Deck sends into End Phase
@@ -271,7 +271,7 @@ needed for the intended Fusion route merely to add more reactive cards.
 
 ## Agent piloting checklist
 
-Follow the [shared play protocol](../../docs/agent-play.md). Before each decision:
+Follow the [shared play protocol](../../../docs/agent-play.md). Before each decision:
 
 1. Read own hand and public state; never inspect private opponent cards/deck order.
 2. Check Normal Summon, name-wide counters, current locks, legal Fusion materials,

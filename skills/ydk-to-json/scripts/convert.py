@@ -118,7 +118,7 @@ def fetch_all(ids):
 
 def build_deck(path, parsed, cards):
     raw, sections, header = parsed
-    output = path.with_suffix(".json")
+    output = path.with_name("deck.json")
     deck = json.loads(output.read_text()) if output.exists() else {}
     if not isinstance(deck, dict):
         raise ValueError(f"{output}: expected metadata object")
@@ -127,8 +127,8 @@ def build_deck(path, parsed, cards):
         raise ValueError(f"{path}: incomplete card coverage")
     deck = {
         "schema_version": "2.0",
-        "id": deck.get("id", path.stem),
-        "name": deck.get("name", path.stem),
+        "id": deck.get("id", path.parent.name),
+        "name": deck.get("name", path.parent.name.replace("-", " ").title()),
         "format": deck.get("format"),
         "banlist": deck.get("banlist"),
         "version": deck.get("version", 1),
@@ -142,7 +142,7 @@ def build_deck(path, parsed, cards):
 def existing_cards(paths):
     cards = {}
     for path in paths:
-        deck = json.loads(path.with_suffix(".json").read_text())
+        deck = json.loads(path.with_name("deck.json").read_text())
         for card_id, card in deck.get("cards", {}).items():
             card_id = int(card_id)
             normalized = gameplay_card(card)
@@ -180,12 +180,12 @@ def main():
     parser.add_argument("paths", type=Path, nargs="*")
     args = parser.parse_args()
     repo = args.repo.resolve()
-    paths = sorted(set(path.resolve() for path in args.paths)) if args.paths else sorted((repo / "decks").rglob("*.ydk"))
+    paths = sorted(set(path.resolve() for path in args.paths)) if args.paths else sorted((repo / "decks").rglob("deck.ydk"))
     if not paths:
         parser.error("No YDK files found")
     for path in paths:
-        if path.suffix.lower() != ".ydk" or not path.is_relative_to(repo):
-            parser.error(f"Expected a .ydk file inside the repository: {path}")
+        if path.name != "deck.ydk" or not path.is_relative_to(repo):
+            parser.error(f"Expected a named deck folder's deck.ydk inside the repository: {path}")
     convert(paths, from_existing=args.from_existing)
 
 

@@ -35,6 +35,20 @@ class ConverterTests(unittest.TestCase):
             self.assertEqual(deck["id"], "stable-v1")
             self.assertEqual(deck["schema_version"], "2.0")
 
+    def test_folder_name_and_generic_output_without_metadata(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory) / "my-deck"
+            folder.mkdir()
+            path = folder / "deck.ydk"
+            path.write_text("#main\n1\n")
+            record = {"id": 1, "name": "Spell", "type": "Spell Card", "race": "Normal", "desc": "Text"}
+            with patch.object(converter, "fetch_all", return_value={1: record}):
+                converter.convert([path])
+            deck = json.loads((folder / "deck.json").read_text())
+            self.assertEqual(deck["id"], "my-deck")
+            self.assertEqual(deck["name"], "My Deck")
+            self.assertEqual({f.name for f in folder.iterdir()}, {"deck.ydk", "deck.json"})
+
     def test_alternate_art_id_keeps_original_api_object(self):
         card = {"id": 1, "name": "Name", "type": "Effect Monster", "desc": "Text",
                 "card_images": [{"id": 99, "image_url": "https://example.test/99.jpg"}]}
@@ -42,7 +56,9 @@ class ConverterTests(unittest.TestCase):
 
     def test_missing_card_does_not_overwrite_any_deck(self):
         with tempfile.TemporaryDirectory() as directory:
-            paths = [Path(directory) / f"{i}.ydk" for i in (1, 2)]
+            paths = [Path(directory) / f"deck-{i}" / "deck.ydk" for i in (1, 2)]
+            for path in paths:
+                path.parent.mkdir()
             for i, path in enumerate(paths, 1):
                 path.write_text(f"#main\n{i}\n")
                 path.with_suffix(".json").write_text('{"keep": true}')

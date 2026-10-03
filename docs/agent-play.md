@@ -8,8 +8,11 @@ that task; actual effects must still be adjudicated under an agreed rules profil
 
 Agree on format, card pool, banlist, rules version, card text overrides, starting
 LP/hand size, field layout, first-turn rules, single game or match, and start player.
-Validate both decklists, including Side Deck Extra Deck cards. Snapshot the JSONs,
-YDKs, guides, and rules into the game's records. Check each guide's JSON hash.
+Load each bundle from `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`,
+and `guide.md`; use the optional `README.md` for source notes. Validate both
+decklists, including Side Deck Extra Deck cards. Snapshot each whole bundle into
+`games/<format>/<game-id>/decks/<deck-name>/`, retaining its generic filenames,
+and snapshot the rules into the game's records. Check each guide's JSON hash.
 
 Choose who maintains the authoritative state and handles shuffles and rulings:
 a game engine, a referee agent, or an agreed human. Use independently shuffled,

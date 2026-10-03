@@ -28,5 +28,9 @@
     "starting_player_battle_phase": null,
     "field_layout": null
   },
-  "notes": "User-selected matchup. Player assignments, format, banlist, rules, and starting player are pending. No cards have been drawn."
+  "notes": "User-selected matchup. Player assignments, format, banlist, rules, and starting player are pending. No cards have been drawn.",
+  "deck_files": {
+    "branded-despia-v1": "decks/unassigned/branded-despia/deck.json",
+    "dracotail-v1": "decks/unassigned/dracotail/deck.json"
+  }
 }

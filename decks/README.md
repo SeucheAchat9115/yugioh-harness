@@ -1,29 +1,27 @@
-# Decklists
+# Deck bundles
 
-Organize decklists under `decks/<format>/` using a consistent format ID.
-Use `templates/deck.json` and record the format, applicable banlist, unique deck ID,
-and deck version. Check card availability and copy limits for that format.
+Each deck has its own folder, named after the deck:
 
-Every decklist must be obtained from https://cardcluster.com/. Record the exact
-source URL, retrieval date, author, and available source version. Document changes
-from the imported list and create a new deck version for each revision.
-Optional `.ydk` exports may be saved alongside JSON once card IDs are available.
+```text
+decks/<format>/<deck-name>/
+  deck.ydk
+  deck.json
+  guide.md
+  README.md          # optional source/import notes
+```
 
-Available format folders: [Edison](edison/README.md).
+Use lowercase hyphenated names such as `branded-despia` and `dracotail`.
+Use `unassigned` as the format folder until the format/banlist is confirmed.
+The JSON's deck ID/version remains stable when files move. Name separate variants
+or versions explicitly when multiple bundles must coexist; never overwrite game snapshots.
 
-User-provided Cardcluster exports awaiting format assignment:
-[Branded Despia and Dracotail](unassigned/README.md).
+`deck.ydk` preserves the Cardcluster export. `deck.json` contains gameplay-only
+card data and ordered sections, produced by the [conversion skill](../skills/ydk-to-json/SKILL.md).
+`guide.md` contains card roles, access maps, synergies, conditional combos, matchup
+notes, and agent decisions, produced by the [playbook skill](../skills/deck-playbook/SKILL.md).
+Store source links/author/import notes in the optional folder `README.md` and original
+YDK header. Use `templates/deck.json` for initial metadata if needed.
 
-## Enriched YDK exports
-
-Use the [YDK-to-JSON skill](../skills/ydk-to-json/SKILL.md) to convert a YDK to
-a same-basename JSON containing gameplay-only YGOPRODeck card data. This enriched schema
-uses ordered ID arrays and a `cards` lookup table; it is documented in the skill.
-The generic import template remains available for manually documented lists.
-
-## Playbooks
-
-Use the [Deck playbook skill](../skills/deck-playbook/SKILL.md) to produce
-`<deckname>.md` beside each gameplay JSON/YDK. It explains card roles, access maps,
-synergies, conditional combo traces, and agent decisions for the exact deck.
-Keep strategy and matchup notes in the deck's sibling playbook.
+Indexes: [Unassigned decks](unassigned/README.md) and [Edison](edison/README.md).
+Preliminary guides can exist before imports, but must say that `deck.ydk`/`deck.json`
+are pending; never fabricate those files.

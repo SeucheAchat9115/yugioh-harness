@@ -1,6 +1,6 @@
 ---
 name: ydk-to-json
-description: Convert YDK exports into same-basename gameplay-only JSON files using YGOPRODeck card data, and save the results in the repository.
+description: Convert YDK exports into generic `deck.json` gameplay files in named deck folders using YGOPRODeck card data, and save the results in the repository.
 ---
 
 # YDK to gameplay JSON
@@ -19,20 +19,23 @@ Cardcluster exports; YGOPRODeck provides card information.
    python skills/ydk-to-json/scripts/convert.py --repo .
    ```
 
-   Append YDK paths to select specific decks. The converter batches and throttles
+   Append paths such as `decks/unassigned/dracotail/deck.ydk` to select specific
+   decks. Default discovery reads only `decks/**/deck.ydk`. The converter batches and throttles
    requests, retries transient failures, and resolves alternate artwork IDs via
    the API's `card_images` before discarding artwork metadata.
 3. Keep only the gameplay fields listed below. Never truncate card text. Require
    names, full descriptions, card types, races, and applicable monster stats.
    Missing card records or required gameplay fields fail the conversion before
    any outputs are replaced; never invent values.
-4. Write beside each YDK with the identical basename: `dracotail.ydk` becomes
-   `dracotail.json`. Preserve deck identity, format, banlist, and version.
+4. Store each deck under `decks/<format>/<deck-name>/`, with lowercase hyphenated
+   folder names. Read `deck.ydk` and write `deck.json` in that same folder.
+   Its playbook is `guide.md`; optional provenance notes belong in `README.md`.
+   Preserve deck identity, format, banlist, and version.
    Remove all old non-gameplay metadata, including unknown fields.
 5. Check exact section order, duplicates, copy counts, and coverage of all IDs.
    Confirm the YDK files remain unchanged. Commit the skill and generated JSONs.
 
-To filter card records already fetched into sibling JSONs without another
+To filter card records already fetched into the same folders' `deck.json` files without another
 network request, use:
 
 ```sh

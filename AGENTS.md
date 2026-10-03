@@ -2,8 +2,9 @@
 
 - Keep the repository generic: support current, historical, and custom Yu-Gi-Oh!
   formats. Do not assume a default format in shared documentation or templates.
-- Store deck bundles under their format ID, with strategy and matchup guidance
-  in each deck's sibling `.md` playbook. Keep rules in separate format profiles.
+- Store each deck in `decks/<format>/<deck-name>/`, using a readable lowercase
+  hyphenated deck-name folder and generic `deck.ydk`, `deck.json`, `guide.md`,
+  and optional `README.md` filenames. Keep strategy/matchup guidance in `guide.md`. Keep rules in separate format profiles.
   Record each game's format, banlist, and rules version.
 - Configure starting LP, opening hand size, first-turn draws, and field layout
   from the selected rules profile rather than hardcoding them in shared templates.
@@ -23,10 +24,10 @@
   ordered Main/Extra/Side IDs, and card names, text, types, and applicable stats.
   Follow schema 2.0 in `skills/ydk-to-json/SKILL.md`. Do not include prices,
   printings, artwork URLs, API miscellany, or import provenance in these JSONs.
-  Preserve Cardcluster source links in the YDK headers and accompanying README.
+  Preserve Cardcluster source links in the YDK headers and deck-folder README.
 
 - Aim to enable an agent to pilot a deck against another agent or a human.
-  Use `skills/deck-playbook/SKILL.md` to write sibling same-basename `.md` guides
+  Use `skills/deck-playbook/SKILL.md` to write each deck folder's `guide.md`
   from gameplay JSON, covering every card, searches, synergies, conditional combos,
   interaction, resources, and agent decisions. Tie each guide to the JSON hash.
 - Check all combo inputs, costs, material locations, targets, restrictions, and

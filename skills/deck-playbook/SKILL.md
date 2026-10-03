@@ -1,6 +1,6 @@
 ---
 name: deck-playbook
-description: Analyze gameplay-only deck JSONs into same-basename Markdown playbooks with card roles, search/recovery maps, synergies, conditional combo lines, and decision guidance for an agent playing against another agent or a human.
+description: Analyze gameplay-only deck JSONs into generic guide.md playbooks in named deck folders with card roles, search/recovery maps, synergies, conditional combo lines, and decision guidance for an agent playing against another agent or a human.
 ---
 
 # Deck playbook
@@ -16,7 +16,7 @@ does not import or change decklists.
    and stats. Include Side Deck cards and unusual Extra Deck choices. Use:
 
    ```sh
-   python skills/deck-playbook/scripts/audit.py inventory decks/unassigned/dracotail.json
+   python skills/deck-playbook/scripts/audit.py inventory decks/unassigned/dracotail/deck.json
    ```
 
 2. Read every card's text before assigning roles. Group cards as starters,
@@ -41,15 +41,16 @@ does not import or change decklists.
    state tracking, usage counters and locks, summon history, opponent response
    windows, lethal checks, and recovery after interrupted or invalid actions.
    Refer to the shared agent protocol rather than treating the guide as a referee.
-7. Save beside the JSON with the **same basename**: `dracotail.json` becomes
-   `dracotail.md`; `branded-despia-v1.json` becomes `branded-despia-v1.md`.
+7. Use `decks/<format>/<deck-name>/` with generic `deck.ydk`, `deck.json`,
+   `guide.md`, and optional source/import `README.md`. Save the playbook as
+   `guide.md` beside that folder's `deck.json`; the folder carries the deck name.
    Record the deck ID, JSON SHA-256, counts, format/banlist status, and review
    status. Link the exact JSON and YDK. Preserve earlier format-specific guides.
 8. Audit coverage, manually review the combo traces, update guide indexes, and
    commit the skill and playbooks to the requested repository:
 
    ```sh
-   python skills/deck-playbook/scripts/audit.py check decks/unassigned/dracotail.json
+   python skills/deck-playbook/scripts/audit.py check decks/unassigned/dracotail/deck.json
    ```
 
 The audit checks document structure, deck identity/hash, and card coverage. It
@@ -63,7 +64,7 @@ so and do not assert that the deck or particular cards are legal.
 
 Start with YAML front matter containing `deck_id`, `deck_json`, `ydk`,
 `deck_json_sha256`, `format` (null if unknown), `banlist` (null if unknown),
-and `review_status`. Paths are sibling filenames. Use these headings:
+and `review_status`. Use `deck_json: deck.json` and `ydk: deck.ydk`; both are sibling filenames. Use these headings:
 
 1. `## Overview`: exact list size, game plan, limitations, and guide scope.
 2. `## Card roles and usage`: group-based tactical descriptions plus an inventory

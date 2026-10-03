@@ -22,6 +22,8 @@ def main():
     parser.add_argument("action", choices=("inventory", "check"))
     parser.add_argument("deck", type=Path)
     args = parser.parse_args()
+    if args.deck.name != "deck.json":
+        parser.error("Expected decks/<format>/<deck-name>/deck.json")
     raw = args.deck.read_bytes()
     deck = json.loads(raw)
     counts = {section: Counter(deck[section]) for section in ("main", "extra", "side")}
@@ -37,12 +39,12 @@ def main():
             print(f"\n{card_id} | {card['name']} | M/E/S {copies} | {card['type']} | {stats}")
             print(card["desc"])
         return
-    guide = args.deck.with_suffix(".md")
+    guide = args.deck.with_name("guide.md")
     text = guide.read_text()
     errors = []
     required = {
         "deck_id": deck["id"], "deck_json": args.deck.name,
-        "ydk": args.deck.with_suffix(".ydk").name,
+        "ydk": "deck.ydk",
         "deck_json_sha256": hashlib.sha256(raw).hexdigest(),
     }
     for key, value in required.items():
