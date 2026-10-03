@@ -13,8 +13,9 @@ Startpaarung: **Schwarzflügel gegen Lichtverpflichtete**.
 
 ## Decklisten
 
-Für beide Startdecks müssen noch veröffentlichte Listen aus dem Netz abgerufen
-und mit ihrer Quelle gespeichert werden. Bis dahin sind sie nicht spielbereit.
+Decklisten werden ausschließlich von **https://cardcluster.com/** übernommen.
+Für beide Startdecks müssen dort noch passende Edison-Listen abgerufen
+und mit ihrer konkreten Quell-URL gespeichert werden. Bis dahin sind sie nicht spielbereit.
 Keine unbestätigte Liste wird als Original einer Online-Quelle ausgegeben.
 
 Deckversionen erhalten eindeutige IDs, zum Beispiel `blackwings-v1`.
