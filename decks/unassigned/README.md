@@ -2,7 +2,7 @@
 
 These user-provided YDK exports contain Cardcluster source links in their headers.
 The original YDK contents are preserved unchanged. Matching JSON files use the YDK basename with a `.json` extension and store
-ordered card IDs, complete YGOPRODeck card records, provenance, and SHA-256 hashes.
+ordered card IDs and gameplay-only card records.
 See the [conversion skill](../../skills/ydk-to-json/SKILL.md) for the JSON format.
 
 | Deck | Author | Main | Extra | Side | Cardcluster source |

@@ -27,7 +27,7 @@ jobs:
           python-version: '3.12'
       - name: Test converter
         run: python -m unittest discover -s skills/ydk-to-json/tests -v
-      - name: Fetch full card data and convert decks
+      - name: Fetch card data and generate gameplay-only JSON
         run: python skills/ydk-to-json/scripts/convert.py --repo .
       - name: Commit enriched JSON files
         shell: bash
@@ -38,5 +38,5 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Enrich YDK decks with full YGOPRODeck card data'
+          git commit -m 'Convert YDK decks to gameplay-only JSON'
           git push

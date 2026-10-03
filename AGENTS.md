@@ -17,3 +17,9 @@
   their original deck snapshots.
 - Save game actions, random outcomes, and game states so they can be reviewed.
   Do not reveal hidden information in public game logs.
+
+- Enriched deck JSON must contain gameplay data only: deck identity, format/banlist,
+  ordered Main/Extra/Side IDs, and card names, text, types, and applicable stats.
+  Follow schema 2.0 in `skills/ydk-to-json/SKILL.md`. Do not include prices,
+  printings, artwork URLs, API miscellany, or import provenance in these JSONs.
+  Preserve Cardcluster source links in the YDK headers and accompanying README.

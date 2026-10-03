@@ -17,6 +17,6 @@ User-provided Cardcluster exports awaiting format assignment:
 ## Enriched YDK exports
 
 Use the [YDK-to-JSON skill](../skills/ydk-to-json/SKILL.md) to convert a YDK to
-a same-basename JSON containing full YGOPRODeck API records. This enriched schema
+a same-basename JSON containing gameplay-only YGOPRODeck card data. This enriched schema
 uses ordered ID arrays and a `cards` lookup table; it is documented in the skill.
 The generic import template remains available for manually documented lists.

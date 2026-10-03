@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-"""Enrich YDK exports with complete YGOPRODeck API card records (stdlib only)."""
+"""Convert YDK exports to gameplay-only JSON using YGOPRODeck (stdlib only)."""
 
 import argparse
-from datetime import datetime, timezone
-import hashlib
 import json
 from pathlib import Path
 import re
@@ -15,6 +13,24 @@ from urllib.request import Request, urlopen
 
 API = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
 SECTIONS = ("main", "extra", "side")
+PLAY_FIELDS = ("id", "name", "type", "frameType", "desc", "race", "archetype",
+               "atk", "def", "level", "attribute", "scale", "linkval",
+               "linkmarkers", "pend_desc", "monster_desc")
+
+
+def gameplay_card(card):
+    if (not isinstance(card, dict) or not isinstance(card.get("id"), int)
+            or not card.get("name") or not isinstance(card.get("desc"), str)
+            or not card.get("type") or not card.get("race")):
+        raise ValueError("Missing card identity, text, or type information")
+    if "Monster" in card["type"]:
+        required = ["atk", "attribute"]
+        required += ["linkval", "linkmarkers"] if "Link" in card["type"] else ["def", "level"]
+        if "Pendulum" in card["type"]:
+            required += ["scale"]
+        if any(field not in card or card[field] is None for field in required):
+            raise ValueError(f"Missing gameplay stats for {card['name']}")
+    return {field: card[field] for field in PLAY_FIELDS if field in card}
 
 
 def parse_ydk(path):
@@ -43,7 +59,7 @@ def parse_ydk(path):
 
 
 def request_cards(ids):
-    url = API + "?" + urlencode({"id": ",".join(map(str, ids)), "misc": "yes"})
+    url = API + "?" + urlencode({"id": ",".join(map(str, ids))})
     for attempt in range(4):
         time.sleep(0.5)  # At most two requests per second, including retries.
         try:
@@ -100,53 +116,49 @@ def fetch_all(ids):
     return cards
 
 
-def build_deck(path, parsed, cards, retrieved_at):
+def build_deck(path, parsed, cards):
     raw, sections, header = parsed
     output = path.with_suffix(".json")
     deck = json.loads(output.read_text()) if output.exists() else {}
     if not isinstance(deck, dict):
         raise ValueError(f"{output}: expected metadata object")
-    deck.setdefault("id", path.stem)
-    deck.setdefault("name", path.stem)
-    deck.setdefault("format", None)
-    deck.setdefault("banlist", None)
-    deck.setdefault("version", 1)
-    deck.setdefault("legality_status", "not_checked")
-    source = deck.setdefault("source", {})
-    if not isinstance(source, dict):
-        raise ValueError(f"{output}: source must be an object")
-    for line in header:
-        url = re.search(r"https://cardcluster\.com/deck/[A-Za-z0-9]+", line)
-        if url:
-            source.setdefault("url", url.group())
-        author = re.search(r"#created by (.*?) - https://cardcluster\.com/", line)
-        if author:
-            source.setdefault("author", author.group(1))
     unique = sorted({card_id for values in sections.values() for card_id in values})
     if any(card_id not in cards for card_id in unique):
         raise ValueError(f"{path}: incomplete card coverage")
-    deck.update({
-        "schema_version": "1.0",
-        "ydk_file": path.name,
-        "ydk_sha256": hashlib.sha256(raw).hexdigest(),
-        "ydk_header": header,
+    deck = {
+        "schema_version": "2.0",
+        "id": deck.get("id", path.stem),
+        "name": deck.get("name", path.stem),
+        "format": deck.get("format"),
+        "banlist": deck.get("banlist"),
+        "version": deck.get("version", 1),
         "counts": {key: len(values) for key, values in sections.items()},
         **sections,
-        "cards": {str(card_id): cards[card_id] for card_id in unique},
-        "card_data_source": {"api": API, "language": "en", "misc": True,
-                             "retrieved_at": retrieved_at},
-    })
+        "cards": {str(card_id): gameplay_card(cards[card_id]) for card_id in unique},
+    }
     return output, json.dumps(deck, ensure_ascii=False, indent=2) + "\n"
 
 
-def convert(paths):
+def existing_cards(paths):
+    cards = {}
+    for path in paths:
+        deck = json.loads(path.with_suffix(".json").read_text())
+        for card_id, card in deck.get("cards", {}).items():
+            card_id = int(card_id)
+            normalized = gameplay_card(card)
+            if card_id in cards and gameplay_card(cards[card_id]) != normalized:
+                raise ValueError(f"Conflicting cached gameplay data for ID {card_id}")
+            cards[card_id] = card
+    return cards
+
+
+def convert(paths, from_existing=False):
     parsed = [(path, parse_ydk(path)) for path in paths]
     ids = {card_id for _, (_, sections, _) in parsed
            for values in sections.values() for card_id in values}
-    cards = fetch_all(ids)
-    retrieved_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    cards = existing_cards(paths) if from_existing else fetch_all(ids)
     # Fetch and validate ALL decks before writing any JSON.
-    outputs = [build_deck(path, data, cards, retrieved_at) for path, data in parsed]
+    outputs = [build_deck(path, data, cards) for path, data in parsed]
     for output, content in outputs:
         with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", newline="\n",
                                          dir=output.parent, delete=False) as handle:
@@ -163,6 +175,8 @@ def convert(paths):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[3])
+    parser.add_argument("--from-existing", action="store_true",
+                        help="Reuse previously fetched card records from sibling JSONs without network access")
     parser.add_argument("paths", type=Path, nargs="*")
     args = parser.parse_args()
     repo = args.repo.resolve()
@@ -172,7 +186,7 @@ def main():
     for path in paths:
         if path.suffix.lower() != ".ydk" or not path.is_relative_to(repo):
             parser.error(f"Expected a .ydk file inside the repository: {path}")
-    convert(paths)
+    convert(paths, from_existing=args.from_existing)
 
 
 if __name__ == "__main__":
