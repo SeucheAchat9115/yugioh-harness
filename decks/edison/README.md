@@ -1,18 +1,18 @@
-# Decklisten
+# Decklists
 
-| Deck | Status | Deck-ID |
+| Deck | Status | Deck ID |
 | --- | --- | --- |
-| Schwarzflügel / Blackwings | Online-Liste noch abzurufen | noch offen |
-| Lichtverpflichtete / Lightsworn | Online-Liste noch abzurufen | noch offen |
+| Blackwings | Online list pending retrieval | pending |
+| Lightsworn | Online list pending retrieval | pending |
 
-Pro Liste eine JSON-Datei nach `templates/deck.json` speichern. Karten haben
-englische Namen als eindeutige Referenz; deutsche Anzeigenamen können ergänzt
-werden. `source.url`, Abrufdatum und Änderungen gegenüber der Quelle festhalten.
-`.ydk`-Exporte können ergänzend gespeichert werden, sobald Karten-IDs vorliegen.
+Save each list as a JSON file following `templates/deck.json`. Use English card
+names as the reference; optional localized display names may be added.
+Record `source.url`, the retrieval date, and any changes from the source.
+Additional `.ydk` exports may be saved once card IDs are available.
 
-## Verbindliche Quelle
+## Required source
 
-Alle Decklisten stammen von https://cardcluster.com/. Andere Deckarchive werden
-nicht als Quelle verwendet. Die konkrete Deck-URL und das Abrufdatum gehören
-zu jeder importierten Liste. Änderungen an importierten Listen werden als eigene
-Version mit dokumentierten Abweichungen gespeichert.
+All decklists must come from https://cardcluster.com/. Do not use other deck
+archives as sources. Every imported list must include the exact deck URL and
+retrieval date. Save changes to an imported list as a new version with documented
+deviations from the source.

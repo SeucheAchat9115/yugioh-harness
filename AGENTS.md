@@ -1,14 +1,14 @@
-# Vorgaben für dieses Repository
+# Repository guidelines
 
-- Antworten und Dokumentation standardmäßig auf Deutsch; Kartennamen in
-  Deckdateien auf Englisch, optional mit deutscher Anzeige.
-- Decklisten immer ausschließlich von https://cardcluster.com/ beziehen.
-  Keine anderen Deckarchive ersatzweise verwenden. Konkrete Quell-URL,
-  Abrufdatum, Autor und verfügbare Versionsangaben speichern.
-- Ist Cardcluster nicht erreichbar, den Import als ausstehend kennzeichnen.
-  Keine erfundenen Listen als recherchierte Listen ausgeben.
-- Startpaarung: Edison Schwarzflügel gegen Lichtverpflichtete.
-- Bei Deckänderungen neue Versionen anlegen. Bereits gespielte Partien behalten
-  ihre ursprünglichen Deckkopien.
-- Spielzüge, Zufallsergebnisse und Spielstände nachvollziehbar speichern.
-  Verdeckte Informationen im öffentlichen Spielprotokoll nicht offenlegen.
+- Use English for repository documentation and template text. Use English card
+  names in deck files; optional localized display names may be added.
+- Always obtain decklists exclusively from https://cardcluster.com/.
+  Do not substitute other deck archives. Record the exact source URL,
+  retrieval date, author, and any available version information.
+- If Cardcluster is unavailable, mark the import as pending.
+  Do not present invented lists as researched lists.
+- Initial matchup: Edison Blackwings versus Lightsworn.
+- Create a new version when changing a deck. Previously played games retain
+  their original deck snapshots.
+- Save game actions, random outcomes, and game states so they can be reviewed.
+  Do not reveal hidden information in public game logs.

@@ -1,8 +1,8 @@
-# Spiele
+# Games
 
-Noch keine Partie begonnen. Geplant: Edison Schwarzflügel gegen Lichtverpflichtete.
+No games have started yet. Planned matchup: Edison Blackwings versus Lightsworn.
 
-Je Partie einen datierten Ordner verwenden. Decklisten vor Spielbeginn als
-unveränderliche Kopien speichern. Zugprotokolle enthalten Aktionen, Kosten,
-Ziele, Ketten, Auflösungen und Lebenspunkte; Analysen kommen in einen eigenen
-Abschnitt nach dem Spiel. Unbekannte Karten bleiben im öffentlichen Protokoll unbekannt.
+Use a dated folder for each game. Save immutable copies of the decklists before
+play begins. Turn logs record actions, costs, targets, chains, resolutions, and
+Life Points; put analysis in a separate section after the game.
+Unknown cards remain unknown in public logs.

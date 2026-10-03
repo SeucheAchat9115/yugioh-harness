@@ -1,36 +1,36 @@
 # Yu-Gi-Oh! Edison
 
-Unser Archiv für Decklisten, Strategien und gemeinsame Duelle im Edison-Format.
-Startpaarung: **Schwarzflügel gegen Lichtverpflichtete**.
+Our archive for decklists, strategies, and shared duels in the Edison format.
+Initial matchup: **Blackwings versus Lightsworn**.
 
-## Struktur
+## Structure
 
-- `decks/edison/`: Decklisten mit Herkunft, Version und Main-, Extra- und Side-Deck.
-- `strategies/edison/`: Spielpläne und Hinweise zur Startpaarung.
-- `games/`: Gespielte Partien, Zugprotokolle und gespeicherte Spielstände.
-- `templates/`: Vorlagen für neue Decks und Partien.
-- `rules/edison.md`: Regeln für unsere Duelle.
+- `decks/edison/`: Decklists with sources, versions, and Main, Extra, and Side Decks.
+- `strategies/edison/`: Game plans and advice for the initial matchup.
+- `games/`: Played games, turn logs, and saved game states.
+- `templates/`: Templates for new decks and games.
+- `rules/edison.md`: Rules for our duels.
 
-## Decklisten
+## Decklists
 
-Decklisten werden ausschließlich von **https://cardcluster.com/** übernommen.
-Für beide Startdecks müssen dort noch passende Edison-Listen abgerufen
-und mit ihrer konkreten Quell-URL gespeichert werden. Bis dahin sind sie nicht spielbereit.
-Keine unbestätigte Liste wird als Original einer Online-Quelle ausgegeben.
+All decklists must come exclusively from **https://cardcluster.com/**.
+Suitable Edison lists for both starting decks still need to be retrieved
+and saved with their exact source URLs. Until then, the decks are not ready to play.
+Never present an unverified list as an original list from an online source.
 
-Deckversionen erhalten eindeutige IDs, zum Beispiel `blackwings-v1`.
-Vor dem ersten Zug wird die konkrete Liste in die Partie kopiert; spätere
-Deckänderungen verändern damit keine alten Spielprotokolle.
+Deck versions have unique IDs, such as `blackwings-v1`.
+Before the first turn, copy the exact decklist into the game's folder so that
+later deck changes do not alter previous game records.
 
-## Partien speichern
+## Saving games
 
-Für jede Partie einen Ordner `games/JJJJ-MM-TT-001/` anlegen und die Vorlagen
-kopieren. Dort `game.json` für Metadaten, `log.md` für Züge und `state.json`
-für einen pausierten Spielstand ablegen. Verwendete Decklisten liegen als
-Kopien im Unterordner `decks/` der Partie.
+Create a folder named `games/YYYY-MM-DD-001/` for each game and copy the templates.
+Use `game.json` for metadata, `log.md` for turns, and `state.json`
+for a paused game state. Save copies of the decklists used in the game's
+`decks/` subfolder.
 
-Vollständige Spielstände können verdeckte Karten enthalten. Während eines
-laufenden Duells werden im Chat nur Informationen gezeigt, die der jeweilige
-Spieler sehen darf. Ein öffentliches Protokoll enthält keine verdeckten Karten.
+Complete game states may contain hidden cards. During an active duel,
+only show information in chat that the relevant player is allowed to see.
+Public logs must not reveal hidden cards.
 
-Noch keine Partie gespielt.
+No games have been played yet.

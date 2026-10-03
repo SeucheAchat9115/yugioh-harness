@@ -1,28 +1,28 @@
-# Spielprotokoll
+# Game log
 
-- Spiel-ID:
-- Datum:
+- Game ID:
+- Date:
 - Format: Edison
-- Spieler und Deckversionen:
-- Startspieler:
-- Ergebnis: offen
+- Players and deck versions:
+- Starting player:
+- Result: pending
 
-## Zug 1
+## Turn 1
 
-- Aktiver Spieler:
+- Active player:
 - Draw Phase:
 - Standby Phase:
 - Main Phase 1:
 - Battle Phase:
 - Main Phase 2:
 - End Phase:
-- LP nach dem Zug:
-- Öffentliches Feld / Friedhöfe / verbannte Karten:
+- LP after the turn:
+- Public field / Graveyards / banished cards:
 
-Bei jeder Kette Aktivierung, Kosten, Ziele, Antworten und Auflösung festhalten.
+For each chain, record activations, costs, targets, responses, and resolution.
 
-## Analyse nach dem Spiel
+## Post-game analysis
 
-- Entscheidende Situationen:
-- Alternative Spielzüge:
-- Deckänderungen für künftige Spiele:
+- Key situations:
+- Alternative plays:
+- Deck changes for future games:

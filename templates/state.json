@@ -57,5 +57,5 @@
       "normal_summon_used": false
     }
   },
-  "notes": "Vollständiger interner Spielstand; Kartenreihenfolge bleibt bei Fortsetzung erhalten."
+  "notes": "Complete internal game state; card order is preserved when resuming."
 }

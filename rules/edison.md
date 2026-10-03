@@ -1,20 +1,21 @@
-# Regeln für unsere Edison-Duelle
+# Rules for our Edison duels
 
-- Edison orientiert sich am TCG-Kartenpool der SJC Edison im April 2010 und
-  der Forbidden & Limited List vom 1. März 2010.
-- Beide Spieler starten mit 8000 LP und fünf Handkarten.
-- Auch der beginnende Spieler zieht im ersten Zug eine Karte.
-- Der beginnende Spieler hat im ersten Zug keine Battle Phase.
-- Main Deck: 40–60 Karten; Extra Deck und Side Deck: jeweils höchstens 15.
-- Historische Kartentexte und damalige Regeln gelten, einschließlich
-  Zündeffekt-Priorität. Unklare Interaktionen vor der Auflösung nachschlagen.
-- Kein Sideboarding in einer einzelnen Partie; in einem Match zwischen den Spielen.
+- Edison uses the TCG card pool from SJC Edison in April 2010 and
+  the Forbidden & Limited List dated March 1, 2010.
+- Both players start with 8000 LP and five cards in hand.
+- The starting player also draws a card on their first turn.
+- The starting player has no Battle Phase on their first turn.
+- Main Deck: 40–60 cards; Extra Deck and Side Deck: up to 15 cards each.
+- Historical card text and rules apply, including ignition effect priority.
+  Look up unclear interactions before resolving them.
+- No sideboarding in a single game; in a match, sideboard between games.
 
-Wir legen vor Spielbeginn Spielerzuordnung und Startspieler fest. Zufälliges
-Mischen, Ziehen und Millen wird im gespeicherten Spielstand beibehalten;
-es wird nicht neu gewürfelt, weil ein Ergebnis ungünstig ist.
+Before playing, assign decks to players and decide who starts. Preserve random
+shuffles, draws, and mills in the saved game state; do not reroll an outcome
+because it is unfavorable.
 
-## Quellenstatus
+## Source status
 
-Die genaue Formatlegalität der übernommenen Decklisten wird beim Import geprüft.
-Referenz zur Recherche: https://www.edisonformat.com/
+Check the exact format legality of imported decklists during import.
+Format rules reference: https://www.edisonformat.com/
+Decklist source: https://cardcluster.com/ exclusively.
