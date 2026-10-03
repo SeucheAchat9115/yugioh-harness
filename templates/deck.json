@@ -1,0 +1,20 @@
+{
+  "id": null,
+  "name": null,
+  "format": "edison",
+  "version": 1,
+  "status": "draft",
+  "source": {
+    "url": null,
+    "author": null,
+    "retrieved_at": null
+  },
+  "changes_from_source": [],
+  "main": [],
+  "extra": [],
+  "side": [],
+  "card_entry_example": {
+    "name": "English card name",
+    "count": 1
+  }
+}

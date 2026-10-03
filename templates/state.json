@@ -1,0 +1,61 @@
+{
+  "game_id": null,
+  "status": "not_started",
+  "turn": 0,
+  "active_player": null,
+  "phase": null,
+  "chain": [],
+  "players": {
+    "player_1": {
+      "lp": 8000,
+      "deck": [],
+      "extra_deck": [],
+      "side_deck": [],
+      "hand": [],
+      "monster_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spell_trap_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "field_spell": null,
+      "graveyard": [],
+      "banished": [],
+      "normal_summon_used": false
+    },
+    "player_2": {
+      "lp": 8000,
+      "deck": [],
+      "extra_deck": [],
+      "side_deck": [],
+      "hand": [],
+      "monster_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spell_trap_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "field_spell": null,
+      "graveyard": [],
+      "banished": [],
+      "normal_summon_used": false
+    }
+  },
+  "notes": "Vollständiger interner Spielstand; Kartenreihenfolge bleibt bei Fortsetzung erhalten."
+}

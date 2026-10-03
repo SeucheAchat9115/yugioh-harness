@@ -1,0 +1,21 @@
+{
+  "id": null,
+  "date": null,
+  "format": "edison",
+  "status": "planned",
+  "players": [
+    {
+      "id": "player_1",
+      "name": null,
+      "deck_id": null
+    },
+    {
+      "id": "player_2",
+      "name": null,
+      "deck_id": null
+    }
+  ],
+  "starting_player": null,
+  "deck_snapshots": {},
+  "result": null
+}
