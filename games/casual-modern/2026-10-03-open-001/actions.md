@@ -13,3 +13,4 @@ Structured decisions (hidden changes omitted).
 9. agent: Chain Mulcharmy Fuwalos, discarding it as cost. Chain Link 2. Await human response.
 10. human: Chain Ash Blossom & Joyous Spring, discarding it as cost to negate Fuwalos. Chain Link 3.
 11. agent: No response to Ash Blossom. Await human final response or permission to resolve.
+12. moderator: Human requested a pause. Chain remains unresolved: Branded Lost, Mulcharmy Fuwalos, Ash Blossom. Await human final response on resume.

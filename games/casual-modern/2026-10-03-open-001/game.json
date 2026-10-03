@@ -29,7 +29,7 @@
   },
   "match_structure": "single-game",
   "ruling_policy": "Stored card text and modern TCG rules; pause and consult an authoritative ruling if uncertain.",
-  "status": "active",
+  "status": "paused",
   "date": "2026-10-03T18:49:46.775809+00:00",
   "legality_checks": {
     "agent": "pending_format_verification",
@@ -38,5 +38,15 @@
   "deck_snapshots": {
     "agent": "decks/agent/dracotail/",
     "human": "decks/human/branded-despia/"
+  },
+  "paused_at": "2026-10-03T19:10:38.535617+00:00",
+  "resume": {
+    "revision": 12,
+    "turn": 1,
+    "phase": "main1",
+    "pending_actor": "human",
+    "pending_window": "chain-response",
+    "private_checkpoint_saved": true,
+    "next_decision": "Human may add another response or pass; do not resolve the chain automatically."
   }
 }

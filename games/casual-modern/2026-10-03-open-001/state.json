@@ -1,7 +1,7 @@
 {
   "game_id": "2026-10-03-open-001",
   "mode": "open",
-  "status": "active",
+  "status": "paused",
   "turn": 1,
   "active_player": "human",
   "phase": "main1",
@@ -48,7 +48,7 @@
       "targets": []
     }
   ],
-  "revision": 11,
+  "revision": 12,
   "pending_decision": {
     "actor": "human",
     "window": "chain-response"

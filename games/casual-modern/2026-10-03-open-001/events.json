@@ -88,6 +88,14 @@
       "actor": "agent",
       "summary": "No response to Ash Blossom. Await human final response or permission to resolve.",
       "recorded_at": "2026-10-03T19:05:45.298165+00:00"
+    },
+    {
+      "revision": 12,
+      "id": "pause-2026-10-03-001",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "Human requested a pause. Chain remains unresolved: Branded Lost, Mulcharmy Fuwalos, Ash Blossom. Await human final response on resume.",
+      "recorded_at": "2026-10-03T19:10:38.479543+00:00"
     }
   ]
 }
