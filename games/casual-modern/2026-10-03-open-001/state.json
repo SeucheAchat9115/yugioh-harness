@@ -1,0 +1,76 @@
+{
+  "game_id": "2026-10-03-open-001",
+  "mode": "open",
+  "status": "active",
+  "turn": 1,
+  "active_player": "human",
+  "phase": "draw",
+  "chain": [],
+  "revision": 1,
+  "pending_decision": {
+    "actor": "human",
+    "window": "draw-phase-fast-effect"
+  },
+  "players": {
+    "agent": {
+      "lp": 8000,
+      "hand_count": 5,
+      "deck_count": 35,
+      "extra_count": 15,
+      "side_count": 15,
+      "monster_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spell_trap_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "graveyard": [],
+      "banished": [],
+      "field_spell": null,
+      "normal_summon_used": false,
+      "effect_usage": {},
+      "restrictions": []
+    },
+    "human": {
+      "lp": 8000,
+      "hand_count": 5,
+      "deck_count": 48,
+      "extra_count": 14,
+      "side_count": 12,
+      "monster_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spell_trap_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "graveyard": [],
+      "banished": [],
+      "field_spell": null,
+      "normal_summon_used": false,
+      "effect_usage": {},
+      "restrictions": []
+    }
+  },
+  "shared_zones": {
+    "extra_monster_zones": [
+      null,
+      null
+    ]
+  }
+}

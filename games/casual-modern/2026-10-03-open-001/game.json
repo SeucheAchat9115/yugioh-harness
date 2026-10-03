@@ -1,0 +1,42 @@
+{
+  "id": "2026-10-03-open-001",
+  "mode": "open",
+  "format": "casual-modern",
+  "banlist": "Casual: exact imported lists, no Forbidden/Limited list applied",
+  "rules_profile": "rules.md",
+  "rules_version": "casual-modern-v1",
+  "agent_deck": "decks/unassigned/dracotail",
+  "human_deck": "decks/unassigned/branded-despia",
+  "human_deck_counts": {
+    "main": 53,
+    "extra": 14,
+    "side": 12
+  },
+  "starting_player": "human",
+  "settings": {
+    "starting_lp": 8000,
+    "opening_hand_size": 5,
+    "starting_player_draws": false,
+    "starting_player_battle_phase": false,
+    "field_layout": {
+      "main_monster_zones": 5,
+      "spell_trap_zones": 5,
+      "extra_monster_zones": 2
+    }
+  },
+  "presentation": {
+    "show_agent_hand": false
+  },
+  "match_structure": "single-game",
+  "ruling_policy": "Stored card text and modern TCG rules; pause and consult an authoritative ruling if uncertain.",
+  "status": "active",
+  "date": "2026-10-03T18:49:46.775809+00:00",
+  "legality_checks": {
+    "agent": "pending_format_verification",
+    "human": "pending_format_verification"
+  },
+  "deck_snapshots": {
+    "agent": "decks/agent/dracotail/",
+    "human": "decks/human/branded-despia/"
+  }
+}

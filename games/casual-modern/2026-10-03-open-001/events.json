@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "events": [
+    {
+      "revision": 1,
+      "id": "opening-window-001",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "Turn 1: human starts with five cards and no first-turn draw. Awaiting human Draw Phase decision.",
+      "recorded_at": "2026-10-03T18:50:13.261633+00:00"
+    }
+  ]
+}
