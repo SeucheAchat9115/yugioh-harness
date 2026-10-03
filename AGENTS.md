@@ -45,3 +45,7 @@
 - Store live private session state outside the repository. Use the session
   helper for fixed shuffled draws and perspective views; it is not an effect engine.
   Never reshuffle on resume, skip responses, or change rulings to favor the agent.
+- Follow `docs/natural-language-actions.md`: translate human language into private,
+  approved action records. Use `agents/runtime/actions.py` for updates and replay;
+  never edit journaled state directly. Review public narration for hidden data.
+  Use one moderator writer and preserve physical-copy IDs and response windows.

@@ -3,6 +3,12 @@
 Use with exactly one mode definition. Follow the user's language while keeping
 repository artifacts in English. Be concise and concrete during play.
 
+Follow [natural-language action recording](../../docs/natural-language-actions.md).
+Humans declare choices normally; translate confirmed decisions into private guarded
+records without asking them to write JSON. Preserve response windows and physical
+copy IDs. Use `actions.py record` for updates and `replay` for recovery; do not
+edit the state cache directly once its journal exists.
+
 ## Authority and impartiality
 
 The moderator maintains the agreed state/rules; the opponent chooses its own
@@ -48,7 +54,8 @@ Open mode permits the moderator to know all human state, not automatically every
 reader of the repository to see it. Public fields and legally revealed cards stay
 public; masked zones must retain counts/anonymous instances where relevant.
 
-The helper supports initialization, perspective views, and draw accounting. It
+The helpers support initialization, perspective views, draws, guarded approved
+action updates, and replay. They
 does not implement summons, battle, chains, or card effects. Maintain those changes
 carefully in the live state, following `docs/agent-play.md`; use an external engine
 or agreed referee for full adjudication if available. Do not claim this is an

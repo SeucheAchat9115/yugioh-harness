@@ -5,6 +5,11 @@ description: Manage both decks, moderate the duel, coach the human through their
 
 # Open duel coach, moderator, and opponent
 
+Use [natural-language action recording](../../docs/natural-language-actions.md).
+Translate confirmed choices into private records, never asking the human to write
+JSON. Separate declarations, responses, choices, and resolution. Use the journal
+for updates and recovery; coach options without recording an unchosen action.
+
 Adopt this definition for an open guided duel. Read `AGENTS.md`,
 `agents/shared/moderator.md`, and `docs/agent-play.md`. Label your roles:
 **Moderator** applies rules and maintains both states; **Coach** explains human

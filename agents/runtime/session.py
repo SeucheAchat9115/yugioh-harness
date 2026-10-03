@@ -104,6 +104,10 @@ def view(state, viewer):
         raise ValueError("Unknown perspective")
     result = {key: deepcopy(state[key]) for key in
               ("game_id", "mode", "status", "turn", "active_player", "phase", "chain")}
+    result["revision"] = state.get("revision", 0)
+    decision = state.get("pending_decision")
+    result["pending_decision"] = ({key: decision[key] for key in ("actor", "window") if key in decision}
+                                  if decision else None)
     result["players"] = {}
     result["shared_zones"] = {}
     for zone, entries in state.get("shared_zones", {}).items():
@@ -217,6 +221,7 @@ def start(repo, config, private_dir):
         "game_id": config["id"], "mode": config["mode"], "status": "active",
         "turn": 1, "active_player": config["starting_player"], "phase": "draw",
         "chain": [], "players": players, "pending_effects": [],
+        "revision": 0, "pending_decision": None,
         "shared_zones": {"extra_monster_zones": [None] * config["settings"]["field_layout"]["extra_monster_zones"]},
         "presentation": {"show_agent_hand": config.get("presentation", {}).get("show_agent_hand", False)},
     }
@@ -234,6 +239,8 @@ def start(repo, config, private_dir):
             if (folder / name).is_file():
                 shutil.copyfile(folder / name, target / name)
     save(private_state, state)
+    from actions import initialize
+    save(private_state.with_name("journal.json"), initialize(state))
     save(game_dir / "game.json", metadata)
     save(game_dir / "state.json", view(state, "public"))
     (game_dir / "log.md").write_text(f"# {config['id']}\n\nMode: {config['mode']}. Opening hands prepared; hidden identities omitted.\nFirst-turn draw has not been applied.\n")
@@ -280,9 +287,27 @@ def main():
             metadata = json.loads((args.game_dir / "game.json").read_text())
             if metadata["id"] != state["game_id"] or metadata["mode"] != state["mode"]:
                 raise ValueError("Game directory does not match private state")
-            draw(state, args.actor, args.count)
-            save(args.state, state)
-            save(args.game_dir / "state.json", view(state, "public"))
+            from actions import append, initialize, publish, replay
+            journal_path = args.state.with_name("journal.json")
+            journal = json.loads(journal_path.read_text()) if journal_path.exists() else initialize(state)
+            state.setdefault("revision", 0)
+            state.setdefault("pending_decision", None)
+            if state != replay(journal):
+                raise ValueError("State differs from journal; use actions.py replay to recover")
+            if args.state.resolve().is_relative_to(args.game_dir.resolve().parent.parent.parent):
+                raise ValueError("Private session state must be outside the repository")
+            updated = deepcopy(state)
+            draw(updated, args.actor, args.count)
+            changes = [{"path": ["players", args.actor, key], "before": state["players"][args.actor][key],
+                        "after": value} for key, value in updated["players"][args.actor].items()
+                       if value != state["players"][args.actor][key]]
+            action = {"id": uuid.uuid4().hex, "kind": "draw", "actor": args.actor,
+                      "expected_revision": state["revision"], "moderator_approved": True,
+                      "public_summary_reviewed": True,
+                      "public_summary": f"Drew {args.count} card(s); identities private.", "changes": changes}
+            journal, state = append(journal, action)
+            save(journal_path, journal)
+            publish(journal, args.state, args.game_dir)
             with (args.game_dir / "log.md").open("a") as log:
                 log.write(f"\n{args.actor} drew {args.count} card(s); identities private.\n")
         print(json.dumps(view(state, args.viewer), ensure_ascii=False, indent=2))

@@ -41,6 +41,11 @@ assets, two reusable conversational agent definitions, a play protocol, and tool
 for setup/draws/perspective views. Card effects and rulings are moderated under
 the agreed rules; a complete automated duel simulator is not implemented.
 
+Humans declare actions in natural language. The moderator uses
+[internal action records](docs/natural-language-actions.md) for confirmed decisions,
+guarded state updates, response tracking, and replay. Private changes stay outside
+the repository; public logs contain reviewed narration and permitted views.
+
 ## Structure
 
 - `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`, `guide.md`, and optional `README.md`.

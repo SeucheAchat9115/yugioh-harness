@@ -1,5 +1,9 @@
 # Games
 
+Use the [action workflow](../docs/natural-language-actions.md) for natural-language
+decisions. Private journals stay outside the repo. Public `events.json` and
+`actions.md` record reviewed narration; `state.json` is a public projection.
+
 Store each game in `games/<format>/YYYY-MM-DD-001/`.
 Use a consistent format ID and fill in the metadata from `templates/game.json`.
 Record the banlist and rules version so the game remains reproducible.

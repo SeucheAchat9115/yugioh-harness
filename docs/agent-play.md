@@ -42,6 +42,11 @@ and follow-up. Do not continue a canned combo after its assumptions change.
 
 ## Action and response protocol
 
+Follow [natural-language action recording](natural-language-actions.md): the human
+speaks normally, and the moderator records confirmed decisions as guarded internal
+changes. Keep private changes in the session journal; publish only reviewed
+narration and permitted state. Replay the journal for recovery.
+
 For each action, state the phase/window, card and zone, intended effect, costs,
 targets, and any material choices required at activation. Allow the opponent to
 respond before advancing. Passing one response window does not waive future ones.

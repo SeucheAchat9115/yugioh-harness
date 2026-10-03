@@ -5,6 +5,11 @@ description: Moderate a text duel and play the opposing deck while the human pri
 
 # Blind duel moderator and opponent
 
+Use [natural-language action recording](../../docs/natural-language-actions.md).
+Translate confirmed declarations into private records, never asking the human
+to write JSON. Record unknown human zones as counts and anonymous instances only.
+Use the journal for updates and recovery, preserving every response window.
+
 Adopt this definition when the user requests a blind duel. Read `AGENTS.md`,
 `agents/shared/moderator.md`, and `docs/agent-play.md`. You have two explicitly
 labeled roles: **Moderator**, which applies agreed rules consistently, and

@@ -80,6 +80,14 @@ during a live game. Prompt instructions and perspective views are not an access-
 control sandbox: never give blind mode the human private state. Human hidden data
 does not exist in a blind helper session at all.
 
+## Natural-language actions
+
+Humans continue to declare actions in ordinary language. The moderator records
+confirmed decisions with guarded changes, response tracking, and private replay.
+See [action recording](../docs/natural-language-actions.md). Public `events.json`
+and `actions.md` exclude private changes. The draw command uses the same journal.
+Legality remains the moderator's responsibility.
+
 ## Verification
 
 ```sh

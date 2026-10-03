@@ -1,5 +1,7 @@
 {
   "game_id": null,
+  "revision": 0,
+  "pending_decision": null,
   "status": "not_started",
   "turn": 0,
   "active_player": null,

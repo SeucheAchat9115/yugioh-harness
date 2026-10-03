@@ -3,11 +3,14 @@ import importlib.util
 import json
 from pathlib import Path
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
 
 SCRIPT = Path(__file__).resolve().parents[1] / "session.py"
+sys.path.insert(0, str(SCRIPT.parent))
 REPO = SCRIPT.parents[2]
 spec = importlib.util.spec_from_file_location("duel_session", SCRIPT)
 session = importlib.util.module_from_spec(spec)
@@ -120,6 +123,39 @@ class SessionTests(unittest.TestCase):
         self.config["presentation"]["show_agent_hand"] = "false"
         with self.assertRaisesRegex(ValueError, "explicit boolean"):
             session.start(self.repo, self.config, self.private)
+
+    def test_cli_draw_and_replay_recover_exact_state(self):
+        initial, game, path = self.start("open")
+        expected = initial["players"]["agent"]["deck"][0]
+        subprocess.run([sys.executable, str(SCRIPT), "draw", "--state", str(path),
+                        "--game-dir", str(game), "--actor", "agent"], check=True, capture_output=True)
+        final = json.loads(path.read_text())
+        self.assertEqual(final["revision"], 1)
+        self.assertEqual(final["players"]["agent"]["hand"][-1], expected)
+        journal = json.loads(path.with_name("journal.json").read_text())
+        self.assertEqual(len(journal["events"]), 1)
+        path.write_text("{}")
+        (game / "events.json").unlink()
+        subprocess.run([sys.executable, str(SCRIPT.with_name("actions.py")), "replay",
+                        "--state", str(path), "--game-dir", str(game)], check=True, capture_output=True)
+        self.assertEqual(json.loads(path.read_text()), final)
+        self.assertEqual(len(json.loads((game / "events.json").read_text())["events"]), 1)
+
+    def test_cli_record_decision_and_reject_retry(self):
+        _, game, path = self.start()
+        draft = self.private / "action.json"
+        draft.write_text(json.dumps({"id": "phase-1", "kind": "phase", "actor": "moderator",
+            "expected_revision": 0, "moderator_approved": True, "public_summary_reviewed": True,
+            "public_summary": "Advance to Standby Phase.", "changes": [
+                {"path": ["phase"], "before": "draw", "after": "standby"}]}))
+        command = [sys.executable, str(SCRIPT.with_name("actions.py")), "record",
+                   "--state", str(path), "--game-dir", str(game), "--action", str(draft)]
+        subprocess.run(command, check=True, capture_output=True)
+        journal_before = path.with_name("journal.json").read_text()
+        self.assertEqual(json.loads(path.read_text())["phase"], "standby")
+        retry = subprocess.run(command, capture_output=True)
+        self.assertNotEqual(retry.returncode, 0)
+        self.assertEqual(path.with_name("journal.json").read_text(), journal_before)
 
 
 if __name__ == "__main__":
