@@ -72,6 +72,22 @@
       "actor": "agent",
       "summary": "Chain Mulcharmy Fuwalos, discarding it as cost. Chain Link 2. Await human response.",
       "recorded_at": "2026-10-03T19:01:50.918958+00:00"
+    },
+    {
+      "revision": 10,
+      "id": "turn1-decision-010",
+      "kind": "respond",
+      "actor": "human",
+      "summary": "Chain Ash Blossom & Joyous Spring, discarding it as cost to negate Fuwalos. Chain Link 3.",
+      "recorded_at": "2026-10-03T19:05:45.276759+00:00"
+    },
+    {
+      "revision": 11,
+      "id": "turn1-decision-011",
+      "kind": "pass",
+      "actor": "agent",
+      "summary": "No response to Ash Blossom. Await human final response or permission to resolve.",
+      "recorded_at": "2026-10-03T19:05:45.298165+00:00"
     }
   ]
 }

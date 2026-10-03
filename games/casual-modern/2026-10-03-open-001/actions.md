@@ -11,3 +11,5 @@ Structured decisions (hidden changes omitted).
 7. moderator: Enter human Main Phase 1.
 8. human: Activate Branded Lost in Spell/Trap Zone 1. No cost or target. Chain Link 1.
 9. agent: Chain Mulcharmy Fuwalos, discarding it as cost. Chain Link 2. Await human response.
+10. human: Chain Ash Blossom & Joyous Spring, discarding it as cost to negate Fuwalos. Chain Link 3.
+11. agent: No response to Ash Blossom. Await human final response or permission to resolve.

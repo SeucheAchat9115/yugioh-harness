@@ -30,9 +30,25 @@
         }
       ],
       "targets": []
+    },
+    {
+      "id": "turn1-chain1-link3",
+      "actor": "human",
+      "instance_id": "44c2d9fefb5245a0a2feeda035d57c67",
+      "card_id": 14558127,
+      "name": "Ash Blossom & Joyous Spring",
+      "effect": "Negate the effect of Mulcharmy Fuwalos",
+      "negates_link_id": "turn1-chain1-link2",
+      "costs": [
+        {
+          "action": "discard",
+          "instance_id": "44c2d9fefb5245a0a2feeda035d57c67"
+        }
+      ],
+      "targets": []
     }
   ],
-  "revision": 9,
+  "revision": 11,
   "pending_decision": {
     "actor": "human",
     "window": "chain-response"
@@ -86,7 +102,7 @@
     },
     "human": {
       "lp": 8000,
-      "hand_count": 4,
+      "hand_count": 3,
       "deck_count": 48,
       "extra_count": 14,
       "side_count": 12,
@@ -112,11 +128,27 @@
         null,
         null
       ],
-      "graveyard": [],
+      "graveyard": [
+        {
+          "instance_id": "44c2d9fefb5245a0a2feeda035d57c67",
+          "owner": "human",
+          "hidden": false,
+          "position": "face-up",
+          "sent_to_gy_turn": 1,
+          "sent_reason": "activation-cost",
+          "card_id": 14558127,
+          "name": "Ash Blossom & Joyous Spring"
+        }
+      ],
       "banished": [],
       "field_spell": null,
       "normal_summon_used": false,
-      "effect_usage": {},
+      "effect_usage": {
+        "ash_blossom_effect": {
+          "turn": 1,
+          "used": true
+        }
+      },
       "restrictions": []
     }
   },
