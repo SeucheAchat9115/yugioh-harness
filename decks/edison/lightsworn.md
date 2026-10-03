@@ -1,5 +1,7 @@
 # Lightsworn: game plan
 
+Preliminary Edison notes; no specific deck JSON/YDK has been imported yet.
+
 General advice; adapt it to the cards in the selected decklist.
 
 - Mill cards to place resources and different Lightsworn names in the Graveyard.

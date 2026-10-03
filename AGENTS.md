@@ -2,8 +2,9 @@
 
 - Keep the repository generic: support current, historical, and custom Yu-Gi-Oh!
   formats. Do not assume a default format in shared documentation or templates.
-- Store format-specific decks and strategies under their format ID. Keep rules
-  in separate format profiles. Record each game's format, banlist, and rules version.
+- Store deck bundles under their format ID, with strategy and matchup guidance
+  in each deck's sibling `.md` playbook. Keep rules in separate format profiles.
+  Record each game's format, banlist, and rules version.
 - Configure starting LP, opening hand size, first-turn draws, and field layout
   from the selected rules profile rather than hardcoding them in shared templates.
 - Use English for repository documentation and template text. Use English card

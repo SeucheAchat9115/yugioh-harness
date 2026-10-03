@@ -26,4 +26,4 @@ The generic import template remains available for manually documented lists.
 Use the [Deck playbook skill](../skills/deck-playbook/SKILL.md) to produce
 `<deckname>.md` beside each gameplay JSON/YDK. It explains card roles, access maps,
 synergies, conditional combo traces, and agent decisions for the exact deck.
-Link extra matchup notes under `strategies/<format>/` when useful.
+Keep strategy and matchup notes in the deck's sibling playbook.

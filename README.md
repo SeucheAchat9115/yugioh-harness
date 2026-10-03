@@ -35,7 +35,6 @@ rules engine, or autonomous agent orchestration.
 - `skills/`: Reusable card-data conversion and strategic-analysis workflows.
 - `docs/agent-play.md`: Shared action, response, information, and recording protocol.
 - `rules/`: Format profiles for card pools, banlists, and applicable rules.
-- `strategies/<format>/`: Additional format/matchup notes.
 - `games/<format>/<game-id>/`: Metadata, turn logs, deck snapshots, and saved states.
 - `templates/`: Format-neutral starting points for deck/game records.
 
@@ -57,7 +56,8 @@ not been executed in a duel engine. Format and banlist assignment remain pending
 The [planned Branded Despia versus Dracotail matchup](games/planned/branded-despia-vs-dracotail.json)
 has not started. No games have been played yet.
 
-Earlier Edison Blackwings/Lightsworn notes remain in their format-specific folders;
+Preliminary [Edison Blackwings](decks/edison/blackwings.md) and
+[Lightsworn](decks/edison/lightsworn.md) notes live beside their deck index;
 their Cardcluster deck imports are pending.
 
 ## Sources and versioning

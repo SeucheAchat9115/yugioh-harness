@@ -16,3 +16,10 @@ All decklists must come from https://cardcluster.com/. Do not use other deck
 archives as sources. Every imported list must include the exact deck URL and
 retrieval date. Save changes to an imported list as a new version with documented
 deviations from the source.
+
+## Preliminary play notes
+
+- [Blackwings](blackwings.md)
+- [Lightsworn](lightsworn.md)
+
+These are general Edison notes awaiting exact Cardcluster deck imports.
