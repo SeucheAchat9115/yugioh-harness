@@ -10,3 +10,9 @@ and game logs when available.
 
 Initial guides: [Edison Blackwings](edison/blackwings.md) and
 [Edison Lightsworn](edison/lightsworn.md).
+
+Full exact-list playbooks are stored beside their deck bundles as `<deckname>.md`.
+See [Branded Despia](../decks/unassigned/branded-despia-v1.md) and
+[Dracotail](../decks/unassigned/dracotail.md), generated using the
+[Deck playbook skill](../skills/deck-playbook/SKILL.md). This folder remains for
+additional format-wide and matchup-specific notes.

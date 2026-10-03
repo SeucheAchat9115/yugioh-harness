@@ -20,3 +20,10 @@ Use the [YDK-to-JSON skill](../skills/ydk-to-json/SKILL.md) to convert a YDK to
 a same-basename JSON containing gameplay-only YGOPRODeck card data. This enriched schema
 uses ordered ID arrays and a `cards` lookup table; it is documented in the skill.
 The generic import template remains available for manually documented lists.
+
+## Playbooks
+
+Use the [Deck playbook skill](../skills/deck-playbook/SKILL.md) to produce
+`<deckname>.md` beside each gameplay JSON/YDK. It explains card roles, access maps,
+synergies, conditional combo traces, and agent decisions for the exact deck.
+Link extra matchup notes under `strategies/<format>/` when useful.

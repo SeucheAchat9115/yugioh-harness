@@ -14,3 +14,14 @@ The intended format and banlist have not been supplied or checked. These decks
 contain modern cards and are not Edison lists. Assign a format before checking
 legality and playing; move them into the corresponding format folder afterward.
 Source URLs were extracted from the supplied exports, not fetched independently.
+
+## Agent playbooks
+
+- [Branded Despia](branded-despia-v1.md): Fusion routes, Branded/Bystial resource
+  engine, access map, interactions, and piloting decisions.
+- [Dracotail](dracotail.md): material-trigger roles, Quick Fusion routes, search/set
+  map, substitute-material options, interactions, and piloting decisions.
+
+Guides use the same basename as the JSON/YDK and cover all included cards.
+They are card-text-reviewed and inventory-audited, with unresolved interactions
+identified; they have not been tested in a duel engine.

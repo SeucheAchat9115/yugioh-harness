@@ -23,3 +23,14 @@
   Follow schema 2.0 in `skills/ydk-to-json/SKILL.md`. Do not include prices,
   printings, artwork URLs, API miscellany, or import provenance in these JSONs.
   Preserve Cardcluster source links in the YDK headers and accompanying README.
+
+- Aim to enable an agent to pilot a deck against another agent or a human.
+  Use `skills/deck-playbook/SKILL.md` to write sibling same-basename `.md` guides
+  from gameplay JSON, covering every card, searches, synergies, conditional combos,
+  interaction, resources, and agent decisions. Tie each guide to the JSON hash.
+- Check all combo inputs, costs, material locations, targets, restrictions, and
+  timing against the exact card text/list. Mark unresolved rulings explicitly;
+  structural audits do not prove combo legality or optimality.
+- Follow `docs/agent-play.md` during play. Give human/agent opponents response
+  opportunities, keep private information private, and use an agreed authoritative
+  state/referee. Never treat the playbook as automatic permission for a legal action.
