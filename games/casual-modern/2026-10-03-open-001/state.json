@@ -4,17 +4,43 @@
   "status": "active",
   "turn": 1,
   "active_player": "human",
-  "phase": "draw",
-  "chain": [],
-  "revision": 1,
+  "phase": "main1",
+  "chain": [
+    {
+      "id": "turn1-chain1-link1",
+      "actor": "human",
+      "instance_id": "97a29f83327d444d90127b23403244be",
+      "card_id": 18973184,
+      "name": "Branded Lost",
+      "effect": "Continuous Spell card activation",
+      "costs": [],
+      "targets": []
+    },
+    {
+      "id": "turn1-chain1-link2",
+      "actor": "agent",
+      "instance_id": "f6397db47bec4108a976311a9ba8ecb9",
+      "card_id": 42141493,
+      "name": "Mulcharmy Fuwalos",
+      "effect": "Apply turn-long draw and End Phase hand-adjustment effects",
+      "costs": [
+        {
+          "action": "discard",
+          "instance_id": "f6397db47bec4108a976311a9ba8ecb9"
+        }
+      ],
+      "targets": []
+    }
+  ],
+  "revision": 9,
   "pending_decision": {
     "actor": "human",
-    "window": "draw-phase-fast-effect"
+    "window": "chain-response"
   },
   "players": {
     "agent": {
       "lp": 8000,
-      "hand_count": 5,
+      "hand_count": 4,
       "deck_count": 35,
       "extra_count": 15,
       "side_count": 15,
@@ -32,16 +58,35 @@
         null,
         null
       ],
-      "graveyard": [],
+      "graveyard": [
+        {
+          "instance_id": "f6397db47bec4108a976311a9ba8ecb9",
+          "owner": "agent",
+          "hidden": false,
+          "position": "face-up",
+          "sent_to_gy_turn": 1,
+          "sent_reason": "activation-cost",
+          "card_id": 42141493,
+          "name": "Mulcharmy Fuwalos"
+        }
+      ],
       "banished": [],
       "field_spell": null,
       "normal_summon_used": false,
-      "effect_usage": {},
+      "effect_usage": {
+        "mulcharmy_activations": {
+          "turn": 1,
+          "count": 1,
+          "names": [
+            "Mulcharmy Fuwalos"
+          ]
+        }
+      },
       "restrictions": []
     },
     "human": {
       "lp": 8000,
-      "hand_count": 5,
+      "hand_count": 4,
       "deck_count": 48,
       "extra_count": 14,
       "side_count": 12,
@@ -53,7 +98,15 @@
         null
       ],
       "spell_trap_zones": [
-        null,
+        {
+          "instance_id": "97a29f83327d444d90127b23403244be",
+          "owner": "human",
+          "hidden": false,
+          "position": "face-up",
+          "placed_turn": 1,
+          "card_id": 18973184,
+          "name": "Branded Lost"
+        },
         null,
         null,
         null,

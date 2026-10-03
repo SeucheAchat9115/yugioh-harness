@@ -8,6 +8,70 @@
       "actor": "moderator",
       "summary": "Turn 1: human starts with five cards and no first-turn draw. Awaiting human Draw Phase decision.",
       "recorded_at": "2026-10-03T18:50:13.261633+00:00"
+    },
+    {
+      "revision": 2,
+      "id": "turn1-decision-002",
+      "kind": "pass",
+      "actor": "human",
+      "summary": "Requested Main Phase 1; passes the Draw Phase action window.",
+      "recorded_at": "2026-10-03T19:01:50.831548+00:00"
+    },
+    {
+      "revision": 3,
+      "id": "turn1-decision-003",
+      "kind": "pass",
+      "actor": "agent",
+      "summary": "No action in the Draw Phase window.",
+      "recorded_at": "2026-10-03T19:01:50.838290+00:00"
+    },
+    {
+      "revision": 4,
+      "id": "turn1-decision-004",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "Enter Standby Phase; no mandatory Standby effects.",
+      "recorded_at": "2026-10-03T19:01:50.846991+00:00"
+    },
+    {
+      "revision": 5,
+      "id": "turn1-decision-005",
+      "kind": "pass",
+      "actor": "human",
+      "summary": "Requested Main Phase 1; passes the Standby Phase action window.",
+      "recorded_at": "2026-10-03T19:01:50.857418+00:00"
+    },
+    {
+      "revision": 6,
+      "id": "turn1-decision-006",
+      "kind": "pass",
+      "actor": "agent",
+      "summary": "No action in the Standby Phase window.",
+      "recorded_at": "2026-10-03T19:01:50.869861+00:00"
+    },
+    {
+      "revision": 7,
+      "id": "turn1-decision-007",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "Enter human Main Phase 1.",
+      "recorded_at": "2026-10-03T19:01:50.885287+00:00"
+    },
+    {
+      "revision": 8,
+      "id": "turn1-decision-008",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Activate Branded Lost in Spell/Trap Zone 1. No cost or target. Chain Link 1.",
+      "recorded_at": "2026-10-03T19:01:50.901107+00:00"
+    },
+    {
+      "revision": 9,
+      "id": "turn1-decision-009",
+      "kind": "respond",
+      "actor": "agent",
+      "summary": "Chain Mulcharmy Fuwalos, discarding it as cost. Chain Link 2. Await human response.",
+      "recorded_at": "2026-10-03T19:01:50.918958+00:00"
     }
   ]
 }
