@@ -1,13 +1,14 @@
 {
   "id": null,
   "name": null,
-  "format": "edison",
+  "format": null,
   "version": 1,
   "status": "draft",
   "source": {
     "url": null,
     "author": null,
-    "retrieved_at": null
+    "retrieved_at": null,
+    "version": null
   },
   "changes_from_source": [],
   "main": [],
@@ -16,5 +17,6 @@
   "card_entry_example": {
     "name": "English card name",
     "count": 1
-  }
+  },
+  "banlist": null
 }

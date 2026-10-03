@@ -1,8 +1,15 @@
 # Games
 
-No games have started yet. Planned matchup: Edison Blackwings versus Lightsworn.
+Store each game in `games/<format>/YYYY-MM-DD-001/`.
+Use a consistent format ID and fill in the metadata from `templates/game.json`.
+Record the banlist and rules version so the game remains reproducible.
 
-Use a dated folder for each game. Save immutable copies of the decklists before
-play begins. Turn logs record actions, costs, targets, chains, resolutions, and
-Life Points; put analysis in a separate section after the game.
-Unknown cards remain unknown in public logs.
+Before play, save immutable decklist copies in the game's `decks/` subfolder,
+select a format profile, and configure the starting LP, hand size, first-turn
+rules, and field layout. Shared templates leave these settings unset.
+
+Turn logs record actions, costs, targets, chains, resolutions, and Life Points.
+Saved states preserve hidden cards, card order, and random outcomes for resuming.
+Public logs keep unknown cards unknown. Put post-game analysis in a separate section.
+
+No games have started yet. Initial planned matchup: Edison Blackwings versus Lightsworn.

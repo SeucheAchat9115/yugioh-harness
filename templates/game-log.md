@@ -2,7 +2,12 @@
 
 - Game ID:
 - Date:
-- Format: Edison
+- Format:
+- Banlist date or version:
+- Rules profile and version:
+- Starting LP / opening hand size:
+- First-turn draw / battle rules:
+- Field layout:
 - Players and deck versions:
 - Starting player:
 - Result: pending

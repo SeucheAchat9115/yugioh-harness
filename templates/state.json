@@ -7,55 +7,37 @@
   "chain": [],
   "players": {
     "player_1": {
-      "lp": 8000,
+      "lp": null,
       "deck": [],
       "extra_deck": [],
       "side_deck": [],
       "hand": [],
-      "monster_zones": [
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "spell_trap_zones": [
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
+      "monster_zones": [],
+      "spell_trap_zones": [],
       "field_spell": null,
       "graveyard": [],
       "banished": [],
-      "normal_summon_used": false
+      "normal_summon_used": false,
+      "pendulum_zones": []
     },
     "player_2": {
-      "lp": 8000,
+      "lp": null,
       "deck": [],
       "extra_deck": [],
       "side_deck": [],
       "hand": [],
-      "monster_zones": [
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "spell_trap_zones": [
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
+      "monster_zones": [],
+      "spell_trap_zones": [],
       "field_spell": null,
       "graveyard": [],
       "banished": [],
-      "normal_summon_used": false
+      "normal_summon_used": false,
+      "pendulum_zones": []
     }
   },
-  "notes": "Complete internal game state; card order is preserved when resuming."
+  "notes": "Configure LP and zone layout from the selected format before play. Complete internal game state; preserve card order when resuming. Pendulum Zones may share Spell & Trap Zone slots; represent each physical slot only once according to the selected rules.",
+  "format": null,
+  "shared_zones": {
+    "extra_monster_zones": []
+  }
 }

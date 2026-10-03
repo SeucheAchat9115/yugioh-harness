@@ -1,7 +1,7 @@
 {
   "id": null,
   "date": null,
-  "format": "edison",
+  "format": null,
   "status": "planned",
   "players": [
     {
@@ -17,5 +17,15 @@
   ],
   "starting_player": null,
   "deck_snapshots": {},
-  "result": null
+  "result": null,
+  "banlist": null,
+  "rules_profile": null,
+  "rules_version": null,
+  "settings": {
+    "starting_lp": null,
+    "opening_hand_size": null,
+    "starting_player_draws": null,
+    "starting_player_battle_phase": null,
+    "field_layout": null
+  }
 }
