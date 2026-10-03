@@ -41,6 +41,9 @@ does not import or change decklists.
    state tracking, usage counters and locks, summon history, opponent response
    windows, lethal checks, and recovery after interrupted or invalid actions.
    Refer to the shared agent protocol rather than treating the guide as a referee.
+   Link the blind/open agent definitions where useful. Blind guidance can use only
+   revealed human information; open guidance may use full human state while leaving
+   human action choices to the human. Do not assume these modes have identical knowledge.
 7. Use `decks/<format>/<deck-name>/` with generic `deck.ydk`, `deck.json`,
    `guide.md`, and optional source/import `README.md`. Save the playbook as
    `guide.md` beside that folder's `deck.json`; the folder carries the deck name.

@@ -36,3 +36,12 @@
 - Follow `docs/agent-play.md` during play. Give human/agent opponents response
   opportunities, keep private information private, and use an agreed authoritative
   state/referee. Never treat the playbook as automatic permission for a legal action.
+
+- Use `agents/blind-duel/AGENT.md` for blind duels and
+  `agents/open-duel/AGENT.md` for guided open duels, together with the shared
+  moderator instructions. Blind mode must never load the human's hidden deck/hand.
+  Open mode explicitly knows all human state and coaches choices without taking
+  over the human's actions unless delegated. Label moderator/opponent/coach roles.
+- Store live private session state outside the repository. Use the session
+  helper for fixed shuffled draws and perspective views; it is not an effect engine.
+  Never reshuffle on resume, skip responses, or change rulings to favor the agent.

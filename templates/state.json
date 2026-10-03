@@ -39,5 +39,6 @@
   "format": null,
   "shared_zones": {
     "extra_monster_zones": []
-  }
+  },
+  "mode": null
 }

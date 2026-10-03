@@ -16,3 +16,12 @@ Public logs keep unknown cards unknown. Put post-game analysis in a separate sec
 No games have started yet. Current user-selected matchup:
 [Branded Despia versus Dracotail](planned/branded-despia-vs-dracotail.json).
 Player assignments, format, banlist, and rules are pending.
+
+## Duel mode
+
+Record `mode: blind` or `mode: open` before starting. Use the
+[duel agents](../agents/README.md) and `templates/duel-config.json` for guided setup.
+Snapshot known bundles under `decks/<player>/<deck-name>/` to support mirrors.
+Blind mode records only human public counts/reveals and no human deck snapshot.
+Open mode manages both player states; public logs still hide private card identities.
+Live private helper state stays outside the shared repository.

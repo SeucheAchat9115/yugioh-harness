@@ -27,5 +27,6 @@
     "starting_player_draws": null,
     "starting_player_battle_phase": null,
     "field_layout": null
-  }
+  },
+  "mode": null
 }

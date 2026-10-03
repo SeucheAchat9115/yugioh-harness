@@ -23,16 +23,30 @@ its own format, banlist, and rules version.
    response windows and hidden information, and save the public turn log and authorized
    game state. Use post-game analysis to improve future guide versions.
 
+## Duel modes and agents
+
+| Mode | Agent | How the human plays | Agent knowledge |
+| --- | --- | --- | --- |
+| Blind | [Blind moderator/opponent](agents/blind-duel/AGENT.md) | Human privately manages their own deck/hand and declares actions. | Own cards plus legally revealed human information; no human deck/hand import. |
+| Open | [Open coach/moderator/opponent](agents/open-duel/AGENT.md) | Human selects a linked YDK, then chooses from guided options; the agent manages both decks. | Full human state, explicitly including hidden cards. |
+
+Read [agent setup and usage](agents/README.md) for invocation examples and the
+session helper. In open mode choose [Branded Despia](decks/unassigned/branded-despia/deck.ydk)
+or [Dracotail](decks/unassigned/dracotail/deck.ydk). Human choices and response
+opportunities are preserved in both modes. No duel has started yet.
+
 A playbook supplies candidate decisions; full card text and the agreed rules decide
 whether an action is legal in the actual state. The repository currently provides
-assets and a play protocol. It does not yet implement a duel simulator, a complete
-rules engine, or autonomous agent orchestration.
+assets, two reusable conversational agent definitions, a play protocol, and tools
+for setup/draws/perspective views. Card effects and rulings are moderated under
+the agreed rules; a complete automated duel simulator is not implemented.
 
 ## Structure
 
 - `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`, `guide.md`, and optional `README.md`.
 - `decks/unassigned/`: Imported decks awaiting a confirmed format and banlist.
 - `skills/`: Reusable card-data conversion and strategic-analysis workflows.
+- `agents/`: Blind/open agent definitions, shared moderator instructions, and session tools.
 - `docs/agent-play.md`: Shared action, response, information, and recording protocol.
 - `rules/`: Format profiles for card pools, banlists, and applicable rules.
 - `games/<format>/<game-id>/`: Metadata, turn logs, deck snapshots, and saved states.
@@ -79,8 +93,9 @@ rules version, LP/hand/first-turn settings, field layout, players, and start pla
 The live state also needs effect counters, locks, summon history, materials, delayed
 effects, and card-instance identities; the shared templates are starting points.
 
-An agent uses its own permitted information and public observations. Opponent
-private hand/deck order and hidden cards belong to the referee or authorized player.
+Blind mode uses own permitted information and public observations; the human
+never supplies hidden deck/hand data to the agent. Open mode deliberately allows
+the moderator/opponent to know all human state while guiding their decisions.
 Keep live public logs separate from private states, preserve shuffled order when
 resuming, and archive complete records only by agreement. Human and agent opponents
 receive response opportunities under the same agreed protocol.
@@ -100,3 +115,7 @@ python skills/deck-playbook/scripts/audit.py check decks/unassigned/dracotail/de
 
 This audit does not simulate combos or certify legality; unresolved rulings must
 be checked before an agent uses a dependent line.
+
+[Duel agent helper checks](.github/workflows/duel-agents.yml) test blind/open
+information boundaries, hidden-card masking, private storage, fixed draws, and
+resume behavior. These tests do not adjudicate card effects.

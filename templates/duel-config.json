@@ -1,0 +1,26 @@
+{
+  "id": null,
+  "mode": null,
+  "format": null,
+  "banlist": null,
+  "rules_profile": null,
+  "rules_version": null,
+  "agent_deck": null,
+  "human_deck": null,
+  "human_deck_counts": {
+    "main": null,
+    "extra": null,
+    "side": null
+  },
+  "starting_player": null,
+  "settings": {
+    "starting_lp": null,
+    "opening_hand_size": null,
+    "starting_player_draws": null,
+    "starting_player_battle_phase": null,
+    "field_layout": null
+  },
+  "presentation": {
+    "show_agent_hand": false
+  }
+}

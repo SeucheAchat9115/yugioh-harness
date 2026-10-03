@@ -9,23 +9,30 @@ that task; actual effects must still be adjudicated under an agreed rules profil
 Agree on format, card pool, banlist, rules version, card text overrides, starting
 LP/hand size, field layout, first-turn rules, single game or match, and start player.
 Load each bundle from `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`,
-and `guide.md`; use the optional `README.md` for source notes. Validate both
-decklists, including Side Deck Extra Deck cards. Snapshot each whole bundle into
-`games/<format>/<game-id>/decks/<deck-name>/`, retaining its generic filenames,
+and `guide.md`; use the optional `README.md` for source notes. Validate known
+decklists, including Side Deck Extra Deck cards. In blind mode record the
+human list as self-attested without requesting it. Snapshot each whole bundle into
+`games/<format>/<game-id>/decks/<player>/<deck-name>/`, retaining its generic filenames,
 and snapshot the rules into the game's records. Check each guide's JSON hash.
 
 Choose who maintains the authoritative state and handles shuffles and rulings:
 a game engine, a referee agent, or an agreed human. Use independently shuffled,
-fixed deck orders and preserve them when saving/resuming. A player must not inspect
-the opponent's private state. Agree on whether decklists are open information.
+fixed deck orders and preserve them when saving/resuming. Select [blind or open
+mode](../agents/README.md) before providing hidden information. Blind mode never
+receives the human's hidden deck/hand; the human manages those privately. Open
+mode explicitly permits the combined moderator/opponent to know all human state
+and coach choices. Human display still hides agent cards unless agreed otherwise.
 
 ## Information and decisions
 
-A playing agent receives its own hand and other information it is allowed to
-know, plus the public board, public GYs/banishment, LP, deck/hand counts, and log.
+In blind mode, a playing agent receives its own hand and permitted information,
+plus the public board, public GYs/banishment, LP, deck/hand counts, and log.
 Opponent face-down cards, private draws, and deck order remain unknown until
 revealed by a rule or effect. Face-down banished cards remain private as applicable.
 Separate a hypothesis about an unknown card from an observed fact.
+In open mode, the combined agent also knows the human's full state. It must disclose
+that knowledge model, let the human choose their actions, and never alter randomness
+or rule judgments to favor its opponent role.
 
 Use the playbook to propose candidate lines; verify their requirements against
 the actual state and full card text. Check costs, targets, material locations,
