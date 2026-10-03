@@ -13,3 +13,10 @@ Available format folders: [Edison](edison/README.md).
 
 User-provided Cardcluster exports awaiting format assignment:
 [Branded Despia and Dracotail](unassigned/README.md).
+
+## Enriched YDK exports
+
+Use the [YDK-to-JSON skill](../skills/ydk-to-json/SKILL.md) to convert a YDK to
+a same-basename JSON containing full YGOPRODeck API records. This enriched schema
+uses ordered ID arrays and a `cards` lookup table; it is documented in the skill.
+The generic import template remains available for manually documented lists.

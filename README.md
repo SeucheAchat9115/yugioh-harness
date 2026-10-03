@@ -10,6 +10,7 @@ across current, historical, and custom formats.
 - `rules/`: Format profiles defining card pools, banlists, and applicable rules.
 - `games/<format>/<game-id>/`: Game metadata, turn logs, deck snapshots, and saved states.
 - `templates/`: Reusable templates without a default format.
+- `skills/`: Reusable workflows, including [YDK to JSON](skills/ydk-to-json/SKILL.md) with full card metadata.
 
 Use a consistent format ID, such as `edison`, `goat`, or `tcg`, in folder names
 and JSON metadata. For changing formats, record the banlist date and rules version
