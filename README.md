@@ -39,8 +39,13 @@ only show information in chat that the relevant player is allowed to see.
 Public logs must not reveal hidden cards. Preserve shuffled card order and
 random outcomes when resuming a game.
 
-## Initial content
+## Current content
 
-The first planned matchup is Edison Blackwings versus Lightsworn.
-Its format rules and strategy notes are stored in the Edison-specific folders.
-Both Cardcluster deck imports are still pending. No games have been played yet.
+User-provided Cardcluster exports for **Branded Despia** and **Dracotail** are
+saved unchanged in [decks/unassigned/](decks/unassigned/README.md), with source
+links and import metadata. Their format and banlist still need to be assigned.
+The [planned matchup](games/planned/branded-despia-vs-dracotail.json) has not started.
+
+The earlier Edison Blackwings and Lightsworn strategy notes remain available in
+the Edison-specific folders. Their Cardcluster deck imports remain pending.
+No games have been played yet.

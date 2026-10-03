@@ -1,0 +1,233 @@
+{
+  "id": "branded-despia-v1",
+  "name": "Branded Despia",
+  "format": null,
+  "banlist": null,
+  "version": 1,
+  "status": "imported",
+  "legality_status": "not_checked",
+  "source": {
+    "url": "https://cardcluster.com/deck/PwwDaJ",
+    "author": "Tami",
+    "version": null,
+    "retrieved_at": null,
+    "provided_by": "user",
+    "imported_at": "2026-10-03",
+    "original_filename": "1-Branded_Despia.ydk"
+  },
+  "ydk_file": "branded-despia-v1.ydk",
+  "ydk_sha256": "c8eb5b7756f9f3efce6d556d6c4e377b9fbd028d69c4d9e77fd584c6b6d63546",
+  "counts": {
+    "main": 53,
+    "extra": 14,
+    "side": 12
+  },
+  "changes_from_source": [],
+  "main": [
+    {
+      "card_id": 68468459,
+      "count": 3
+    },
+    {
+      "card_id": 36637374,
+      "count": 3
+    },
+    {
+      "card_id": 62962630,
+      "count": 3
+    },
+    {
+      "card_id": 29948294,
+      "count": 3
+    },
+    {
+      "card_id": 25451383,
+      "count": 3
+    },
+    {
+      "card_id": 44362883,
+      "count": 2
+    },
+    {
+      "card_id": 82738008,
+      "count": 1
+    },
+    {
+      "card_id": 95515789,
+      "count": 2
+    },
+    {
+      "card_id": 34090915,
+      "count": 1
+    },
+    {
+      "card_id": 18973184,
+      "count": 1
+    },
+    {
+      "card_id": 45883110,
+      "count": 2
+    },
+    {
+      "card_id": 34995106,
+      "count": 1
+    },
+    {
+      "card_id": 19096726,
+      "count": 2
+    },
+    {
+      "card_id": 48130397,
+      "count": 3
+    },
+    {
+      "card_id": 55273560,
+      "count": 1
+    },
+    {
+      "card_id": 45484331,
+      "count": 1
+    },
+    {
+      "card_id": 6498706,
+      "count": 3
+    },
+    {
+      "card_id": 36577931,
+      "count": 1
+    },
+    {
+      "card_id": 60242223,
+      "count": 3
+    },
+    {
+      "card_id": 35269904,
+      "count": 3
+    },
+    {
+      "card_id": 32731036,
+      "count": 1
+    },
+    {
+      "card_id": 14558127,
+      "count": 3
+    },
+    {
+      "card_id": 25311006,
+      "count": 1
+    },
+    {
+      "card_id": 81439173,
+      "count": 1
+    },
+    {
+      "card_id": 75500286,
+      "count": 1
+    },
+    {
+      "card_id": 6763530,
+      "count": 1
+    },
+    {
+      "card_id": 17751597,
+      "count": 1
+    },
+    {
+      "card_id": 43331750,
+      "count": 1
+    },
+    {
+      "card_id": 49299410,
+      "count": 1
+    }
+  ],
+  "extra": [
+    {
+      "card_id": 87746184,
+      "count": 2
+    },
+    {
+      "card_id": 38811586,
+      "count": 1
+    },
+    {
+      "card_id": 44146295,
+      "count": 1
+    },
+    {
+      "card_id": 70534340,
+      "count": 1
+    },
+    {
+      "card_id": 41373230,
+      "count": 1
+    },
+    {
+      "card_id": 51409648,
+      "count": 1
+    },
+    {
+      "card_id": 24915933,
+      "count": 1
+    },
+    {
+      "card_id": 11321089,
+      "count": 1
+    },
+    {
+      "card_id": 72578374,
+      "count": 1
+    },
+    {
+      "card_id": 69946549,
+      "count": 1
+    },
+    {
+      "card_id": 11765832,
+      "count": 1
+    },
+    {
+      "card_id": 54757758,
+      "count": 1
+    },
+    {
+      "card_id": 53971455,
+      "count": 1
+    }
+  ],
+  "side": [
+    {
+      "card_id": 34267821,
+      "count": 3
+    },
+    {
+      "card_id": 54693926,
+      "count": 3
+    },
+    {
+      "card_id": 18144506,
+      "count": 1
+    },
+    {
+      "card_id": 83326048,
+      "count": 1
+    },
+    {
+      "card_id": 31849106,
+      "count": 1
+    },
+    {
+      "card_id": 3410461,
+      "count": 1
+    },
+    {
+      "card_id": 72272462,
+      "count": 1
+    },
+    {
+      "card_id": 9551692,
+      "count": 1
+    }
+  ],
+  "notes": "Imported unchanged from the user-provided Cardcluster YDK export. Card names, intended format, banlist, and legality remain to be verified."
+}

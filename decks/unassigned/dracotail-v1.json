@@ -1,0 +1,181 @@
+{
+  "id": "dracotail-v1",
+  "name": "Dracotail",
+  "format": null,
+  "banlist": null,
+  "version": 1,
+  "status": "imported",
+  "legality_status": "not_checked",
+  "source": {
+    "url": "https://cardcluster.com/deck/5pMvBb",
+    "author": "TheTrueDarkness",
+    "version": null,
+    "retrieved_at": null,
+    "provided_by": "user",
+    "imported_at": "2026-10-03",
+    "original_filename": "2-Dracotail-_-by-Leon-TheTrueDarkness-.ydk"
+  },
+  "ydk_file": "dracotail.ydk",
+  "ydk_sha256": "868fe029728e24e9d571f9c89e99c5938ede35d5c4eec3a356499012ab422279",
+  "counts": {
+    "main": 40,
+    "extra": 15,
+    "side": 15
+  },
+  "changes_from_source": [],
+  "main": [
+    {
+      "card_id": 1498449,
+      "count": 3
+    },
+    {
+      "card_id": 75003700,
+      "count": 3
+    },
+    {
+      "card_id": 7375867,
+      "count": 3
+    },
+    {
+      "card_id": 70871153,
+      "count": 2
+    },
+    {
+      "card_id": 44482554,
+      "count": 1
+    },
+    {
+      "card_id": 14558127,
+      "count": 3
+    },
+    {
+      "card_id": 32909498,
+      "count": 3
+    },
+    {
+      "card_id": 79109599,
+      "count": 3
+    },
+    {
+      "card_id": 42141493,
+      "count": 3
+    },
+    {
+      "card_id": 24508238,
+      "count": 2
+    },
+    {
+      "card_id": 73642296,
+      "count": 2
+    },
+    {
+      "card_id": 59438930,
+      "count": 2
+    },
+    {
+      "card_id": 33854624,
+      "count": 1
+    },
+    {
+      "card_id": 6153210,
+      "count": 3
+    },
+    {
+      "card_id": 32548318,
+      "count": 3
+    },
+    {
+      "card_id": 24094653,
+      "count": 1
+    },
+    {
+      "card_id": 5431722,
+      "count": 1
+    },
+    {
+      "card_id": 69932023,
+      "count": 1
+    }
+  ],
+  "extra": [
+    {
+      "card_id": 11321089,
+      "count": 1
+    },
+    {
+      "card_id": 11443677,
+      "count": 1
+    },
+    {
+      "card_id": 33760966,
+      "count": 3
+    },
+    {
+      "card_id": 70538272,
+      "count": 1
+    },
+    {
+      "card_id": 13735899,
+      "count": 1
+    },
+    {
+      "card_id": 37818794,
+      "count": 1
+    },
+    {
+      "card_id": 89851827,
+      "count": 1
+    },
+    {
+      "card_id": 79755671,
+      "count": 2
+    },
+    {
+      "card_id": 93039339,
+      "count": 1
+    },
+    {
+      "card_id": 29301450,
+      "count": 1
+    },
+    {
+      "card_id": 24361622,
+      "count": 1
+    },
+    {
+      "card_id": 42097666,
+      "count": 1
+    }
+  ],
+  "side": [
+    {
+      "card_id": 44482554,
+      "count": 1
+    },
+    {
+      "card_id": 34267821,
+      "count": 3
+    },
+    {
+      "card_id": 60643553,
+      "count": 3
+    },
+    {
+      "card_id": 94145021,
+      "count": 3
+    },
+    {
+      "card_id": 82385847,
+      "count": 2
+    },
+    {
+      "card_id": 14532163,
+      "count": 2
+    },
+    {
+      "card_id": 18144506,
+      "count": 1
+    }
+  ],
+  "notes": "Imported unchanged from the user-provided Cardcluster YDK export. Card names, intended format, banlist, and legality remain to be verified."
+}

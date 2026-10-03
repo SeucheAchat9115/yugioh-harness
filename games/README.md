@@ -12,4 +12,6 @@ Turn logs record actions, costs, targets, chains, resolutions, and Life Points.
 Saved states preserve hidden cards, card order, and random outcomes for resuming.
 Public logs keep unknown cards unknown. Put post-game analysis in a separate section.
 
-No games have started yet. Initial planned matchup: Edison Blackwings versus Lightsworn.
+No games have started yet. Current user-selected matchup:
+[Branded Despia versus Dracotail](planned/branded-despia-vs-dracotail.json).
+Player assignments, format, banlist, and rules are pending.

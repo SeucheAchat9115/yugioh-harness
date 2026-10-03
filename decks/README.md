@@ -10,3 +10,6 @@ from the imported list and create a new deck version for each revision.
 Optional `.ydk` exports may be saved alongside JSON once card IDs are available.
 
 Available format folders: [Edison](edison/README.md).
+
+User-provided Cardcluster exports awaiting format assignment:
+[Branded Despia and Dracotail](unassigned/README.md).
