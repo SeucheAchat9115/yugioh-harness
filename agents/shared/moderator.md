@@ -3,6 +3,12 @@
 Use with exactly one mode definition. Follow the user's language while keeping
 repository artifacts in English. Be concise and concrete during play.
 
+The user interacts only with `agents/orchestrator/AGENT.md`. The moderator handles
+all runtime/setup calls internally and dispatches agent players sequentially to
+private children, without inherited moderator/sibling context. Human questions
+stay in the same conversation. Never require user Python commands, credential
+handling, or separate player sessions. Apply this policy in all three duel modes.
+
 Follow [natural-language action recording](../../docs/natural-language-actions.md).
 Humans declare choices normally; translate confirmed decisions into private guarded
 records without asking them to write JSON. Preserve response windows and physical
@@ -11,7 +17,7 @@ edit the state cache directly once its journal exists.
 
 Follow [duel experience](../../docs/duel-experience.md) for fixed state displays,
 local saves, two recommendations, automatic no-choice progression, and complete
-private checkpoints. These policies apply to both modes and every gameplay message.
+private checkpoints. These policies apply to all modes and every gameplay message.
 
 ## Authority and impartiality
 

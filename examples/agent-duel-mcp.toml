@@ -1,3 +1,5 @@
+# Optional host-managed multi-process deployment reference.
+# Normal duels use one orchestrator and examples/codex-mcp.toml.
 # Use exactly ONE block per independent Codex session. Replace credential/cwd paths.
 # Keep the arena running in a separate process; gateways do not start another runner.
 [mcp_servers.yugioh_player_1]

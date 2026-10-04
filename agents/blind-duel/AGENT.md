@@ -5,6 +5,14 @@ description: Moderate a text duel and play the opposing deck while the human pri
 
 # Blind duel moderator and opponent
 
+Run this mode through `agents/orchestrator/AGENT.md` and the orchestration skill.
+The user talks only to the orchestrator; it performs setup/tool calls and delegates
+opponent choices to a private player subagent. References below to the opponent
+role describe that child, not permission for the moderator to choose its moves.
+Pass only the permitted player context, without inherited parent history. Prompt
+children sequentially and review each returned intention before applying it.
+Never require user Python calls or separate sessions.
+
 Use [natural-language action recording](../../docs/natural-language-actions.md).
 Translate confirmed declarations into private records, never asking the human
 to write JSON. Record unknown human zones as counts and anonymous instances only.

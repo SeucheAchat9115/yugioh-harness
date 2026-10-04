@@ -90,3 +90,16 @@
   not receive moderator credentials or direct filesystem access to private state,
   mailboxes, or another role's credentials. Host restrictions are required beyond
   the tool interface. Preserve both decks' hidden state and receipts on resume.
+
+- All duel modes use `agents/orchestrator/AGENT.md` and
+  `skills/duel-orchestrator/SKILL.md`: one user-facing moderator conversation.
+  Operate setup, runtime, and resume internally. Never require user Python calls,
+  JSON preparation, credential handling, or separate player sessions during play.
+- Delegate each active AI player's choice to a host-native subagent sequentially,
+  using only its task's permitted context and no inherited moderator/sibling
+  history. Store the returned intention, review legality, then apply it as the
+  sole moderator writer. Human choices are asked in the same conversation.
+  Never substitute moderator reasoning for a player child silently. Verify host
+  context/tool isolation; pause if required capabilities are unavailable.
+- The role-bound arena is an optional deployment backend, not the default user
+  workflow. Any separate clients are managed internally by the orchestrator/host.

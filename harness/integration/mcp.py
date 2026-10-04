@@ -18,6 +18,17 @@ TOOLS={
 }
 
 
+CONVERSATIONAL_TOOLS = {
+ 'duel_decks': ('List complete selectable deck bundles.', {}, [], 'decks'),
+ 'duel_games': ('List saved local duels without exposing private cards.', {}, [], 'games'),
+ 'duel_start': ('Initialize an agreed duel internally; no user terminal steps.', {'config': {'type': 'object'}, 'rules_text': {'type': 'string'}}, ['config', 'rules_text'], 'start'),
+ 'duel_resume': ('Resume an existing local duel without reshuffling.', {'game_id': {'type': 'string'}}, ['game_id'], 'resume'),
+ 'duel_next': ('Get the next human display, private subagent task, or moderator review. Never show subagent or moderator payloads to the user.', {}, [], 'next'),
+ 'duel_agent_result': ('Store the response from the assigned player child; does not execute it.', {'task_id': {'type': 'string'}, 'response': {'type': ['string', 'integer']}}, ['task_id', 'response'], 'agent_result'),
+ 'duel_human_reply': ('Bind natural-language or numbered human input to the displayed question.', {'decision_id': {'type': 'string'}, 'request_id': {'type': 'string'}, 'response': {'type': ['string', 'integer']}}, ['decision_id', 'request_id', 'response'], 'human_reply'),
+}
+
+
 def rpc(duel,message):
     if not isinstance(message,dict) or message.get('jsonrpc')!='2.0':
         return {'jsonrpc':'2.0','id':None,'error':{'code':-32600,'message':'Invalid request'}}
@@ -25,11 +36,12 @@ def rpc(duel,message):
     method=message.get('method')
     if identity is None:return None
     role=getattr(duel,'role','moderator')
-    available=TOOLS if role=='moderator' else {name:TOOLS[name] for name in ('duel_context','duel_submit','duel_status')}
+    catalog = {**TOOLS, **CONVERSATIONAL_TOOLS} if getattr(duel, 'conversational', False) else TOOLS
+    available=catalog if role=='moderator' else {name:TOOLS[name] for name in ('duel_context','duel_submit','duel_status')}
     if method=='initialize':
         result={'protocolVersion':'2024-11-05','capabilities':{'tools':{}},
                 'serverInfo':{'name':'yugioh-harness','version':'1.0.0'},
-                'instructions':('Trusted moderator tools. Adjudicate rules and preserve player privacy; save locally only.' if role=='moderator' else f'You are the player in slot {role}, not the referee. Use only your own context, choose a legal intention, and submit it with the decision ID. The moderator executes actions. Never request opponent or moderator context.')}
+                'instructions':('You are the single conversational orchestrator. Read agents/orchestrator/AGENT.md and skills/duel-orchestrator/SKILL.md. Handle all runtime calls internally; delegate player choices sequentially with permitted contexts. Adjudicate rules, preserve privacy, and save locally only.' if role=='moderator' else f'You are the player in slot {role}, not the referee. Use only your own context, choose a legal intention, and submit it with the decision ID. The moderator executes actions. Never request opponent or moderator context.')}
     elif method=='ping':result={}
     elif method=='tools/list':
         definitions=[]
@@ -45,7 +57,7 @@ def rpc(duel,message):
         arguments=params.get('arguments',{}) if isinstance(params,dict) else None
         if name not in available or not isinstance(arguments,dict):
             return {'jsonrpc':'2.0','id':identity,'error':{'code':-32602,'message':'Invalid tool call'}}
-        _,properties,required,operation=TOOLS[name]
+        _,properties,required,operation=available[name]
         if any(key not in arguments for key in required) or any(key not in properties for key in arguments):
             return {'jsonrpc':'2.0','id':identity,'error':{'code':-32602,'message':'Invalid tool arguments'}}
         started=perf_counter()
@@ -60,10 +72,20 @@ def rpc(duel,message):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--repo',type=Path)
+    parser.add_argument('--private-root',type=Path)
     parser.add_argument('--state',type=Path)
     parser.add_argument('--game-dir',type=Path)
     parser.add_argument('--credential',type=Path)
     args=parser.parse_args()
+    if args.repo:
+        if args.credential or args.state or args.game_dir:parser.error('Choose repository lobby or a direct session')
+        from harness.integration.service import DuelService
+        service = DuelService(args.repo, args.private_root)
+        try:run_stdio(service)
+        finally:service.close()
+        return
+    if args.private_root:parser.error('private-root requires repo')
     if args.credential:
         if args.state or args.game_dir:parser.error('Choose credential or direct session paths')
         from harness.integration.arena import ArenaClient

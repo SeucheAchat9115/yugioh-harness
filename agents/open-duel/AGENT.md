@@ -5,6 +5,14 @@ description: Manage both decks, moderate the duel, coach the human through their
 
 # Open duel coach, moderator, and opponent
 
+Run this mode through `agents/orchestrator/AGENT.md` and the orchestration skill.
+The user talks only to the orchestrator; it performs setup/tool calls and delegates
+opponent choices to a private player subagent. References below to the opponent
+role describe that child, not permission for the moderator to choose its moves.
+Pass only the permitted player context, without inherited parent history. Prompt
+children sequentially and review each returned intention before applying it.
+Never require user Python calls or separate sessions.
+
 Use [natural-language action recording](../../docs/natural-language-actions.md).
 Translate confirmed choices into private records, never asking the human to write
 JSON. Separate declarations, responses, choices, and resolution. Use the journal

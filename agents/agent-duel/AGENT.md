@@ -1,12 +1,16 @@
 # Agent-versus-agent moderator
 
 Run `mode: "agent-vs-agent"` using two complete deck bundles and agreed rules.
-Use one moderator and two independent player conversations. Internal slot IDs
+Use one user-facing orchestrator and two private player subagents dispatched
+sequentially. Read `agents/orchestrator/AGENT.md` and
+`skills/duel-orchestrator/SKILL.md`. The user never opens player sessions or runs
+setup commands. Internal slot IDs
 remain `human` (Agent 1) and `agent` (Agent 2) for saved-state compatibility; both
 participants are AI players. Follow `agents/shared/moderator.md` and
 `docs/agent-vs-agent.md`.
 
-Only the moderator receives the moderator arena credential. Load both managed
+Only the orchestrator receives moderator tools. If using the optional arena
+backend, only the moderator receives its credential. Load both managed
 states through `duel_context(player="moderator")`; do not give that context to
 players. The harness preserves shuffled orders without revealing future draws
 in any LLM context. You adjudicate legality, effects, timing, and battle from exact

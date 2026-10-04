@@ -13,6 +13,25 @@ the harness records and checks the structural consistency of its state updates.
 The repository supports current, historical, and custom formats. Each game selects
 its own format, banlist, and rules version.
 
+## Start a duel by talking to one agent
+
+Open this repository in a tool-capable Codex, Claude, or Gemini environment and say:
+
+> Read `agents/orchestrator/AGENT.md`. Start an open duel: I play Branded Despia
+> against Dracotail. Guide me through setup and play.
+
+You always speak to the **orchestrator**. It handles configuration, runtime calls,
+local saves, and resumption. It asks you for human choices and launches player
+subagents sequentially with their respective contexts. In agent-versus-agent
+mode it manages both private player children while you watch public state.
+No Python commands, JSON preparation, or separate player sessions are required
+from you during a duel. See [conversational play](docs/codex-play.md) and the
+[orchestration skill](skills/duel-orchestrator/SKILL.md).
+
+The host needs runtime tools and safe native subagent support; plain chat apps
+cannot execute this workflow just by reading the repo. MCP can be installed once,
+or the orchestrator can operate the backend through its execution tools.
+
 ## From a decklist to a playable agent
 
 1. **Import the deck:** obtain a Cardcluster YDK and preserve its original contents.
@@ -33,18 +52,20 @@ its own format, banlist, and rules version.
 | Mode | Agent | How the human plays | Agent knowledge |
 | --- | --- | --- | --- |
 | Agent vs agent | [Isolated AI players and moderator](agents/agent-duel/AGENT.md) | Two independent agents choose plays; the moderator manages both decks. | Each player sees its own hidden state; the moderator knows both. |
-| Blind | [Blind moderator/opponent](agents/blind-duel/AGENT.md) | Human privately manages their own deck/hand and declares actions. | Own cards plus legally revealed human information; no human deck/hand import. |
-| Open | [Open coach/moderator/opponent](agents/open-duel/AGENT.md) | Human selects a linked YDK, then chooses from guided options; the agent manages both decks. | Full human state, explicitly including hidden cards. |
+| Blind | [Blind orchestrator/player](agents/blind-duel/AGENT.md) | Human privately manages their own deck/hand and declares actions. | Own cards plus legally revealed human information; no human deck/hand import. |
+| Open | [Open orchestrator/coach/player](agents/open-duel/AGENT.md) | Human selects a linked YDK, then chooses from guided options; the agent manages both decks. | Full human state, explicitly including hidden cards. |
 
 Read [agent setup and usage](agents/README.md) for invocation examples and the
 session helper. In open mode choose [Branded Despia](decks/unassigned/branded-despia/deck.ydk)
 or [Dracotail](decks/unassigned/dracotail/deck.ydk). Human choices and response
 opportunities are preserved in human modes. [Agent-vs-agent setup](docs/agent-vs-agent.md)
-connects two independent player clients and a moderator to one role-restricted arena.
+uses one conversational orchestrator and two private player subagents.
 
 The persistent Python harness coordinates authoritative state, player views,
 structural action validation, local persistence, and decision rendering. Player
-contexts include visible card text, pending effects, and recent reviewed events. Run it with `python -m harness`.
+contexts include visible card text, pending effects, and recent reviewed events.
+The orchestrator operates the runtime internally; command-line entry points are
+backend interfaces for maintainers.
 See [harness architecture and commands](docs/harness.md) for setup and the JSON-lines
 moderator interface. Human chat and model clients connect through player adapters.
 [Codex play integration](docs/codex-play.md) provides a persistent MCP server,

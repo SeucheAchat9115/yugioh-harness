@@ -1,5 +1,13 @@
 # Agentic duel harness
 
+This page documents backend interfaces for maintainers and the orchestrator.
+Players use [one conversational agent](codex-play.md) in every mode and never
+need to execute these Python commands themselves. The repository-level MCP lobby
+handles deck discovery, setup/resume, and sequential private subagent tasks;
+`--repo <checkout>` enables it without per-game paths. The host orchestrator
+invokes native children and remains the sole moderator writer.
+
+
 The LLM is the gameplay interpreter and moderator. It reasons about card text,
 legality, timing, costs, chains, summons, battles, victory, and strategy under the
 agreed rules. The harness keeps the duel loaded, applies the LLM's approved state
@@ -45,6 +53,10 @@ its rule judgment is correct. Unclear interactions pause for a ruling.
 
 ## Start and resume
 
+For conversational play the orchestrator calls `duel_start` and `duel_resume`
+internally through the repository lobby. The commands below are the legacy
+maintainer interface, not player instructions.
+
 Prepare a private configuration from `templates/duel-config.json`. Agree on rules
 and legality first; start deals opening hands but does not perform a turn draw.
 Use a durable private directory outside the repository.
@@ -69,7 +81,9 @@ detected before updates. This is a local single-writer design.
 ## Agent-versus-agent mode
 
 [Agent-vs-agent play](agent-vs-agent.md) manages both decks with symmetric private
-player views, a moderator view, and a role-bound local arena for independent clients.
+player views and a moderator view. The conversational orchestrator dispatches
+private player children sequentially; a role-bound arena is an optional backend
+for host-managed independent clients.
 Open coaching visibility never applies in this mode; spectators see neither hand.
 
 ## Codex and integrated play
