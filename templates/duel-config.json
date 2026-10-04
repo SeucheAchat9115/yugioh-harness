@@ -22,5 +22,13 @@
   },
   "presentation": {
     "show_agent_hand": false
+  },
+  "interaction": {
+    "decision_format": "decision-v1",
+    "recommended_moves": 2,
+    "automatic_continue_when_no_choice": true
+  },
+  "storage": {
+    "game_commits": "explicit-user-request-only"
   }
 }

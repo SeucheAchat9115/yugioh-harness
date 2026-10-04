@@ -1,4 +1,4 @@
-# Duel agents
+# Duel player policies
 
 Load one of these definitions into the assistant that will run the duel. They
 are reusable instructions for a tool-using conversational agent, not separate
@@ -35,7 +35,14 @@ The agent discovers all complete bundles, so newly prepared decks can be offered
 without editing its definition. Unassigned decks require an agreed format/banlist
 or explicit casual rules before play. No duel is started by adding these files.
 
-## Session helper
+## Harness and session setup
+
+Use the [persistent harness](../docs/harness.md) for live sessions. These agent
+definitions are player/moderator policies, not the state engine. The runner owns
+state; adapters receive permitted views and propose intentions. `agents/runtime/`
+contains compatibility wrappers for existing commands.
+
+### Session setup
 
 The stdlib-only helper initializes physical card instances, shuffles with system
 randomness, deals opening hands, preserves remaining order, accounts for draws,
@@ -57,16 +64,16 @@ such as `decks/unassigned/dracotail`, not YDK paths. Use `human`/`agent` player 
 From the repository root, after preparing the setup file:
 
 ```sh
-python agents/runtime/session.py start --repo . --config /tmp/duel-config.json --private-dir /tmp/duel-private-001
-python agents/runtime/session.py view --state /tmp/duel-private-001/state.json --viewer agent
-python agents/runtime/session.py view --state /tmp/duel-private-001/state.json --viewer human
+python -m harness.engine.session start --repo . --config /tmp/duel-config.json --private-dir /tmp/duel-private-001
+python -m harness.engine.session view --state /tmp/duel-private-001/state.json --viewer agent
+python -m harness.engine.session view --state /tmp/duel-private-001/state.json --viewer human
 ```
 
 The game directory is `games/<format>/<id>/`. First-turn draw is **not** automatically
 applied during setup; only opening hands are dealt. When a draw is actually due:
 
 ```sh
-python agents/runtime/session.py draw --state /tmp/duel-private-001/state.json --game-dir games/<format>/<id> --actor human --count 1 --viewer human
+python -m harness.engine.session draw --state /tmp/duel-private-001/state.json --game-dir games/<format>/<id> --actor human --count 1 --viewer human
 ```
 
 Replace placeholders in the command with the real format and ID. In blind mode
@@ -75,8 +82,9 @@ the fixed next card. Never call `start` again to resume; use the saved private s
 For effects requiring a shuffle, the moderator must perform that shuffle when due
 and record it; the helper's draw command does not shuffle automatically.
 
-The private directory must be outside the repository. Commit only public records
-during a live game. Prompt instructions and perspective views are not an access-
+The private directory must be outside the repository. Save game updates locally;
+commit/publish only on an explicit user request, including at pause or game end.
+Keep game-file changes out of unrelated code commits. Prompt views are not an access-
 control sandbox: never give blind mode the human private state. Human hidden data
 does not exist in a blind helper session at all.
 
@@ -88,11 +96,28 @@ See [action recording](../docs/natural-language-actions.md). Public `events.json
 and `actions.md` exclude private changes. The draw command uses the same journal.
 Legality remains the moderator's responsibility.
 
+## Fixed displays, continuation, and checkpoints
+
+Follow [duel experience](../docs/duel-experience.md). Each gameplay message uses
+`decision.py` to display turn/window, LP/counts, human-permitted cards, both boards,
+chain, usage/locks, intervening events, and two distinct legal recommendations when
+available. Accept numbered or free-text choices. Continue through verified
+compulsory/no-choice steps until the next human option; report everything that
+happened. Blind unknown responses always require clarification or a human decision.
+
+`checkpoint.py` saves/verifies/restores a self-contained private checkpoint with
+full managed hidden state, fixed orders, paid costs, pending choices, exact rules/
+deck snapshots, and displayed numbering. Start and every update refresh it;
+rendering saves the current prompt. Use durable private workspace storage for
+long pauses. Restore into a fresh private directory and preserve paused status.
+These helpers do not decide effect legality or certify an exhaustive option review.
+
 ## Verification
 
 ```sh
-python -m unittest discover -s agents/runtime/tests -v
+python -m unittest discover -s tests -v
 ```
 
-Tests cover mode boundaries, masked cards, private storage, fixed draw order,
-resume behavior, and draw failure. They do not certify Yu-Gi-Oh! effect resolution.
+Tests cover mode boundaries, masking, fixed displays, recommendations, no-choice
+guards, hidden-state/snapshot recovery, fixed draws, and failures. They do not
+certify Yu-Gi-Oh! effect resolution.

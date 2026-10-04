@@ -10,6 +10,11 @@ Translate confirmed choices into private records, never asking the human to writ
 JSON. Separate declarations, responses, choices, and resolution. Use the journal
 for updates and recovery; coach options without recording an unchosen action.
 
+Follow [duel experience](../../docs/duel-experience.md). Every gameplay message
+uses the fixed decision-v1 state display. Save locally after each action; never
+commit/push game records unless explicitly requested. Save complete hidden state
+and pending decision packets in private checkpoints before waiting for input.
+
 Adopt this definition for an open guided duel. Read `AGENTS.md`,
 `agents/shared/moderator.md`, and `docs/agent-play.md`. Label your roles:
 **Moderator** applies rules and maintains both states; **Coach** explains human
@@ -53,9 +58,11 @@ draws, agree on it before starting and label the changed setup.
 ## Guide the human at every meaningful choice
 
 Show turn/phase, LP, relevant public zones, and the human's own numbered hand.
-Present up to three useful **legal** options from the actual state, with a short
-explanation of cost, payoff, and main risk. Include passing/ending a phase when
-appropriate, and accept a custom action. Ask which option they choose.
+Present two distinct recommended **legal** moves from the actual state, with a
+short explanation of cost, payoff, and risk. Include passing/ending a phase when
+appropriate. Accept 1/2 or any free-text legal action. Never invent a second option
+when fewer exist. If no meaningful choice remains, record compulsory progression
+automatically until the next genuine choice, and explain every intervening event.
 
 Do not play their turn for them unless explicitly delegated. Resolve references
 such as "play 2" using the displayed option/card-instance mapping; ask when ambiguous.
@@ -64,9 +71,10 @@ materials, trigger ordering, optional effects, chain responses, attacks, targets
 and sideboarding, offer eligible choices and wait for the human decision. Choices
 due at resolution must not be forced early just because you know the whole hand.
 
-During your opponent turn, pause at each human response opportunity and explain
-which of their cards can respond and why. An empty response menu is not proof that
-every possible action was exhaustively enumerated; accept other legal actions.
+During your opponent turn, pause where the human actually has a legal response or
+choice, explaining which cards can respond. If a complete current-state review
+proves no choice, progress automatically and report what happened. An empty menu
+is not proof of an exhaustive check. Stop on uncertainty and accept other legal actions.
 Announce your action before coaching the response, and do not revise your committed
 choice after hearing their decision except through an agreed correction/rollback.
 
@@ -88,7 +96,10 @@ delayed effects. Render a brief state summary after each chain/phase, without
 printing hidden opponent information to the human by accident.
 
 Save the public log plus a separate complete private state that the open moderator
-can access. Pause/resume preserves both decks and human choices. At the end, explain
+can access. Refresh/verify `checkpoint.json`, including both hands/sets, orders,
+usage, costs, pending chains/selections, numbered prompts, rules, and deck snapshots.
+“Save” is local only; no automatic commit even at pause or game end.
+Pause/resume preserves both decks and human choices. At the end, explain
 key decisions, alternative legal lines, and the result; offer a rematch or an agreed
 all-visible post-game review. Update guides only from supported findings.
 

@@ -9,12 +9,11 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SCRIPT = Path(__file__).resolve().parents[1] / "session.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "agents/runtime/session.py"
 sys.path.insert(0, str(SCRIPT.parent))
 REPO = SCRIPT.parents[2]
-spec = importlib.util.spec_from_file_location("duel_session", SCRIPT)
-session = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(session)
+sys.path.insert(0, str(REPO))
+from harness.engine import session
 
 
 class SessionTests(unittest.TestCase):
@@ -134,6 +133,9 @@ class SessionTests(unittest.TestCase):
         self.assertEqual(final["players"]["agent"]["hand"][-1], expected)
         journal = json.loads(path.with_name("journal.json").read_text())
         self.assertEqual(len(journal["events"]), 1)
+        checkpoint = json.loads(path.with_name("checkpoint.json").read_text())
+        self.assertEqual(checkpoint["state"], final)
+        self.assertEqual(checkpoint["configuration"]["storage"]["game_commits"], "explicit-user-request-only")
         path.write_text("{}")
         (game / "events.json").unlink()
         subprocess.run([sys.executable, str(SCRIPT.with_name("actions.py")), "replay",
@@ -156,6 +158,27 @@ class SessionTests(unittest.TestCase):
         retry = subprocess.run(command, capture_output=True)
         self.assertNotEqual(retry.returncode, 0)
         self.assertEqual(path.with_name("journal.json").read_text(), journal_before)
+
+    def test_decision_cli_saves_exact_hand_refs_and_prompt(self):
+        initial, game, path = self.start("open")
+        draft = self.private / "decision.json"
+        packet = {"expected_revision": 0, "role": "Moderator / Coach", "events": [],
+                  "recommendations": [], "awaiting_user": True, "question": "What do you do?",
+                  "option_review": {"complete": False, "meaningful_choices": None}}
+        draft.write_text(json.dumps(packet))
+        result = subprocess.run([sys.executable, str(SCRIPT.with_name("decision.py")),
+                                 "--state", str(path), "--game-dir", str(game), "--packet", str(draft)],
+                                check=True, capture_output=True, text=True)
+        checkpoint = json.loads(path.with_name("checkpoint.json").read_text())
+        self.assertEqual(checkpoint["decision_packet"]["question"], "What do you do?")
+        self.assertEqual(checkpoint["decision_packet"]["hand_refs"]["H1"], initial["players"]["human"]["hand"][0]["instance_id"])
+        self.assertIn("**Your hand:**", result.stdout)
+        self.assertEqual(checkpoint["state"], initial)
+
+    def test_config_rejects_automatic_game_commits(self):
+        self.config['storage'] = {'game_commits': 'every-turn'}
+        with self.assertRaisesRegex(ValueError, "explicit user request"):
+            session.start(self.repo, self.config, self.private)
 
 
 if __name__ == "__main__":

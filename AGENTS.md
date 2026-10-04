@@ -19,6 +19,10 @@
   their original deck snapshots.
 - Save game actions, random outcomes, and game states so they can be reviewed.
   Do not reveal hidden information in public game logs.
+- Save games locally after each action. Never stage/commit/push game records or
+  call GitHub write tools during play unless explicitly requested. “Save” and
+  pause/end-of-game do not authorize a commit. Keep game files out of unrelated
+  code commits. Never commit private session files.
 
 - Enriched deck JSON must contain gameplay data only: deck identity, format/banlist,
   ordered Main/Extra/Side IDs, and card names, text, types, and applicable stats.
@@ -46,6 +50,22 @@
   helper for fixed shuffled draws and perspective views; it is not an effect engine.
   Never reshuffle on resume, skip responses, or change rulings to favor the agent.
 - Follow `docs/natural-language-actions.md`: translate human language into private,
-  approved action records. Use `agents/runtime/actions.py` for updates and replay;
+  approved action records. Use `harness/engine/actions.py` for updates and replay;
   never edit journaled state directly. Review public narration for hidden data.
   Use one moderator writer and preserve physical-copy IDs and response windows.
+- Follow `docs/duel-experience.md` for every gameplay message: fixed decision-v1
+  state display, two distinct legal recommendations when available, and free-text
+  input. Record and explain compulsory/no-choice steps automatically; stop at the
+  next actual human option. Blind unknown options are not no options.
+- Persist complete local checkpoints after updates and before questions, including
+  open-mode hidden states, numbered choices, rules/snapshots, costs/effects, and
+  shuffled orders. Verify before resuming; never restart or reshuffle a saved game.
+
+- The harness owns live state. Use `harness/runner/duel.py` as the single persistent
+  writer; player adapters receive permitted context and return intentions, never
+  guarded state patches. No network, Git, or model calls inside engine execution.
+- Implement reusable effects in `harness/effects/`; unsupported effects must stop
+  for moderation. Never claim moderator approval is rules-engine certification.
+- Preserve schema-1 journals/checkpoints and legacy CLI compatibility. Test with
+  `python -m unittest discover -s tests -v`; benchmark with
+  `python tests/benchmarks/runner.py`. Never run benchmarks against a real duel.

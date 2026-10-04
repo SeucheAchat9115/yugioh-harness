@@ -63,7 +63,7 @@ def request_cards(ids):
     for attempt in range(4):
         time.sleep(0.5)  # At most two requests per second, including retries.
         try:
-            req = Request(url, headers={"User-Agent": "agentic-yugioh-ydk-to-json/1.0"})
+            req = Request(url, headers={"User-Agent": "yugioh-harness-ydk-to-json/1.0"})
             with urlopen(req, timeout=45) as response:
                 payload = json.load(response)
             if not isinstance(payload, dict) or not isinstance(payload.get("data"), list):

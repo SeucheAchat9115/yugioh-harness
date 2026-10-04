@@ -9,6 +9,10 @@ records without asking them to write JSON. Preserve response windows and physica
 copy IDs. Use `actions.py record` for updates and `replay` for recovery; do not
 edit the state cache directly once its journal exists.
 
+Follow [duel experience](../../docs/duel-experience.md) for fixed state displays,
+local saves, two recommendations, automatic no-choice progression, and complete
+private checkpoints. These policies apply to both modes and every gameplay message.
+
 ## Authority and impartiality
 
 The moderator maintains the agreed state/rules; the opponent chooses its own
@@ -29,8 +33,11 @@ trusted verifier is used without revealing it to the agent.
    usage counters, and restrictions.
 2. Present/request the active player's action, with exact card/instance and effect.
    Clarify ambiguities before changing state. Record costs and targets when due.
-3. Alternate response opportunities under the agreed rules. Do not assume that
-   silence is a pass. Use an automatic-pass policy only when explicitly agreed.
+3. Alternate response opportunities under the agreed rules. If a meaningful human
+   option exists, ask using the fixed state display and two recommendations.
+   Silence is never a pass. When a complete review proves there is no human choice,
+   record and explain automatic progression until the next choice. Unknown blind
+   hand options require a response rather than an automatic pass.
 4. Resolve the chain backward, applying each effect to the current state. Distinguish
    effect/activation negation, targeting/selection, costs/effects, and destruction.
 5. Collect triggers for the next legal window, resolve simultaneous-trigger order,
@@ -47,6 +54,11 @@ within the game, allowing
 mirrors without a name collision. Record the source bundle path/name in metadata.
 In blind mode, only snapshot the agent's bundle; human deck ID/path is unknown.
 
+Update files locally after every action. Never stage, commit, push, create a PR,
+or write to GitHub during play unless explicitly requested. Pause, finish, and
+“save the game” update local checkpoints only. Keep game changes out of unrelated
+repo development commits.
+
 Private state belongs outside the shared repository during play, in a separate
 authorized location. The helper requires an explicit `--private-dir` outside the
 repository. Do not commit private session files or copy them into public logs.
@@ -54,9 +66,9 @@ Open mode permits the moderator to know all human state, not automatically every
 reader of the repository to see it. Public fields and legally revealed cards stay
 public; masked zones must retain counts/anonymous instances where relevant.
 
-The helpers support initialization, perspective views, draws, guarded approved
-action updates, and replay. They
-does not implement summons, battle, chains, or card effects. Maintain those changes
+The helpers support initialization, views, fixed displays, draws, guarded updates,
+replay, and complete private checkpoints. They do not adjudicate summons, battle,
+chains, or card effects. Maintain those changes
 carefully in the live state, following `docs/agent-play.md`; use an external engine
 or agreed referee for full adjudication if available. Do not claim this is an
 automated tournament-grade simulator.
@@ -71,8 +83,11 @@ information permitted by the mode; never reconstruct unknown cards by guessing.
 
 ## Turn presentation
 
-Use a compact message containing: role/mode, turn/phase, LP, relevant public board,
-the action or legal options, and a single clear question/response request.
-Open mode includes the human's hand and coaching options. Blind mode never does
-so unless particular cards have been legitimately revealed. Save/post-game
-analysis may be longer; keep a live chain focused on the current decision.
+Use `harness/rendering/decision.py` and the field order in the duel-experience doc
+for every gameplay declaration, question, clarification, correction, and update.
+Include turn/phase/window, LP/counts, both boards, GYs/banishment, chain, usage/locks,
+and all intervening events. Open mode shows the human's hand; blind keeps it private.
+Coach gives two distinct legal moves with reasons when available, accepts numbered
+or free-text input, and never invents a second option. Save the exact packet/mapping
+privately before asking. At pause/finish refresh and verify `checkpoint.json` with
+hidden open state, paid costs, pending choices, rules/snapshots, and orders. No commit.

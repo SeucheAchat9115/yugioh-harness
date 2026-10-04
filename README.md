@@ -1,4 +1,4 @@
-# Agentic Yu-Gi-Oh!
+# Yu-Gi-Oh! Harness
 
 The goal of this repository is to let an **agent play a Yu-Gi-Oh! deck against
 another agent or a human**. It brings together the exact decklist, gameplay card
@@ -33,25 +33,38 @@ its own format, banlist, and rules version.
 Read [agent setup and usage](agents/README.md) for invocation examples and the
 session helper. In open mode choose [Branded Despia](decks/unassigned/branded-despia/deck.ydk)
 or [Dracotail](decks/unassigned/dracotail/deck.ydk). Human choices and response
-opportunities are preserved in both modes. No duel has started yet.
+opportunities are preserved in both modes.
 
-A playbook supplies candidate decisions; full card text and the agreed rules decide
-whether an action is legal in the actual state. The repository currently provides
-assets, two reusable conversational agent definitions, a play protocol, and tools
-for setup/draws/perspective views. Card effects and rulings are moderated under
-the agreed rules; a complete automated duel simulator is not implemented.
+The persistent Python harness coordinates authoritative state, player views, action
+validation, local persistence, and decision rendering. Run it with `python -m harness`.
+See [harness architecture and commands](docs/harness.md) for setup and the JSON-lines
+moderator interface. Human chat and model clients connect through player adapters.
+
+The engine currently supports moderator-approved action records and deterministic
+draw/shuffle commands. Effect handlers are pluggable; no card-specific handlers
+ship yet. Unsupported effects require a moderator ruling. Full card legality,
+battles, and automatic turn scheduling remain moderator responsibilities.
 
 Humans declare actions in natural language. The moderator uses
 [internal action records](docs/natural-language-actions.md) for confirmed decisions,
 guarded state updates, response tracking, and replay. Private changes stay outside
 the repository; public logs contain reviewed narration and permitted views.
 
+Every gameplay message uses a [fixed state/decision display](docs/duel-experience.md),
+with two legal recommendations when available and free-text input. Verified
+compulsory/no-choice steps advance automatically until the next real choice and
+are explained in the next display. Game updates save locally; no commit/push
+without an explicit request. Private checkpoints preserve managed hidden cards,
+orders, pending choices, rules, and snapshots for exact resumption.
+
 ## Structure
 
 - `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`, `guide.md`, and optional `README.md`.
 - `decks/unassigned/`: Imported decks awaiting a confirmed format and banlist.
 - `skills/`: Reusable card-data conversion and strategic-analysis workflows.
-- `agents/`: Blind/open agent definitions, shared moderator instructions, and session tools.
+- `harness/`: Persistent runner, engine, effect registry, player adapters, views, storage, and rendering.
+- `agents/`: Blind/open policies and moderator instructions; legacy CLI compatibility wrappers.
+- `tests/`: State/replay, runner, information-boundary, resume, and transport tests plus benchmarks.
 - `docs/agent-play.md`: Shared action, response, information, and recording protocol.
 - `rules/`: Format profiles for card pools, banlists, and applicable rules.
 - `games/<format>/<game-id>/`: Metadata, turn logs, deck snapshots, and saved states.
@@ -72,8 +85,10 @@ Both original exports came from Cardcluster via user uploads. Source links remai
 in the YDK headers and [deck index](decks/unassigned/README.md). The guides are
 reviewed against the exact stored card text and inventory; their combo lines have
 not been executed in a duel engine. Format and banlist assignment remain pending.
-The [planned Branded Despia versus Dracotail matchup](games/planned/branded-despia-vs-dracotail.json)
-has not started. No games have been played yet.
+An [open Branded Despia versus Dracotail duel](games/casual-modern/2026-10-03-open-001/resume.md)
+is locally saved during Turn 1 under agreed casual modern rules. No completed game is
+recorded. The [original planning file](games/planned/branded-despia-vs-dracotail.json)
+remains separate from the actual session.
 
 Preliminary [Edison Blackwings](decks/edison/blackwings/guide.md) and
 [Lightsworn](decks/edison/lightsworn/guide.md) notes live beside their deck index;
@@ -123,4 +138,5 @@ be checked before an agent uses a dependent line.
 
 [Duel agent helper checks](.github/workflows/duel-agents.yml) test blind/open
 information boundaries, hidden-card masking, private storage, fixed draws, and
-resume behavior. These tests do not adjudicate card effects.
+resume behavior. These tests do not adjudicate card effects. Run `python tests/benchmarks/runner.py`
+for local engine latency measurements; model latency is measured separately.

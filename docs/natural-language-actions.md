@@ -5,6 +5,10 @@ card and end my turn”. The duel agent interprets each statement, checks the
 current state and agreed rules, and records the confirmed decision internally.
 The human never needs to write JSON or use commands.
 
+Use [duel experience](duel-experience.md) for fixed state displays, two recommended
+moves/free-text input, automatic verified no-choice progression, local-only saves,
+and complete private resume checkpoints. No game commit without explicit request.
+
 ## Moderator workflow
 
 1. Inspect the permitted view and revision. Resolve references to physical copies.
@@ -13,6 +17,8 @@ The human never needs to write JSON or use commands.
 2. Check legality, timing, costs, and choices. A clear declaration is the human's
    decision; no extra mechanical confirmation is required. Never invent a choice
    or treat silence as passing. Unconfirmed drafts do not change game state.
+   Record compulsory/no-choice progression automatically after a complete review;
+   stop at the next real human choice and explain everything that happened.
 3. Prepare a private action file outside the repository with changes that happen
    now. Activation choices and costs occur at activation; effect results and
    resolution choices are recorded when due.
@@ -38,6 +44,12 @@ See [action.json](../templates/action.json). Required fields:
 | `public_summary_reviewed` | Explicit `true` after reviewing narration for hidden information. |
 | `public_summary` | Public narration without hidden identities, private reasoning, or future draws. |
 | `changes` | Array of `{path, before, after}` replacements. Empty for a decision with no state changes. |
+
+Optional `automatic` is an explicit boolean. If true, `option_review` must contain
+`complete: true`, integer `meaningful_choices: 0`, a nonempty reason, and basis
+`open-state-verified`, `public-rules-verified`, or `human-confirmed-none`. Blind
+rejects open-state proof. This records a moderator-reviewed compulsory/pass-only
+step, never a guessed strategic action or pass with unknown options.
 
 Paths are arrays of object keys and nonnegative indexes, such as
 `["players", "human", "lp"]`. Existing values must match `before` exactly.
@@ -80,8 +92,8 @@ become applicable. Phase/turn updates include applicable resets and delayed effe
 The agent runs these commands on the human's behalf, using the actual game path:
 
 ```sh
-python agents/runtime/actions.py record --state /tmp/duel-private-001/state.json --game-dir games/tcg/example-001 --action /tmp/duel-private-001/action.json
-python agents/runtime/actions.py replay --state /tmp/duel-private-001/state.json --game-dir games/tcg/example-001
+python -m harness.engine.actions record --state /tmp/duel-private-001/state.json --game-dir games/tcg/example-001 --action /tmp/duel-private-001/action.json
+python -m harness.engine.actions replay --state /tmp/duel-private-001/state.json --game-dir games/tcg/example-001
 ```
 
 State and action drafts must be outside the repository. New sessions initialize
@@ -95,6 +107,14 @@ the journal save, run `replay` to repair projections. Check the action ID before
 retrying. `session.py draw` records in the same journal. Do not edit journaled
 state directly. Use one moderator writer; concurrent writers are unsupported.
 Hashes detect inconsistent replay, not malicious history rewriting.
+
+Every update refreshes a private, self-contained `checkpoint.json` with complete
+state/journal, configuration, rules/deck snapshots, and current decision packet.
+The decision renderer adds numbered choice/card mappings before input. Restore
+with `checkpoint.py` into a fresh private directory; do not restart the duel.
+Prefer durable workspace storage outside the repo for long pauses. “Publish” in
+the Python helper means writing local public projections; it performs no Git or
+GitHub operation. No automatic commit at a save, turn, pause, or game end.
 
 Public events contain only revision, ID, kind, actor, timestamp, and reviewed
 summary. Private change payloads are excluded. Free-text narration requires

@@ -10,6 +10,11 @@ Translate confirmed declarations into private records, never asking the human
 to write JSON. Record unknown human zones as counts and anonymous instances only.
 Use the journal for updates and recovery, preserving every response window.
 
+Follow [duel experience](../../docs/duel-experience.md). Every gameplay message
+uses the fixed decision-v1 state display. Save locally after every action; never
+commit/push game records unless explicitly requested. Store your full private
+state and public human observations in checkpoints; never import human hidden cards.
+
 Adopt this definition when the user requests a blind duel. Read `AGENTS.md`,
 `agents/shared/moderator.md`, and `docs/agent-play.md`. You have two explicitly
 labeled roles: **Moderator**, which applies agreed rules consistently, and
@@ -54,12 +59,14 @@ inspection prescribed by its text, not persistent access to the whole hidden dec
 
 ## Human turns
 
-Show public LP, turn/phase, board, GYs, face-up banishment, hand/deck counts, and
-the response window. Ask: **What do you do?** Accept ordinary card names/actions.
+Use the fixed display for LP, turn/phase, both boards, GYs/banishment, counts,
+chain/window, usage/locks, and intervening events. Give two legal recommendations
+from public facts/reveals when available and accept 1/2 or free-text actions.
+Never invent a move from an unknown hand or require a hidden reveal for coaching.
 Check timing, public costs/targets, counters, and restrictions before applying.
 Ask for necessary clarification only. Never offer options based on unknown hand
-cards. If requested, give coaching based on public facts and voluntarily revealed
-cards without demanding a full-hand reveal.
+cards. Explain when fewer than two public-information recommendations are possible;
+the human can still declare other legal actions from their private hand.
 
 When the human draws, use the blind human draw command to update counts and tell
 them to draw privately. When they search, they manage their Deck and shuffle as
@@ -71,7 +78,11 @@ reveals and public choices at the exact effect window.
 
 Plan from your current hand, your guide, and public observations. Choose a legal
 line, declare one action at a time, and wait for the human's response. A prior pass
-does not waive later windows. Respond to human actions as an opponent using only
+does not waive later windows. Continue automatically through compulsory/pass-only
+steps only when public rules prove no human choice or the human confirms none.
+Unknown hidden options require a response; an empty menu is not proof of no choices.
+Record/explain intervening events and stop at the next real choice or uncertainty.
+Respond to human actions as an opponent using only
 permitted information, then switch to Moderator to resolve the chain neutrally.
 Keep hidden-card tactical reasoning out of public explanations. Do not assume the
 human lacks a response because you cannot see their hand.
@@ -81,6 +92,9 @@ human lacks a response because you cannot see their hand.
 Persist public `game.json`/`log.md` and your authorized private state separately.
 Record human hidden zones as unknown with counts; never fabricate their deck order.
 Resume with the same own shuffled order and the human's privately preserved state.
+Refresh/verify private `checkpoint.json`, including your hands/order, paid costs,
+usage, pending choices/prompts, rules, and snapshots. “Save” updates local files;
+it never implies a commit. The human independently preserves their hidden state.
 If a private declaration is disputed, pause for the agreed human/referee procedure
 rather than demanding the entire deck. Log results and offer post-game analysis
 from observed facts. Further voluntary reveals do not retroactively change plays.

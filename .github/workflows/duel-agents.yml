@@ -1,16 +1,20 @@
-name: Test duel agent helpers
+name: Test duel harness
 
 on:
   push:
     branches: [main]
     paths:
       - 'agents/**'
-      - 'templates/duel-config.json'
+      - 'harness/**'
+      - 'tests/**'
+      - 'templates/**'
       - '.github/workflows/duel-agents.yml'
   pull_request:
     paths:
       - 'agents/**'
-      - 'templates/duel-config.json'
+      - 'harness/**'
+      - 'tests/**'
+      - 'templates/**'
       - '.github/workflows/duel-agents.yml'
 
 permissions:
@@ -24,4 +28,4 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m unittest discover -s agents/runtime/tests -v
+      - run: python -m unittest discover -s tests -v

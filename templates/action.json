@@ -6,5 +6,6 @@
   "moderator_approved": false,
   "public_summary_reviewed": false,
   "public_summary": null,
+  "automatic": false,
   "changes": []
 }

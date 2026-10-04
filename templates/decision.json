@@ -1,0 +1,14 @@
+{
+  "expected_revision": null,
+  "role": "Moderator / Coach",
+  "events": [],
+  "recommendations": [],
+  "question": "What do you do?",
+  "awaiting_user": true,
+  "option_review": {
+    "complete": false,
+    "meaningful_choices": null,
+    "basis": null,
+    "reason": null
+  }
+}

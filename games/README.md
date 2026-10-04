@@ -4,6 +4,12 @@ Use the [action workflow](../docs/natural-language-actions.md) for natural-langu
 decisions. Private journals stay outside the repo. Public `events.json` and
 `actions.md` record reviewed narration; `state.json` is a public projection.
 
+Update all game records locally after each action. Do not stage/commit/push games
+unless explicitly requested. “Save”, pause, finish, and automatic continuation
+refresh local records/checkpoints only. Keep games out of unrelated code commits.
+See [duel experience](../docs/duel-experience.md) for fixed displays, two recommended
+moves, automatic verified no-choice steps, and complete private checkpoint recovery.
+
 Store each game in `games/<format>/YYYY-MM-DD-001/`.
 Use a consistent format ID and fill in the metadata from `templates/game.json`.
 Record the banlist and rules version so the game remains reproducible.
@@ -17,9 +23,11 @@ Turn logs record actions, costs, targets, chains, resolutions, and Life Points.
 Saved states preserve hidden cards, card order, and random outcomes for resuming.
 Public logs keep unknown cards unknown. Put post-game analysis in a separate section.
 
-No games have started yet. Current user-selected matchup:
-[Branded Despia versus Dracotail](planned/branded-despia-vs-dracotail.json).
-Player assignments, format, banlist, and rules are pending.
+Current paused game: [Branded Despia versus Dracotail](casual-modern/2026-10-03-open-001/resume.md).
+The human plays Branded Despia under agreed casual modern rules. The chain remains
+unresolved at the saved human response window. Complete private state is outside
+the repository. The earlier [planned matchup](planned/branded-despia-vs-dracotail.json)
+remains a planning artifact.
 
 ## Duel mode
 

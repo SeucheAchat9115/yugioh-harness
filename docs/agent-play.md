@@ -47,6 +47,12 @@ speaks normally, and the moderator records confirmed decisions as guarded intern
 changes. Keep private changes in the session journal; publish only reviewed
 narration and permitted state. Replay the journal for recovery.
 
+Follow [duel experience](duel-experience.md) for every gameplay message: the fixed
+state display, two recommended moves when available, free-text choices, verified
+no-choice continuation, and complete private checkpoints. All saves are local.
+Commit/publish game records only when explicitly requested; “save”, pause, and
+game end do not authorize a commit.
+
 For each action, state the phase/window, card and zone, intended effect, costs,
 targets, and any material choices required at activation. Allow the opponent to
 respond before advancing. Passing one response window does not waive future ones.
@@ -62,7 +68,10 @@ Distinguish costs from effects, activation negation from effect negation,
 targeting from non-targeting selection, and destruction from negation.
 Do not activate new effects while a chain is resolving. Collect resulting triggers
 for the next legal window and order simultaneous effects under the selected rules.
-Automatic passing is allowed only within an explicitly agreed response policy.
+Automatically progress through compulsory/pass-only windows after a complete
+no-choice review, recording the reason and reporting intervening events. Stop at
+the next actual human choice. Silence never passes an available option, and unknown
+blind hidden cards cannot prove no response. Uncertain rulings also stop progression.
 
 After resolution, update state before choosing another action. Check for summons,
 trigger opportunities, delayed effects, and battle/End Phase procedures. Confirm
@@ -74,7 +83,8 @@ Track physical cards and zones, original/current names/types/stats, face-up/down
 status, materials, counters, attack history, proper summons, Normal Summon usage,
 effect/activation counters, turn-wide locks, and lingering restrictions. Some
 effects are per card instance; others share a limit across every copy of a name.
-The JSON and Markdown do not themselves store this live state.
+Record this information in live state and action history; deck JSON and guides
+do not track it automatically.
 
 Use `templates/game.json`, `templates/game-log.md`, and `templates/state.json`
 as starting points and add the counters/lingering effects needed for the game.
@@ -82,6 +92,11 @@ The shared templates are not a complete rules-engine state schema. A public log
 must not expose hidden information; a shared repository should contain public
 records during a live game, with private states held by the authorized referee
 or respective player. Full records can be archived afterward by agreement.
+
+Refresh private `checkpoint.json` after changes and save exact numbered decision
+packets before asking. Preserve open-mode hands/sets and both orders, costs, counters,
+pending choices, rules, and exact snapshots. Verify on pause/resume. Blind human
+hidden state remains with the human; do not fabricate it or request it for a save.
 
 ## Errors, rulings, and ending the game
 
