@@ -47,12 +47,17 @@ class DuelRunner:
             for name, asset in checkpoint['assets'].items():
                 if (self.game_dir / name).read_text(encoding='utf-8') != asset['content']:
                     raise ValueError('Game assets differ from saved checkpoint')
+            self.configuration = config
             self.assets = checkpoint['assets']
             self.packet = checkpoint.get('decision_packet')
             self.effects = effects or EffectRegistry()
             self._ids = {event['action']['id'] for event in self.journal['events']}
             self._journal_stat = self.journal_path.stat()
             self.timings = []
+            from harness.runner.workflow import Workflow
+            workflow_path = self.state_path.with_name('workflow.json')
+            workflow_data = json.loads(workflow_path.read_text()) if workflow_path.exists() else checkpoint.get('workflow')
+            self.workflow = Workflow(self, workflow_data)
         except BaseException:
             self.close()
             raise
@@ -68,15 +73,17 @@ class DuelRunner:
         self.close()
 
     def _fresh(self):
+        if self.lock.closed:
+            raise ValueError('Runner is closed')
         if self._recovery_required:
             raise RecoveryRequired(self.last_action_status)
         now = self.journal_path.stat()
         if (now.st_mtime_ns, now.st_size) != (self._journal_stat.st_mtime_ns, self._journal_stat.st_size):
             raise ValueError('External writer changed the journal; restart runner')
 
-    def context(self, player):
+    def context(self, player, card_ids=None):
         self._fresh()
-        if player not in ('human', 'agent'):
+        if player not in ('human', 'agent', 'moderator'):
             raise ValueError('Player must be human or agent')
         permitted = view(self.state, player)
         # The moderator may know an open human deck order; players never read ahead.
@@ -87,9 +94,9 @@ class DuelRunner:
                               for link in permitted['chain']]
         context = {'state': permitted, 'capabilities': self.effects.capabilities(),
                    'decision': deepcopy(permitted['pending_decision'])}
-        if player == 'human' and self.packet is not None:
+        if self.packet is not None and (player == 'moderator' or player == (self.state.get('pending_decision') or {}).get('actor','human')):
             context['prompt'] = {key: deepcopy(self.packet[key]) for key in
-                                 ('question', 'events', 'awaiting_user', 'hand_refs') if key in self.packet}
+                                 ('decision_id', 'question', 'events', 'awaiting_user', 'hand_refs') if key in self.packet}
             context['prompt']['recommendations'] = [
                 {key: move[key] for key in ('label', 'reason')}
                 for move in self.packet.get('recommendations', [])]
@@ -114,10 +121,18 @@ class DuelRunner:
             for key, card in owner.get('cards', {}).items():
                 if key in visible_ids:
                     context['cards'][key] = {field: deepcopy(card[field]) for field in fields if field in card}
-        return context
+        if card_ids is not None:
+            if not isinstance(card_ids,list) or any(type(value) not in (int,str) for value in card_ids):
+                raise ValueError('Card focus must be a list of IDs')
+            allowed={str(value) for value in card_ids}
+            context['cards']={key:value for key,value in context['cards'].items() if key in allowed}
+        from harness.runner.context import enrich
+        return enrich(self, context, player)
 
     def recover(self):
         """Repair projections from the authoritative journal without executing another action."""
+        if self.lock.closed:
+            raise ValueError('Runner is closed')
         try:
             journal = json.loads(self.journal_path.read_text())
             state = replay(journal)
@@ -130,6 +145,9 @@ class DuelRunner:
         self._journal_stat = self.journal_path.stat()
         self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text()).get('decision_packet')
         self._recovery_required = False
+        from harness.runner.workflow import Workflow
+        workflow_path = self.state_path.with_name('workflow.json')
+        self.workflow = Workflow(self, json.loads(workflow_path.read_text()) if workflow_path.exists() else None)
         return {'revision': state['revision'], 'recovered': True, 'last_action': self.last_action_status}
 
     def record(self, action):

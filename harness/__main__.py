@@ -14,13 +14,13 @@ def dispatch(duel, request):
     if not isinstance(request, dict) or not isinstance(request.get('op'), str):
         raise InvalidRequest('Request must be an object with an operation')
     operation = request['op']
-    required = {'command': 'request', 'record': 'action', 'effect': 'request', 'display': 'packet'}
+    required = {'command': 'request', 'record': 'action', 'effect': 'request', 'display': 'packet', 'present': 'packet', 'step': 'request'}
     if operation in required and not isinstance(request.get(required[operation]), dict):
         raise InvalidRequest('Operation payload must be an object')
     if operation == 'view':
-        if request.get('player', 'human') not in ('human', 'agent'):
+        if request.get('player', 'human') not in ('human', 'agent', 'moderator'):
             raise InvalidRequest('Invalid player')
-        return duel.context(request.get('player', 'human'))
+        return duel.context(request.get('player', 'human'), request.get('card_ids'))
     if operation == 'command':
         return duel.command(request['request'])
     if operation == 'record':
@@ -31,6 +31,14 @@ def dispatch(duel, request):
         return duel.effect(request['name'], request['request'])
     if operation == 'display':
         return {'text': duel.display(request['packet'])}
+    if operation == 'present':
+        return duel.workflow.present(request['packet'])
+    if operation == 'submit':
+        return duel.workflow.submit(request['decision_id'],request['request_id'],request['response'],request.get('player','human'))
+    if operation == 'step':
+        return duel.workflow.execute(request['request_id'],request['request'],request.get('submission_id'))
+    if operation == 'status':
+        return duel.workflow.status()
     if operation == 'recover':
         return duel.recover()
     if operation == 'capabilities':

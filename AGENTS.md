@@ -75,3 +75,9 @@
 - Preserve schema-1 journals/checkpoints and legacy CLI compatibility. Test with
   `python -m unittest discover -s tests -v`; benchmark with
   `python tests/benchmarks/runner.py`. Never run benchmarks against a real duel.
+
+- Use `docs/codex-play.md` for integrated sessions: persist numbered decisions with
+  IDs, submit input before reviewing it, and execute stable request IDs through
+  the workflow. Identical retries must not apply actions twice. Bind H/A hand
+  references to saved prompts. Never show opponent packets or moderator context
+  to the human. MCP tools are trusted moderator tools, not a player-facing API.

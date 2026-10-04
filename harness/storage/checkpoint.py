@@ -62,6 +62,9 @@ def _write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _v
                   "decision_packet": decision_packet, "assets": assets,
                   "blind_human_resume": "Human must preserve their own hidden cards/order independently."
                   if state["mode"] == "blind" else None}
+    workflow_path = state_path.with_name("workflow.json")
+    if workflow_path.exists():
+        checkpoint["workflow"] = json.loads(workflow_path.read_text())
     save(path, checkpoint)
     path.chmod(0o600)
     return path
@@ -125,6 +128,8 @@ def _restore(checkpoint_path, state_path, game_dir):
         target.write_bytes(asset["content"].encode("utf-8"))
     save(game_dir / "game.json", checkpoint["configuration"])
     save(state_path.with_name("journal.json"), checkpoint["journal"])
+    if "workflow" in checkpoint:
+        save(state_path.with_name("workflow.json"), checkpoint["workflow"])
     save(state_path.with_name("checkpoint.json"), checkpoint)
     publish(checkpoint["journal"], state_path, game_dir)
     return state

@@ -45,6 +45,9 @@ structural action validation, local persistence, and decision rendering. Player
 contexts include visible card text, pending effects, and recent reviewed events. Run it with `python -m harness`.
 See [harness architecture and commands](docs/harness.md) for setup and the JSON-lines
 moderator interface. Human chat and model clients connect through player adapters.
+[Codex play integration](docs/codex-play.md) provides a persistent MCP server,
+durable decision IDs, safe retries, convenient state tools, and a host-driven
+player/moderator loop.
 
 The LLM moderator records its adjudicated actions through guarded state updates.
 Deterministic draw/shuffle commands handle bookkeeping and randomness. Optional

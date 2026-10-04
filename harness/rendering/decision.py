@@ -97,6 +97,8 @@ def render(state, packet):
     else:
         lines.append("**Your choice:** " + ("Game paused/finished; no action requested." if state["status"] in {"paused", "finished"}
                                           else "No choice at this step; continuing automatically."))
+    if packet.get("decision_id"):
+        lines.append(f"**Decision ID:** {packet['decision_id']}")
     return "\n\n".join(lines) + "\n"
 
 

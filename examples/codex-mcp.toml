@@ -1,0 +1,8 @@
+# Merge this block into your Codex configuration after starting a session.
+# Replace paths with the actual checkout and durable private/game directories.
+[mcp_servers.yugioh]
+command = "python"
+args = ["-m", "harness.integration.mcp", "--state", "/workspace/duel-private/example-001/state.json", "--game-dir", "/workspace/yugioh-harness/games/tcg/example-001"]
+cwd = "/workspace/yugioh-harness"
+startup_timeout_sec = 10
+tool_timeout_sec = 30

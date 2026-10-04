@@ -14,6 +14,12 @@ Both use [shared moderator instructions](shared/moderator.md) and the
 definition; creating subagents is not required. Labels distinguish Moderator,
 Opponent, and, in open mode, Coach. Rule disputes use an agreed source/referee.
 
+## Persistent Codex tools
+
+Follow [Codex play integration](../docs/codex-play.md) to enable the local MCP
+server once per session. It keeps the runner loaded and exposes context, reviewed
+choices, submitted intentions, state operations, receipts, and recovery.
+
 ## Start a conversation
 
 Blind example:

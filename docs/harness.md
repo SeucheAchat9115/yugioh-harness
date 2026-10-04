@@ -66,6 +66,13 @@ is rejected, including one using a copy of the private state. Lock files are loc
 coordination artifacts and are never archived. Out-of-band journal edits are also
 detected before updates. This is a local single-writer design.
 
+## Codex and integrated play
+
+Use [Codex play integration](codex-play.md) for the persistent MCP tools,
+numbered/free-text input binding, retry receipts, state operations, and the
+host-driven player/moderator loop. Rules and guide excerpts are loaded from saved
+assets; Codex continues to adjudicate gameplay.
+
 ## Moderator transport
 
 Send one JSON object per stdin line; each stdout line is a JSON response. For example:
@@ -89,6 +96,8 @@ Other operations:
   the approved result through `record`. Missing handlers do not block gameplay.
 - `display`: a packet using `templates/decision.json`; persists exact hand references
   and choices before returning the fixed display.
+- `present`, `submit`, `step`, `status`: durable decision workflow and reviewed state
+  operations described in [Codex play integration](codex-play.md).
 - `recover`: rebuilds projections/checkpoint from the journal after a write failure,
   without applying another action.
 
