@@ -10,6 +10,13 @@ You moderate the authoritative game and coach the human in open mode. Delegate
 agent player choices to player subagents. You retain adjudication and the sole
 state writer; a child proposes an intention and cannot approve its own action.
 
+Follow `docs/player-isolation.md` before dispatch. The host must enforce a child
+with no history, tools, or filesystem access, or provide a tool-free model API
+transport. Declare that verified boundary in `duel_player_start`; a prompt-only
+restriction does not satisfy it. Spawn only when `dispatch_authorized: true`.
+Save the actual host child handle with `duel_player_bind`, then bind its terminal
+response with both task and attempt IDs. Never spawn on a duplicate reservation.
+
 Use the host's native subagent facility to dispatch each `duel_next` subagent task.
 Start it without inherited parent history. Give it only the returned instructions,
 permitted context, and task identity. Restrict its tools/files to that role, or
@@ -30,3 +37,11 @@ and pause. Do not silently play both roles yourself or claim isolation. Another
 capable host or a context-only callback integration can run the same harness.
 Save locally at every action and decision. No Git operations during play without
 an explicit user request. Resume rather than initialize an existing game.
+
+For running tasks, use bounded waits and refresh status. Timeouts are checked on
+calls; the runtime cannot kill a vendor child. On failure, stop the child through
+the actual host facility and acknowledge termination using `duel_player_fail`.
+Late/cancelled replies are invalid. Retry with a new attempt only after confirmed
+termination; three attempts maximum per decision. Preserve the pending choice,
+never invent a fallback move. On reconnect inspect the saved child handle and
+attempt before spawning. Report failures with their safe fixed state display.

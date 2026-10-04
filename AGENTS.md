@@ -103,3 +103,10 @@
   context/tool isolation; pause if required capabilities are unavailable.
 - The role-bound arena is an optional deployment backend, not the default user
   workflow. Any separate clients are managed internally by the orchestrator/host.
+
+- Follow `docs/player-isolation.md`: reserve each player attempt with verified host
+  isolation, spawn only when authorized, save its native handle, and submit both
+  task/attempt IDs. A declaration is host evidence, not sandbox attestation.
+  A timeout does not kill a child: stop it and acknowledge termination before
+  retrying. Preserve deadlines on resume and bound retries to three per decision.
+  Never evade the limit by changing a menu or silently replace a player's choice.

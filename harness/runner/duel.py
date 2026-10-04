@@ -92,7 +92,7 @@ class DuelRunner:
         # Chain objects may carry internal resolution choices; give players only public fields.
         permitted['chain'] = [{k: link[k] for k in ('id', 'actor', 'name', 'effect', 'costs', 'targets', 'effect_negated') if k in link}
                               for link in permitted['chain']]
-        context = {'state': permitted, 'capabilities': self.effects.capabilities(),
+        context = {'perspective': player, 'state': permitted, 'capabilities': self.effects.capabilities(),
                    'decision': deepcopy(permitted['pending_decision'])}
         if self.packet is not None and (player == 'moderator' or player == (self.state.get('pending_decision') or {}).get('actor','human')):
             context['prompt'] = {key: deepcopy(self.packet[key]) for key in

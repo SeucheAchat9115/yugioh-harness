@@ -47,7 +47,7 @@ def render(state, packet):
         validate_no_choice(state, review)
     if not awaiting and not (complete and count == 0) and state["status"] not in {"paused", "finished"}:
         raise ValueError("Unknown options cannot be treated as no choice")
-    private_menu = state["mode"] == "agent-vs-agent" and awaiting
+    private_menu = (state["mode"] == "agent-vs-agent" or packet.get("observer") is True) and awaiting
     if private_menu:
         recommendations = []
     human = view(state, "public" if state["mode"] == "agent-vs-agent" else "human")

@@ -24,6 +24,9 @@ You always speak to the **orchestrator**. It handles configuration, runtime call
 local saves, and resumption. It asks you for human choices and launches player
 subagents sequentially with their respective contexts. In agent-versus-agent
 mode it manages both private player children while you watch public state.
+Dispatch reserves durable attempts with deadlines, saved child handles, and
+bounded retries; [player isolation](docs/player-isolation.md) requires verified
+host restrictions or a tool-free model request.
 No Python commands, JSON preparation, or separate player sessions are required
 from you during a duel. See [conversational play](docs/codex-play.md) and the
 [orchestration skill](skills/duel-orchestrator/SKILL.md).

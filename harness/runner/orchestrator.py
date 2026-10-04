@@ -2,6 +2,7 @@
 from copy import deepcopy
 from uuid import uuid4
 from harness.rendering.decision import render
+from harness.runner.player_tasks import PlayerTasks
 
 PLAYER_POLICY = ('You are a Yu-Gi-Oh! player, not the moderator. Choose one intention '
                  'using only the supplied context and card text. Return response as a '
@@ -10,12 +11,26 @@ PLAYER_POLICY = ('You are a Yu-Gi-Oh! player, not the moderator. Choose one inte
 
 
 class Orchestrator:
-    def __init__(self, runner):
+    def __init__(self, runner, clock=None):
         self.runner = runner
+        self.players = PlayerTasks(runner, clock)
+
+    def progress_text(self):
+        return render(self.runner.state, {'expected_revision': self.runner.state['revision'],
+            'awaiting_user': self.runner.state['status'] == 'active', 'observer': True,
+            'role': 'Moderator', 'recommendations': [],
+            'events': [event['summary'] for event in self.runner.context('public')['recent_events']]})
 
     def next(self):
         runner = self.runner
         runner._fresh()
+        blocking = self.players.blocking()
+        if blocking:
+            info = self.players.summary(blocking)
+            if info['status'] != 'running':
+                return {'kind': 'subagent_failure', **info, 'text': self.progress_text()}
+            # Never return a fresh dispatch while any child is already running.
+            return {'kind': 'subagent_wait', **info, 'text': self.progress_text()}
         if runner.state['status'] in ('paused', 'finished'):
             packet = {'expected_revision': runner.state['revision'], 'awaiting_user': False,
                       'recommendations': [], 'events': [event['summary'] for event in runner.context('public')['recent_events']]}
@@ -40,17 +55,14 @@ class Orchestrator:
                     'revision': runner.state['revision'], 'player': actor}
             tasks[task['task_id']] = task
             runner.workflow.persist()
-        return {'kind': 'subagent', **deepcopy(task), 'instructions': PLAYER_POLICY,
+        if task.get('status') in ('failed', 'cancelled', 'timed_out'):
+            return {'kind': 'subagent_failure', **self.players.summary(task), 'text': self.progress_text()}
+        return {'kind': 'subagent', 'task_id': task['task_id'], 'decision_id': task['decision_id'],
+                'revision': task['revision'], 'player': actor, 'instructions': PLAYER_POLICY,
                 'context': runner.context(actor)}
 
-    def agent_result(self, task_id, response):
-        self.runner._fresh()
-        task = self.runner.workflow.data.get('player_tasks', {}).get(task_id)
-        if task is None:
-            raise ValueError('Unknown player task')
-        # Workflow validates freshness and permits identical completed retries.
-        return self.runner.workflow.submit(task['decision_id'], 'player-task-' + task_id,
-                                           response, task['player'])
+    def agent_result(self, task_id, attempt_id, response):
+        return self.players.result(task_id, attempt_id, response)
 
     def human_reply(self, decision_id, request_id, response):
         if self.runner.state['mode'] == 'agent-vs-agent':

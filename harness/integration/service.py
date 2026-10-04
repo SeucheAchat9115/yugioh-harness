@@ -6,6 +6,7 @@ from uuid import uuid4
 from harness.engine.session import start, load_bundle
 from harness.runner.duel import DuelRunner, RecoveryRequired
 from harness.runner.orchestrator import Orchestrator
+from harness.runner.player_tasks import PlayerTaskError
 from harness.storage.atomic import save
 from harness.storage.checkpoint import write_checkpoint
 from harness.__main__ import dispatch
@@ -77,6 +78,8 @@ class DuelService:
             raise ValueError('Invalid game directory')
         if self.runner and self.runner.state['game_id'] == game_id:
             return self.runner.workflow.status()
+        if self.runner and Orchestrator(self.runner).players.blocking():
+            raise PlayerTaskError('child_still_active')
         self.close()
         self.runner = DuelRunner(folder / 'state.json', game)
         return self.runner.workflow.status()
@@ -99,12 +102,24 @@ class DuelService:
                 if op == 'next':
                     result = orchestrator.next()
                 elif op == 'agent_result':
-                    result = orchestrator.agent_result(request['task_id'], request['response'])
+                    result = orchestrator.agent_result(request['task_id'], request['attempt_id'], request['response'])
+                elif op == 'player_start':
+                    result = orchestrator.players.begin(request['task_id'], request['request_id'], request['isolation'], request.get('timeout_seconds', 60))
+                elif op == 'player_bind':
+                    result = orchestrator.players.bind(request['task_id'], request['attempt_id'], request['child_id'])
+                elif op == 'player_fail':
+                    result = orchestrator.players.fail(request['task_id'], request['attempt_id'], request['reason'], request.get('terminated', False))
                 elif op == 'human_reply':
                     result = orchestrator.human_reply(request['decision_id'], request['request_id'], request['response'])
                 else:
+                    if op == 'submit' and (request.get('player', 'human') == 'agent' or self.runner.state['mode'] == 'agent-vs-agent'):
+                        raise PlayerTaskError('player_attempt_required')
+                    if op in ('step', 'present', 'command', 'record', 'effect') and orchestrator.players.blocking():
+                        raise PlayerTaskError('child_still_active')
                     result = dispatch(self.runner, request)
             return {'ok': True, 'result': result}
+        except PlayerTaskError as error:
+            return {'ok': False, 'error': {'code': error.code, 'message': 'Player dispatch blocked; inspect duel_next and the host child status.'}}
         except RecoveryRequired as error:
             return {'ok': False, 'error': {'code': 'recovery_required', 'action_status': error.action_status}}
         except (ValueError, KeyError, TypeError, AttributeError, IndexError):

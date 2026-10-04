@@ -13,6 +13,10 @@ from harness.storage.checkpoint import restore
 from harness.runner.duel import DuelRunner
 
 
+ISOLATION = {'method': 'context-only', 'parent_history': False, 'tools': [],
+             'filesystem': False, 'evidence': 'harness.players.isolated: tool-free API transport'}
+
+
 class OrchestratorTests(unittest.TestCase):
     setUp = fixtures.SessionTests.setUp
     tearDown = fixtures.SessionTests.tearDown
@@ -28,11 +32,17 @@ class OrchestratorTests(unittest.TestCase):
         self.assertTrue(response['ok'], response)
         return service
 
+    def dispatch(self, service, task):
+        receipt = service.request({'op': 'player_start', 'task_id': task['task_id'],
+                                   'request_id': 'dispatch-' + task['task_id'], 'isolation': ISOLATION})
+        self.assertTrue(receipt['ok'], receipt)
+        return receipt['result']['attempt_id']
+
     def test_lobby_discovery_and_mcp_setup_without_session_paths(self):
         service = DuelService(self.repo, self.private)
         self.addCleanup(service.close)
         names = [tool['name'] for tool in rpc(service, {'jsonrpc': '2.0', 'id': 1, 'method': 'tools/list'})['result']['tools']]
-        self.assertEqual(len(names), 13)
+        self.assertEqual(len(names), 16)
         self.assertIn('duel_start', names)
         self.assertEqual(len(service.decks()), 2)
         self.assertFalse(service.request({'op': 'next'})['ok'])
@@ -64,7 +74,7 @@ class OrchestratorTests(unittest.TestCase):
         service.close()
         service.resume('test-001')
         self.assertEqual(task, service.request({'op': 'next'})['result'])
-        result = {'op': 'agent_result', 'task_id': task['task_id'], 'response': 'Pass'}
+        result = {'op': 'agent_result', 'task_id': task['task_id'], 'attempt_id': self.dispatch(service, task), 'response': 'Pass'}
         first = service.request(result)
         self.assertTrue(first['ok'])
         self.assertEqual(first, service.request(result))
@@ -78,9 +88,10 @@ class OrchestratorTests(unittest.TestCase):
         open_window(runner, 'human')
         runner.workflow.present(packet(runner))
         first = service.request({'op': 'next'})['result']
+        attempt_id = self.dispatch(service, first)
         self.assertEqual(first['player'], 'human')
         self.assertNotIn('hand', first['context']['state']['players']['agent'])
-        self.assertTrue(service.request({'op': 'agent_result', 'task_id': first['task_id'], 'response': '1'})['ok'])
+        self.assertTrue(service.request({'op': 'agent_result', 'task_id': first['task_id'], 'attempt_id': attempt_id, 'response': '1'})['ok'])
         self.assertEqual(service.request({'op': 'next'})['result']['kind'], 'moderator')
         runner.workflow.execute('switch', plan(runner, [{'op': 'decision', 'value': {'actor': 'agent', 'window': 'response'}}]), 'player-task-' + first['task_id'])
         runner.workflow.present(packet(runner))
@@ -90,8 +101,8 @@ class OrchestratorTests(unittest.TestCase):
         self.assertNotIn('hand', second['context']['state']['players']['human'])
         self.assertFalse(service.request({'op': 'human_reply', 'decision_id': second['decision_id'], 'request_id': 'x', 'response': '1'})['ok'])
         # A completed retry is safe even after advancing; a forged task is rejected.
-        self.assertTrue(service.request({'op': 'agent_result', 'task_id': first['task_id'], 'response': '1'})['ok'])
-        self.assertFalse(service.request({'op': 'agent_result', 'task_id': 'forged', 'response': '1'})['ok'])
+        self.assertTrue(service.request({'op': 'agent_result', 'task_id': first['task_id'], 'attempt_id': attempt_id, 'response': '1'})['ok'])
+        self.assertFalse(service.request({'op': 'agent_result', 'task_id': 'forged', 'attempt_id': 'forged', 'response': '1'})['ok'])
         destination = self.private.parent / 'restored' / 'state.json'
         checkpoint = runner.state_path.with_name('checkpoint.json')
         game = runner.game_dir
@@ -120,8 +131,8 @@ class OrchestratorTests(unittest.TestCase):
         runner.workflow.present(updated)
         current = service.request({'op': 'next'})['result']
         self.assertNotEqual(old['task_id'], current['task_id'])
-        self.assertFalse(service.request({'op': 'agent_result', 'task_id': old['task_id'], 'response': '1'})['ok'])
-        self.assertTrue(service.request({'op': 'agent_result', 'task_id': current['task_id'], 'response': '1'})['ok'])
+        self.assertFalse(service.request({'op': 'agent_result', 'task_id': old['task_id'], 'attempt_id': 'none', 'response': '1'})['ok'])
+        self.assertTrue(service.request({'op': 'agent_result', 'task_id': current['task_id'], 'attempt_id': self.dispatch(service, current), 'response': '1'})['ok'])
 
     def test_pause_returns_fixed_state_and_reviewed_events(self):
         service = self.service()

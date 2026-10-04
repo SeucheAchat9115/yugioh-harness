@@ -133,8 +133,12 @@ class Workflow:
 
     def status(self):
         self.runner._fresh()
+        from harness.runner.player_tasks import PlayerTasks
+        players = PlayerTasks(self.runner)
+        players.refresh()
         packet=self.runner.packet or {}
         return {'revision':self.runner.state['revision'],'decision_id':packet.get('decision_id'),
                 'pending':deepcopy(self.runner.state.get('pending_decision')),
+                'player_tasks':[players.summary(task) for task in players.tasks.values()],
                 'submissions':[{'request_id':key,'status':value['status']} for key,value in self.data['submissions'].items()],
                 'executions':[{'request_id':key,'status':value['status']} for key,value in self.data['executions'].items()]}

@@ -33,7 +33,10 @@ already-running app. These are **moderator** tools; never expose them to players
 | `duel_start` | Create an agreed duel, internal private paths, snapshots, and hands |
 | `duel_resume` | Load a saved game by ID, without reshuffling |
 | `duel_next` | Return the next human display, private player task, or moderator review |
-| `duel_agent_result` | Bind a child response to its persisted task and player |
+| `duel_player_start` | Reserve a bounded attempt after verified host isolation |
+| `duel_player_bind` | Save the native child handle for cancellation/resume |
+| `duel_player_fail` | Record failure and acknowledge actual child termination |
+| `duel_agent_result` | Bind terminal output to its task and attempt |
 | `duel_human_reply` | Bind conversational human input to the displayed decision |
 | `duel_context` | Get a permitted perspective, card text, rules, and guides |
 | `duel_present` | Save reviewed options and the decision ID |
@@ -55,7 +58,8 @@ spawn a model itself; the app's orchestrator invokes its native subagent tools.
 
 In open mode the moderator and opposing player know human state as agreed. Blind
 mode never imports human hidden cards. Agent-versus-agent player views hide the
-other hand and guide. Child context envelopes must stay internal. Host tool and
+other hand and guide. Child context envelopes must stay internal. Follow [isolation and failure handling](player-isolation.md)
+for dispatch declarations, deadlines, cancellation, and bounded retries. Host tool and
 filesystem restrictions or context-only callbacks are required for enforced
 isolation; merely supplying a private prompt does not sandbox a child.
 

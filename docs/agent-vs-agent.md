@@ -20,8 +20,10 @@ both managed states; no LLM context contains future draw order.
    `show_agent_hand: true` is rejected.
 2. The moderator opens the active actor's decision window and presents its private
    options. `duel_next` returns only that actor's subagent task and permitted context.
-3. Spawn a native child without parent history, passing only the task envelope.
-   Wait for it, then bind its number/free-text intention with `duel_agent_result`.
+3. Follow [isolation and failure handling](player-isolation.md). Reserve an attempt
+   with `duel_player_start`, spawn only if authorized with no history/tools/files,
+   save its handle with `duel_player_bind`, and bind terminal output using both
+   task and attempt IDs with `duel_agent_result`.
    Do not dispatch the other player concurrently or show these menus to observers.
 4. `duel_next` requests moderator review. Adjudicate legality and responses, apply
    a guarded step with the submission ID, then repeat with fresh context.

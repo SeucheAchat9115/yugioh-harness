@@ -39,11 +39,21 @@ Call `duel_next` after setup, presentation, input, or an applied action:
   Give two distinct legal recommendations when available; free text is valid.
   Submit their answer with `duel_human_reply(decision_id, request_id, response)`.
   Keep stable IDs and identical payloads for retries; the user never types IDs.
-- `kind: subagent`: invoke a native host child with **no parent history** and only
-  this task's `instructions`, `context`, `player`, and `task_id`. Do not attach
-  broader repo/private-file access. Await a number or free-text intention; store
-  it with `duel_agent_result(task_id, response)`. Do not execute child suggestions
-  directly. Dispatch only this active actor, then refresh with `duel_next`.
+- `kind: subagent`: follow `docs/player-isolation.md`. Verify the actual host
+  boundary: no parent history, tools, or filesystem access, or use the context-only
+  model adapter. Reserve with `duel_player_start` and a stable request ID. Spawn
+  only when `dispatch_authorized: true`; duplicate reservations never authorize
+  another child. Give only the permitted context/policy, correlate by attempt ID,
+  and immediately save the native handle through `duel_player_bind`.
+  Await a terminal response and call `duel_agent_result(task_id, attempt_id,
+  response)`. Review it before applying anything. A retry uses a new attempt ID.
+- `kind: subagent_wait`: keep the same host child; poll with bounded waits and
+  fresh status. Do not spawn again or advance the decision while it is running.
+- `kind: subagent_failure`: show the safe fixed state and report the failure.
+  Interrupt the host child and confirm it stopped with `duel_player_fail` and
+  `terminated: true`. Only then can a new bounded attempt start. Never mark a
+  child terminated merely because a deadline elapsed. After three attempts, stop
+  and pause; no auto-pass or substituted moderator move.
 - `kind: moderator`, `stage: review_intent`: check exact card text, costs, timing,
   materials, restrictions, and responses. Apply reviewed operations through
   `duel_step`, using the intention's request ID as `submission_id`. If clarification
@@ -68,7 +78,8 @@ run this workflow merely by reading the repository.
 
 Private checkpoints include managed hands/orders, pending menus, submissions,
 player task bindings, and execution receipts. On reconnect, resume the game and
-call `duel_next`; an outstanding task retains its ID. Identical result/action
+call `duel_next`; outstanding tasks, attempt IDs, deadlines, and child handles
+remain saved. Reconcile any existing child before retrying. Identical result/action
 retries are safe. Recover storage errors before continuing; never repeat a
 recorded effect. Do not publish game files without explicit authorization.
 
