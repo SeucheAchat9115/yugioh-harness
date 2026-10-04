@@ -11,11 +11,10 @@ names as the reference; optional localized display names may be added.
 Record `source.url`, the retrieval date, and any changes from the source.
 Additional `.ydk` exports may be saved once card IDs are available.
 
-## Required source
+## Import provenance
 
-All decklists must come from https://cardcluster.com/. Do not use other deck
-archives as sources. Every imported list must include the exact deck URL and
-retrieval date. Save changes to an imported list as a new version with documented
+Accept user-supplied YDKs or decklists from a selected source. Record the exact
+source URL and retrieval date when available. Save changes to an imported list as a new version with documented
 deviations from the source.
 
 ## Preliminary play notes
@@ -23,4 +22,4 @@ deviations from the source.
 - [Blackwings](blackwings/guide.md)
 - [Lightsworn](lightsworn/guide.md)
 
-These are general Edison notes awaiting exact Cardcluster deck imports.
+These are general Edison notes awaiting exact deck imports.

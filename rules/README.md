@@ -14,7 +14,6 @@ Before playing, record:
 - Rules sources and how unclear interactions will be resolved.
 
 Preserve the selected rules profile or its version in each game's records.
-Decklists always come from Cardcluster; rules references may use relevant official
-or format-specific sources.
+Rules references may use relevant official or format-specific sources.
 
 Available profile: [Edison](edison.md).

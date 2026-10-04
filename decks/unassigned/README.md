@@ -1,7 +1,7 @@
 # Decks awaiting format assignment
 
 Each named deck folder contains `deck.ydk`, gameplay-only `deck.json`, `guide.md`,
-and a `README.md` with Cardcluster provenance. Original exports are unchanged.
+and a `README.md` with author and import notes. Deck contents are unchanged.
 
 | Deck | Main / Extra / Side | Bundle | Playbook |
 | --- | --- | --- | --- |

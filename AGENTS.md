@@ -10,10 +10,9 @@
   from the selected rules profile rather than hardcoding them in shared templates.
 - Use English for repository documentation and template text. Use English card
   names in deck files; optional localized display names may be added.
-- Always obtain decklists exclusively from https://cardcluster.com/.
-  Do not substitute other deck archives. Record the exact source URL,
-  retrieval date, author, and any available version information.
-- If Cardcluster is unavailable, mark the import as pending.
+- Accept user-supplied YDKs or decklists from a source selected for the task.
+  Record author, retrieval date, source URL when available, and version information.
+- If a requested decklist cannot be retrieved, mark the import as pending.
   Do not present invented lists as researched lists.
 - Create a new version when changing a deck. Previously played games retain
   their original deck snapshots.
@@ -28,7 +27,7 @@
   ordered Main/Extra/Side IDs, and card names, text, types, and applicable stats.
   Follow schema 2.0 in `skills/ydk-to-json/SKILL.md`. Do not include prices,
   printings, artwork URLs, API miscellany, or import provenance in these JSONs.
-  Preserve Cardcluster source links in the YDK headers and deck-folder README.
+  Preserve available provenance in the YDK headers and deck-folder README.
 
 - Aim to enable an agent to pilot a deck against another agent or a human.
   Use `skills/deck-playbook/SKILL.md` to write each deck folder's `guide.md`

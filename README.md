@@ -37,7 +37,7 @@ or the orchestrator can operate the backend through its execution tools.
 
 ## From a decklist to a playable agent
 
-1. **Import the deck:** obtain a Cardcluster YDK and preserve its original contents.
+1. **Import the deck:** obtain a YDK and preserve its original contents.
 2. **Prepare card data:** use [YDK to JSON](skills/ydk-to-json/SKILL.md) to create a
    `deck.json` in the deck folder with ordered Main/Extra/Side IDs and gameplay-only card
    records: names, full text, types, stats, and applicable Link/Pendulum details.
@@ -119,8 +119,8 @@ refresh it when the deck or relevant text changes.
 | Branded Despia | 53 / 14 / 12 | [JSON](decks/unassigned/branded-despia/deck.json) | [Guide](decks/unassigned/branded-despia/guide.md) |
 | Dracotail | 40 / 15 / 15 | [JSON](decks/unassigned/dracotail/deck.json) | [Guide](decks/unassigned/dracotail/guide.md) |
 
-Both original exports came from Cardcluster via user uploads. Source links remain
-in the YDK headers and [deck index](decks/unassigned/README.md). The guides are
+Both decks were supplied as user-uploaded YDKs. Author and import notes remain
+in the [deck index](decks/unassigned/README.md). The guides are
 reviewed against the exact stored card text and inventory; their combo lines have
 not been comprehensively validated through played scenarios. Format and banlist
 assignment remain pending.
@@ -131,12 +131,12 @@ remains separate from the actual session.
 
 Preliminary [Edison Blackwings](decks/edison/blackwings/guide.md) and
 [Lightsworn](decks/edison/lightsworn/guide.md) notes live beside their deck index;
-their Cardcluster deck imports are pending.
+their deck imports are pending.
 
 ## Sources and versioning
 
-Decklists must come exclusively from **https://cardcluster.com/**. Record the exact
-source URL, author, retrieval information when available, and source version in the
+Use user-supplied YDKs or decklists from the selected source. Record available
+source URLs, author, retrieval information, and source version in the
 accompanying documentation. YGOPRODeck supplies card data, not replacement lists.
 Enriched gameplay JSON excludes prices, images, printings, and import/API metadata.
 

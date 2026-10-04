@@ -18,4 +18,3 @@ because it is unfavorable.
 
 Check the exact format legality of imported decklists during import.
 Format rules reference: https://www.edisonformat.com/
-Decklist source: https://cardcluster.com/ exclusively.

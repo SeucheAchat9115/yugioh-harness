@@ -15,7 +15,7 @@ class ConverterTests(unittest.TestCase):
     def test_order_gameplay_fields_and_deck_identity_survive(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "deck.ydk"
-            raw = b"#created by Author - https://cardcluster.com/deck/abc\r\n#main\r\n001\r\n2\r\n1\r\n#extra\r\n2\r\n!side\r\n1\r\n"
+            raw = b"#created by Author - https://example.com/deck/abc\r\n#main\r\n001\r\n2\r\n1\r\n#extra\r\n2\r\n!side\r\n1\r\n"
             path.write_bytes(raw)
             path.with_suffix(".json").write_text(json.dumps({"id": "stable-v1", "source": {"provided_by": "user"}}))
             records = {i: {"id": i, "name": f"Card {i}", "desc": "Text", "type": "Spell Card", "race": "Normal",

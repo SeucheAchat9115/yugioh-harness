@@ -15,7 +15,7 @@ Use `unassigned` as the format folder until the format/banlist is confirmed.
 The JSON's deck ID/version remains stable when files move. Name separate variants
 or versions explicitly when multiple bundles must coexist; never overwrite game snapshots.
 
-`deck.ydk` preserves the Cardcluster export. `deck.json` contains gameplay-only
+`deck.ydk` stores the imported decklist. `deck.json` contains gameplay-only
 card data and ordered sections, produced by the [conversion skill](../skills/ydk-to-json/SKILL.md).
 `guide.md` contains card roles, access maps, synergies, conditional combos, matchup
 notes, and agent decisions, produced by the [playbook skill](../skills/deck-playbook/SKILL.md).

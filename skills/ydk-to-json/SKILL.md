@@ -6,8 +6,7 @@ description: Convert YDK exports into generic `deck.json` gameplay files in name
 # YDK to gameplay JSON
 
 Use this skill to import or refresh YDK decks for playing Yu-Gi-Oh!.
-Read `AGENTS.md` first. Decklists come from Cardcluster or user-supplied
-Cardcluster exports; YGOPRODeck provides card information.
+Read `AGENTS.md` first. Accept user-supplied YDKs or decklists from the selected source; YGOPRODeck provides card information.
 During a blind duel, do not load or convert the human's hidden deck. In an open
 duel, convert the human-selected bundle when required by the open agent definition.
 
@@ -88,7 +87,7 @@ Scale. All cards require ID, name, type, race, and full text.
 Do not include card prices, sets/printings, images or image URLs, release dates,
 API URLs, API timestamps, `misc_info`, current `banlist_info`, import headers,
 source metadata, file hashes, status notes, or arbitrary API fields in the JSON.
-Cardcluster provenance stays in the original YDK header and deck README.
+Import provenance stays in the YDK header and deck README.
 Game rules and saved game states remain separate from deck JSONs.
 
 Every ID in the three section arrays must resolve in `cards`. Access a card with

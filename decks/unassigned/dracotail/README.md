@@ -1,12 +1,11 @@
 # Dracotail
 
-- [Original deck export](deck.ydk)
+- [Deck export](deck.ydk)
 - [Gameplay data](deck.json)
 - [Agent playbook](guide.md)
-- Cardcluster source: https://cardcluster.com/deck/5pMvBb
 - Author: TheTrueDarkness
-- Provided by the user; imported on 2026-10-03. The source page was not fetched independently.
+- Provided by the user; imported on 2026-10-03.
 
-Format and banlist are unassigned. Original YDK bytes are preserved.
+Format and banlist are unassigned. Card sections and author attribution are preserved.
 The guide is tied to the gameplay JSON hash and reviewed against its card text;
 combo lines have not been executed in a duel engine.
