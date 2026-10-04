@@ -3,3 +3,6 @@ __pycache__/
 .DS_Store
 .env
 .env.*
+
+# Local writer coordination; never archive lock files.
+games/**/.writer.lock

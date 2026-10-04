@@ -9,6 +9,8 @@ import json
 from pathlib import Path
 
 from harness.storage.atomic import save
+from harness.storage.locking import writer_lock
+from harness.engine.integrity import inventory, validate_transition
 from harness.views.perspective import view
 
 KINDS = {"activate", "respond", "resolve", "pass", "summon", "set", "move",
@@ -41,6 +43,7 @@ def initialize(state):
 
 
 def validate_state(state):
+    inventory(state)
     seen = set()
     for actor, player in state["players"].items():
         if type(player["lp"]) is not int or player["lp"] < 0:
@@ -129,6 +132,7 @@ def apply(state, action):
         raise ValueError("Passing does not resolve a chain")
     result["revision"] += 1
     validate_state(result)
+    validate_transition(state, result)
     return result
 
 
@@ -160,7 +164,8 @@ def append(journal, action):
 
 
 def publish(journal, state_path, game_dir):
-    return publish_verified(journal, replay(journal), state_path, game_dir)
+    with writer_lock(state_path, game_dir):
+        return publish_verified(journal, replay(journal), state_path, game_dir)
 
 
 def publish_verified(journal, state, state_path, game_dir, assets=None):
@@ -202,32 +207,33 @@ def main():
     parser.add_argument("--game-dir", type=Path, required=True)
     parser.add_argument("--action", type=Path)
     args = parser.parse_args()
-    # Require the standard games/<format>/<id> layout and private files outside repo.
-    game_dir = args.game_dir.resolve()
-    if game_dir.parent.parent.name != "games":
-        raise ValueError("Use games/<format>/<id>")
-    repo = game_dir.parent.parent.parent
-    state_path = args.state.resolve()
-    if state_path.is_relative_to(repo) or (args.action and args.action.resolve().is_relative_to(repo)):
-        raise ValueError("Private state and action drafts must be outside repository")
-    journal_path = state_path.with_name("journal.json")
-    journal = json.loads(journal_path.read_text()) if journal_path.exists() else initialize(json.loads(state_path.read_text()))
-    if args.command == "record":
-        if args.action is None:
-            raise ValueError("record requires --action")
-        cached = json.loads(state_path.read_text())
-        cached.setdefault("revision", 0)
-        cached.setdefault("pending_decision", None)
-        if cached != replay(journal):
-            raise ValueError("State cache differs from journal; replay to recover, do not edit directly")
-        journal, _ = append(journal, json.loads(args.action.read_text()))
-    metadata = json.loads((game_dir / "game.json").read_text())
-    current = replay(journal)
-    if metadata["id"] != current["game_id"] or metadata["mode"] != current["mode"]:
-        raise ValueError("Game directory does not match session")
-    save(journal_path, journal)
-    state = publish(journal, state_path, game_dir)
-    print(json.dumps({"revision": state["revision"], "public_state": view(state, "public")}, indent=2))
+    with writer_lock(args.state, args.game_dir):
+        # Require the standard games/<format>/<id> layout and private files outside repo.
+        game_dir = args.game_dir.resolve()
+        if game_dir.parent.parent.name != "games":
+            raise ValueError("Use games/<format>/<id>")
+        repo = game_dir.parent.parent.parent
+        state_path = args.state.resolve()
+        if state_path.is_relative_to(repo) or (args.action and args.action.resolve().is_relative_to(repo)):
+            raise ValueError("Private state and action drafts must be outside repository")
+        journal_path = state_path.with_name("journal.json")
+        journal = json.loads(journal_path.read_text()) if journal_path.exists() else initialize(json.loads(state_path.read_text()))
+        if args.command == "record":
+            if args.action is None:
+                raise ValueError("record requires --action")
+            cached = json.loads(state_path.read_text())
+            cached.setdefault("revision", 0)
+            cached.setdefault("pending_decision", None)
+            if cached != replay(journal):
+                raise ValueError("State cache differs from journal; replay to recover, do not edit directly")
+            journal, _ = append(journal, json.loads(args.action.read_text()))
+        metadata = json.loads((game_dir / "game.json").read_text())
+        current = replay(journal)
+        if metadata["id"] != current["game_id"] or metadata["mode"] != current["mode"]:
+            raise ValueError("Game directory does not match session")
+        save(journal_path, journal)
+        state = publish(journal, state_path, game_dir)
+        print(json.dumps({"revision": state["revision"], "public_state": view(state, "public")}, indent=2))
 
 
 if __name__ == "__main__":

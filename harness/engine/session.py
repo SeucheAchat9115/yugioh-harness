@@ -2,6 +2,8 @@
 """Duel setup, fixed shuffled draws, and mode-aware views; not a card-effect engine."""
 
 import argparse
+from contextlib import nullcontext
+from harness.storage.locking import writer_lock
 from harness.storage.atomic import save
 from harness.views.perspective import view
 from copy import deepcopy
@@ -126,6 +128,16 @@ def start(repo, config, private_dir):
     repo, private_dir = repo.resolve(), private_dir.resolve()
     validate_config(config)
     if private_dir.is_relative_to(repo):
+        raise ValueError('Private session state must be outside the repository')
+    private_dir.mkdir(parents=True, mode=0o700, exist_ok=True)
+    with writer_lock(private_dir / 'state.json', repo / 'games' / config['format'] / config['id']):
+        return _start(repo, config, private_dir)
+
+
+def _start(repo, config, private_dir):
+    repo, private_dir = repo.resolve(), private_dir.resolve()
+    validate_config(config)
+    if private_dir.is_relative_to(repo):
         raise ValueError("Private session state must be outside the repository")
     game_dir = repo / "games" / config["format"] / config["id"]
     private_state = private_dir / "state.json"
@@ -217,39 +229,40 @@ def main():
             sub.add_argument("--count", type=int, default=1)
             sub.add_argument("--game-dir", type=Path, required=True)
     args = parser.parse_args()
-    if args.command == "start":
-        state, game_dir, _ = start(args.repo, json.loads(args.config.read_text()), args.private_dir)
-        print(json.dumps({"game_dir": str(game_dir), "public_state": view(state, "public")}, indent=2))
-    else:
-        state = json.loads(args.state.read_text())
-        if args.command == "draw":
-            metadata = json.loads((args.game_dir / "game.json").read_text())
-            if metadata["id"] != state["game_id"] or metadata["mode"] != state["mode"]:
-                raise ValueError("Game directory does not match private state")
-            from harness.engine.actions import append, initialize, publish, replay
-            journal_path = args.state.with_name("journal.json")
-            journal = json.loads(journal_path.read_text()) if journal_path.exists() else initialize(state)
-            state.setdefault("revision", 0)
-            state.setdefault("pending_decision", None)
-            if state != replay(journal):
-                raise ValueError("State differs from journal; use actions.py replay to recover")
-            if args.state.resolve().is_relative_to(args.game_dir.resolve().parent.parent.parent):
-                raise ValueError("Private session state must be outside the repository")
-            updated = deepcopy(state)
-            draw(updated, args.actor, args.count)
-            changes = [{"path": ["players", args.actor, key], "before": state["players"][args.actor][key],
-                        "after": value} for key, value in updated["players"][args.actor].items()
-                       if value != state["players"][args.actor][key]]
-            action = {"id": uuid.uuid4().hex, "kind": "draw", "actor": args.actor,
-                      "expected_revision": state["revision"], "moderator_approved": True,
-                      "public_summary_reviewed": True,
-                      "public_summary": f"Drew {args.count} card(s); identities private.", "changes": changes}
-            journal, state = append(journal, action)
-            save(journal_path, journal)
-            publish(journal, args.state, args.game_dir)
-            with (args.game_dir / "log.md").open("a") as log:
-                log.write(f"\n{args.actor} drew {args.count} card(s); identities private.\n")
-        print(json.dumps(view(state, args.viewer), ensure_ascii=False, indent=2))
+    with writer_lock(args.state, args.game_dir) if args.command == 'draw' else nullcontext():
+        if args.command == "start":
+            state, game_dir, _ = start(args.repo, json.loads(args.config.read_text()), args.private_dir)
+            print(json.dumps({"game_dir": str(game_dir), "public_state": view(state, "public")}, indent=2))
+        else:
+            state = json.loads(args.state.read_text())
+            if args.command == "draw":
+                metadata = json.loads((args.game_dir / "game.json").read_text())
+                if metadata["id"] != state["game_id"] or metadata["mode"] != state["mode"]:
+                    raise ValueError("Game directory does not match private state")
+                from harness.engine.actions import append, initialize, publish, replay
+                journal_path = args.state.with_name("journal.json")
+                journal = json.loads(journal_path.read_text()) if journal_path.exists() else initialize(state)
+                state.setdefault("revision", 0)
+                state.setdefault("pending_decision", None)
+                if state != replay(journal):
+                    raise ValueError("State differs from journal; use actions.py replay to recover")
+                if args.state.resolve().is_relative_to(args.game_dir.resolve().parent.parent.parent):
+                    raise ValueError("Private session state must be outside the repository")
+                updated = deepcopy(state)
+                draw(updated, args.actor, args.count)
+                changes = [{"path": ["players", args.actor, key], "before": state["players"][args.actor][key],
+                            "after": value} for key, value in updated["players"][args.actor].items()
+                           if value != state["players"][args.actor][key]]
+                action = {"id": uuid.uuid4().hex, "kind": "draw", "actor": args.actor,
+                          "expected_revision": state["revision"], "moderator_approved": True,
+                          "public_summary_reviewed": True,
+                          "public_summary": f"Drew {args.count} card(s); identities private.", "changes": changes}
+                journal, state = append(journal, action)
+                save(journal_path, journal)
+                publish(journal, args.state, args.game_dir)
+                with (args.game_dir / "log.md").open("a") as log:
+                    log.write(f"\n{args.actor} drew {args.count} card(s); identities private.\n")
+            print(json.dumps(view(state, args.viewer), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

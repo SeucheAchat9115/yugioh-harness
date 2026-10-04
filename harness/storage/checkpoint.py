@@ -9,9 +9,17 @@ import json
 from pathlib import Path
 
 from harness.storage.atomic import save
+from harness.storage.locking import writer_lock
 
 
 def write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _verified_state=None, _assets=None):
+    if _verified_state is not None:
+        return _write_checkpoint(state_path, game_dir, journal, decision_packet, _verified_state=_verified_state, _assets=_assets)
+    with writer_lock(state_path, game_dir):
+        return _write_checkpoint(state_path, game_dir, journal, decision_packet, _assets=_assets)
+
+
+def _write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _verified_state=None, _assets=None):
     from harness.engine.actions import replay
     state_path, game_dir = Path(state_path).resolve(), Path(game_dir).resolve()
     if state_path.is_relative_to(game_dir):
@@ -81,6 +89,12 @@ def verify_checkpoint(checkpoint):
 
 
 def restore(checkpoint_path, state_path, game_dir):
+    Path(state_path).parent.mkdir(parents=True, mode=0o700, exist_ok=True)
+    with writer_lock(state_path, game_dir):
+        return _restore(checkpoint_path, state_path, game_dir)
+
+
+def _restore(checkpoint_path, state_path, game_dir):
     from harness.engine.actions import publish
     checkpoint_path, state_path, game_dir = Path(checkpoint_path).resolve(), Path(state_path).resolve(), Path(game_dir).resolve()
     checkpoint = json.loads(checkpoint_path.read_text())
@@ -135,9 +149,10 @@ def main():
                 parser.error("restore requires --checkpoint")
             state = restore(args.checkpoint, args.state, args.game_dir)
         else:
-            journal = json.loads(args.state.with_name("journal.json").read_text())
-            path = write_checkpoint(args.state, args.game_dir, journal)
-            state = verify_checkpoint(json.loads(path.read_text()))
+            with writer_lock(args.state, args.game_dir):
+                journal = json.loads(args.state.with_name("journal.json").read_text())
+                path = write_checkpoint(args.state, args.game_dir, journal)
+                state = verify_checkpoint(json.loads(path.read_text()))
     print(json.dumps({"game_id": state["game_id"], "revision": state["revision"], "status": state["status"],
                       "verified": True}))
 

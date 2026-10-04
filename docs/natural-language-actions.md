@@ -132,3 +132,17 @@ victory under agreed rules. The harness enforces structural consistency and save
 those approved results. A full coded simulator is not required. Optional effect
 helpers reduce repeated bookkeeping; effects without helpers use approved action
 records, with uncertain rulings paused for review.
+
+
+## Structural integrity and storage failures
+
+Managed physical card IDs must survive every action across zones and attached
+materials. Retain the original `owner` when control changes; use `controller` for
+the new controller. Explicit `token: true` instances can appear or disappear.
+Blind human hidden cards remain count-based. These checks protect bookkeeping;
+the LLM still judges whether the action is legal.
+
+All mutation commands share the runner's session/game locks. A write failure blocks
+further live operations until recovery. Check the structured error's recorded-action
+status before retrying; use the runner's `recover` operation or, after stopping it,
+the replay command above. Never repeat an effect whose action reached the journal.

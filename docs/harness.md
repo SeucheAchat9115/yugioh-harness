@@ -60,9 +60,11 @@ then retains state and card data in memory. It preserves pending choices and ord
 Never start again to resume. Inspect `runner.packet` in Python for saved numbered
 choices; the transport's `view` returns only a permitted context.
 
-A lifetime file lock rejects a second runner. Do not use legacy writer commands
-while it is running. Journal changes made by a legacy writer are detected before
-the next mutation. This is a local single-writer design, not a distributed service.
+The runner and legacy mutation commands share nonblocking writer locks for both
+the private session and public game directory. A second runner or competing writer
+is rejected, including one using a copy of the private state. Lock files are local
+coordination artifacts and are never archived. Out-of-band journal edits are also
+detected before updates. This is a local single-writer design.
 
 ## Moderator transport
 
@@ -87,6 +89,14 @@ Other operations:
   the approved result through `record`. Missing handlers do not block gameplay.
 - `display`: a packet using `templates/decision.json`; persists exact hand references
   and choices before returning the fixed display.
+- `recover`: rebuilds projections/checkpoint from the journal after a write failure,
+  without applying another action.
+
+Malformed requests return structured `invalid_request` errors rather than ending
+the transport. Rejected actions return `action_rejected`; storage failures can
+return `recovery_required` with the action ID and whether it reached the journal
+(`recorded: true`, `false`, or `null` when status cannot be determined). No private
+payloads or exception details are echoed. Never resubmit an action already recorded.
 
 Player adapters must never receive `record` access, authoritative state, private
 files, or moderator credentials. They receive `runner.context(player)` and return
@@ -95,8 +105,15 @@ then executes a supported command/handler or approved action. The model client
 and human chat UI are supplied by the host application; no hosted bot ships here.
 Open coaching deliberately permits knowledge of the human hand. Future draw order
 is excluded from runner player contexts, even in open mode. The legacy moderator
-view can still expose it for authorized bookkeeping. Free-form public narration
-and chain fields must be reviewed for hidden information before saving.
+view can still expose it for authorized bookkeeping. Public cards, chains, costs,
+counters, restrictions, and delayed effects use explicit allowed fields; private
+annotations and resolution-choice payloads are omitted. Mark private delayed effects
+with `visibility: "private"` and their `owner`. Free text in public fields and event
+narration still needs moderator review.
+
+Player contexts include exact gameplay text for visible card identities, permitted
+pending effects, and the ten most recent reviewed events. They do not include the
+opponent's hidden card catalog or future Deck order.
 
 ## Optional effect helpers and agent-controlled progression
 
@@ -122,6 +139,19 @@ The journal is written before disposable projections and the checkpoint. Recover
 uses full replay after interrupted writes; do not keep playing with mismatched
 files. Snapshot assets are cached for the lifetime of the runner and are immutable
 during play. Full history verification happens at resume, not on every command.
+
+Structural checks conserve managed physical card IDs across all zones and attached
+materials, reject invalid zone containers/layout changes, and preserve card identity.
+On control changes, keep the original `owner` and track `controller` separately.
+Tokens use an explicit boolean `token: true` and may be created/removed; this never
+allows an ordinary card to disappear. Blind human hidden cards remain count-based
+and are not assigned invented identities.
+
+After a save failure, the live runner blocks gameplay and context delivery until
+`recover` succeeds. The journal remains authoritative. If the process ended before
+recovery, stop competing writers, run `python -m harness.engine.actions replay`
+with the session's `--state` and `--game-dir`, then resume the runner. Recovery
+repairs recorded results; it never repeats an effect or reshuffles a Deck.
 
 No Git, network, model calls, or guide regeneration happen on the execution path.
 The engine returns public state; models receive compact permitted contexts and

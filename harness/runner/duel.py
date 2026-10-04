@@ -1,7 +1,6 @@
 """One persistent moderator writer; no model, network, or git on the hot path."""
 from copy import deepcopy
 from datetime import datetime, timezone
-import fcntl
 import json
 from pathlib import Path
 from time import perf_counter
@@ -10,9 +9,16 @@ from harness.engine.actions import apply, digest, publish_verified, replay
 from harness.engine.commands import prepare
 from harness.effects.registry import EffectRegistry
 from harness.storage.atomic import save
+from harness.storage.locking import acquire_writer
 from harness.storage.checkpoint import verify_checkpoint, write_checkpoint
 from harness.views.perspective import view
 from harness.rendering.decision import render
+
+
+class RecoveryRequired(RuntimeError):
+    def __init__(self, action_status):
+        self.action_status = deepcopy(action_status)
+        super().__init__('Recovery required before continuing')
 
 
 class DuelRunner:
@@ -23,11 +29,10 @@ class DuelRunner:
             raise ValueError('Use games/<format>/<id>')
         if self.state_path.is_relative_to(self.game_dir.parent.parent.parent):
             raise ValueError('Private state must stay outside the repository')
-        self.lock = self.state_path.with_name('runner.lock').open('a')
-        self.lock_path = self.state_path.with_name('runner.lock')
-        self.lock_path.chmod(0o600)
+        self.lock = acquire_writer(self.state_path, self.game_dir)
+        self._recovery_required = False
+        self.last_action_status = None
         try:
-            fcntl.flock(self.lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
             self.journal_path = self.state_path.with_name('journal.json')
             self.journal = json.loads(self.journal_path.read_text())
             self.state = replay(self.journal)
@@ -63,11 +68,14 @@ class DuelRunner:
         self.close()
 
     def _fresh(self):
+        if self._recovery_required:
+            raise RecoveryRequired(self.last_action_status)
         now = self.journal_path.stat()
         if (now.st_mtime_ns, now.st_size) != (self._journal_stat.st_mtime_ns, self._journal_stat.st_size):
             raise ValueError('External writer changed the journal; restart runner')
 
     def context(self, player):
+        self._fresh()
         if player not in ('human', 'agent'):
             raise ValueError('Player must be human or agent')
         permitted = view(self.state, player)
@@ -85,7 +93,44 @@ class DuelRunner:
             context['prompt']['recommendations'] = [
                 {key: move[key] for key in ('label', 'reason')}
                 for move in self.packet.get('recommendations', [])]
+        context['recent_events'] = [
+            {'id': event['action']['id'], 'kind': event['action']['kind'],
+             'actor': event['action']['actor'], 'summary': event['action']['public_summary']}
+            for event in self.journal['events'][-10:]]
+        # Card text only for identities visible in this permitted view, never the full hidden catalog.
+        visible_ids = set()
+        def collect(value):
+            if isinstance(value, dict):
+                if 'card_id' in value:
+                    visible_ids.add(str(value['card_id']))
+                for child in value.values(): collect(child)
+            elif isinstance(value, list):
+                for child in value: collect(child)
+        collect(permitted)
+        fields = ('id', 'name', 'type', 'frameType', 'desc', 'race', 'archetype', 'atk', 'def',
+                  'level', 'attribute', 'scale', 'linkval', 'linkmarkers', 'pend_desc', 'monster_desc')
+        context['cards'] = {}
+        for owner in self.state['players'].values():
+            for key, card in owner.get('cards', {}).items():
+                if key in visible_ids:
+                    context['cards'][key] = {field: deepcopy(card[field]) for field in fields if field in card}
         return context
+
+    def recover(self):
+        """Repair projections from the authoritative journal without executing another action."""
+        try:
+            journal = json.loads(self.journal_path.read_text())
+            state = replay(journal)
+            publish_verified(journal, state, self.state_path, self.game_dir, assets=self.assets)
+        except Exception:
+            self._recovery_required = True
+            raise RecoveryRequired(self.last_action_status) from None
+        self.journal, self.state = journal, state
+        self._ids = {event['action']['id'] for event in journal['events']}
+        self._journal_stat = self.journal_path.stat()
+        self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text()).get('decision_packet')
+        self._recovery_required = False
+        return {'revision': state['revision'], 'recovered': True, 'last_action': self.last_action_status}
 
     def record(self, action):
         """Trusted moderator interface, never exposed directly to a player adapter."""
@@ -99,21 +144,35 @@ class DuelRunner:
                  'action': deepcopy(action)}
         journal = {**self.journal, 'events': self.journal['events'] + [event]}
         # Journal first: replay recovers interrupted projection writes.
-        save(self.journal_path, journal)
-        self.journal, self.state = journal, updated
-        self._ids.add(action['id'])
-        self._journal_stat = self.journal_path.stat()
-        self.packet = None
-        publish_verified(journal, updated, self.state_path, self.game_dir, assets=self.assets)
-        self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text()).get('decision_packet')
+        self.last_action_status = {'id': action['id'], 'recorded': False, 'revision': updated['revision']}
+        try:
+            save(self.journal_path, journal)
+            self.last_action_status['recorded'] = True
+            self.journal, self.state = journal, updated
+            self._ids.add(action['id'])
+            self._journal_stat = self.journal_path.stat()
+            self.packet = None
+            publish_verified(journal, updated, self.state_path, self.game_dir, assets=self.assets)
+            self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text()).get('decision_packet')
+        except Exception:
+            # A failed write may have reached disk. Check commit status, then block every operation.
+            try:
+                disk = json.loads(self.journal_path.read_text())
+                self.last_action_status['recorded'] = any(e['action']['id'] == action['id'] for e in disk['events'])
+            except Exception:
+                self.last_action_status['recorded'] = None
+            self._recovery_required = True
+            raise RecoveryRequired(self.last_action_status) from None
         self.timings.append((perf_counter() - started) * 1000)
         return {'revision': updated['revision'], 'summary': action['public_summary'],
                 'state': view(updated, 'public')}
 
     def command(self, request):
+        self._fresh()
         return self.record(prepare(self.state, request))
 
     def effect(self, name, request):
+        self._fresh()
         return self.record(self.effects.prepare(name, self.state, request))
 
     def display(self, packet):
@@ -122,13 +181,18 @@ class DuelRunner:
         packet = deepcopy(packet)
         packet['hand_refs'] = {f'H{i}': c['instance_id'] for i, c in
                                enumerate(self.state['players']['human']['hand'] or [], 1)}
-        write_checkpoint(self.state_path, self.game_dir, self.journal, packet,
-                         _verified_state=self.state, _assets=self.assets)
+        try:
+            write_checkpoint(self.state_path, self.game_dir, self.journal, packet,
+                             _verified_state=self.state, _assets=self.assets)
+        except Exception:
+            self._recovery_required = True
+            raise RecoveryRequired(self.last_action_status) from None
         self.packet = packet
         return text
 
     def advance(self, next_step, limit=100):
         """Trusted scheduler proposes verified automatic actions; stop at every choice."""
+        self._fresh()
         events = []
         for _ in range(limit):
             if self.state['status'] != 'active' or self.state.get('pending_decision') is not None:

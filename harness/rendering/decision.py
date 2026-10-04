@@ -2,6 +2,7 @@
 """Render the fixed human-facing duel format from a permitted perspective."""
 
 import argparse
+from harness.storage.locking import writer_lock
 import json
 from pathlib import Path
 
@@ -113,14 +114,15 @@ def main():
     repo = game.parent.parent.parent
     if args.state.resolve().is_relative_to(repo) or args.packet.resolve().is_relative_to(repo):
         parser.error("State and human decision packet must be outside repository")
-    journal = json.loads(args.state.with_name("journal.json").read_text())
-    state = replay(journal)
-    packet = json.loads(args.packet.read_text())
-    text = render(state, packet)
-    # Save the exact numbered choices/card mapping before asking the human.
-    packet["hand_refs"] = {f"H{i}": card["instance_id"] for i, card in enumerate(state['players']['human']['hand'] or [], 1)}
-    write_checkpoint(args.state, game, journal, packet)
-    print(text)
+    with writer_lock(args.state, args.game_dir):
+        journal = json.loads(args.state.with_name("journal.json").read_text())
+        state = replay(journal)
+        packet = json.loads(args.packet.read_text())
+        text = render(state, packet)
+        # Save the exact numbered choices/card mapping before asking the human.
+        packet["hand_refs"] = {f"H{i}": card["instance_id"] for i, card in enumerate(state['players']['human']['hand'] or [], 1)}
+        write_checkpoint(args.state, game, journal, packet)
+        print(text)
 
 
 if __name__ == "__main__":

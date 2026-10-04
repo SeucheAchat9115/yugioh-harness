@@ -3,7 +3,56 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from harness.runner.duel import DuelRunner
+from harness.runner.duel import DuelRunner, RecoveryRequired
+
+
+class InvalidRequest(ValueError):
+    pass
+
+
+def dispatch(duel, request):
+    if not isinstance(request, dict) or not isinstance(request.get('op'), str):
+        raise InvalidRequest('Request must be an object with an operation')
+    operation = request['op']
+    required = {'command': 'request', 'record': 'action', 'effect': 'request', 'display': 'packet'}
+    if operation in required and not isinstance(request.get(required[operation]), dict):
+        raise InvalidRequest('Operation payload must be an object')
+    if operation == 'view':
+        if request.get('player', 'human') not in ('human', 'agent'):
+            raise InvalidRequest('Invalid player')
+        return duel.context(request.get('player', 'human'))
+    if operation == 'command':
+        return duel.command(request['request'])
+    if operation == 'record':
+        return duel.record(request['action'])
+    if operation == 'effect':
+        if not isinstance(request.get('name'), str):
+            raise InvalidRequest('Effect name required')
+        return duel.effect(request['name'], request['request'])
+    if operation == 'display':
+        return {'text': duel.display(request['packet'])}
+    if operation == 'recover':
+        return duel.recover()
+    if operation == 'capabilities':
+        return {'commands': ['draw', 'shuffle'], 'effects': duel.effects.capabilities(),
+                'card_legality': 'moderator-reviewed'}
+    raise InvalidRequest('Unknown operation')
+
+
+def respond(duel, line):
+    try:
+        return {'ok': True, 'result': dispatch(duel, json.loads(line))}
+    except (json.JSONDecodeError, InvalidRequest):
+        return {'ok': False, 'error': {'code': 'invalid_request', 'message': 'Invalid request shape or operation.'}}
+    except RecoveryRequired as error:
+        return {'ok': False, 'error': {'code': 'recovery_required',
+                'message': 'Use recover before continuing; do not resubmit a recorded action.',
+                'action_status': error.action_status}}
+    except (ValueError, KeyError, TypeError, IndexError, AttributeError):
+        # Never echo private payloads, rule text, or exception contents.
+        return {'ok': False, 'error': {'code': 'action_rejected', 'message': 'Action rejected by harness validation.'}}
+    except OSError:
+        return {'ok': False, 'error': {'code': 'storage_error', 'message': 'Local storage unavailable.'}}
 
 
 def main():
@@ -13,29 +62,7 @@ def main():
     args = parser.parse_args()
     with DuelRunner(args.state, args.game_dir) as duel:
         for line in sys.stdin:
-            try:
-                request = json.loads(line)
-                operation = request.get('op')
-                if operation == 'view':
-                    result = duel.context(request.get('player', 'human'))
-                elif operation == 'command':
-                    result = duel.command(request['request'])
-                elif operation == 'record':
-                    result = duel.record(request['action'])
-                elif operation == 'effect':
-                    result = duel.effect(request['name'], request['request'])
-                elif operation == 'display':
-                    result = {'text': duel.display(request['packet'])}
-                elif operation == 'capabilities':
-                    result = {'commands': ['draw', 'shuffle'], 'effects': duel.effects.capabilities(),
-                              'card_legality': 'moderator-reviewed'}
-                else:
-                    raise ValueError('Unknown operation')
-                response = {'ok': True, 'result': result}
-            except (ValueError, KeyError, TypeError, IndexError):
-                # Do not echo private request values or exception contents to clients.
-                response = {'ok': False, 'error': 'Request rejected; inspect locally with moderator.'}
-            print(json.dumps(response, ensure_ascii=False), flush=True)
+            print(json.dumps(respond(duel, line), ensure_ascii=False), flush=True)
 
 
 if __name__ == '__main__':

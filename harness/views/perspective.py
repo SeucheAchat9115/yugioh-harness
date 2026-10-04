@@ -1,5 +1,6 @@
 """Permitted information views; no future draw order for player adapters."""
 from copy import deepcopy
+from harness.views.projection import CARD_FIELDS, EFFECT_FIELDS, project, chain_view, effect_view
 
 def render_card(entry, player, reveal=False):
     if entry is None:
@@ -8,8 +9,9 @@ def render_card(entry, player, reveal=False):
     if not visible:
         # Stats/current names can identify a hidden card just as surely as its ID.
         return {key: entry[key] for key in ("instance_id", "owner", "position", "hidden") if key in entry}
-    result = {key: value for key, value in entry.items()
-              if key not in ("card_id", "name", "effect_text", "private_notes")}
+    result = project(entry, CARD_FIELDS)
+    if "materials" in entry:
+        result["materials"] = [render_card(card, player, reveal) for card in entry["materials"]]
     if visible and entry.get("card_id") is not None:
         result["card_id"] = entry["card_id"]
         card = player.get("cards", {}).get(str(entry["card_id"]), {})
@@ -27,7 +29,9 @@ def view(state, viewer):
     if viewer not in ("public", "human", "agent", "moderator"):
         raise ValueError("Unknown perspective")
     result = {key: deepcopy(state[key]) for key in
-              ("game_id", "mode", "status", "turn", "active_player", "phase", "chain")}
+              ("game_id", "mode", "status", "turn", "active_player", "phase")}
+    result["chain"] = chain_view(state["chain"])
+    result["pending_effects"] = effect_view(state.get("pending_effects", []), viewer, state["mode"])
     result["revision"] = state.get("revision", 0)
     decision = state.get("pending_decision")
     result["pending_decision"] = ({key: decision[key] for key in ("actor", "window") if key in decision}
@@ -66,8 +70,8 @@ def view(state, viewer):
             output[zone] = [render_card(card, player, reveal_zones) for card in player[zone]]
         output["field_spell"] = render_card(player["field_spell"], player, reveal_zones)
         output["normal_summon_used"] = player["normal_summon_used"]
-        output["effect_usage"] = deepcopy(player["effect_usage"])
-        output["restrictions"] = deepcopy(player["restrictions"])
+        output["effect_usage"] = {key: project(value, EFFECT_FIELDS) for key, value in player["effect_usage"].items()}
+        output["restrictions"] = effect_view(player["restrictions"], viewer, state["mode"])
         # Unknown human cards are never represented in blind state, for ANY viewer.
         if open_human:
             output["remaining_deck_order"] = [render_card(card, player, True) for card in player["deck"]]

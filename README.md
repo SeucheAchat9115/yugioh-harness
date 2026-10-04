@@ -41,7 +41,8 @@ or [Dracotail](decks/unassigned/dracotail/deck.ydk). Human choices and response
 opportunities are preserved in both modes.
 
 The persistent Python harness coordinates authoritative state, player views,
-structural action validation, local persistence, and decision rendering. Run it with `python -m harness`.
+structural action validation, local persistence, and decision rendering. Player
+contexts include visible card text, pending effects, and recent reviewed events. Run it with `python -m harness`.
 See [harness architecture and commands](docs/harness.md) for setup and the JSON-lines
 moderator interface. Human chat and model clients connect through player adapters.
 
@@ -61,7 +62,9 @@ with two legal recommendations when available and free-text input. Verified
 compulsory/no-choice steps advance automatically until the next real choice and
 are explained in the next display. Game updates save locally; no commit/push
 without an explicit request. Private checkpoints preserve managed hidden cards,
-orders, pending choices, rules, and snapshots for exact resumption.
+orders, pending choices, rules, and snapshots for exact resumption. Managed cards
+are conserved across updates, writers share locks, and failed saves require
+recovery before play continues. Public projections omit private annotations.
 
 ## Structure
 
