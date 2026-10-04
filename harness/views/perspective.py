@@ -47,16 +47,16 @@ def view(state, viewer):
             owner = entry.get("owner")
             if owner not in state["players"]:
                 raise ValueError("Shared-zone card needs a human/agent owner")
-            reveal = viewer == owner or (viewer == "moderator" and (owner == "agent" or state["mode"] == "open")) or (
+            reveal = viewer == owner or (viewer == "moderator" and (owner == "agent" or state["mode"] in ("open", "agent-vs-agent"))) or (
                 state["mode"] == "open" and owner == "human" and viewer == "agent")
             result["shared_zones"][zone].append(render_card(entry, state["players"][owner], reveal))
     for actor, player in state["players"].items():
         known = player["hand"] is not None
         own = viewer == actor
         open_human = state["mode"] == "open" and actor == "human" and viewer in ("agent", "moderator")
-        agent_access = actor == "agent" and viewer == "moderator"
+        agent_access = viewer == "moderator" and (actor == "agent" or state["mode"] == "agent-vs-agent")
         reveal_hand = own or open_human or agent_access or (
-            actor == "agent" and state["presentation"]["show_agent_hand"])
+            state["mode"] != "agent-vs-agent" and actor == "agent" and state["presentation"]["show_agent_hand"])
         reveal_zones = own or open_human or agent_access
         output = {"lp": player["lp"], "hand_count": len(player["hand"]) if known else player["hand_count"],
                   "deck_count": len(player["deck"]) if known else player["deck_count"],

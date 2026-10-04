@@ -24,7 +24,7 @@ def enrich(runner, context, player):
     terms=[card.get('name','').lower() for card in context.get('cards',{}).values() if card.get('name')]
     terms.extend([runner.state['phase'],(runner.state.get('pending_decision') or {}).get('window','')])
     terms=[term for term in terms if term]
-    owners=[player] if player!='moderator' else ['agent']+(['human'] if runner.state['mode']=='open' else [])
+    owners=[player] if player!='moderator' else ['agent']+(['human'] if runner.state['mode'] in ('open','agent-vs-agent') else [])
     context['guides']={}
     if player=='moderator':
         context['deck_inventory']={}

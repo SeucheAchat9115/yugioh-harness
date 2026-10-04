@@ -81,8 +81,8 @@ def known_player(deck, settings):
 
 
 def validate_config(config):
-    if config.get("mode") not in ("blind", "open"):
-        raise ValueError("Choose blind or open mode")
+    if config.get("mode") not in ("blind", "open", "agent-vs-agent"):
+        raise ValueError("Choose blind, open, or agent-vs-agent mode")
     for key in ("id", "format"):
         if not isinstance(config.get(key), str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]*", config[key]):
             raise ValueError(f"Set a lowercase hyphenated {key}")
@@ -93,6 +93,8 @@ def validate_config(config):
         raise ValueError("Choose human or agent as starting player")
     if type(config.get("presentation", {}).get("show_agent_hand", False)) is not bool:
         raise ValueError("show_agent_hand must be an explicit boolean")
+    if config["mode"] == "agent-vs-agent" and config.get("presentation", {}).get("show_agent_hand", False):
+        raise ValueError("Agent-vs-agent mode requires private hands")
     if config.get("storage", {}).get("game_commits", "explicit-user-request-only") != "explicit-user-request-only":
         raise ValueError("Game commits require an explicit user request")
     interaction = config.get("interaction", {})
@@ -146,7 +148,7 @@ def _start(repo, config, private_dir):
     agent_folder, agent_deck = load_bundle(repo, config["agent_deck"])
     bundles = {"agent": agent_folder}
     players = {"agent": known_player(agent_deck, config["settings"])}
-    if config["mode"] == "open":
+    if config["mode"] in ("open", "agent-vs-agent"):
         human_folder, human_deck = load_bundle(repo, config["human_deck"])
         bundles["human"] = human_folder
         players["human"] = known_player(human_deck, config["settings"])

@@ -14,6 +14,12 @@ Both use [shared moderator instructions](shared/moderator.md) and the
 definition; creating subagents is not required. Labels distinguish Moderator,
 Opponent, and, in open mode, Coach. Rule disputes use an agreed source/referee.
 
+## Agent-versus-agent play
+
+Use [agent duel instructions](agent-duel/AGENT.md) and
+[arena setup](../docs/agent-vs-agent.md) for two isolated player sessions and one
+moderator. Both decks are managed; each player sees only its own hidden state.
+
 ## Persistent Codex tools
 
 Follow [Codex play integration](../docs/codex-play.md) to enable the local MCP

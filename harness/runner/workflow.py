@@ -95,7 +95,7 @@ class Workflow:
         self.persist()
         result['current_revision']=self.runner.state['revision']
         from harness.views.perspective import view
-        result['state']=view(self.runner.state,'human')
+        result['state']=view(self.runner.state,'public' if self.runner.state['mode']=='agent-vs-agent' else 'human')
         return result
 
     def present(self,packet):
@@ -115,11 +115,12 @@ class Workflow:
         actor=(self.runner.state.get('pending_decision') or {}).get('actor','human')
         if packet.get('awaiting_user',True) and self.runner.state.get('pending_decision') is None:
             raise ValueError('Open a player decision window before presenting choices')
-        if actor=='agent':
+        if actor=='agent' or self.runner.state['mode']=='agent-vs-agent':
             from harness.rendering.decision import render
             render(self.runner.state,packet)  # Validate the packet; never expose opponent choice text.
             if packet.get('expected_revision')!=self.runner.state['revision']:raise ValueError('Stale packet')
-            packet['hand_refs']={f'A{i}':card['instance_id'] for i,card in enumerate(self.runner.state['players']['agent']['hand'],1)}
+            prefix='H' if actor=='human' else 'A'
+            packet['hand_refs']={f'{prefix}{i}':card['instance_id'] for i,card in enumerate(self.runner.state['players'][actor]['hand'],1)}
             self.runner.packet=packet
             self.persist()
             result={'decision_id':identity,'revision':self.runner.state['revision'],'actor':actor}

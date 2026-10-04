@@ -81,3 +81,12 @@
   the workflow. Identical retries must not apply actions twice. Bind H/A hand
   references to saved prompts. Never show opponent packets or moderator context
   to the human. MCP tools are trusted moderator tools, not a player-facing API.
+
+- Use `mode: "agent-vs-agent"` and `docs/agent-vs-agent.md` for two managed AI
+  players. Legacy IDs `human`/`agent` identify slots only. Each player gets its own
+  private view and guide; the moderator gets both. Never apply open-mode human
+  visibility, publish private player menus, or share player/moderator histories.
+- Independent player clients use role-bound arena credentials and tools. They must
+  not receive moderator credentials or direct filesystem access to private state,
+  mailboxes, or another role's credentials. Host restrictions are required beyond
+  the tool interface. Preserve both decks' hidden state and receipts on resume.

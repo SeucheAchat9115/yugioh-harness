@@ -18,7 +18,7 @@ def dispatch(duel, request):
     if operation in required and not isinstance(request.get(required[operation]), dict):
         raise InvalidRequest('Operation payload must be an object')
     if operation == 'view':
-        if request.get('player', 'human') not in ('human', 'agent', 'moderator'):
+        if request.get('player', 'human') not in ('human', 'agent', 'moderator', 'public'):
             raise InvalidRequest('Invalid player')
         return duel.context(request.get('player', 'human'), request.get('card_ids'))
     if operation == 'command':

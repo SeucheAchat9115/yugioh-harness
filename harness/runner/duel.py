@@ -83,7 +83,7 @@ class DuelRunner:
 
     def context(self, player, card_ids=None):
         self._fresh()
-        if player not in ('human', 'agent', 'moderator'):
+        if player not in ('human', 'agent', 'moderator', 'public'):
             raise ValueError('Player must be human or agent')
         permitted = view(self.state, player)
         # The moderator may know an open human deck order; players never read ahead.
@@ -126,6 +126,9 @@ class DuelRunner:
                 raise ValueError('Card focus must be a list of IDs')
             allowed={str(value) for value in card_ids}
             context['cards']={key:value for key,value in context['cards'].items() if key in allowed}
+        if player=='moderator':
+            context['submitted_intentions']=[deepcopy(entry) for entry in self.workflow.data['submissions'].values()
+                if entry['status']=='submitted' and entry['revision']==self.state['revision']]
         from harness.runner.context import enrich
         return enrich(self, context, player)
 

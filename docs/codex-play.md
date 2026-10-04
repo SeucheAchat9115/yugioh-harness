@@ -4,6 +4,10 @@ Codex acts as the opponent, moderator, and (in open mode) coach. The harness kee
 state and supplies persistent tools; it does not call a model to decide rules.
 These roles follow the existing blind/open agent definitions and response protocol.
 
+For fair managed AI-versus-AI duels, use the separate
+[role-bound arena setup](agent-vs-agent.md). Direct session tools below are trusted
+moderator tools and must not be given to independent AI players.
+
 ## Connect Codex once
 
 1. Prepare a duel configuration and initialize a session using the commands in

@@ -1,0 +1,16 @@
+# Use exactly ONE block per independent Codex session. Replace credential/cwd paths.
+# Keep the arena running in a separate process; gateways do not start another runner.
+[mcp_servers.yugioh_player_1]
+command = "python"
+args = ["-m", "harness.integration.mcp", "--credential", "/workspace/arena-private/agents-001/player_1.json"]
+cwd = "/workspace/yugioh-harness"
+
+[mcp_servers.yugioh_player_2]
+command = "python"
+args = ["-m", "harness.integration.mcp", "--credential", "/workspace/arena-private/agents-001/player_2.json"]
+cwd = "/workspace/yugioh-harness"
+
+[mcp_servers.yugioh_moderator]
+command = "python"
+args = ["-m", "harness.integration.mcp", "--credential", "/workspace/arena-private/agents-001/moderator.json"]
+cwd = "/workspace/yugioh-harness"

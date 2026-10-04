@@ -32,13 +32,15 @@ its own format, banlist, and rules version.
 
 | Mode | Agent | How the human plays | Agent knowledge |
 | --- | --- | --- | --- |
+| Agent vs agent | [Isolated AI players and moderator](agents/agent-duel/AGENT.md) | Two independent agents choose plays; the moderator manages both decks. | Each player sees its own hidden state; the moderator knows both. |
 | Blind | [Blind moderator/opponent](agents/blind-duel/AGENT.md) | Human privately manages their own deck/hand and declares actions. | Own cards plus legally revealed human information; no human deck/hand import. |
 | Open | [Open coach/moderator/opponent](agents/open-duel/AGENT.md) | Human selects a linked YDK, then chooses from guided options; the agent manages both decks. | Full human state, explicitly including hidden cards. |
 
 Read [agent setup and usage](agents/README.md) for invocation examples and the
 session helper. In open mode choose [Branded Despia](decks/unassigned/branded-despia/deck.ydk)
 or [Dracotail](decks/unassigned/dracotail/deck.ydk). Human choices and response
-opportunities are preserved in both modes.
+opportunities are preserved in human modes. [Agent-vs-agent setup](docs/agent-vs-agent.md)
+connects two independent player clients and a moderator to one role-restricted arena.
 
 The persistent Python harness coordinates authoritative state, player views,
 structural action validation, local persistence, and decision rendering. Player

@@ -10,6 +10,8 @@ class DuelLoop:
         self.moderator=moderator
         self.players=players or {}
         self.metrics=[]
+        if runner.state['mode']=='agent-vs-agent' and (set(self.players)!={'human','agent'} or any(not callable(getattr(player,'choose',None)) for player in self.players.values())):
+            raise ValueError('Agent-vs-agent loop requires two separate player adapters')
 
     def ask(self,stage,intention=None):
         started=perf_counter()
@@ -28,7 +30,7 @@ class DuelLoop:
                         'events':events,'recommendations':[],'role':'Moderator',
                         'option_review':{'complete':False,'meaningful_choices':None}}
                 return {'status':self.runner.state['status'],'events':events,
-                        'text':render(self.runner.state,packet),'state':self.runner.context('human')['state'],
+                        'text':render(self.runner.state,packet),'state':self.runner.context('public' if self.runner.state['mode']=='agent-vs-agent' else 'human')['state'],
                         'metrics':deepcopy(self.metrics)}
             pending=self.runner.state.get('pending_decision')
             packet=self.runner.packet
@@ -54,8 +56,10 @@ class DuelLoop:
                 plan=self.ask('review_intent',submission)
                 if plan.get('rejected'):
                     # Retain submitted intent for clarification; never silently pick another action.
-                    return {'status':'clarification_required','decision_id':packet['decision_id'],'events':events,
-                            'context':self.runner.context(actor)}
+                    result={'status':'clarification_required','decision_id':packet['decision_id'],'events':events,'player':actor}
+                    if self.runner.state['mode']=='agent-vs-agent':result['state']=self.runner.context('public')['state']
+                    else:result['context']=self.runner.context(actor)
+                    return result
                 result=self.runner.workflow.execute(plan.get('request_id',uuid4().hex),plan['action'],submission['request_id'])
                 events.append(result['summary'])
                 continue

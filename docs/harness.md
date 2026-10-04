@@ -66,6 +66,12 @@ is rejected, including one using a copy of the private state. Lock files are loc
 coordination artifacts and are never archived. Out-of-band journal edits are also
 detected before updates. This is a local single-writer design.
 
+## Agent-versus-agent mode
+
+[Agent-vs-agent play](agent-vs-agent.md) manages both decks with symmetric private
+player views, a moderator view, and a role-bound local arena for independent clients.
+Open coaching visibility never applies in this mode; spectators see neither hand.
+
 ## Codex and integrated play
 
 Use [Codex play integration](codex-play.md) for the persistent MCP tools,

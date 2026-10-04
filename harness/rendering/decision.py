@@ -47,7 +47,10 @@ def render(state, packet):
         validate_no_choice(state, review)
     if not awaiting and not (complete and count == 0) and state["status"] not in {"paused", "finished"}:
         raise ValueError("Unknown options cannot be treated as no choice")
-    human = view(state, "human")
+    private_menu = state["mode"] == "agent-vs-agent" and awaiting
+    if private_menu:
+        recommendations = []
+    human = view(state, "public" if state["mode"] == "agent-vs-agent" else "human")
     decision = human.get("pending_decision") or {}
     lines = [f"**Game:** {human['game_id']} | {human['mode']} | {human['status']} | revision {human['revision']}",
              f"**Role:** {packet.get('role', 'Moderator / Coach')}",
@@ -59,7 +62,7 @@ def render(state, packet):
         player = players[actor]
         lines.append(f"**{label} counts:** Hand {player['hand_count']} | Deck {player['deck_count']} | Extra {player['extra_count']} | Side {player['side_count']}")
     lines.append("**Your hand:** " + ("; ".join(f"H{i}: {card_label(card)}" for i, card in enumerate(players['human'].get('hand', []), 1))
-                 if state["mode"] == "open" else "private; managed by you"))
+                 if state["mode"] == "open" else ("private; managed by each agent" if state["mode"] == "agent-vs-agent" else "private; managed by you")))
     if state["presentation"].get("show_agent_hand"):
         lines.append("**Opponent hand (agreed visible):** " + "; ".join(card_label(card) for card in players['agent'].get('hand', [])))
     lines.append("**Board:**")
@@ -88,18 +91,26 @@ def render(state, packet):
         lines.append("- No new actions.")
     lines.append("**Coach — recommended moves:**")
     lines.extend(f"{i}. {move['label']} — {move['reason']}" for i, move in enumerate(recommendations, 1))
-    if not recommendations:
+    if private_menu:
+        lines.append("- Player choices are private; handled by the active agent.")
+    elif not recommendations:
         lines.append("- No verified recommendation at this step.")
     elif len(recommendations) == 1:
         lines.append("- Only one verified recommendation; no second move is invented.")
-    if awaiting:
+    if private_menu:
+        lines.append("**Your choice:** No observer action requested; waiting for the active agent.")
+    elif awaiting:
         lines.append("**Your choice:** " + packet.get("question", "What do you do?") + " Reply 1 or 2, or describe any other legal action in your own words.")
     else:
         lines.append("**Your choice:** " + ("Game paused/finished; no action requested." if state["status"] in {"paused", "finished"}
                                           else "No choice at this step; continuing automatically."))
     if packet.get("decision_id"):
         lines.append(f"**Decision ID:** {packet['decision_id']}")
-    return "\n\n".join(lines) + "\n"
+    text = "\n\n".join(lines) + "\n"
+    if state["mode"] == "agent-vs-agent":
+        text = text.replace("You ", "Agent 1 ").replace("You:", "Agent 1:").replace("Opponent", "Agent 2")
+        text = text.replace("Your hand", "Hands").replace("Coach — recommended moves", "Moderator — options")
+    return text
 
 
 def main():
