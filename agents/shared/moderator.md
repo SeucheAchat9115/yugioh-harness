@@ -66,12 +66,13 @@ Open mode permits the moderator to know all human state, not automatically every
 reader of the repository to see it. Public fields and legally revealed cards stay
 public; masked zones must retain counts/anonymous instances where relevant.
 
-The helpers support initialization, views, fixed displays, draws, guarded updates,
-replay, and complete private checkpoints. They do not adjudicate summons, battle,
-chains, or card effects. Maintain those changes
-carefully in the live state, following `docs/agent-play.md`; use an external engine
-or agreed referee for full adjudication if available. Do not claim this is an
-automated tournament-grade simulator.
+The LLM moderator adjudicates summons, battle, chains, and card effects using
+exact card text and agreed rules. The harness supports initialization, views,
+fixed displays, draws, guarded updates, replay, and private checkpoints. Record
+your adjudicated results through approved actions following `docs/agent-play.md`.
+Missing coded effect handlers do not prevent play. Consult the agreed ruling
+source or referee when uncertain. A full coded simulator is not required; do not
+claim structural validation independently certifies rule judgments.
 
 ## Corrections and pauses
 

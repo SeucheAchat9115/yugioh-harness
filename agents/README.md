@@ -38,8 +38,10 @@ or explicit casual rules before play. No duel is started by adding these files.
 ## Harness and session setup
 
 Use the [persistent harness](../docs/harness.md) for live sessions. These agent
-definitions are player/moderator policies, not the state engine. The runner owns
-state; adapters receive permitted views and propose intentions. `agents/runtime/`
+definitions tell the LLM how to adjudicate rules, resolve effects and battles,
+pilot the opponent, and coach human choices. The runner owns saved state; adapters
+receive permitted views and propose intentions. A full coded game engine and
+card-specific handlers are not required for play. `agents/runtime/`
 contains compatibility wrappers for existing commands.
 
 ### Session setup

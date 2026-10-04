@@ -64,8 +64,14 @@
 - The harness owns live state. Use `harness/runner/duel.py` as the single persistent
   writer; player adapters receive permitted context and return intentions, never
   guarded state patches. No network, Git, or model calls inside engine execution.
-- Implement reusable effects in `harness/effects/`; unsupported effects must stop
-  for moderation. Never claim moderator approval is rules-engine certification.
+- Keep this an agentic play harness: the LLM interprets rules/card text, reviews
+  legality, resolves effects/battles, and manages gameplay windows. The runtime
+  provides structural safeguards and persistence; a full coded game engine is
+  not required or the default roadmap.
+- Coded helpers in `harness/effects/` are optional optimizations. Missing handlers
+  do not prevent play: the LLM adjudicates and submits an approved action record.
+  Pause on uncertain rulings, not merely on absent code. Never claim moderator
+  approval is independent rules-engine certification.
 - Preserve schema-1 journals/checkpoints and legacy CLI compatibility. Test with
   `python -m unittest discover -s tests -v`; benchmark with
   `python tests/benchmarks/runner.py`. Never run benchmarks against a real duel.

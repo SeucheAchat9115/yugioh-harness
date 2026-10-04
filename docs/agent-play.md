@@ -1,8 +1,10 @@
 # Playing against an agent or a human
 
 The goal is to let an agent load a deck and its playbook, make informed decisions,
-and play a complete duel with another agent or a human. These assets support
-that task; actual effects must still be adjudicated under an agreed rules profile.
+and play a complete duel with another agent or a human. The LLM moderator
+adjudicates effects, timing, legality, and battle under an agreed rules profile;
+the harness persists its approved state changes. A full coded simulator is not
+required.
 
 ## Before the duel
 
@@ -15,8 +17,9 @@ human list as self-attested without requesting it. Snapshot each whole bundle in
 `games/<format>/<game-id>/decks/<player>/<deck-name>/`, retaining its generic filenames,
 and snapshot the rules into the game's records. Check each guide's JSON hash.
 
-Choose who maintains the authoritative state and handles shuffles and rulings:
-a game engine, a referee agent, or an agreed human. Use independently shuffled,
+Use the harness for authoritative stored state and managed shuffles; assign the
+LLM moderator to interpret rules and approve gameplay updates. Agree on a ruling
+source or referee for uncertain interactions. Use independently shuffled,
 fixed deck orders and preserve them when saving/resuming. Select [blind or open
 mode](../agents/README.md) before providing hidden information. Blind mode never
 receives the human's hidden deck/hand; the human manages those privately. Open

@@ -125,7 +125,10 @@ gained from an invalid play.
 
 ## Scope
 
-This provides consistent decisions and recoverable updates. It is not an automatic
-language parser, card-effect engine, complete state schema, or full simulator.
-The agent still judges legal moves, response windows, summon procedures, victory,
-and relevant counters under the agreed rules.
+The intended architecture is an LLM-driven game with consistent, recoverable
+state updates. The LLM interprets language and card text, judges legal moves and
+response windows, resolves summons/effects/battle, tracks counters, and determines
+victory under agreed rules. The harness enforces structural consistency and saves
+those approved results. A full coded simulator is not required. Optional effect
+helpers reduce repeated bookkeeping; effects without helpers use approved action
+records, with uncertain rulings paused for review.

@@ -1,9 +1,14 @@
 # Yu-Gi-Oh! Harness
 
-The goal of this repository is to let an **agent play a Yu-Gi-Oh! deck against
-another agent or a human**. It brings together the exact decklist, gameplay card
-data, strategic guidance, agreed rules, and reproducible game records an agent
-needs to choose and explain its actions.
+This repository is an **agentic harness for an LLM to play Yu-Gi-Oh! against
+another agent or a human**. The LLM interprets card text and rules, checks legal
+moves, resolves effects and battles, moderates response windows, and chooses or
+explains plays. The harness supplies the decklists, card data, guides, reliable
+state tools, and reproducible records that support those decisions.
+
+A complete coded game engine is not the project goal or a prerequisite for play.
+The LLM performs game adjudication against the agreed rules and ruling sources;
+the harness records and checks the structural consistency of its state updates.
 
 The repository supports current, historical, and custom formats. Each game selects
 its own format, banlist, and rules version.
@@ -18,7 +23,7 @@ its own format, banlist, and rules version.
    `guide.md` in that folder with card roles, search/recovery maps, synergies, conditional
    combo lines, first/second play, interactions, and agent-specific state tracking.
 4. **Agree on the game:** select a rules profile, check deck legality, assign players,
-   and choose a game engine, referee agent, or human to maintain authoritative state.
+   and assign the LLM moderator; the harness stores the authoritative state.
 5. **Play and record:** follow the [agent play protocol](docs/agent-play.md), respect
    response windows and hidden information, and save the public turn log and authorized
    game state. Use post-game analysis to improve future guide versions.
@@ -35,15 +40,16 @@ session helper. In open mode choose [Branded Despia](decks/unassigned/branded-de
 or [Dracotail](decks/unassigned/dracotail/deck.ydk). Human choices and response
 opportunities are preserved in both modes.
 
-The persistent Python harness coordinates authoritative state, player views, action
-validation, local persistence, and decision rendering. Run it with `python -m harness`.
+The persistent Python harness coordinates authoritative state, player views,
+structural action validation, local persistence, and decision rendering. Run it with `python -m harness`.
 See [harness architecture and commands](docs/harness.md) for setup and the JSON-lines
 moderator interface. Human chat and model clients connect through player adapters.
 
-The engine currently supports moderator-approved action records and deterministic
-draw/shuffle commands. Effect handlers are pluggable; no card-specific handlers
-ship yet. Unsupported effects require a moderator ruling. Full card legality,
-battles, and automatic turn scheduling remain moderator responsibilities.
+The LLM moderator records its adjudicated actions through guarded state updates.
+Deterministic draw/shuffle commands handle bookkeeping and randomness. Optional
+coded effect helpers can reduce repeated work, but a card needs no Python handler
+to be played: the LLM resolves it using its exact text and the agreed rules, then
+records the result. Uncertain rulings pause for the agreed source or referee.
 
 Humans declare actions in natural language. The moderator uses
 [internal action records](docs/natural-language-actions.md) for confirmed decisions,
@@ -84,7 +90,8 @@ refresh it when the deck or relevant text changes.
 Both original exports came from Cardcluster via user uploads. Source links remain
 in the YDK headers and [deck index](decks/unassigned/README.md). The guides are
 reviewed against the exact stored card text and inventory; their combo lines have
-not been executed in a duel engine. Format and banlist assignment remain pending.
+not been comprehensively validated through played scenarios. Format and banlist
+assignment remain pending.
 An [open Branded Despia versus Dracotail duel](games/casual-modern/2026-10-03-open-001/resume.md)
 is locally saved during Turn 1 under agreed casual modern rules. No completed game is
 recorded. The [original planning file](games/planned/branded-despia-vs-dracotail.json)
