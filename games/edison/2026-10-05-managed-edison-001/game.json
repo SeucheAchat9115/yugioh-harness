@@ -48,5 +48,11 @@
     "pending_actor": null,
     "pending_window": null,
     "private_checkpoint_saved": true
+  },
+  "result": {
+    "winner": "human",
+    "reason": "LP reached zero",
+    "turn": 5,
+    "revision": 63
   }
 }

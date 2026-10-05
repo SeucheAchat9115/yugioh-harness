@@ -101,3 +101,14 @@ orchestrator may use their existing private state/game paths with the direct
 runner or arena, preserving the checkpoint and journal. Never initialize a new
 duel to replace them. Python entry points and role credentials are backend
 interfaces operated by the orchestrator, not steps the human performs.
+
+## Repository replay storage
+
+Follow [game storage](../../docs/game-storage.md). Save schema-2 `events.json`
+with all known hidden hands, set identities, exact transitions and realized random
+outcomes; remaining decks are unordered inventories. Preserve exact card/rules
+snapshots and submitted intentions for review. Do not maintain duplicate game-folder
+state/actions/log/resume files. Native player children must never read the omniscient
+archive. Use permitted runtime views for play and private checkpoints for resumption.
+Self/blind human unknowns remain unknown. An explicit publication request includes
+the requested replay archive, but never raw private runtime files or shuffled queues.

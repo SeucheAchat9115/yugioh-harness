@@ -126,7 +126,7 @@ def build(state, request, hand_refs=None):
                     changes.append({'path':['players',actor,key],'before':previous[key],'after':value})
     for key in ('shared_zones','phase','turn','active_player','chain','pending_decision','pending_effects','status'):
         if working.get(key)!=state.get(key):changes.append({'path':[key],'before':state[key],'after':working[key]})
-    action={key:deepcopy(request[key]) for key in ('kind','actor','expected_revision','moderator_approved','public_summary_reviewed','public_summary','automatic','option_review') if key in request}
+    action={key:deepcopy(request[key]) for key in ('kind','actor','expected_revision','moderator_approved','public_summary_reviewed','public_summary','automatic','option_review','result') if key in request}
     action.update(id=request.get('id',uuid4().hex),changes=changes)
     apply(state,action)
     return action

@@ -1,3 +1,6 @@
+> Optional generated review report. Do not copy this into each game folder;
+> `events.json` is the sole archived log. See `docs/game-storage.md`.
+
 # Game log
 
 - Game ID:

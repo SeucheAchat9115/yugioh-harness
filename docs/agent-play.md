@@ -47,8 +47,9 @@ and follow-up. Do not continue a canned combo after its assumptions change.
 
 Follow [natural-language action recording](natural-language-actions.md): the human
 speaks normally, and the moderator records confirmed decisions as guarded internal
-changes. Keep private changes in the session journal; publish only reviewed
-narration and permitted state. Replay the journal for recovery.
+changes. Keep the exact live journal private and export complete known hidden-state
+transitions to the repository archive. Display only permitted state/narration.
+Replay the private journal for recovery; see [game storage](game-storage.md).
 
 Follow [duel experience](duel-experience.md) for every gameplay message: the fixed
 state display, two recommended moves when available, free-text choices, verified
@@ -89,12 +90,11 @@ effects are per card instance; others share a limit across every copy of a name.
 Record this information in live state and action history; deck JSON and guides
 do not track it automatically.
 
-Use `templates/game.json`, `templates/game-log.md`, and `templates/state.json`
-as starting points and add the counters/lingering effects needed for the game.
-The shared templates are not a complete rules-engine state schema. A public log
-must not expose hidden information; a shared repository should contain public
-records during a live game, with private states held by the authorized referee
-or respective player. Full records can be archived afterward by agreement.
+Use `game.json`, immutable rules/deck snapshots and the single schema-2
+`events.json` archive described in [game storage](game-storage.md). It includes
+known hidden hands/sets and all state transitions. Generate readable summaries
+and states when needed instead of maintaining duplicate logs. During play,
+player contexts/displays stay filtered; never give a player the archive directly.
 
 Refresh private `checkpoint.json` after changes and save exact numbered decision
 packets before asking. Preserve managed-mode hands/sets and both orders, costs, counters,

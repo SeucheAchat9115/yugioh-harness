@@ -118,6 +118,11 @@ def _restore(checkpoint_path, state_path, game_dir):
         public_path = game_dir / "state.json"
         if public_path.exists() and json.loads(public_path.read_text()).get("revision", 0) > state["revision"]:
             raise ValueError("Refusing to overwrite a newer local game")
+    if (game_dir / "events.json").exists():
+        archived = json.loads((game_dir / "events.json").read_text())
+        archived_revision = archived.get('initial_state', {}).get('revision', 0) + len(archived.get('events', []))
+        if archived_revision > state['revision']:
+            raise ValueError("Refusing to overwrite a newer local game")
     # Restore into a new private directory to avoid overwriting a newer session.
     if state_path.exists() or state_path.with_name("journal.json").exists():
         raise ValueError("Restore into a fresh private directory")

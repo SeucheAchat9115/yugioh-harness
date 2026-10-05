@@ -47,9 +47,9 @@ class DuelService:
                 if not game.is_relative_to(self.repo / 'games'):
                     continue
                 metadata = json.loads((game / 'game.json').read_text())
-                public = json.loads((game / 'state.json').read_text())
+                progress = metadata.get('resume', {})
                 result.append({'game_id': metadata['id'], 'mode': metadata['mode'],
-                               'status': public['status'], 'revision': public['revision']})
+                               'status': metadata['status'], 'revision': progress.get('revision', 0)})
             except (ValueError, KeyError, TypeError, OSError):
                 continue
         return result
@@ -63,7 +63,10 @@ class DuelService:
             raise ValueError('Agreed rules text required')
         _, game, state = start(self.repo, config, self.private_root / config['id'])
         (game / 'rules.md').write_text(rules_text, encoding='utf-8')
-        write_checkpoint(state, game, json.loads(state.with_name('journal.json').read_text()))
+        journal = json.loads(state.with_name('journal.json').read_text())
+        from harness.storage.archive import write_archive
+        write_archive(journal, json.loads(state.read_text()), game)
+        write_checkpoint(state, game, journal)
         save(state.with_name('session.json'), {'game_dir': str(game)})
         self.runner = DuelRunner(state, game)
         return {'game_id': config['id'], 'mode': config['mode'], 'status': self.runner.workflow.status()}

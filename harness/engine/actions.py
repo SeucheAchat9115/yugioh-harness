@@ -133,6 +133,12 @@ def apply(state, action):
             raise ValueError("Resolve exactly the last chain link")
     if action["kind"] == "pass" and result["chain"] != state["chain"]:
         raise ValueError("Passing does not resolve a chain")
+    if 'result' in action:
+        outcome = action['result']
+        if (result['status'] != 'finished' or not isinstance(outcome, dict)
+                or outcome.get('winner') not in ('human', 'agent', 'draw')
+                or not isinstance(outcome.get('reason'), str) or not outcome['reason'].strip()):
+            raise ValueError('A result requires a finished game, winner and reason')
     result["revision"] += 1
     validate_state(result)
     validate_transition(state, result)
@@ -180,24 +186,16 @@ def publish_verified(journal, state, state_path, game_dir, assets=None):
         raise ValueError("Private state cannot be inside public game directory")
     # Journal is authoritative. These disposable projections can be regenerated.
     save(state_path, state)
-    public = view(state, "public")
-    public["revision"] = state["revision"]
-    save(game_dir / "state.json", public)
+    from harness.storage.archive import game_result
+    metadata["result"] = game_result(state, journal, metadata.get("result"))
     metadata["status"] = state["status"]
     metadata["resume"] = {"revision": state["revision"], "turn": state["turn"], "phase": state["phase"],
                           "pending_actor": (state.get("pending_decision") or {}).get("actor"),
                           "pending_window": (state.get("pending_decision") or {}).get("window"),
                           "private_checkpoint_saved": True}
     save(game_dir / "game.json", metadata)
-    events = [{"revision": n, "id": event["action"]["id"],
-               "kind": event["action"]["kind"], "actor": event["action"]["actor"],
-               "summary": event["action"]["public_summary"],
-               "recorded_at": event["recorded_at"]}
-              for n, event in enumerate(journal["events"], 1)]
-    save(game_dir / "events.json", {"schema_version": "1.0", "events": events})
-    lines = [f"# {state['game_id']}", "", "Structured decisions (hidden changes omitted).", ""]
-    lines.extend(f"{event['revision']}. {event['actor']}: {event['summary']}" for event in events)
-    (game_dir / "actions.md").write_text("\n".join(lines) + "\n")
+    from harness.storage.archive import write_archive
+    write_archive(journal, state, game_dir, assets)
     from harness.storage.checkpoint import write_checkpoint
     write_checkpoint(state_path, game_dir, journal, _verified_state=state, _assets=assets)
     return state

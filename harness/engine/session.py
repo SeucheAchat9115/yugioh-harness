@@ -199,8 +199,8 @@ def _start(repo, config, private_dir):
     from harness.engine.actions import initialize
     save(private_state.with_name("journal.json"), initialize(state))
     save(game_dir / "game.json", metadata)
-    save(game_dir / "state.json", view(state, "public"))
-    (game_dir / "log.md").write_text(f"# {config['id']}\n\nMode: {config['mode']}. Opening hands prepared; hidden identities omitted.\nFirst-turn draw has not been applied.\n")
+    from harness.storage.archive import write_archive
+    write_archive(initialize(state), state, game_dir)
     from harness.storage.checkpoint import write_checkpoint
     write_checkpoint(private_state, game_dir, initialize(state))
     return state, game_dir, private_state
@@ -268,8 +268,6 @@ def main():
                 journal, state = append(journal, action)
                 save(journal_path, journal)
                 publish(journal, args.state, args.game_dir)
-                with (args.game_dir / "log.md").open("a") as log:
-                    log.write(f"\n{args.actor} drew {args.count} card(s); identities private.\n")
             print(json.dumps(view(state, args.viewer), ensure_ascii=False, indent=2))
 
 

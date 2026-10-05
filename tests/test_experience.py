@@ -155,9 +155,12 @@ class ExperienceTests(unittest.TestCase):
             self.assertEqual(json.loads((root / "resumed/checkpoint.json").read_text())["decision_packet"], context)
             with self.assertRaises(ValueError):
                 restore(saved, root / "resumed/state.json", destination)
-            for name in ("state.json", "events.json", "actions.md", "game.json"):
-                self.assertNotIn("Human starter", (destination / name).read_text())
-                self.assertNotIn("Opponent secret", (destination / name).read_text())
+            from harness.storage.archive import load_replay, archive_state
+            self.assertEqual(load_replay(destination), archive_state(current))
+            public = load_replay(destination, perspective='public')
+            self.assertNotIn("Opponent secret", json.dumps(public))
+            for name in ("state.json", "actions.md", "log.md", "resume.md"):
+                self.assertFalse((destination / name).exists())
 
     def test_checkpoint_blind_human_remains_unknown_and_tampering_rejected(self):
         with tempfile.TemporaryDirectory() as root:

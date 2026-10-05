@@ -54,23 +54,19 @@ trusted verifier is used without revealing it to the agent.
 
 ## Game storage
 
-Use `games/<format>/<game-id>/game.json`, `log.md`, and a public `state.json` view.
-Snapshots live under `decks/human/<deck-name>/` and `decks/agent/<deck-name>/`
-within the game, allowing
-mirrors without a name collision. Record the source bundle path/name in metadata.
-In self mode, only snapshot the agent's bundle; human deck ID/path is unknown.
+Use `games/<format>/<game-id>/game.json` and schema-2 `events.json` as described in
+[game storage](../../docs/game-storage.md). The archive contains all known hidden
+states and guarded transitions for replay. Do not write duplicate game-folder
+state, action, turn-log or resume files. Snapshots remain under
+`decks/human/<deck-name>/` and `decks/agent/<deck-name>/`. Self human hidden cards
+remain unknown and the archive must say so.
 
-Update files locally after every action. Never stage, commit, push, create a PR,
-or write to GitHub during play unless explicitly requested. Pause, finish, and
-“save the game” update local checkpoints only. Keep game changes out of unrelated
-repo development commits.
-
-Private state belongs outside the shared repository during play, in a separate
-authorized location. The helper requires an explicit `--private-dir` outside the
-repository. Do not commit private session files or copy them into public logs.
-Managed mode permits the moderator to know all human state, not automatically every
-reader of the repository to see it. Public fields and legally revealed cards stay
-public; masked zones must retain counts/anonymous instances where relevant.
+Save locally after every action. Never commit/push or write to GitHub without an
+explicit request. A requested game publication includes its omniscient replay
+archive, rules and snapshots; exclude raw private session/checkpoint/workflow
+files and shuffled deck queues. Local private checkpoints remain outside the
+repository for exact resumption. Player children must use permitted runtime views,
+never inspect the archive, even though shared native tools may expose the files.
 
 The LLM moderator adjudicates summons, battle, chains, and card effects using
 exact card text and agreed rules. The harness supports initialization, views,

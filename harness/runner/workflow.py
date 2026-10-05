@@ -17,11 +17,22 @@ class Workflow:
         self.runner=runner
         self.data=deepcopy(data or {'schema_version':'1.0','submissions':{},'executions':{}})
         self.data.setdefault('presentations',{})
+        packets = self.data.setdefault('decision_packets', {})
+        packet = runner.packet or {}
+        if packet.get('decision_id') and packet['decision_id'] not in packets:
+            packets[packet['decision_id']] = {
+                'actor': (runner.state.get('pending_decision') or {}).get('actor', 'human'),
+                **{key: deepcopy(packet[key]) for key in
+                   ('decision_id', 'expected_revision', 'role', 'awaiting_user', 'events',
+                    'question', 'recommendations', 'option_review', 'hand_refs') if key in packet}}
+
 
     def persist(self):
         from harness.runner.duel import RecoveryRequired
         try:
             save(self.runner.state_path.with_name('workflow.json'),self.data)
+            from harness.storage.archive import write_decisions
+            write_decisions(self.runner.game_dir, self.data)
             write_checkpoint(self.runner.state_path,self.runner.game_dir,self.runner.journal,self.runner.packet,
                              _verified_state=self.runner.state,_assets=self.runner.assets)
         except Exception:
@@ -127,6 +138,10 @@ class Workflow:
         else:
             text=self.runner.display(packet)
             result={'decision_id':identity,'text':text,'revision':self.runner.state['revision'],'actor':actor}
+        self.data.setdefault('decision_packets', {})[identity] = {
+            'actor': actor, **{key: deepcopy(packet[key]) for key in
+            ('decision_id', 'expected_revision', 'role', 'awaiting_user', 'events',
+             'question', 'recommendations', 'option_review', 'hand_refs') if key in packet}}
         self.data['presentations'][identity]=signature
         self.persist()
         return result

@@ -17,11 +17,14 @@
 - Create a new version when changing a deck. Previously played games retain
   their original deck snapshots.
 - Save game actions, random outcomes, and game states so they can be reviewed.
-  Do not reveal hidden information in public game logs.
+  Keep live displays/player contexts filtered. Repository archives deliberately contain
+  known hidden states for full replay; follow `docs/game-storage.md`. Never give
+  an omniscient archive to a player child.
 - Save games locally after each action. Never stage/commit/push game records or
   call GitHub write tools during play unless explicitly requested. “Save” and
   pause/end-of-game do not authorize a commit. Keep game files out of unrelated
-  code commits. Never commit private session files.
+  code commits. Never commit raw private runtime files. Requested game publication
+  includes its omniscient replay archive, excluding shuffled deck queues.
 
 - Enriched deck JSON must contain gameplay data only: deck identity, format/banlist,
   ordered Main/Extra/Side IDs, and card names, text, types, and applicable stats.
@@ -114,3 +117,8 @@
   A timeout does not kill a child: stop it and acknowledge termination before
   retrying. Preserve deadlines on resume and bound retries to three per decision.
   Never evade the limit by changing a menu or silently replace a player's choice.
+
+- Use schema-2 `events.json` as the sole archived action log. Reconstruct states and
+  readable logs on demand; do not persist game-folder state/actions/log/resume duplicates.
+  Preserve exact rules, deck snapshots, all known hidden zones and gameplay bookkeeping.
+  Self/blind archives must declare unknown human hidden-state coverage.

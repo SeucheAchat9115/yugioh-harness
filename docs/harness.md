@@ -73,7 +73,7 @@ Never start again to resume. Inspect `runner.packet` in Python for saved numbere
 choices; the transport's `view` returns only a permitted context.
 
 The runner and legacy mutation commands share nonblocking writer locks for both
-the private session and public game directory. A second runner or competing writer
+the private session and repository archive directory. A second runner or competing writer
 is rejected, including one using a copy of the private state. Lock files are local
 coordination artifacts and are never archived. Out-of-band journal edits are also
 detected before updates. This is a local single-writer design.
@@ -236,3 +236,8 @@ and state agree. `duel_next` and status report the policy, and dispatch receipts
 record the actual boundary separately; an enforced transport may satisfy a
 cooperative game. Actual capabilities/evidence are saved privately per attempt.
 Neither policy changes hidden-information projection or legality review.
+
+Repository persistence uses the single omniscient schema-2 `events.json` archive
+described in [game storage](game-storage.md). It includes hidden identities and
+realized outcomes; player contexts stay filtered. Private checkpoints retain
+exact shuffled orders for continuation.

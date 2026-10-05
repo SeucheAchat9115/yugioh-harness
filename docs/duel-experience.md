@@ -6,17 +6,16 @@ do not require a duel display.
 
 ## Local saves and commits
 
-Persist actions, costs, random outcomes, usage, pending choices, and resolutions
-locally before the next human choice. Public files stay under `games/<format>/<id>`;
-complete private state stays in a dedicated durable directory outside the repo.
-Prefer workspace private-session storage to temporary files for long pauses.
+During play, keep the omniscient replay archive under `games/<format>/<id>` and
+live runtime/checkpoint files outside the repository. Follow
+[game storage](game-storage.md): one schema-2 `events.json` contains hidden hands,
+set identities and transitions. Shuffled queues stay in the private checkpoint.
+Player contexts and outward displays remain filtered.
 
-Do not stage, commit, push, create a PR, or call GitHub write tools automatically
-during play, after a turn, on pause, on “save the game”, or at game end. Saving
-means updating local files. Only an explicit request to commit/publish game records
-authorizes that operation. Include only the requested public records. Unrelated
-code commits must not sweep in game changes. Private hands, orders, journals,
-checkpoints, and decision packets remain outside ordinary repo commits.
+Do not stage, commit, push, create a PR, or call GitHub write tools automatically.
+Only an explicit publication request authorizes uploading the requested archive
+and snapshots. “Save”, pause and game end authorize local updates only. Exclude
+raw runtime/checkpoint/workflow files and unrelated game/code changes.
 
 ## Fixed display: decision-v1
 
@@ -126,4 +125,5 @@ A paused game remains paused; requested resumption is a separate recorded change
 
 Checkpoints are local private files, not a cloud backup. Keep any requested backup
 in authorized durable storage. They do not survive deletion of the entire workspace
-unless separately backed up. Do not expose them in public logs or repo commits.
+unless separately backed up. Do not commit raw runtime files. The separate schema-2 archive intentionally
+includes known hidden identities, but never the shuffled queue.

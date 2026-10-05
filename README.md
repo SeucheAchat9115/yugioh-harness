@@ -47,7 +47,7 @@ or the orchestrator can operate the backend through its execution tools.
 4. **Agree on the game:** select a rules profile, check deck legality, assign players,
    and assign the LLM moderator; the harness stores the authoritative state.
 5. **Play and record:** follow the [agent play protocol](docs/agent-play.md), respect
-   response windows and hidden information, and save the public turn log and authorized
+   response windows and hidden information, and save the replay archive and authorized
    game state. Use post-game analysis to improve future guide versions.
 
 ## Duel modes and agents
@@ -87,8 +87,8 @@ records the result. Uncertain rulings pause for the agreed source or referee.
 
 Humans declare actions in natural language. The moderator uses
 [internal action records](docs/natural-language-actions.md) for confirmed decisions,
-guarded state updates, response tracking, and replay. Private changes stay outside
-the repository; public logs contain reviewed narration and permitted views.
+guarded state updates, response tracking, and replay. The repository replay archive includes known hidden states; live displays and
+player contexts use filtered views. Exact shuffled queues stay in private checkpoints.
 
 Every gameplay message uses a [fixed state/decision display](docs/duel-experience.md),
 with two legal recommendations when available and free-text input. Verified
@@ -130,9 +130,9 @@ in the [deck index](decks/unassigned/README.md). The guides are
 reviewed against the exact stored card text and inventory; their combo lines have
 not been comprehensively validated through played scenarios. Format and banlist
 assignment remain pending.
-An [open Branded Despia versus Dracotail duel](games/casual-modern/2026-10-03-open-001/resume.md)
-is locally saved during Turn 1 under agreed casual modern rules. No completed game is
-recorded. The [original planning file](games/planned/branded-despia-vs-dracotail.json)
+An [open Branded Despia versus Dracotail duel](games/casual-modern/2026-10-03-open-001/game.json)
+is locally saved during Turn 1 under agreed casual modern rules. A [completed managed Edison duel](games/edison/2026-10-05-managed-edison-001/game.json)
+records Blackwing defeating Lightsworn on Turn 5. The [original planning file](games/planned/branded-despia-vs-dracotail.json)
 remains separate from the actual session.
 
 [Edison Blackwing and Lightsworn](decks/edison/README.md) are complete uploaded
@@ -161,9 +161,10 @@ effects, and card-instance identities; the shared templates are starting points.
 
 Self mode uses own permitted information and public observations; the human
 never supplies hidden deck/hand data to the agent. Managed mode deliberately allows
-the moderator/opponent to know all human state while guiding their decisions.
-Keep live public logs separate from private states, preserve shuffled order when
-resuming, and archive complete records only by agreement. Human and agent opponents
+the moderator to manage human hidden state while keeping it private from the
+opponent. Keep player displays filtered and preserve shuffled queues privately
+for resumption. Repository archives contain known hidden states; publish only
+on explicit request. Human and agent opponents
 receive response opportunities under the same agreed protocol.
 
 ## Automation and checks
@@ -200,3 +201,13 @@ must provide a tool-free model transport or a verified child sandbox. The harnes
 records the actual capabilities and boundary for every dispatch. Policies persist
 on resume; legacy saves without a setting remain enforced. See
 [player isolation](docs/player-isolation.md) for both policies.
+
+## Replay archives
+
+Games save one schema-2 `events.json` with hidden hands, face-down identities and
+complete state transitions. Draw/mill outcomes are recorded; shuffled deck queues
+remain in private live checkpoints. The archive can reconstruct every recorded
+revision and generate readable logs without duplicate log/state files. It is
+omniscient: opponents receive filtered views instead. Publishing remains explicit.
+See [game storage and replay](docs/game-storage.md) for the schema, coverage limits
+in self mode, and internal replay/migration helpers.

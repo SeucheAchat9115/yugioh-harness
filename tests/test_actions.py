@@ -98,7 +98,7 @@ class ActionsTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 append(journal, action(current, changes=changes))
 
-    def test_publication_excludes_private_changes(self):
+    def test_archive_includes_hidden_changes_without_duplicate_logs(self):
         journal = initialize(state())
         current = replay(journal)
         journal, current = append(journal, action(current, "draw", [
@@ -110,10 +110,12 @@ class ActionsTests(unittest.TestCase):
             folder.mkdir()
             (folder / "game.json").write_text(json.dumps({"id": "test", "mode": "open"}))
             publish(journal, Path(root) / "state.json", folder)
-            for name in ("events.json", "state.json", "actions.md"):
-                text = (folder / name).read_text()
-                self.assertNotIn("copy-2", text)
-                self.assertNotIn("456", text)
+            from harness.storage.archive import load_replay, archive_state
+            archived = load_replay(folder)
+            self.assertEqual(archived, archive_state(current))
+            self.assertIn("copy-2", (folder / "events.json").read_text())
+            for name in ("state.json", "actions.md", "log.md", "resume.md"):
+                self.assertFalse((folder / name).exists())
             self.assertEqual(json.loads((Path(root) / "state.json").read_text()), current)
 
     def test_history_tampering_detected(self):

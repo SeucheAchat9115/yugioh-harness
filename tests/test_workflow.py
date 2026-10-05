@@ -43,6 +43,10 @@ class WorkflowTests(unittest.TestCase):
             identity=display['decision_id']
             accepted=runner.workflow.submit(identity,'human-1','1')
             self.assertEqual(accepted['intention']['text'],'Pass')
+            archive=json.loads((game/'events.json').read_text())
+            self.assertEqual(archive['decision_packets'][0]['decision_id'],identity)
+            self.assertEqual(len(archive['decision_packets'][0]['recommendations']),2)
+            self.assertEqual(archive['decisions'][0]['intention']['text'],'Pass')
             self.assertEqual(runner.workflow.submit(identity,'human-1','1'),accepted)
             with self.assertRaises(ValueError):runner.workflow.submit(identity,'human-1','2')
             with self.assertRaises(ValueError):runner.workflow.submit('old','different','1')

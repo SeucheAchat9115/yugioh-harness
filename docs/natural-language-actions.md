@@ -7,7 +7,7 @@ The human never needs to write JSON or use commands.
 
 Use [duel experience](duel-experience.md) for fixed state displays, two recommended
 moves/free-text input, automatic verified no-choice progression, local-only saves,
-and complete private resume checkpoints. No game commit without explicit request.
+and complete private resume checkpoints plus omniscient repository replay archives. No game commit without explicit request.
 
 ## Moderator workflow
 
@@ -101,8 +101,10 @@ an adjacent private `journal.json`. An older session without one uses its curren
 state as the baseline; earlier manual actions cannot be recovered retroactively.
 
 The authoritative private journal holds the baseline, action changes, timestamps,
-and before/after state hashes. Private `state.json` is a cache. Public `state.json`,
-`events.json`, and `actions.md` are regenerated projections. If interrupted after
+and before/after state hashes. Private `state.json` is a cache. Repository `events.json` is the complete schema-2 replay archive (including known
+hidden states, excluding shuffled deck order). Do not write duplicate game-folder
+state/action/turn logs; generate filtered states and readable logs on demand.
+See [game storage](game-storage.md). If interrupted after
 the journal save, run `replay` to repair projections. Check the action ID before
 retrying. `session.py draw` records in the same journal. Do not edit journaled
 state directly. Use one moderator writer; concurrent writers are unsupported.

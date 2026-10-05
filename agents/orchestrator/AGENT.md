@@ -49,3 +49,7 @@ Late/cancelled replies are invalid. Retry with a new attempt only after confirme
 termination; three attempts maximum per decision. Preserve the pending choice,
 never invent a fallback move. On reconnect inspect the saved child handle and
 attempt before spawning. Report failures with their safe fixed state display.
+
+Follow [game storage](../../docs/game-storage.md): the repository archive includes
+known hidden states for review. Never give it directly to player subagents or use
+it as a public display. Save one replayable `events.json`, not duplicate logs.
