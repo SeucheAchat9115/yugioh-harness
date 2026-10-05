@@ -104,7 +104,7 @@ interfaces operated by the orchestrator, not steps the human performs.
 
 ## Repository replay storage
 
-Follow [game storage](../../docs/game-storage.md). Save schema-2 `events.json`
+Follow [game storage](../../docs/game-storage.md). Save schema-3 `events.json`
 with all known hidden hands, set identities, exact transitions and realized random
 outcomes; remaining decks are unordered inventories. Preserve exact card/rules
 snapshots and submitted intentions for review. Do not maintain duplicate game-folder
@@ -112,3 +112,10 @@ state/actions/log/resume files. Native player children must never read the omnis
 archive. Use permitted runtime views for play and private checkpoints for resumption.
 Self/blind human unknowns remain unknown. An explicit publication request includes
 the requested replay archive, but never raw private runtime files or shuffled queues.
+
+Use `duel_agent_context` / compact-v1 for routine moderator/player decisions. The
+harness defaults subagent tasks to this format. Request focused Extra/Side card
+text or full permitted context when needed, before dispatch or in a clarification.
+Shared snapshot references replace per-game asset copies; local revision caches
+are disposable, private and outside Git. Schema-2 archive replay remains supported;
+retain explicit partial decision-evidence labels on migrated histories.

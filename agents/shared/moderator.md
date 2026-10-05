@@ -54,11 +54,12 @@ trusted verifier is used without revealing it to the agent.
 
 ## Game storage
 
-Use `games/<format>/<game-id>/game.json` and schema-2 `events.json` as described in
+Use `games/<format>/<game-id>/game.json` and schema-3 `events.json` as described in
 [game storage](../../docs/game-storage.md). The archive contains all known hidden
 states and guarded transitions for replay. Do not write duplicate game-folder
-state, action, turn-log or resume files. Snapshots remain under
-`decks/human/<deck-name>/` and `decks/agent/<deck-name>/`. Self human hidden cards
+state, action, turn-log or resume files. Snapshot logical names remain
+`decks/human/<deck-name>/` and `decks/agent/<deck-name>/`; their immutable content
+is shared under `snapshots/`. Self human hidden cards
 remain unknown and the archive must say so.
 
 Save locally after every action. Never commit/push or write to GitHub without an
@@ -94,3 +95,8 @@ Coach gives two distinct legal moves with reasons when available, accepts number
 or free-text input, and never invents a second option. Save the exact packet/mapping
 privately before asking. At pause/finish refresh and verify `checkpoint.json` with
 hidden managed state, paid costs, pending choices, rules/snapshots, and orders. No commit.
+
+For routine decisions use compact-v1 context from `duel_agent_context`. Fetch exact
+focused card text or the full permitted context when details are missing; do not
+interpret omitted Extra/Side effect text or truncated guidance as absent options.
+Never pass raw archive/snapshot objects to players.

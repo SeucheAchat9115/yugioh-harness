@@ -10,6 +10,7 @@ from harness.__main__ import respond
 
 TOOLS={
  'duel_context':('Get permitted state, card text, rules, and guide excerpts.',{'player':{'type':'string','enum':['human','agent','moderator','public']},'card_ids':{'type':'array','items':{'type':['string','integer']}}},[],'view'),
+ 'duel_agent_context':('Get compact perspective-filtered state, relevant exact card text and bounded guidance. Use card_ids for focused Extra/Side text.',{'player':{'type':'string','enum':['human','agent','moderator','public']},'card_ids':{'type':'array','items':{'type':['string','integer']}}},[],'view'),
  'duel_present':('Persist a reviewed decision packet and its numbered choices.',{'packet':{'type':'object'}},['packet'],'present'),
  'duel_submit':('Persist human or agent input bound to a decision ID; does not execute it.',{'decision_id':{'type':'string'},'request_id':{'type':'string'},'response':{'type':['string','integer']},'player':{'type':'string','enum':['human','agent']}},['decision_id','request_id','response'],'submit'),
  'duel_step':('Apply moderator-reviewed bookkeeping operations with retry protection.',{'request_id':{'type':'string'},'request':{'type':'object'},'submission_id':{'type':'string'}},['request_id','request'],'step'),
@@ -40,7 +41,7 @@ def rpc(duel,message):
     if identity is None:return None
     role=getattr(duel,'role','moderator')
     catalog = {**TOOLS, **CONVERSATIONAL_TOOLS} if getattr(duel, 'conversational', False) else TOOLS
-    available=catalog if role=='moderator' else {name:TOOLS[name] for name in ('duel_context','duel_submit','duel_status')}
+    available=catalog if role=='moderator' else {name:TOOLS[name] for name in ('duel_context','duel_agent_context','duel_submit','duel_status')}
     if method=='initialize':
         result={'protocolVersion':'2024-11-05','capabilities':{'tools':{}},
                 'serverInfo':{'name':'yugioh-harness','version':'1.0.0'},
@@ -65,6 +66,7 @@ def rpc(duel,message):
             return {'jsonrpc':'2.0','id':identity,'error':{'code':-32602,'message':'Invalid tool arguments'}}
         started=perf_counter()
         request={'op':operation,**arguments}
+        if name == 'duel_agent_context':request['compact']=True
         if role!='moderator' and operation in ('view','submit'):request.setdefault('player',role)
         response=duel.request(request) if hasattr(duel,'request') else respond(duel,json.dumps(request))
         response['harness_elapsed_ms']=round((perf_counter()-started)*1000,2)

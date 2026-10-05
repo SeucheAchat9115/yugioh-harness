@@ -46,20 +46,8 @@ def _write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _v
             decision_packet["expected_revision"] = state["revision"]
     if decision_packet is not None and decision_packet.get("expected_revision") != state["revision"]:
         raise ValueError("Decision packet is stale")
-    assets = {}
-    files = list((game_dir / "decks").rglob("*")) if _assets is None and (game_dir / "decks").exists() else []
-    if _assets is None and (game_dir / "rules.md").exists():
-        files.append(game_dir / "rules.md")
-    for asset in files:
-        if not asset.is_file():
-            continue
-        if not asset.resolve().is_relative_to(game_dir):
-            raise ValueError("Snapshot asset escapes game directory")
-        raw = asset.read_bytes()
-        assets[str(asset.relative_to(game_dir))] = {
-            "sha256": hashlib.sha256(raw).hexdigest(), "content": raw.decode("utf-8")}
-    if _assets is not None:
-        assets = _assets
+    from harness.storage.snapshots import collect
+    assets = collect(game_dir) if _assets is None else _assets
     checkpoint = {"schema_version": "1.0", "saved_at": datetime.now(timezone.utc).isoformat(),
                   "configuration": config, "state": state, "journal": journal,
                   "decision_packet": decision_packet, "assets": assets,

@@ -41,13 +41,13 @@ class Orchestrator:
         pending = runner.state.get('pending_decision')
         packet = runner.packet
         if not pending or not packet or packet['expected_revision'] != runner.state['revision'] or not packet.get('awaiting_user', True):
-            return {'kind': 'moderator', 'stage': 'next_step', 'context': runner.context('moderator')}
+            return {'kind': 'moderator', 'stage': 'next_step', 'context': runner.context('moderator', compact=True)}
         identity = packet['decision_id']
         submission = next((entry for entry in runner.workflow.data['submissions'].values()
                            if entry['decision_id'] == identity and entry['status'] == 'submitted'), None)
         if submission:
             return {'kind': 'moderator', 'stage': 'review_intent', 'intention': deepcopy(submission),
-                    'context': runner.context('moderator')}
+                    'context': runner.context('moderator', compact=True)}
         actor = pending['actor']
         if actor == 'human' and runner.state['mode'] != 'agent-vs-agent':
             return {'kind': 'human', 'decision_id': identity, 'text': render(runner.state, packet)}
@@ -63,7 +63,7 @@ class Orchestrator:
         return {'kind': 'subagent', 'task_id': task['task_id'], 'decision_id': task['decision_id'],
                 'revision': task['revision'], 'player': actor, 'instructions': PLAYER_POLICY,
                 'isolation_policy': saved_policy(runner.state),
-                'context': runner.context(actor)}
+                'context': runner.context(actor, compact=True)}
 
     def agent_result(self, task_id, attempt_id, response):
         return self.players.result(task_id, attempt_id, response)

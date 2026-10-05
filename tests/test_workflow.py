@@ -171,7 +171,7 @@ class WorkflowTests(unittest.TestCase):
                                input='\n'.join(json.dumps(message) for message in messages)+'\n',text=True,capture_output=True,check=True)
         responses=[json.loads(line) for line in result.stdout.splitlines()]
         self.assertEqual(len(responses),4)
-        self.assertEqual(len(responses[1]['result']['tools']),6)
+        self.assertEqual(len(responses[1]['result']['tools']),7)
         self.assertFalse(responses[2]['result']['isError'])
 
     def test_null_template_id_blind_counts_and_generic_operations(self):

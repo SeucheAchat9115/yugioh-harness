@@ -118,7 +118,13 @@
   retrying. Preserve deadlines on resume and bound retries to three per decision.
   Never evade the limit by changing a menu or silently replace a player's choice.
 
-- Use schema-2 `events.json` as the sole archived action log. Reconstruct states and
+- Use schema-3 `events.json` as the sole archived action log. Reconstruct states and
   readable logs on demand; do not persist game-folder state/actions/log/resume duplicates.
   Preserve exact rules, deck snapshots, all known hidden zones and gameplay bookkeeping.
   Self/blind archives must declare unknown human hidden-state coverage.
+
+- Intern immutable rules/deck/catalog assets in the shared `snapshots/` content-addressed
+  store; keep readable logical references in archives instead of per-game copies.
+  Never modify/delete referenced objects. Keep replay revision caches outside Git.
+- Use compact `duel_agent_context` for routine play and focused/full permitted context
+  for missing details. Preserve filters before compaction and label decision-evidence gaps.

@@ -101,7 +101,7 @@ an adjacent private `journal.json`. An older session without one uses its curren
 state as the baseline; earlier manual actions cannot be recovered retroactively.
 
 The authoritative private journal holds the baseline, action changes, timestamps,
-and before/after state hashes. Private `state.json` is a cache. Repository `events.json` is the complete schema-2 replay archive (including known
+and before/after state hashes. Private `state.json` is a cache. Repository `events.json` is the complete schema-3 replay archive (including known
 hidden states, excluding shuffled deck order). Do not write duplicate game-folder
 state/action/turn logs; generate filtered states and readable logs on demand.
 See [game storage](game-storage.md). If interrupted after

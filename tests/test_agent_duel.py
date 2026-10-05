@@ -28,8 +28,10 @@ class AgentDuelTests(unittest.TestCase):
 
     def test_two_managed_decks_private_hands_guides_and_set_cards(self):
         initial,game,path=self.start()
-        self.assertTrue((game/'decks/human/branded-despia').exists())
-        self.assertTrue((game/'decks/agent/dracotail').exists())
+        from harness.storage.snapshots import collect
+        assets = collect(game)
+        self.assertIn('decks/human/branded-despia/deck.json', assets)
+        self.assertIn('decks/agent/dracotail/deck.json', assets)
         with DuelRunner(path,game) as runner:
             first=initial['players']['human']['hand'][0]
             second=initial['players']['agent']['hand'][0]
@@ -139,8 +141,8 @@ class AgentDuelTests(unittest.TestCase):
             first=ArenaClient(ready['credentials']['player_1'])
             second=ArenaClient(ready['credentials']['player_2'])
             moderator=ArenaClient(ready['credentials']['moderator'])
-            self.assertEqual(len(rpc(first,{'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']),3)
-            self.assertEqual(len(rpc(moderator,{'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']),6)
+            self.assertEqual(len(rpc(first,{'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']),4)
+            self.assertEqual(len(rpc(moderator,{'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']),7)
             self.assertEqual(rpc(first,{'jsonrpc':'2.0','id':2,'method':'tools/call','params':{
                 'name':'duel_step','arguments':{'request_id':'x','request':{}}}})['error']['code'],-32602)
             request={'kind':'choice','actor':'moderator','expected_revision':0,'moderator_approved':True,

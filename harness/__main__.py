@@ -20,7 +20,9 @@ def dispatch(duel, request):
     if operation == 'view':
         if request.get('player', 'human') not in ('human', 'agent', 'moderator', 'public'):
             raise InvalidRequest('Invalid player')
-        return duel.context(request.get('player', 'human'), request.get('card_ids'))
+        if 'compact' in request and type(request['compact']) is not bool:
+            raise InvalidRequest('compact must be boolean')
+        return duel.context(request.get('player', 'human'), request.get('card_ids'), request.get('compact', False))
     if operation == 'command':
         return duel.command(request['request'])
     if operation == 'record':

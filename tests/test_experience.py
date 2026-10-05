@@ -151,7 +151,8 @@ class ExperienceTests(unittest.TestCase):
             destination = root / "other-repo/games/casual/test"
             resumed = restore(saved, root / "resumed/state.json", destination)
             self.assertEqual(resumed, current)
-            self.assertEqual((destination / "rules.md").read_text(), "Agreed test rules.\n")
+            from harness.storage.snapshots import collect
+            self.assertEqual(collect(destination)["rules.md"]["content"], "Agreed test rules.\n")
             self.assertEqual(json.loads((root / "resumed/checkpoint.json").read_text())["decision_packet"], context)
             with self.assertRaises(ValueError):
                 restore(saved, root / "resumed/state.json", destination)

@@ -34,6 +34,7 @@ already-running app. These are **moderator** tools; never expose them to players
 | `duel_start` | Create an agreed duel, internal private paths, snapshots, and hands |
 | `duel_resume` | Load a saved game by ID, without reshuffling |
 | `duel_next` | Return the next human display, private player task, or moderator review |
+| `duel_agent_context` | Compact filtered board, relevant card text and bounded guidance; optional card focus |
 | `duel_player_start` | Reserve a bounded attempt under the saved isolation policy |
 | `duel_player_bind` | Save the native child handle for cancellation/resume |
 | `duel_player_fail` | Record failure and acknowledge actual child termination |

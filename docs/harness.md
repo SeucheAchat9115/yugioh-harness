@@ -237,7 +237,12 @@ record the actual boundary separately; an enforced transport may satisfy a
 cooperative game. Actual capabilities/evidence are saved privately per attempt.
 Neither policy changes hidden-information projection or legality review.
 
-Repository persistence uses the single omniscient schema-2 `events.json` archive
+Repository persistence uses the single omniscient schema-3 `events.json` archive
 described in [game storage](game-storage.md). It includes hidden identities and
 realized outcomes; player contexts stay filtered. Private checkpoints retain
 exact shuffled orders for continuation.
+
+`duel_agent_context` returns compact-v1; `duel_context` retains full permitted
+context compatibility. The orchestrator uses compact tasks by default, with
+focused/full details available. Shared `snapshots/` objects deduplicate immutable
+resources, and outside-repository replay caches accelerate repeated reviews.

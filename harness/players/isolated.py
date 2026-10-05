@@ -11,7 +11,7 @@ from harness.runner.orchestrator import PLAYER_POLICY
 
 def model_request(context):
     allowed = {'perspective', 'state', 'capabilities', 'decision', 'prompt',
-               'recent_events', 'cards', 'rules', 'guides'}
+               'recent_events', 'cards', 'rules', 'guides', 'context_version', 'context_limits'}
     if not isinstance(context, dict) or set(context) - allowed or context.get('perspective') not in ('human', 'agent'):
         raise ValueError('Only a permitted player context may enter the model request')
     actor = context['perspective']

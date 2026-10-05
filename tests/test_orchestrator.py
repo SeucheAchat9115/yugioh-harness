@@ -42,7 +42,8 @@ class OrchestratorTests(unittest.TestCase):
         service = DuelService(self.repo, self.private)
         self.addCleanup(service.close)
         names = [tool['name'] for tool in rpc(service, {'jsonrpc': '2.0', 'id': 1, 'method': 'tools/list'})['result']['tools']]
-        self.assertEqual(len(names), 16)
+        self.assertEqual(len(names), 17)
+        self.assertIn('duel_agent_context', names)
         self.assertIn('duel_start', names)
         self.assertEqual(len(service.decks()), 2)
         self.assertFalse(service.request({'op': 'next'})['ok'])

@@ -46,8 +46,10 @@ class DuelRunner:
             if (config['id'] != self.state['game_id'] or config['mode'] != self.state['mode']
                     or saved_policy(config) != saved_policy(self.state)):
                 raise ValueError('Game directory does not match session')
+            from harness.storage.snapshots import collect
+            current_assets = collect(self.game_dir)
             for name, asset in checkpoint['assets'].items():
-                if (self.game_dir / name).read_text(encoding='utf-8') != asset['content']:
+                if current_assets.get(name) != asset:
                     raise ValueError('Game assets differ from saved checkpoint')
             self.configuration = config
             self.assets = checkpoint['assets']
@@ -83,7 +85,7 @@ class DuelRunner:
         if (now.st_mtime_ns, now.st_size) != (self._journal_stat.st_mtime_ns, self._journal_stat.st_size):
             raise ValueError('External writer changed the journal; restart runner')
 
-    def context(self, player, card_ids=None):
+    def context(self, player, card_ids=None, compact=False):
         self._fresh()
         if player not in ('human', 'agent', 'moderator', 'public'):
             raise ValueError('Player must be human or agent')
@@ -132,7 +134,11 @@ class DuelRunner:
             context['submitted_intentions']=[deepcopy(entry) for entry in self.workflow.data['submissions'].values()
                 if entry['status']=='submitted' and entry['revision']==self.state['revision']]
         from harness.runner.context import enrich
-        return enrich(self, context, player)
+        enriched = enrich(self, context, player)
+        if compact:
+            from harness.runner.agent_context import compact as compact_context
+            return compact_context(self, enriched, card_ids)
+        return enriched
 
     def recover(self):
         """Repair projections from the authoritative journal without executing another action."""

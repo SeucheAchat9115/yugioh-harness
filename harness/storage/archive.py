@@ -8,7 +8,8 @@ from harness.engine.actions import apply, digest, replay, validate_state
 from harness.modes import self_managed
 from harness.storage.atomic import save
 
-SCHEMA = '2.0'
+SCHEMA = '3.0'
+SUPPORTED = ('2.0', SCHEMA)
 DUPLICATE_LOGS = ('state.json', 'actions.md', 'log.md', 'resume.md')
 
 
@@ -60,7 +61,9 @@ def _outcomes(before, after):
 def _event(source, before, after):
     first, last = archive_state(before), archive_state(after)
     action = deepcopy(source['action'])
-    action['changes'] = _changes(first, last)
+    from harness.storage.compact import operations
+    action.pop('changes', None)
+    action['operations'] = operations(first, last)
     event = {'recorded_at': source['recorded_at'], 'before_sha256': digest(first),
              'after_sha256': digest(last), 'action': action,
              'deck_outcomes': _outcomes(before, after)}
@@ -68,11 +71,11 @@ def _event(source, before, after):
     return event
 
 
-def build_archive(journal, state=None, existing=None):
+def build_archive(journal, state=None, existing=None, catalog_refs=None):
     """Append one verified transition cheaply; rebuild from the journal for migration."""
     sources = journal['events']
     tail = sources[-1]['after_sha256'] if sources else digest(journal['initial_state'])
-    if existing and existing.get('schema_version') == SCHEMA and 'initial_state_sha256' in existing:
+    if existing and existing.get('schema_version') == SCHEMA and existing.get('operation_encoding') == 'physical-moves-and-deltas-v1' and 'initial_state_sha256' in existing:
         if len(existing['events']) == len(sources) and existing.get('source_tail_sha256') == tail:
             return existing
         if state is not None and len(existing['events']) + 1 == len(sources):
@@ -85,7 +88,7 @@ def build_archive(journal, state=None, existing=None):
                 parent[change['path'][-1]] = deepcopy(change['before'])
             before['revision'] = source['action']['expected_revision']
             previous_hash = sources[-2]['after_sha256'] if len(sources) > 1 else digest(journal['initial_state'])
-            archive_hash = existing['events'][-1]['after_sha256'] if existing['events'] else digest(existing['initial_state'])
+            archive_hash = existing['events'][-1]['after_sha256'] if existing['events'] else existing['initial_state_sha256']
             if (existing.get('source_tail_sha256') == previous_hash
                     and archive_hash == digest(archive_state(before))):
                 result = deepcopy(existing)
@@ -96,8 +99,16 @@ def build_archive(journal, state=None, existing=None):
     result = {'schema_version': SCHEMA, 'visibility': 'omniscient-archive',
               'deck_order': 'unordered-instance-inventory', 'purpose': 'replay-and-review-not-live-resume',
               'hidden_state_coverage': 'human-unknown' if self_managed(current['mode']) else 'complete',
+              'operation_encoding': 'physical-moves-and-deltas-v1',
               'initial_state': archive_state(current), 'initial_state_sha256': digest(archive_state(current)),
               'events': [], 'source_tail_sha256': tail}
+    result['catalog_refs'] = catalog_refs or {}
+    for actor in result['catalog_refs']:
+        result['initial_state']['players'][actor].pop('cards', None)
+    if existing:
+        for field in ('decisions', 'decision_packets'):
+            if field in existing:
+                result[field] = deepcopy(existing[field])
     validate_state(current)
     for source in sources:
         if source['before_sha256'] != digest(current):
@@ -116,58 +127,35 @@ def write_archive(journal, state, game_dir, assets=None):
     game_dir = Path(game_dir)
     path = game_dir / 'events.json'
     existing = json.loads(path.read_text()) if path.exists() else None
-    archive = build_archive(journal, state, existing)
-    if assets is None:
-        files = list((game_dir / 'decks').rglob('*')) if (game_dir / 'decks').exists() else []
-        files += [game_dir / 'rules.md']
-        manifest = {str(file.relative_to(game_dir)): hashlib.sha256(file.read_bytes()).hexdigest()
-                    for file in files if file.is_file() and file.name != '.writer.lock'}
-    else:
-        manifest = {name: asset['sha256'] for name, asset in assets.items()}
+    from harness.storage.snapshots import collect, intern, put, remove_copies
+    assets = collect(game_dir) if assets is None else assets
+    manifest = intern(game_dir, assets)
+    catalogs = {}
+    for actor, player in journal['initial_state']['players'].items():
+        if 'cards' not in player:
+            continue
+        matching = next((name for name, asset in assets.items()
+                         if name.startswith(f'decks/{actor}/') and name.endswith('/deck.json')
+                         and json.loads(asset['content']).get('cards') == player['cards']), None)
+        catalogs[actor] = ({'sha256': manifest[matching], 'field': 'cards'} if matching else
+                           {'sha256': put(game_dir, json.dumps(player['cards'], sort_keys=True, separators=(',', ':'), ensure_ascii=False))})
+    archive = build_archive(journal, state, existing, catalogs)
     archive['assets_sha256'] = manifest
     archive['configuration_sha256'] = digest(json.loads((game_dir / 'game.json').read_text()))
+    archive['decision_evidence'] = evidence_coverage(archive)
     save(path, archive)
+    remove_copies(game_dir, manifest)
     for name in DUPLICATE_LOGS:
         (game_dir / name).unlink(missing_ok=True)
     return archive
 
 
-def load_replay(game_dir, revision=None, perspective='moderator'):
-    """Verify archive/assets and reconstruct a chosen revision or filtered view."""
-    game_dir = Path(game_dir)
-    archive = json.loads((game_dir / 'events.json').read_text())
-    if archive.get('schema_version') != SCHEMA:
-        raise ValueError('Legacy summaries cannot reconstruct hidden states; migrate a private journal')
-    for name, expected in archive.get('assets_sha256', {}).items():
-        relative = Path(name)
-        if relative.is_absolute() or '..' in relative.parts or relative.parts[0] not in ('decks', 'rules.md'):
-            raise ValueError('Unsafe archive asset path')
-        file = (game_dir / relative).resolve()
-        if not file.is_relative_to(game_dir.resolve()) or hashlib.sha256(file.read_bytes()).hexdigest() != expected:
-            raise ValueError('Archive asset hash mismatch')
-    events = archive['events']
-    start = archive['initial_state'].get('revision', 0)
-    end = start + len(events)
-    if revision is None:
-        revision = end
-    if type(revision) is not int or not start <= revision <= end:
-        raise ValueError('Revision outside archived history')
+def load_replay(game_dir, revision=None, perspective='moderator', cache_dir=None):
+    """Backward-compatible, verified replay with disposable private revision caches."""
+    from harness.storage.replay_cache import load
+    state = load(game_dir, revision, cache_dir)
     if perspective not in ('moderator', 'human', 'agent', 'public'):
         raise ValueError('Invalid replay perspective')
-    if archive.get('initial_state_sha256') != digest(archive['initial_state']):
-        raise ValueError('Archive initial-state hash mismatch')
-    validate_state(archive['initial_state'])
-    # Verify all events even when asking for an earlier revision.
-    for event in events:
-        if event.get('event_sha256') != digest({key: value for key, value in event.items() if key != 'event_sha256'}):
-            raise ValueError('Archive event hash mismatch')
-    final = replay(archive)
-    state = final if revision == end else replay({**archive, 'events': events[:revision-start]})
-    config = json.loads((game_dir / 'game.json').read_text())
-    if archive.get('configuration_sha256') != digest(config):
-        raise ValueError('Archive configuration hash mismatch')
-    if config['id'] != state['game_id'] or config['mode'] != state['mode']:
-        raise ValueError('Archive configuration mismatch')
     if perspective == 'moderator':
         return state
     from harness.views.perspective import view
@@ -191,7 +179,7 @@ def write_decisions(game_dir, workflow):
     if not path.exists():
         return
     archive = json.loads(path.read_text())
-    if archive.get('schema_version') != SCHEMA:
+    if archive.get('schema_version') not in SUPPORTED:
         return
     decisions = [{'request_id': key, **{field: deepcopy(value[field]) for field in
                  ('decision_id', 'player', 'revision', 'intention') if field in value}}
@@ -200,7 +188,29 @@ def write_decisions(game_dir, workflow):
     if archive.get('decisions', []) != decisions or archive.get('decision_packets', []) != packets:
         archive['decisions'] = decisions
         archive['decision_packets'] = deepcopy(packets)
+        archive['decision_evidence'] = evidence_coverage(archive)
         save(path, archive)
+
+
+def evidence_coverage(archive):
+    """Report observable decision coverage without inventing unrecorded menus."""
+    events = archive['events']
+    windows = set()
+    for event in events:
+        if event['action']['actor'] in ('human', 'agent') and event['action']['kind'] in ('activate', 'respond', 'summon', 'set', 'attack', 'choice', 'pass', 'finish') and event['action'].get('automatic') is not True:
+            windows.add(event['action']['expected_revision'])
+    decisions = archive.get('decisions', [])
+    packets = archive.get('decision_packets', [])
+    intended = {decision['revision'] for decision in decisions}
+    menus = {packet['expected_revision'] for packet in packets}
+    missing_intentions = sorted(windows - intended)
+    missing_menus = sorted(windows - menus)
+    return {'status': 'complete' if not missing_intentions and not missing_menus else 'partial',
+            'intention_count': len(decisions), 'menu_count': len(packets),
+            'action_revisions_without_intention': missing_intentions,
+            'action_revisions_without_menu': missing_menus,
+            'scope': 'non-automatic player actions; delegated continuations may intentionally have no new menu',
+            'reasoning': 'submitted intentions only; unrecorded model reasoning is unavailable'}
 
 
 def game_result(state, journal, previous=None):
@@ -261,6 +271,7 @@ def main():
                     archive = json.loads((args.game_dir / 'events.json').read_text())
                     if not archive.get('decision_packets'):
                         archive['decision_packets'] = [packet]
+                        archive['decision_evidence'] = evidence_coverage(archive)
                         save(args.game_dir / 'events.json', archive)
             if load_replay(args.game_dir) != archive_state(state):
                 raise ValueError('Migrated archive does not reproduce the source state')

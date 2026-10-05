@@ -109,7 +109,8 @@ recovery before play continues. Public projections omit private annotations.
 - `tests/`: State/replay, runner, information-boundary, resume, and transport tests plus benchmarks.
 - `docs/agent-play.md`: Shared action, response, information, and recording protocol.
 - `rules/`: Format profiles for card pools, banlists, and applicable rules.
-- `games/<format>/<game-id>/`: Metadata, turn logs, deck snapshots, and saved states.
+- `games/<format>/<game-id>/`: Metadata and compact replay archives with logical snapshot references.
+- `snapshots/`: Shared immutable rules, decks, guides and card catalogs addressed by content hash.
 - `templates/`: Format-neutral starting points for deck/game records.
 
 Use a consistent format ID such as `edison`, `goat`, or `tcg`. Record a banlist date
@@ -204,10 +205,14 @@ on resume; legacy saves without a setting remain enforced. See
 
 ## Replay archives
 
-Games save one schema-2 `events.json` with hidden hands, face-down identities and
-complete state transitions. Draw/mill outcomes are recorded; shuffled deck queues
-remain in private live checkpoints. The archive can reconstruct every recorded
-revision and generate readable logs without duplicate log/state files. It is
-omniscient: opponents receive filtered views instead. Publishing remains explicit.
-See [game storage and replay](docs/game-storage.md) for the schema, coverage limits
-in self mode, and internal replay/migration helpers.
+Games save one compact schema-3 `events.json` with hidden hands, set identities,
+physical moves, deltas and realized draw/mill outcomes. Rules, decks and card
+catalogs reference immutable objects shared under `snapshots/`. Private revision
+caches make repeat reviews fast without adding generated states to Git. Schema-2
+archives remain readable; older evidence gaps are labelled explicitly.
+
+Routine play uses `duel_agent_context`: a compact filtered board, relevant exact
+card text, pending decision and bounded recent history/guidance. The full permitted
+context remains available for details. Player children never receive omniscient
+archives, and shuffled queues stay in private live checkpoints. Publishing is
+explicit. See [game storage](docs/game-storage.md) for schemas and compatibility.

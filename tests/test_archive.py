@@ -43,7 +43,7 @@ class ArchiveTests(unittest.TestCase):
         for revision, original in enumerate(history):
             self.assertEqual(load_replay(self.game, revision), archive_state(original))
         archive = json.loads((self.game / 'events.json').read_text())
-        self.assertEqual(archive['events'][0]['action']['changes'], [])
+        self.assertEqual(archive['events'][0]['action']['operations'], [])
         self.assertEqual(archive['events'][1]['deck_outcomes'][0]['cards_leaving_deck_in_order'], drawn)
         self.assertEqual(archive['initial_state']['players']['agent']['deck'],
                          sorted(history[0]['players']['agent']['deck'], key=lambda c: c['instance_id']))
@@ -76,7 +76,9 @@ class ArchiveTests(unittest.TestCase):
         path.unlink()
         (self.game / 'rules.md').write_text('Exact agreed rules')
         write_archive(self.journal, self.current, self.game)
-        (self.game / 'rules.md').write_text('Changed rules')
+        from harness.storage.snapshots import object_path
+        archived = json.loads(path.read_text())
+        object_path(self.game, archived['assets_sha256']['rules.md']).write_text('Changed rules')
         with self.assertRaisesRegex(ValueError, 'asset hash'):
             load_replay(self.game)
 

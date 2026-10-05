@@ -90,7 +90,7 @@ effects are per card instance; others share a limit across every copy of a name.
 Record this information in live state and action history; deck JSON and guides
 do not track it automatically.
 
-Use `game.json`, immutable rules/deck snapshots and the single schema-2
+Use `game.json`, immutable rules/deck snapshots and the single schema-3
 `events.json` archive described in [game storage](game-storage.md). It includes
 known hidden hands/sets and all state transitions. Generate readable summaries
 and states when needed instead of maintaining duplicate logs. During play,

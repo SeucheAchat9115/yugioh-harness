@@ -15,7 +15,7 @@ class DuelLoop:
 
     def ask(self,stage,intention=None):
         started=perf_counter()
-        request={'stage':stage,'context':self.runner.context('moderator'),'intention':deepcopy(intention)}
+        request={'stage':stage,'context':self.runner.context('moderator', compact=True),'intention':deepcopy(intention)}
         result=self.moderator(deepcopy(request))
         self.metrics.append({'stage':stage,'elapsed_ms':(perf_counter()-started)*1000})
         if not isinstance(result,dict):raise ValueError('Moderator must return a plan object')
@@ -50,7 +50,7 @@ class DuelLoop:
                             result['text']=render(self.runner.state,shown)
                         return result
                     started=perf_counter()
-                    choice=adapter.choose(self.runner.context(actor))
+                    choice=adapter.choose(self.runner.context(actor, compact=True))
                     self.metrics.append({'stage':f'{actor}_choose','elapsed_ms':(perf_counter()-started)*1000})
                     submission=self.runner.workflow.submit(packet['decision_id'],choice.get('request_id',uuid4().hex),choice['response'],actor)
                 plan=self.ask('review_intent',submission)

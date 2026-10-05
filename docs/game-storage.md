@@ -1,96 +1,146 @@
-# Game archives and live checkpoints
+# Compact game archives and agent contexts
 
-Each game uses `games/<format>/<game-id>/`. Its repository archive contains hidden
-information for replay and review. It is an omniscient artifact, never a player
-context or public live-state display. Publishing requires an explicit user request;
-local saving, pausing and finishing never authorize a Git commit.
+The repository stores omniscient records for replay and review, including known
+hidden hands and face-down identities. Player agents receive filtered runtime
+contexts instead. Publishing requires an explicit user request; local saves,
+pauses and finishing do not authorize a commit.
 
-## Files and their authority
+## Repository layout
 
-- `game.json`: game identity, mode, format, banlist, historical rules version,
-  settings, original deck identities, snapshot locations, status and resume summary.
-- `events.json`: schema 2.0, the single authoritative archive log. Contains the
-  initial state and ordered guarded transitions, including both managed hands and
-  face-down identities. No separate `state.json`, `actions.md`, `log.md` or
-  `resume.md` is written in the game folder. Final/intermediate states and readable
-  summaries are generated from the log.
-- `rules.md` and `decks/<slot>/<deck-name>/`: immutable rules and deck snapshots.
-  Gameplay JSON supplies exact card text/stats; guides preserve the advice available
-  to the agent, including historical errata notes. Their content hashes are checked
-  on replay. YDKs and provenance remain deck artifacts, not additional action logs.
+Each `games/<format>/<game-id>/` contains:
 
-The outside-repository live session still owns its `journal.json`, `state.json`,
-`checkpoint.json`, `workflow.json` and session locator. These preserve the exact
-shuffled queues, pending menus, subagent deadlines/handles and retry receipts for
-safe resumption. Do not upload those runtime files wholesale.
+- `game.json`: identity, mode, rules/banlist versions, settings, original deck
+  identities, logical snapshot names, result and current progress.
+- `events.json`: the single authoritative replay archive. Intermediate states,
+  readable action logs and review contexts are generated on demand.
 
-## `events.json` schema 2.0
+Immutable asset bytes are shared under `snapshots/<first-two-hash-characters>/<sha256>`.
+The archive's `assets_sha256` maps readable logical names such as `rules.md` or
+`decks/agent/lightsworn/guide.md` to these objects. These names identify resources,
+not copied files inside each game. Equal contents reuse the same immutable object
+across games. Editing a source deck creates different snapshot hashes; historical
+references keep their original contents. Never modify an existing snapshot object.
 
-The top-level fields are:
+`catalog_refs` points each managed player's card catalog at the `cards` field of
+its shared `deck.json` snapshot. If a custom catalog has no matching deck asset,
+it uses its own shared JSON object. The initial state omits embedded catalogs;
+replay hydrates them before checking state hashes. No garbage collector deletes
+snapshot objects automatically: archives and private checkpoints can still need them.
+
+Do not persist duplicate game-folder `state.json`, `actions.md`, `log.md` or
+`resume.md`. YDKs, guide text and provenance are shared deck resources, not second
+logs. `harness.storage.snapshots.collect(game_dir)` resolves logical resources for
+runtime use and supports legacy games with local snapshot files.
+
+## `events.json` schema 3.0
 
 | Field | Meaning |
 | --- | --- |
-| `schema_version` | `2.0`; older schema-1 summary logs lack complete replay data. |
-| `visibility` | `omniscient-archive`; hidden identities are deliberately included. |
-| `deck_order` | `unordered-instance-inventory`. Deck arrays are sorted by physical instance ID, not draw order. |
+| `schema_version` | `3.0`; schema-2 archives remain readable, schema-1 summary logs require migration from private history. |
+| `visibility` | `omniscient-archive`. Never give this file directly to a player agent. |
+| `deck_order` | `unordered-instance-inventory`: deck arrays are sorted by physical instance ID, not draw order. |
 | `purpose` | `replay-and-review-not-live-resume`. |
 | `hidden_state_coverage` | `complete` for managed/open/agent-vs-agent; `human-unknown` for self/blind. |
-| `initial_state` | Full known game state at the starting revision, including hidden hands, field cards, card catalogs and unordered deck inventories. |
-| `initial_state_sha256` | Integrity hash of the baseline, including revision-zero games. |
-| `events` | Ordered transitions: timestamp, state hashes, moderator-approved action and exact before/after changes, deck outcomes and an event integrity hash. |
-| `source_tail_sha256` | Digest linking this export to the latest private journal state; does not contain its deck queue. |
-| `assets_sha256` | Paths and hashes of immutable rules/deck snapshots. |
-| `configuration_sha256` | Hash of this game's `game.json`. |
-| `decision_packets` | Persisted menus, recommendations, response question and hand references for assessing guidance, when available. |
-| `decisions` | When available, submitted human/AI intentions with decision IDs, actor, revision and selected recommendation details. Host credentials and duplicate execution patches are excluded. |
+| `initial_state` | Known initial hands, zones, physical copies and gameplay bookkeeping; catalogs are referenced separately. |
+| `initial_state_sha256` | Hash of the hydrated baseline, including revision-zero games. |
+| `operation_encoding` | `physical-moves-and-deltas-v1`. |
+| `events` | Ordered timestamps, approved action metadata, compact operations, explicit deck outcomes and integrity hashes. |
+| `source_tail_sha256` | Digest connecting the export to its private source journal, without exporting the shuffled queue. |
+| `assets_sha256` | Logical names and content hashes of shared immutable resources. |
+| `catalog_refs` | Per-player catalog object hash and optional field selector. |
+| `configuration_sha256` | Hash of `game.json`. |
+| `decision_packets` | Recorded prompts, recommendations, response windows and hand references. |
+| `decisions` | Recorded human/AI intentions, selected-option details, actor, revision and IDs. |
+| `decision_evidence` | Explicit coverage status, counts, and player-action revisions with no recorded intention/menu. |
 
-Each action retains its ID, kind, actor, expected revision, reviewed narration,
-legality approval, automatic/no-choice review and workflow correlation when present.
-Its changes reconstruct the next state without executing card effects or rerolling
-randomness. Physical `instance_id` values distinguish duplicate copies.
+Schema-3 actions retain ID, kind, actor, expected revision, reviewed narration,
+moderator approval, automatic/no-choice review, result and workflow correlation.
+They contain `operations`, not whole-zone before/after copies:
 
-Record every relevant state change: LP, zones and controllers, hidden/revealed
-status, materials, counters, current stats/types, summon history, attacks, activation
-limits, restrictions, chain costs/targets, pending effects and response decisions.
-For a concession, deck-out or alternate victory, include `request.result` with
-`winner` (`human`, `agent` or `draw`) and a concrete `reason` in the finishing
-`duel_step`. Zero-LP results can be derived automatically; other results are never
-invented.
+- `move`: physical instance, source path, destination, optional insertion index and
+  only changed/deleted attributes. Source identity and destination capacity are checked.
+- `lp` / `delta`: path and numerical adjustment.
+- `reveal` / `set`: path and new value.
+- `delete`: remove a dictionary field.
+- `splice`: replace only a changed list segment, preserving the unaffected prefix/suffix.
 
-The moderator must explicitly record these fields when a ruling uses them; the
-archive cannot recover bookkeeping that was never recorded. Card text and format
-snapshots make retrospective legality review possible, but replay validates
-structure and integrity rather than proving every ruling correct.
+Inserted card values can use `$instance` references with attribute changes rather
+than repeating an existing card object. References resolve against the event's
+starting physical-card registry. Complex changes, materials, tokens, controller
+changes and arbitrary adjudicated metadata remain expressible through structural
+operations. Operations are applied to a copy; the reconstructed transition then
+passes the existing structural guards, physical-card accounting, chain-window
+checks and before/after state hashes. The LLM still adjudicates card legality;
+this format is not a coded effect engine.
 
-`deck_outcomes` records physical cards leaving each deck in their original order
-(draws, mills, searches or other moves), and newly returned cards' top/bottom/index
-positions. Shuffle events remain recorded, but shuffled permutations are omitted.
-Future actions record their realized outcomes, so a finished recorded trajectory
-is reproducible without its random seed or queue. Unordered inventories cannot
-predict a new draw or prove that a recorded draw came from the original queue;
-use the retained private checkpoint/journal for either task. Random coin/die or
-selection results must likewise be recorded explicitly in the action/state.
+Record LP, cards/zones/controllers, hidden/revealed status, materials, counters,
+current stats/types, summon history, attacks, activation limits, restrictions,
+chain costs/targets and pending effects/decisions whenever relevant. The archive
+cannot recover bookkeeping never recorded. For concession, deck-out or alternate
+victory, the finishing `duel_step.request.result` needs `winner` (`human`, `agent`,
+`draw`) and a concrete `reason`. Zero-LP results can be derived automatically.
 
-For self/blind games, the human's unknown hidden identities cannot be archived
-unless supplied after play. Do not ask for them during a self game, fabricate them,
-or label that archive complete. Previously unrecorded menus/rationale remain
-unavailable after migration; submitted intentions are preserved when the private
-workflow exists. Legacy journals and checkpoints remain supported.
+`deck_outcomes` preserves the physical cards actually drawn/milled/searched in
+order, and known top/bottom/index placements. Shuffle actions are retained but
+permutations and random seeds are omitted. Recorded trajectories are reproducible;
+new draws or proving the source queue require the private live checkpoint.
+Coin/die/selection outcomes must likewise be explicitly recorded in action/state.
 
-## Replay, review, and migration
+## Revision caches and compatibility
 
-The orchestrator operates these helpers internally. Humans never need terminal
-commands during a duel.
+`load_replay(game_dir, revision=None, perspective='moderator', cache_dir=None)`
+reads both schema 2 and 3. A cold replay verifies the entire history, even when
+requesting an early revision. It then caches every 16th revision, the final state
+and requested revisions locally. Warm reads reuse these verified states instead
+of replaying the full prefix. Archive contents determine the cache namespace;
+archive changes invalidate it. Configuration and immutable resources are still
+verified on warm reads. Corrupt/mismatched cached states are discarded and rebuilt.
 
-`harness.storage.archive.load_replay(game_dir, revision=None,
-perspective='moderator')` verifies assets, configuration, all event hashes and
-structural transitions, then reconstructs the requested revision. The moderator
-perspective exposes known hidden identities. Request `human`, `agent` or `public`
-for filtered views, preserving each game's original visibility policy. These
-views omit deck order; player agents must not read the omniscient file directly.
+The default cache is `<repo-parent>/<repo-name>-replay-cache/`, outside Git. Cache
+folders are private (0700), files are 0600, and an explicit inside-repository cache
+path is rejected. Cache files contain hidden state, are disposable and never the
+live session's shuffled queue or authoritative history. Deleting them only makes
+the next replay cold. `render_log(game_dir)` generates readable reviewed summaries.
 
-`render_log(game_dir)` generates readable reviewed summaries on demand. The module's
-internal CLI supports `replay`, `log` and `migrate`. Migration requires the
-original authoritative private journal, checks game identity and newer-history
-conflicts, and verifies the resulting state against the source. Missing private
-history means an old summary-only game cannot be upgraded into a full replay.
+Live session `journal.json`, `state.json`, `checkpoint.json`, `workflow.json` and
+locator remain outside the repository. They retain exact queues, pending menus,
+subagent handles/deadlines and retry receipts for continuation. Self-contained
+checkpoints retain asset bytes for restoration into a fresh checkout; restoration
+interns these assets back into the shared store. Never upload raw runtime files.
+
+## Agent context interface
+
+Use MCP `duel_agent_context(player, card_ids?)` or
+`runner.context(player, card_ids=None, compact=True)`. The sequential orchestrator
+and internal decision loop use compact contexts by default. The compatibility
+`duel_context` endpoint still provides the full permitted context.
+
+Compact-v1 includes the current board and resources, private hands only as allowed
+by that game's mode, pending chain/effects and decision, exact relevant card text,
+format/rules, up to four recent actions and up to 1200 characters of relevant
+own-deck guidance. Extra Deck option identities remain available; their effect
+text is provided on explicit focus. Side Deck options are omitted during ordinary
+play and included during sideboarding. Old attack usage entries and the moderator's
+remaining-deck inventory are omitted. Current restrictions and other effect usage
+remain intact. Limits/truncation are labelled rather than presented as complete.
+
+Filtering happens before compaction. A focus request can only return card records
+already visible to that role, never the opponent's hidden identities or future
+queue. The host can request full/focused permitted details before dispatching a
+fresh player child. Player children remain context-only and must not read archives
+or shared snapshot objects. Legacy open-mode visibility remains unchanged.
+
+## Decision evidence and migration
+
+Coverage is labelled from recorded evidence, not invented reasoning. Player actions
+without a saved menu/intention are listed; delegated continuations can intentionally
+have no new menu. Stored intentions are decisions, not a transcript of unrecorded
+model reasoning. Self/blind archives cannot reconstruct human hidden cards the
+moderator never knew. Do not ask for or fabricate them during self play.
+
+The internal `harness.storage.archive` CLI supports `migrate`, `replay` and `log`.
+Migration requires an authoritative private journal, checks game identity/newer
+history, interns assets, converts transitions and verifies the resulting state.
+Historical packet/intention gaps remain explicitly partial. Existing schema-1
+private journals/checkpoints and schema-2 repository archives remain supported.
+Humans never need to execute these commands during a duel.
