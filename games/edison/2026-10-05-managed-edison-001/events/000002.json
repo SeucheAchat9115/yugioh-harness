@@ -1,0 +1,80 @@
+{
+  "revision": 2,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:19:52.339693+00:00",
+  "before_sha256": "53ed023d11fe7d21992104d8355d57158e40fccdeb4db24945796f09ecbeb787",
+  "after_sha256": "5c00ff355c80dc007fb82a7fff6c66c08a6e211f91100be5bf2ff0fdd43ed6d8",
+  "action": {
+    "kind": "activate",
+    "actor": "human",
+    "expected_revision": 1,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing activated Allure of Darkness as Chain Link 1; no activation cost or targets.",
+    "id": "workflow-edison-r1-activate-allure",
+    "workflow_request_id": "edison-r1-activate-allure",
+    "workflow_digest": "def8381076029fc2a51681e6c77e9861574ab3d0ddbeeba893d713a1760ff4ee",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "52056e63f49141b6b9c81b199840dab6",
+        "from": [
+          "players",
+          "human",
+          "hand",
+          1
+        ],
+        "to": [
+          "players",
+          "human",
+          "spell_trap_zones",
+          0
+        ],
+        "attributes": {
+          "owner": "human",
+          "position": "face-up",
+          "hidden": false
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "id": "allure-turn1-cl1",
+            "actor": "human",
+            "name": "Allure of Darkness",
+            "source_instance_id": "52056e63f49141b6b9c81b199840dab6",
+            "effect": "Draw 2 cards, then banish 1 DARK monster from your hand; if none, send your entire hand to the GY.",
+            "costs": [],
+            "targets": [],
+            "resolution_started": false
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "actor"
+        ],
+        "value": "agent"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "allure-chain-response"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "31889c1df0d6d13a6fb4ea8dedcad93bd58f873013613e59a16a4ebc2c5a9411"
+}

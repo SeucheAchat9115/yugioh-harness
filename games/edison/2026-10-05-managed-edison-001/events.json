@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.0",
+  "schema_version": "4.0",
   "visibility": "omniscient-archive",
   "deck_order": "unordered-instance-inventory",
   "purpose": "replay-and-review-not-live-resume",
@@ -651,3718 +651,6 @@
     }
   },
   "initial_state_sha256": "8bdbd485317157ecedfc2b6ca4d908ddd1ee86b3cd0db2f0c66dd5dffeaef1ee",
-  "events": [
-    {
-      "recorded_at": "2026-10-05T09:14:57.214208+00:00",
-      "before_sha256": "8bdbd485317157ecedfc2b6ca4d908ddd1ee86b3cd0db2f0c66dd5dffeaef1ee",
-      "after_sha256": "53ed023d11fe7d21992104d8355d57158e40fccdeb4db24945796f09ecbeb787",
-      "action": {
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 0,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Both decks were independently shuffled and five-card opening hands dealt. Blackwing starts: drew one card under Edison rules; no legal actions in the empty Draw/Standby windows. Advanced to Main Phase 1. No first-turn Battle Phase.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "public-rules-verified",
-          "reason": "Mandatory first-turn draw applies. No cards are on the field or in either Graveyard; these decklists contain no legal hand activations in the opening Draw/Standby windows. No optional or mandatory Standby effects apply."
-        },
-        "id": "workflow-edison-initial-draw-to-mp1",
-        "workflow_request_id": "edison-initial-draw-to-mp1",
-        "workflow_digest": "43edc667a730804806259953d166ff86d5d90d7e0b30f0572754fa576380a43f",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "f93044314d0541e1b30204782bb871fd",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              33
-            ],
-            "to": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 5
-          },
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "main1"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-1-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "f93044314d0541e1b30204782bb871fd",
-              "card_id": 65192027
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "a54d58638a819202059184eac4396272a3f6b7bfbc8818f074d1110a0f43027b"
-    },
-    {
-      "recorded_at": "2026-10-05T09:19:52.339693+00:00",
-      "before_sha256": "53ed023d11fe7d21992104d8355d57158e40fccdeb4db24945796f09ecbeb787",
-      "after_sha256": "5c00ff355c80dc007fb82a7fff6c66c08a6e211f91100be5bf2ff0fdd43ed6d8",
-      "action": {
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 1,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing activated Allure of Darkness as Chain Link 1; no activation cost or targets.",
-        "id": "workflow-edison-r1-activate-allure",
-        "workflow_request_id": "edison-r1-activate-allure",
-        "workflow_digest": "def8381076029fc2a51681e6c77e9861574ab3d0ddbeeba893d713a1760ff4ee",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "52056e63f49141b6b9c81b199840dab6",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-up",
-              "hidden": false
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "allure-turn1-cl1",
-                "actor": "human",
-                "name": "Allure of Darkness",
-                "source_instance_id": "52056e63f49141b6b9c81b199840dab6",
-                "effect": "Draw 2 cards, then banish 1 DARK monster from your hand; if none, send your entire hand to the GY.",
-                "costs": [],
-                "targets": [],
-                "resolution_started": false
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "allure-chain-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "4854326a70a726ed996f252ceab251034b49679f79e8e1ce477821bebea73912"
-    },
-    {
-      "recorded_at": "2026-10-05T09:19:53.485901+00:00",
-      "before_sha256": "5c00ff355c80dc007fb82a7fff6c66c08a6e211f91100be5bf2ff0fdd43ed6d8",
-      "after_sha256": "516ae0b991cb44c84a6db6522e4e5e312810cd08d0d4af64a1045c530ea1b182",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 2,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Neither player had a legally activatable response to Allure of Darkness. Closed the response window.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Both fields were empty before Allure; no previously set cards or active effects exist. Both current hands were checked: neither contains a card legally activatable in this response window."
-        },
-        "id": "workflow-edison-r2-allure-no-responses",
-        "workflow_request_id": "edison-r2-allure-no-responses",
-        "workflow_digest": "b9df84ed79d2046199a6820d28e30d8250a3feac06bb73f42673c6e948cb6f86",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "09f0ccc4038904c1f74bbe567a3f48faad5d6ce96238677522e883360a461829"
-    },
-    {
-      "recorded_at": "2026-10-05T09:19:54.631141+00:00",
-      "before_sha256": "516ae0b991cb44c84a6db6522e4e5e312810cd08d0d4af64a1045c530ea1b182",
-      "after_sha256": "506eaf471a92e8027d799353373c88257b159ef8c2972eef3e750c9f061f4f6e",
-      "action": {
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 3,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Allure of Darkness began resolving: Blackwing drew two cards. Resolution is suspended for the required DARK monster selection; no new activations are allowed.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "public-rules-verified",
-          "reason": "The response window is closed. Allure must draw two before the player selects a DARK; do not choose the banish or remove the chain link before that selection."
-        },
-        "id": "workflow-edison-r3-allure-partial-resolution",
-        "workflow_request_id": "edison-r3-allure-partial-resolution",
-        "workflow_digest": "d3de9aeffcff5c9c179ec94b992305be7f998877733c504c9842711377feea5a",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "9b163d36c0564134a20199cee366a913",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              22
-            ],
-            "to": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 5
-          },
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "effect"
-            ],
-            "value": "Draw 2 cards, then banish 1 DARK monster from your hand."
-          },
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "resolution_started"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "resolution_step"
-            ],
-            "value": "awaiting-dark-banish"
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 6,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "8e947a7490134e3298670fca3526c021"
-              }
-            ]
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "deck"
-            ],
-            "index": 20,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "allure-resolution-dark-banish"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "9b163d36c0564134a20199cee366a913",
-              "card_id": 91351370
-            },
-            {
-              "instance_id": "8e947a7490134e3298670fca3526c021",
-              "card_id": 22835145
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "f6df5e3bc3df27750f9b1ba99d35d162a47ee25bd0cf594da156c7cecf21af71"
-    },
-    {
-      "recorded_at": "2026-10-05T09:25:44.191521+00:00",
-      "before_sha256": "506eaf471a92e8027d799353373c88257b159ef8c2972eef3e750c9f061f4f6e",
-      "after_sha256": "20e409c01bd789fb31ecc5f71e9e5596efa958d25d584a8c8ee3a3aec348ce06",
-      "action": {
-        "kind": "choice",
-        "actor": "human",
-        "expected_revision": 4,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing banished Blackwing - Blizzard the Far North face-up for Allure of Darkness.",
-        "id": "workflow-edison-r4-banish-blizzard",
-        "workflow_request_id": "edison-r4-banish-blizzard",
-        "workflow_digest": "3867359849b6f6df9ccd7c30552332f63c4db1585adaa7677fb41a47af8d5957",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "8e947a7490134e3298670fca3526c021",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              6
-            ],
-            "to": [
-              "players",
-              "human",
-              "banished"
-            ],
-            "index": 0,
-            "attributes": {
-              "owner": "human",
-              "position": "face-up",
-              "hidden": false
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "4ee53948589a36dd2ab48f081a9b27d317b4cb58d50e6dd4291a17cbfe9224d1"
-    },
-    {
-      "recorded_at": "2026-10-05T09:25:45.339694+00:00",
-      "before_sha256": "20e409c01bd789fb31ecc5f71e9e5596efa958d25d584a8c8ee3a3aec348ce06",
-      "after_sha256": "44dcc72d3e11ccddc8f11ded7572fffc678662889ebe13d999185fef49b3e4be",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 5,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Allure of Darkness finished resolving and went to Blackwing's Graveyard.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The required DARK was selected and banished. Complete the last chain link and send the resolved Normal Spell to the GY; no new effects are pending."
-        },
-        "id": "workflow-edison-r5-allure-finish",
-        "workflow_request_id": "edison-r5-allure-finish",
-        "workflow_digest": "d74edeaa6e01b22628900960fb5712bccbf2887a4a72ba503d6c2a703493f96a",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "52056e63f49141b6b9c81b199840dab6",
-            "from": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              0
-            ],
-            "to": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 0
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "af2417550d42a7c676d964270d41d2fbb18dd11beaa2dc043a021eae3b264feb"
-    },
-    {
-      "recorded_at": "2026-10-05T09:25:46.483080+00:00",
-      "before_sha256": "44dcc72d3e11ccddc8f11ded7572fffc678662889ebe13d999185fef49b3e4be",
-      "after_sha256": "3f38f9434f90c62e7cbce11bd2d2bf1efc594bd4d5ca8f295e67c7d478d107f4",
-      "action": {
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 6,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing activated Black Whirlwind as Chain Link 1.",
-        "id": "workflow-edison-r6-whirlwind-activation",
-        "workflow_request_id": "edison-r6-whirlwind-activation",
-        "workflow_digest": "9ad570a1481aa694f14312f5632cecfb9a2af6f24735f5115b43a3af895e126a",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "9b163d36c0564134a20199cee366a913",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              5
-            ],
-            "to": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-up",
-              "hidden": false
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "whirlwind-turn1-activation",
-                "actor": "human",
-                "name": "Black Whirlwind",
-                "effect": "Activate this Continuous Spell. Its optional search triggers on a subsequent Blackwing Normal Summon.",
-                "costs": [],
-                "targets": [],
-                "resolution_started": false
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "black-whirlwind-activation-response"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "63a5438007d79ce67fcd2a2437c301cae0c4a60a8d42db7fefe866b173c9ee9c"
-    },
-    {
-      "recorded_at": "2026-10-05T09:25:47.778641+00:00",
-      "before_sha256": "3f38f9434f90c62e7cbce11bd2d2bf1efc594bd4d5ca8f295e67c7d478d107f4",
-      "after_sha256": "3b56c3dd4965017bef676baa0730e0381ba74d1687b43e017cb3bedd34d71224",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 7,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Neither player had a legal response to Black Whirlwind's activation.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The opponent's unchanged hand contains no legal response; Blackwing has no previously set activatable cards. Closed the response window."
-        },
-        "id": "workflow-edison-r7-whirlwind-no-response",
-        "workflow_request_id": "edison-r7-whirlwind-no-response",
-        "workflow_digest": "e3d7051dea45ea233859b9502280f331c72c882115ee928ef1095e4d2de87ddf",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "aeeeda4c27e16d22a3daa34b8defbc2ce60792d6b078f01caa65d96d7e724c62"
-    },
-    {
-      "recorded_at": "2026-10-05T09:25:48.925831+00:00",
-      "before_sha256": "3b56c3dd4965017bef676baa0730e0381ba74d1687b43e017cb3bedd34d71224",
-      "after_sha256": "0782f5bfcfe9d7c98d9298f680330ee4889514810b7994142772735806391cef",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 8,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Black Whirlwind's activation resolved; it remains face-up.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "No response or resolution choice exists. Finish the activation chain; no search occurs merely by activating this Continuous Spell."
-        },
-        "id": "workflow-edison-r8-whirlwind-resolved",
-        "workflow_request_id": "edison-r8-whirlwind-resolved",
-        "workflow_digest": "b0277748e269becf4b15724c895bb140d143eb6552995cbee92a7810373a72df",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "db05c35be4686abe8c29330a61123ea2814158d6f8011fae2b6d0da96d874b3f"
-    },
-    {
-      "recorded_at": "2026-10-05T09:25:50.077292+00:00",
-      "before_sha256": "0782f5bfcfe9d7c98d9298f680330ee4889514810b7994142772735806391cef",
-      "after_sha256": "81d50a8a2754b82c481a125772fc9f2cb45f75cf4a3dca02b050c70789c40828",
-      "action": {
-        "kind": "set",
-        "actor": "human",
-        "expected_revision": 9,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing set two cards in Spell/Trap zones 2 and 3.",
-        "id": "workflow-edison-r9-set-two",
-        "workflow_request_id": "edison-r9-set-two",
-        "workflow_digest": "8bf5b4ba58420c5b1cf5f9fe621edbc7f1ff6d0202237da50c4e37a88aec3040",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "4b10e8e36212453c819e707d31cbc01b",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              3
-            ],
-            "to": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              2
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-down",
-              "hidden": true,
-              "set_turn": 1
-            }
-          },
-          {
-            "op": "move",
-            "instance": "8bc4d6e66e0840c4ba6021f385c49c6d",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              2
-            ],
-            "to": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              1
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-down",
-              "hidden": true,
-              "set_turn": 1
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "4823a7e76ab366cda9fb9f22709a7e2e78404a9206d46ca1c6cdb0c74c59fe93"
-    },
-    {
-      "recorded_at": "2026-10-05T09:25:51.218691+00:00",
-      "before_sha256": "81d50a8a2754b82c481a125772fc9f2cb45f75cf4a3dca02b050c70789c40828",
-      "after_sha256": "83c9bcee6b85ae45f2612953a9fd899bf5417d0a1886189bf1218a875798a385",
-      "action": {
-        "kind": "summon",
-        "actor": "human",
-        "expected_revision": 10,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing Normal Summoned Blizzard the Far North in Attack Position. No legal summon negation is available. Blizzard has no eligible GY target, so its revival effect cannot activate. Black Whirlwind's optional search is available.",
-        "id": "workflow-edison-r10-normal-blizzard",
-        "workflow_request_id": "edison-r10-normal-blizzard",
-        "workflow_digest": "b73d09f8286a30f7d8a263d27401933554781a7b399b1d704a6e78674dda44d0",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "54031bf869124a898d042d1f1226caec",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "monster_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-up attack",
-              "hidden": false,
-              "summon_type": "normal",
-              "summoned_turn": 1,
-              "properly_summoned": true
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "normal_summon_used"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "black-whirlwind-summon-trigger"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "5833148871c27eb1b4e36c4e19ed0d7144a331a416144703f84640e754917cc5"
-    },
-    {
-      "recorded_at": "2026-10-05T09:28:50.563043+00:00",
-      "before_sha256": "83c9bcee6b85ae45f2612953a9fd899bf5417d0a1886189bf1218a875798a385",
-      "after_sha256": "f8f1d9dc2bceba6399963a6b68784f02ac6304f2daacce246f7e0c9512bb9883",
-      "action": {
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 11,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing activated Black Whirlwind's optional search effect following Blizzard's Normal Summon.",
-        "id": "workflow-edison-r11-whirlwind-trigger",
-        "workflow_request_id": "edison-r11-whirlwind-trigger",
-        "workflow_digest": "a9ee8671aea17f3b036242f737c3fd3811addaf7f1e13b421cdbb2fc165a80d0",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "whirlwind-turn1-search",
-                "actor": "human",
-                "name": "Black Whirlwind",
-                "source_instance_id": "9b163d36c0564134a20199cee366a913",
-                "effect": "Add a Blackwing with ATK strictly lower than the Normal Summoned Blizzard's 1300 ATK.",
-                "costs": [],
-                "targets": [],
-                "resolution_started": false
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "black-whirlwind-search-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "d00b60afa564ae1b81522b2cb63c0a90e0cfc42b9bb650f202d85a7f36a05ae1"
-    },
-    {
-      "recorded_at": "2026-10-05T09:28:51.707251+00:00",
-      "before_sha256": "f8f1d9dc2bceba6399963a6b68784f02ac6304f2daacce246f7e0c9512bb9883",
-      "after_sha256": "453eb7b81f6fa3aa6df6823c988859eb8770030afc208eebf6b66cffa0baa421",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 12,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Neither player had a legal response to Black Whirlwind's search effect.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Opponent hand is unchanged and has no legal response; the human's traps were set this turn and cannot activate. Close the response window."
-        },
-        "id": "workflow-edison-r12-search-no-response",
-        "workflow_request_id": "edison-r12-search-no-response",
-        "workflow_digest": "9a649ef1fc74e67f50a370eac72cc47342198a2690292c3f0a2a2d8ad567a6f8",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "dc7778781bf4f3a3cfe6ecbda690a28e601837a56260e6e4ca7e5c2b30edd686"
-    },
-    {
-      "recorded_at": "2026-10-05T09:28:52.853322+00:00",
-      "before_sha256": "453eb7b81f6fa3aa6df6823c988859eb8770030afc208eebf6b66cffa0baa421",
-      "after_sha256": "9717e92b0d45708a82624a7bc7f2238594e0ade2c5b953b4c257376efb13b767",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 13,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Black Whirlwind resolved: Blackwing revealed and added Vayu the Emblem of Honor from Deck to hand, then shuffled the remaining Deck.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The user selected Vayu. It is the sole eligible card below 1300 ATK, Whirlwind is face-up, and Blizzard still supplies 1300 ATK. No other selection or response remains."
-        },
-        "id": "workflow-edison-r13-search-vayu",
-        "workflow_request_id": "edison-r13-search-vayu",
-        "workflow_digest": "dd5855e2bbffc92fee4c9adad03d2720536546839a8d959b492b3e7f971e0d1c",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "c80fb96c6d1149039820b5d8b9648a45",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              24
-            ],
-            "to": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 2
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "c80fb96c6d1149039820b5d8b9648a45",
-              "card_id": 72714392
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "3cefb05b1e0979b69950bc5336946d532f69addba7c03c596646d6d1d5f5f013"
-    },
-    {
-      "recorded_at": "2026-10-05T09:28:54.007344+00:00",
-      "before_sha256": "9717e92b0d45708a82624a7bc7f2238594e0ade2c5b953b4c257376efb13b767",
-      "after_sha256": "896eca89eec0535e7f00044cbec32d5fba71eb7115f642245b5e5add7a8bec81",
-      "action": {
-        "kind": "turn",
-        "actor": "human",
-        "expected_revision": 14,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing ended Turn 1 with Blizzard, Black Whirlwind, and two set cards. No End Phase effects or hand-limit discard applied. Turn 2 begins: Lightsworn's Draw Phase.",
-        "id": "workflow-edison-r14-end-turn",
-        "workflow_request_id": "edison-r14-end-turn",
-        "workflow_digest": "177b933b1d4125d29e694ed16359afdcb8298df0ad1c5106649a9bfc6789479b",
-        "operations": [
-          {
-            "op": "delta",
-            "path": [
-              "turn"
-            ],
-            "delta": 1
-          },
-          {
-            "op": "set",
-            "path": [
-              "active_player"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "draw"
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "normal_summon_used"
-            ],
-            "value": false
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "9d66d72f36955c90d412aac7eeb72c5e4f13a31e23cf48527fc27f4a116a0fdf"
-    },
-    {
-      "recorded_at": "2026-10-05T09:28:55.151160+00:00",
-      "before_sha256": "896eca89eec0535e7f00044cbec32d5fba71eb7115f642245b5e5add7a8bec81",
-      "after_sha256": "7d65709021fd21889289cc2d2930e30c23a97d7bbff1ad838324224bb3369357",
-      "action": {
-        "kind": "draw",
-        "actor": "moderator",
-        "expected_revision": 15,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn drew one card for Turn 2.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The normal Draw Phase draw is compulsory; neither player has a pre-draw action from current known state and card text."
-        },
-        "id": "workflow-edison-r15-agent-draw",
-        "workflow_request_id": "edison-r15-agent-draw",
-        "workflow_digest": "fb4868a45c1960bc167911c8dba5d39de8c713e09640b9208fe01c1090daa1b2",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "228d4e62820947d98cfc3382a3ad6a49",
-            "from": [
-              "players",
-              "agent",
-              "deck",
-              7
-            ],
-            "to": [
-              "players",
-              "agent",
-              "hand"
-            ],
-            "index": 5
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "agent",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "228d4e62820947d98cfc3382a3ad6a49",
-              "card_id": 16255442
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "75d754b38fbf62ada1c5492e611ba866d0dd1fb5c26578e82d541f9e84843ef4"
-    },
-    {
-      "recorded_at": "2026-10-05T09:29:50.726059+00:00",
-      "before_sha256": "7d65709021fd21889289cc2d2930e30c23a97d7bbff1ad838324224bb3369357",
-      "after_sha256": "182c4528ceecc7685576f67ae6fe1779a5b206f440581254e32aeab20c4576ae",
-      "action": {
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 16,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal Draw/Standby activations or pending effects apply. Lightsworn entered the start of Main Phase 1.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Both hands and fields were checked: no legal Draw/Standby activations, optional effects, or compulsory Standby effects. Do not skip the start-of-Main-Phase-1 Cold Wave opportunity."
-        },
-        "id": "workflow-edison-r16-agent-main-phase",
-        "workflow_request_id": "edison-r16-agent-main-phase",
-        "workflow_digest": "19a0399cf9a1abcc68a976776369efb18c70af9531c5ec888927ff85a51e721a",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "main1"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "start-main-phase-1"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "f622539f3572ed0626fe92f89f679fa5f1d3c4e6bcf02b86bf5a341541f0a2a5"
-    },
-    {
-      "recorded_at": "2026-10-05T09:32:05.555907+00:00",
-      "before_sha256": "182c4528ceecc7685576f67ae6fe1779a5b206f440581254e32aeab20c4576ae",
-      "after_sha256": "02a257dd441fbef3b908e1782effa9d9e1f558200112212d99b925189cd18567",
-      "action": {
-        "kind": "set",
-        "actor": "agent",
-        "expected_revision": 17,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn used its Normal Summon/Set to set one monster face-down in Defense Position. No Flip effect activates, and no legal human response to this Set exists.",
-        "id": "workflow-edison-r17-agent-set-ryko",
-        "workflow_request_id": "edison-r17-agent-set-ryko",
-        "workflow_digest": "55a1f249c0978e75b0e3ddeda6c2d07ec6e6c72161e7c9e1e27c9ba131781d32",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "7b8c95ed3a814f0fa5290deaade33cf5",
-            "from": [
-              "players",
-              "agent",
-              "hand",
-              2
-            ],
-            "to": [
-              "players",
-              "agent",
-              "monster_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "agent",
-              "position": "face-down defense",
-              "hidden": true,
-              "set_turn": 2
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "agent",
-              "normal_summon_used"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "main-phase-1-open"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "d10d13a91923b8776eaf73728ebe5dd80b2a74fc200ea295952078f4f82e36d0"
-    },
-    {
-      "recorded_at": "2026-10-05T09:33:33.716643+00:00",
-      "before_sha256": "02a257dd441fbef3b908e1782effa9d9e1f558200112212d99b925189cd18567",
-      "after_sha256": "35e6e75cf98c7cf6341916955156ae879a1463a25c845cc4b6a41f887dced658",
-      "action": {
-        "kind": "turn",
-        "actor": "agent",
-        "expected_revision": 18,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn ended its turn with one face-down Defense Position monster and no backrow. No attack, End Phase effect, or hand-limit discard applied. Turn 3 begins: Blackwing's Draw Phase.",
-        "id": "workflow-edison-r18-agent-end",
-        "workflow_request_id": "edison-r18-agent-end",
-        "workflow_digest": "ecbf30e042f57b7ec375762875d14e0c2dcfe82a3fc46cfbde6bb6bcb93b34db",
-        "operations": [
-          {
-            "op": "delta",
-            "path": [
-              "turn"
-            ],
-            "delta": 1
-          },
-          {
-            "op": "set",
-            "path": [
-              "active_player"
-            ],
-            "value": "human"
-          },
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "draw"
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "agent",
-              "normal_summon_used"
-            ],
-            "value": false
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "6fce0c9add71afc7fe37ca0eac04be55267307b4a1cdf2abdf25c8edeeec3c7f"
-    },
-    {
-      "recorded_at": "2026-10-05T09:33:34.866800+00:00",
-      "before_sha256": "35e6e75cf98c7cf6341916955156ae879a1463a25c845cc4b6a41f887dced658",
-      "after_sha256": "49c06cfb71bbbdd8d3aac820bd71643b64676e0d967090bb5dab18e7a250842b",
-      "action": {
-        "kind": "draw",
-        "actor": "moderator",
-        "expected_revision": 19,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing drew one card for Turn 3.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "No pre-draw action or delayed effect applies. The normal draw is compulsory; afterward inspect the updated hand for optional Draw/Standby actions."
-        },
-        "id": "workflow-edison-r19-human-draw",
-        "workflow_request_id": "edison-r19-human-draw",
-        "workflow_digest": "dc11a0891f1fbd9804edb24ffe5e9e9d41ca342434dd6ceac12601bdac30ea13",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "4f2e63168645436c87d6f45fac96e352",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              12
-            ],
-            "to": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 3
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "4f2e63168645436c87d6f45fac96e352",
-              "card_id": 2009101
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "75bd3983508aa1d13de4d80a72cafbd8b3376f4b046634deb0edf6169d2e096a"
-    },
-    {
-      "recorded_at": "2026-10-05T09:34:42.240018+00:00",
-      "before_sha256": "49c06cfb71bbbdd8d3aac820bd71643b64676e0d967090bb5dab18e7a250842b",
-      "after_sha256": "2ca09fd30bb62ec3cb70738bfc3a901d61420a54a20d964d50b1a101ca9555da",
-      "action": {
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 20,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal Draw/Standby actions or pending effects applied. Blackwing entered Main Phase 1 of Turn 3.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The updated human hand contains only Main Phase-playable monsters; neither player's current field or hand has a legal Draw/Standby activation. Both GYs and effects were checked; no mandatory or optional Standby effect applies."
-        },
-        "id": "workflow-edison-r20-human-main-phase",
-        "workflow_request_id": "edison-r20-human-main-phase",
-        "workflow_digest": "8da2dec0e352069e54857be7dfffba4f5623197faa225cd0b2a610c98a4f6088",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "main1"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-1-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "4047458766b5794458012ffc5d79d83e97c651db1690627431834b75f41306fc"
-    },
-    {
-      "recorded_at": "2026-10-05T09:47:25.137900+00:00",
-      "before_sha256": "2ca09fd30bb62ec3cb70738bfc3a901d61420a54a20d964d50b1a101ca9555da",
-      "after_sha256": "d539496081b1bb83af131817a327d7164459c1adac3d866c71876d430ba15226",
-      "action": {
-        "kind": "summon",
-        "actor": "human",
-        "expected_revision": 21,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing Tributed Blizzard the Far North and Tribute Summoned Sirocco the Dawn in Attack Position. No legal opposing summon negation or response is available. Black Whirlwind's optional Normal Summon search is available.",
-        "id": "workflow-edison-r21-tribute-sirocco",
-        "workflow_request_id": "edison-r21-tribute-sirocco",
-        "workflow_digest": "6b87dd0415c88636996d0712f635eccd1cd24d63207557c817ed72e7015164c3",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "54031bf869124a898d042d1f1226caec",
-            "from": [
-              "players",
-              "human",
-              "monster_zones",
-              0
-            ],
-            "to": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 1,
-            "attributes": {
-              "position": "face-up"
-            }
-          },
-          {
-            "op": "move",
-            "instance": "943725c19c3f4604bb76c9eefd1652b8",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              0
-            ],
-            "to": [
-              "players",
-              "human",
-              "monster_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-up attack",
-              "hidden": false,
-              "summon_type": "tribute",
-              "summoned_turn": 3,
-              "properly_summoned": true
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "normal_summon_used"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "black-whirlwind-sirocco-trigger"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "4b6f5edb607fd2213204a26de1f8683124e9690d4ab7ef2d652c6c577fc582e0"
-    },
-    {
-      "recorded_at": "2026-10-05T09:56:16.330301+00:00",
-      "before_sha256": "d539496081b1bb83af131817a327d7164459c1adac3d866c71876d430ba15226",
-      "after_sha256": "fdb043ca12d075987f1cb116ca2240d8306030ee0a61f05198f5938df8b2eff2",
-      "action": {
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 22,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing activated Black Whirlwind's optional search following Sirocco's Tribute Summon.",
-        "id": "workflow-edison-r22-whirlwind-bora-trigger",
-        "workflow_request_id": "edison-r22-whirlwind-bora-trigger",
-        "workflow_digest": "8d723a5d8be2ad166519a944714d30af76a8e3778844bb1a4299d698142e6f80",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "whirlwind-turn3-search",
-                "actor": "human",
-                "name": "Black Whirlwind",
-                "effect": "Add a Blackwing from Deck to hand with ATK strictly lower than Sirocco's 2000 ATK.",
-                "costs": [],
-                "targets": []
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "black-whirlwind-search-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "dc0d07d4c2f6ef97f11abd83293a9ac1341d284c62fa5dbd6844f6f2af0fdba7"
-    },
-    {
-      "recorded_at": "2026-10-05T09:56:17.479674+00:00",
-      "before_sha256": "fdb043ca12d075987f1cb116ca2240d8306030ee0a61f05198f5938df8b2eff2",
-      "after_sha256": "e5a4ea073a2db9ba4e34829308334cec895057bf74ebc9f4265ad7e6063ec07c",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 23,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No opposing response to Black Whirlwind's search was available.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Opponent has no backrow, no face-up effects, and no legal current-hand response. The human delegated the stated search and combo; no undecided response remains."
-        },
-        "id": "workflow-edison-r23-search-pass",
-        "workflow_request_id": "edison-r23-search-pass",
-        "workflow_digest": "7edb4d0fe4ed57febdf4b488d8b40d8306e2591f61c8a4d26ff56f1108f9d378",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "938022d2719a2bad4e178cacd3e1d0408b6808e568032f346b70255dde2a066e"
-    },
-    {
-      "recorded_at": "2026-10-05T09:56:18.628144+00:00",
-      "before_sha256": "e5a4ea073a2db9ba4e34829308334cec895057bf74ebc9f4265ad7e6063ec07c",
-      "after_sha256": "8b10e87f186e9102372d275360f4271d6f57eff967b4777f9e0e1418d32171f2",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 24,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Black Whirlwind added the revealed Bora the Spear to Blackwing's hand; the remaining Deck was shuffled.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The user explicitly authorized the previously described Bora line. Bora's 1700 ATK is lower than Sirocco's unchanged 2000 ATK; Whirlwind remains face-up and the search resolves."
-        },
-        "id": "workflow-edison-r24-search-bora",
-        "workflow_request_id": "edison-r24-search-bora",
-        "workflow_digest": "b2be2b5cb96779a9af834d3526d44eb4f704058ba51845de8c9ad7edf3b37fa0",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "23f7864ab79c490bb9326024e671727f",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              8
-            ],
-            "to": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 3
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "23f7864ab79c490bb9326024e671727f",
-              "card_id": 49003716
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "980232331809a549bc8a1bc52c55e0b377a1c8d53f727631f74a1c0c71eb6919"
-    },
-    {
-      "recorded_at": "2026-10-05T09:56:19.770994+00:00",
-      "before_sha256": "8b10e87f186e9102372d275360f4271d6f57eff967b4777f9e0e1418d32171f2",
-      "after_sha256": "da025e9245b15ee9b87564d9853c9aa159fb2b1bad38881daf0cbbd413db2b31",
-      "action": {
-        "kind": "summon",
-        "actor": "human",
-        "expected_revision": 25,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing Special Summoned Bora the Spear in Attack Position beside Sirocco. No legal opposing summon negation or response is available.",
-        "id": "workflow-edison-r25-special-bora",
-        "workflow_request_id": "edison-r25-special-bora",
-        "workflow_digest": "47febcddb36646f49fc79f25e6bf6a41dba45f8ded5bf21e288fd38176135359",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "23f7864ab79c490bb9326024e671727f",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              3
-            ],
-            "to": [
-              "players",
-              "human",
-              "monster_zones",
-              1
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-up attack",
-              "hidden": false,
-              "summon_type": "special",
-              "summoned_turn": 3,
-              "properly_summoned": true
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "dad631bdf712fb947f6c6bed42fb83ef02d83a39594a7be60a5d6497c235a273"
-    },
-    {
-      "recorded_at": "2026-10-05T09:56:20.915624+00:00",
-      "before_sha256": "da025e9245b15ee9b87564d9853c9aa159fb2b1bad38881daf0cbbd413db2b31",
-      "after_sha256": "788b8c975a6eaa4dfe00025f3943c52f96dd811afc3c935e413ad986b205a35e",
-      "action": {
-        "kind": "summon",
-        "actor": "human",
-        "expected_revision": 26,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing Special Summoned Gale the Whirlwind in Attack Position beside the differently named Blackwings. No legal opposing summon negation or response is available.",
-        "id": "workflow-edison-r26-special-gale",
-        "workflow_request_id": "edison-r26-special-gale",
-        "workflow_digest": "c8e4e79cdc24be625204c25e244849186e6974e3590d4315e04ce06768883a18",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "4f2e63168645436c87d6f45fac96e352",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              2
-            ],
-            "to": [
-              "players",
-              "human",
-              "monster_zones",
-              2
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-up attack",
-              "hidden": false,
-              "summon_type": "special",
-              "summoned_turn": 3,
-              "properly_summoned": true
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "269bd9f5ebd32a254fa621395bc9a8ba3e3f781395dedcbc41b4591181056f02"
-    },
-    {
-      "recorded_at": "2026-10-05T09:56:22.062827+00:00",
-      "before_sha256": "788b8c975a6eaa4dfe00025f3943c52f96dd811afc3c935e413ad986b205a35e",
-      "after_sha256": "fa783559e53c4c25a0450e403dbdfa150fa86ea0754c193e28abdb07aa3a4d5d",
-      "action": {
-        "kind": "summon",
-        "actor": "human",
-        "expected_revision": 27,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing sent Level 3 Tuner Gale and Level 5 non-Tuner Sirocco to the GY, and Synchro Summoned Stardust Dragon in Attack Position. No legal opposing summon negation or response is available. The GY now has exactly three DARK monsters: Blizzard, Sirocco, and Gale.",
-        "id": "workflow-edison-r27-synchro-stardust",
-        "workflow_request_id": "edison-r27-synchro-stardust",
-        "workflow_digest": "c2c8bcaca9165b6075c1b21769cdfcc00f8ec4ae86364c6113856b633041bcc8",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "943725c19c3f4604bb76c9eefd1652b8",
-            "from": [
-              "players",
-              "human",
-              "monster_zones",
-              0
-            ],
-            "to": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 2,
-            "attributes": {
-              "position": "face-up"
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "extra_deck"
-            ],
-            "index": 5,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "monster_zones",
-              0
-            ],
-            "value": {
-              "$instance": "576e318bfa6d43bab1a699a147ec6d7d",
-              "set": {
-                "owner": "human",
-                "position": "face-up attack",
-                "hidden": false,
-                "summon_type": "synchro",
-                "summoned_turn": 3,
-                "properly_summoned": true
-              }
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "monster_zones",
-              2
-            ],
-            "value": null
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 3,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "4f2e63168645436c87d6f45fac96e352",
-                "set": {
-                  "position": "face-up"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "a16a35bcee3658fed57e9ee5de59cf2748a31e7631484181d126ee8297090dcd"
-    },
-    {
-      "recorded_at": "2026-10-05T09:58:00.141555+00:00",
-      "before_sha256": "fa783559e53c4c25a0450e403dbdfa150fa86ea0754c193e28abdb07aa3a4d5d",
-      "after_sha256": "6c1e943783d6b1a58f1c0f53484f6bc4a07a5aebd9e8634453d486d724366b15",
-      "action": {
-        "kind": "summon",
-        "actor": "human",
-        "expected_revision": 28,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing Special Summoned Dark Armed Dragon in Attack Position with exactly three DARK monsters in the GY. No legal opposing summon negation or response is available.",
-        "id": "workflow-edison-r28-special-dad",
-        "workflow_request_id": "edison-r28-special-dad",
-        "workflow_digest": "5a5339cba126585125e03b4a80bc1264afd5a2a51f41a03ff4f4beeee5213783",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "f93044314d0541e1b30204782bb871fd",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              0
-            ],
-            "to": [
-              "players",
-              "human",
-              "monster_zones",
-              2
-            ],
-            "attributes": {
-              "owner": "human",
-              "position": "face-up attack",
-              "hidden": false,
-              "summon_type": "special",
-              "summoned_turn": 3,
-              "properly_summoned": true
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "e7989c861b5bbd8bbea6c8ebdd8ec15e1a688ea8ba009ab0a2095214c8da3e02"
-    },
-    {
-      "recorded_at": "2026-10-05T09:58:01.283448+00:00",
-      "before_sha256": "6c1e943783d6b1a58f1c0f53484f6bc4a07a5aebd9e8634453d486d724366b15",
-      "after_sha256": "5affcedb085998cbf1ef040c90ac60a0b1d4402057a1109348b745eba536a1d9",
-      "action": {
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 29,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing activated Dark Armed Dragon's destruction effect: banished Blizzard from the GY as cost and targeted Lightsworn's face-down monster in zone 1.",
-        "id": "workflow-edison-r29-dad-destruction",
-        "workflow_request_id": "edison-r29-dad-destruction",
-        "workflow_digest": "2d05a242c31535da6798bf5b3cdd908ca630e7d8f01c695398b7238154e957ed",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "54031bf869124a898d042d1f1226caec",
-            "from": [
-              "players",
-              "human",
-              "graveyard",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "banished"
-            ],
-            "index": 1
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "dad-turn3-destruction-1",
-                "actor": "human",
-                "name": "Dark Armed Dragon",
-                "source_instance_id": "f93044314d0541e1b30204782bb871fd",
-                "effect": "Destroy the targeted card on the field.",
-                "costs": [
-                  {
-                    "instance_id": "54031bf869124a898d042d1f1226caec",
-                    "card_id": 22835145,
-                    "actor": "human",
-                    "zone": "graveyard",
-                    "kind": "banish"
-                  }
-                ],
-                "targets": [
-                  {
-                    "instance_id": "7b8c95ed3a814f0fa5290deaade33cf5",
-                    "actor": "agent",
-                    "zone": "monster_zones",
-                    "index": 0
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "dark-armed-destruction-response"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "748bbfb2053bff647d3e0eea262a37e2c8243de2da657d68c19ffe7f4dbfcfb5"
-    },
-    {
-      "recorded_at": "2026-10-05T09:58:02.429709+00:00",
-      "before_sha256": "5affcedb085998cbf1ef040c90ac60a0b1d4402057a1109348b745eba536a1d9",
-      "after_sha256": "afadca08a00141130ccc87c8922a7f2c34015ec720bf2b3f12a4ed874969b731",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 30,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No opposing response to Dark Armed Dragon's destruction effect was available.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Opponent's unchanged hand has no legally activatable response, no backrow exists, and its face-down monster has no applicable Quick Effect. The human explicitly delegated this destruction line, including resolution rather than negating their own effect with Stardust; no undecided response remains."
-        },
-        "id": "workflow-edison-r30-dad-response-closed",
-        "workflow_request_id": "edison-r30-dad-response-closed",
-        "workflow_digest": "a1a55972d02f3e145c900f4aa51bf5f31cde85b9eecb68d41c0d8da898e301d1",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "c3b3108178263e079aa804c7946eba92b6827232292be30c6834295e5658a468"
-    },
-    {
-      "recorded_at": "2026-10-05T09:58:03.577938+00:00",
-      "before_sha256": "afadca08a00141130ccc87c8922a7f2c34015ec720bf2b3f12a4ed874969b731",
-      "after_sha256": "a2ea6f7fe898bd84ea042fbe8fb9cfcd32ccf6ba50cfa8ed50878d6f15bc37b7",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 31,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Dark Armed Dragon destroyed the targeted face-down monster. It was revealed as Ryko, Lightsworn Hunter and sent to Lightsworn's GY. Ryko was not flipped, so its Flip effect did not activate; no cards were milled.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The response window is closed; the target remains present and destructible. Destroying a face-down Flip monster by card effect does not flip it. No destruction/GY trigger applies."
-        },
-        "id": "workflow-edison-r31-dad-destroys-set",
-        "workflow_request_id": "edison-r31-dad-destroys-set",
-        "workflow_digest": "7d049d941b477290c3ea26eed17ca91912b6c628e2730f8be0978f291a4c6914",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "7b8c95ed3a814f0fa5290deaade33cf5",
-            "from": [
-              "players",
-              "agent",
-              "monster_zones",
-              0
-            ],
-            "to": [
-              "players",
-              "agent",
-              "graveyard"
-            ],
-            "index": 0,
-            "attributes": {
-              "position": "face-up",
-              "hidden": false
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "91fba93f315d9179fb74935d2a3a9ec72a50a91a44792e72e3d44d5a578b553b"
-    },
-    {
-      "recorded_at": "2026-10-05T09:58:04.728257+00:00",
-      "before_sha256": "a2ea6f7fe898bd84ea042fbe8fb9cfcd32ccf6ba50cfa8ed50878d6f15bc37b7",
-      "after_sha256": "3a2bb2d993dbe96f5c20e41a2abf14425df7268a5fa1f7dab2f37374720b02c7",
-      "action": {
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 32,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "The requested Stardust and Dark Armed Dragon line is complete. Blackwing retains Bora, Stardust, and Dark Armed Dragon; battle decisions remain with the human.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "public-rules-verified",
-          "reason": "Bookkeeping only: open the human's next decision without choosing any attack or other optional play."
-        },
-        "id": "workflow-edison-r32-open-human-main",
-        "workflow_request_id": "edison-r32-open-human-main",
-        "workflow_digest": "9e655a1613bb055de1b23209f4e44032ffbb33dd61fdb9ef15fabffb0dac9b5f",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-1-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "e2caff6baac73a9b69bc460cfad39c7ba553401f5b799d283f3751cb624e4a0c"
-    },
-    {
-      "recorded_at": "2026-10-05T10:00:42.192753+00:00",
-      "before_sha256": "3a2bb2d993dbe96f5c20e41a2abf14425df7268a5fa1f7dab2f37374720b02c7",
-      "after_sha256": "7e5f3bbcea32ebdda919a9650ea218e4c2af1ff7610d799b2ff37389df054d24",
-      "action": {
-        "kind": "attack",
-        "actor": "human",
-        "expected_revision": 33,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing entered the Battle Phase. Bora the Spear declared a direct attack against Lightsworn's empty field.",
-        "id": "workflow-edison-r33-bora-direct-attack",
-        "workflow_request_id": "edison-r33-bora-direct-attack",
-        "workflow_digest": "5b559735901a32c29483c4e69b7a6bafa6ada0b156cf52028ef42e8debb571ec",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "battle"
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "monster_zones",
-              1,
-              "attacked_turn"
-            ],
-            "value": 3
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "attack-bora-turn3"
-            ],
-            "value": {
-              "id": "attack-bora-turn3",
-              "kind": "attack",
-              "actor": "human",
-              "source_instance_id": "23f7864ab79c490bb9326024e671727f",
-              "name": "Bora direct attack",
-              "turn": 3,
-              "used": true,
-              "count": 1
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "battle-turn3-bora-1",
-                "kind": "battle",
-                "actor": "human",
-                "source_instance_id": "23f7864ab79c490bb9326024e671727f",
-                "name": "Bora direct attack",
-                "effect": "Direct attack; 1700 ATK, awaiting attack/Damage Step responses.",
-                "turn": 3,
-                "phase": "battle",
-                "window": "attack-declaration"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "bora-direct-attack-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "4bdf51300a0c9f168ff8d48f0c65034cc624d10bf1560d06790ff659991c64ef"
-    },
-    {
-      "recorded_at": "2026-10-05T10:00:43.339194+00:00",
-      "before_sha256": "7e5f3bbcea32ebdda919a9650ea218e4c2af1ff7610d799b2ff37389df054d24",
-      "after_sha256": "a0f440cf25c804b3b80e367f4675f5a9c48520127f93046a4d835e340f30165b",
-      "action": {
-        "kind": "damage",
-        "actor": "moderator",
-        "expected_revision": 34,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal attack-declaration or Damage Step response applied. Bora's direct attack dealt 1700 battle damage: Lightsworn 8000 → 6300 LP.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Opponent's field is empty, GY contains only Ryko, and current hand has no legal attack/Damage Step response. Human's hand and field have no relevant optional Damage Step action for Bora. Bora remains in Attack Position at unchanged 1700 ATK; calculate compulsory direct battle damage."
-        },
-        "id": "workflow-edison-r34-bora-damage",
-        "workflow_request_id": "edison-r34-bora-damage",
-        "workflow_digest": "4911090a7d8ccabb77a1a1c8846d5e4dca83cb2dc263c009845cea80da84cec1",
-        "operations": [
-          {
-            "op": "lp",
-            "path": [
-              "players",
-              "agent",
-              "lp"
-            ],
-            "delta": -1700
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "effect"
-            ],
-            "value": "1700 battle damage applied; checking post-damage triggers."
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "window"
-            ],
-            "value": "post-damage"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "bora-post-damage-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "478f2016a66a0356be9d05dca5fcd664e56ef9d73e85bada402b11577948fd89"
-    },
-    {
-      "recorded_at": "2026-10-05T10:00:44.492124+00:00",
-      "before_sha256": "a0f440cf25c804b3b80e367f4675f5a9c48520127f93046a4d835e340f30165b",
-      "after_sha256": "f1150896999bdb0606a81837003c73f06449e5d1b10f786c544ae90341ea1bb8",
-      "action": {
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 35,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No post-damage trigger or response applied. Bora's attack is complete; Stardust Dragon and Dark Armed Dragon have not attacked.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Neither current hand, field, or GY has a legal post-damage trigger; specifically no applicable Gorz/Tragoedia is present. Clear the completed battle and return the next attack choice to the human."
-        },
-        "id": "workflow-edison-r35-bora-attack-complete",
-        "workflow_request_id": "edison-r35-bora-attack-complete",
-        "workflow_digest": "ea411c2369906b7004361ff5755d5fae970ec02efd513f9f5d3233a9b07ded26",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "battle-phase-open"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "3d0455b5ef744e02231ceb60b3060b8ef564be57f36818587189dd5b7cacab42"
-    },
-    {
-      "recorded_at": "2026-10-05T10:56:30.539673+00:00",
-      "before_sha256": "f1150896999bdb0606a81837003c73f06449e5d1b10f786c544ae90341ea1bb8",
-      "after_sha256": "cb0be4f672b4404f685a2d29a236c61eb869fdad2764dfcccafa0ad0519301c5",
-      "action": {
-        "kind": "attack",
-        "actor": "human",
-        "expected_revision": 36,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Stardust Dragon declared a direct attack against Lightsworn's empty field.",
-        "id": "workflow-edison-r36-stardust-attack",
-        "workflow_request_id": "edison-r36-stardust-attack",
-        "workflow_digest": "0b8ab28d21589e856af828f0ea433ce2ac655c54603145c9b0b5d7b32dc9bae8",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "monster_zones",
-              0,
-              "attacked_turn"
-            ],
-            "value": 3
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "attack-stardust-turn3"
-            ],
-            "value": {
-              "id": "attack-stardust-turn3",
-              "kind": "attack",
-              "actor": "human",
-              "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
-              "name": "Stardust Dragon direct attack",
-              "turn": 3,
-              "used": true,
-              "count": 1
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "battle-turn3-stardust",
-                "kind": "battle",
-                "actor": "human",
-                "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
-                "name": "Stardust Dragon direct attack",
-                "effect": "Direct attack at 2500 ATK; awaiting responses.",
-                "turn": 3,
-                "phase": "battle",
-                "window": "attack-declaration"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "stardust-direct-attack-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "25aaf8389be4d8762fc4637c0c8b87b5b5b5c8c65c11143cfebce5065215cd11"
-    },
-    {
-      "recorded_at": "2026-10-05T10:56:31.700184+00:00",
-      "before_sha256": "cb0be4f672b4404f685a2d29a236c61eb869fdad2764dfcccafa0ad0519301c5",
-      "after_sha256": "053baa01c7fb1d1bab1697f6e78be52d31f9a5cd0304baf4c3ff3b1cd0e05e87",
-      "action": {
-        "kind": "damage",
-        "actor": "moderator",
-        "expected_revision": 37,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Stardust Dragon's unopposed direct attack dealt 2500 battle damage.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The opponent's current hand, empty field, and Ryko-only GY provide no legal attack/Damage Step response; the human explicitly authorized this attack sequence. Attacker remains in Attack Position at its unchanged ATK."
-        },
-        "id": "workflow-edison-r37-stardust-damage",
-        "workflow_request_id": "edison-r37-stardust-damage",
-        "workflow_digest": "0b0ce1d7b954d224c3566a1d36b99434f16ae667b0b8572f55ecdb1c23751d8e",
-        "operations": [
-          {
-            "op": "lp",
-            "path": [
-              "players",
-              "agent",
-              "lp"
-            ],
-            "delta": -2500
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "effect"
-            ],
-            "value": "2500 battle damage applied; checking post-damage triggers."
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "window"
-            ],
-            "value": "post-damage"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "stardust-post-damage-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "440f0be193491b03c872f4a7aa29bccceddef807e0120c6846e3c834ecda2585"
-    },
-    {
-      "recorded_at": "2026-10-05T10:56:32.833990+00:00",
-      "before_sha256": "053baa01c7fb1d1bab1697f6e78be52d31f9a5cd0304baf4c3ff3b1cd0e05e87",
-      "after_sha256": "5a83f472076b0541ceec5741c6633f774801b4012bf46c461dac9e067d1832a9",
-      "action": {
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 38,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No post-damage response applied; Stardust Dragon's attack is complete.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Neither player's current cards have an applicable post-damage trigger or response. Clear this completed combat and continue only the human's explicitly authorized attack sequence."
-        },
-        "id": "workflow-edison-r38-stardust-complete",
-        "workflow_request_id": "edison-r38-stardust-complete",
-        "workflow_digest": "f6fb4f30ce2e0f6749b7674a7859859151581242220524c0fcfc80b95b650e60",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "338d0caaac298b3d687a10c28e307499f95fadc8d33f0f843faf67f4fedb4d26"
-    },
-    {
-      "recorded_at": "2026-10-05T10:56:33.987969+00:00",
-      "before_sha256": "5a83f472076b0541ceec5741c6633f774801b4012bf46c461dac9e067d1832a9",
-      "after_sha256": "771ab07ca38c205a6042a8be28ae11869482deb211d3d3890d1118a3c88bc899",
-      "action": {
-        "kind": "attack",
-        "actor": "human",
-        "expected_revision": 39,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Dark Armed Dragon declared a direct attack against Lightsworn's empty field.",
-        "id": "workflow-edison-r39-dad-attack",
-        "workflow_request_id": "edison-r39-dad-attack",
-        "workflow_digest": "0f39842f9e6cfd0d70dc35eae38944547e0a9c118cc86a6ccc3a585957ec223b",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "monster_zones",
-              2,
-              "attacked_turn"
-            ],
-            "value": 3
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "attack-dad-turn3"
-            ],
-            "value": {
-              "id": "attack-dad-turn3",
-              "kind": "attack",
-              "actor": "human",
-              "source_instance_id": "f93044314d0541e1b30204782bb871fd",
-              "name": "Dark Armed Dragon direct attack",
-              "turn": 3,
-              "used": true,
-              "count": 1
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "battle-turn3-dad",
-                "kind": "battle",
-                "actor": "human",
-                "source_instance_id": "f93044314d0541e1b30204782bb871fd",
-                "name": "Dark Armed Dragon direct attack",
-                "effect": "Direct attack at 2800 ATK; awaiting responses.",
-                "turn": 3,
-                "phase": "battle",
-                "window": "attack-declaration"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "dad-direct-attack-response"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "6d2635ee3c89112d6cc461304d04dfc91de940fb132cec00e2a52683256ed7d2"
-    },
-    {
-      "recorded_at": "2026-10-05T10:56:35.147132+00:00",
-      "before_sha256": "771ab07ca38c205a6042a8be28ae11869482deb211d3d3890d1118a3c88bc899",
-      "after_sha256": "c4a10d3b9c9c0c2ef9a2134f70a2f5bfd815d95f98ff2ade94c991cf54777c79",
-      "action": {
-        "kind": "damage",
-        "actor": "moderator",
-        "expected_revision": 40,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Dark Armed Dragon's unopposed direct attack dealt 2800 battle damage.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The opponent's current hand, empty field, and Ryko-only GY provide no legal attack/Damage Step response; the human explicitly authorized this attack sequence. Attacker remains in Attack Position at its unchanged ATK."
-        },
-        "id": "workflow-edison-r40-dad-damage",
-        "workflow_request_id": "edison-r40-dad-damage",
-        "workflow_digest": "09285733426ad4482f658170007c41b9b0dc908eb67a45ba25d37563f83dcb1f",
-        "operations": [
-          {
-            "op": "lp",
-            "path": [
-              "players",
-              "agent",
-              "lp"
-            ],
-            "delta": -2800
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "effect"
-            ],
-            "value": "2800 battle damage applied; checking post-damage triggers."
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "window"
-            ],
-            "value": "post-damage"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "dad-post-damage-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "3acad7c547d5b1944c53616b47d8dd0ad109eb28bf8939860d0168355a9f2f18"
-    },
-    {
-      "recorded_at": "2026-10-05T10:56:36.290592+00:00",
-      "before_sha256": "c4a10d3b9c9c0c2ef9a2134f70a2f5bfd815d95f98ff2ade94c991cf54777c79",
-      "after_sha256": "e035109eaa24b7fccc26820abe99e3200fd4f0b1b0f955105b115ecb48cbea97",
-      "action": {
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 41,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No post-damage response applied; Dark Armed Dragon's attack is complete.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Neither player's current cards have an applicable post-damage trigger or response. Clear this completed combat and continue only the human's explicitly authorized attack sequence."
-        },
-        "id": "workflow-edison-r41-dad-complete",
-        "workflow_request_id": "edison-r41-dad-complete",
-        "workflow_digest": "a0f243f7b02d1bb6a37d8411fb669cddbfdeb759138f5c4dc8e7b33817bbbc80",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "b51076548a694f8376dd381c9e191a7f22a95110c9a36a7bfece2cbf8fcc9c45"
-    },
-    {
-      "recorded_at": "2026-10-05T10:56:37.434045+00:00",
-      "before_sha256": "e035109eaa24b7fccc26820abe99e3200fd4f0b1b0f955105b115ecb48cbea97",
-      "after_sha256": "223476060840f33f69e94ab5935c218565d58b81a433c58c42711b49c5947d78",
-      "action": {
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 42,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "All three attacks are complete. With no remaining Battle Phase actions or effects, Blackwing entered Main Phase 2. Lightsworn is at 1000 LP.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "All three monsters have used their sole attacks; neither player's hand, field, or GY has a legal action or End of Battle Phase effect at the current empty chain. Proceed to Main Phase 2 and stop for the human's next decision."
-        },
-        "id": "workflow-edison-r42-battle-to-main2",
-        "workflow_request_id": "edison-r42-battle-to-main2",
-        "workflow_digest": "331bd85479346d976f944afa980716ae31fb075a72329c70e6465d170de82fd7",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "main2"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-2-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "6cb0fa16154e59b06025dcfb1915595aaf22ca91f9e1a01e122daf0310c5d7b9"
-    },
-    {
-      "recorded_at": "2026-10-05T11:09:23.762235+00:00",
-      "before_sha256": "223476060840f33f69e94ab5935c218565d58b81a433c58c42711b49c5947d78",
-      "after_sha256": "38bed014692fb3cb4720ca915afc857b801002124c89f1d26618de1fa702e27c",
-      "action": {
-        "kind": "turn",
-        "actor": "human",
-        "expected_revision": 43,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing ended Turn 3. No End Phase effects or hand-limit discard applied. Turn 4 begins: Lightsworn's Draw Phase, at 1000 LP.",
-        "id": "workflow-edison-r43-end-turn",
-        "workflow_request_id": "edison-r43-end-turn",
-        "workflow_digest": "67387f7ba46f75f76c8b9947a78e0d64af1774aededbcbd5b435a5a687ee46cb",
-        "operations": [
-          {
-            "op": "delta",
-            "path": [
-              "turn"
-            ],
-            "delta": 1
-          },
-          {
-            "op": "set",
-            "path": [
-              "active_player"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "draw"
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "normal_summon_used"
-            ],
-            "value": false
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "49f2a1a197c2d567ed0829915493cde726178b1d36c21c411c10c0ec52978113"
-    },
-    {
-      "recorded_at": "2026-10-05T11:09:24.916556+00:00",
-      "before_sha256": "38bed014692fb3cb4720ca915afc857b801002124c89f1d26618de1fa702e27c",
-      "after_sha256": "b5c3c1dce7f33a46c4581eed1939ae405f489949b75f84cd63da5daa5711ad0c",
-      "action": {
-        "kind": "draw",
-        "actor": "moderator",
-        "expected_revision": 44,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn drew one card for Turn 4.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "No applicable pre-draw activation or delayed effect exists. Apply the compulsory normal draw, then examine the updated hand for Draw Phase choices."
-        },
-        "id": "workflow-edison-r44-agent-draw",
-        "workflow_request_id": "edison-r44-agent-draw",
-        "workflow_digest": "faf88134ea3e653b8a393a27c3d258251848b8b4142745470593163a63cbc36f",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "fad05d5181c84d8181055aa07a824d44",
-            "from": [
-              "players",
-              "agent",
-              "deck",
-              33
-            ],
-            "to": [
-              "players",
-              "agent",
-              "hand"
-            ],
-            "index": 5
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "agent",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "fad05d5181c84d8181055aa07a824d44",
-              "card_id": 4906301
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "15d9834db466fff302d42675c477aeabd00cf1d6d7e4802f2facfe65f09792a0"
-    },
-    {
-      "recorded_at": "2026-10-05T11:10:49.179118+00:00",
-      "before_sha256": "b5c3c1dce7f33a46c4581eed1939ae405f489949b75f84cd63da5daa5711ad0c",
-      "after_sha256": "777734f2dfafc38553c93ea874f3a291ce48a8e16b61fe99f412aa0d6b791b63",
-      "action": {
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 45,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal Draw/Standby activation or effect applied. Lightsworn entered the start of Main Phase 1 of Turn 4.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The updated agent hand contains only Normal Spells, a Trap, and Main Phase-playable monsters; neither player's field/GY has an applicable Draw/Standby activation or effect. Preserve the start-of-Main-Phase Cold Wave window."
-        },
-        "id": "workflow-edison-r45-agent-main4",
-        "workflow_request_id": "edison-r45-agent-main4",
-        "workflow_digest": "4f8635ecfd2e580797944c4f185543d5851f3327a4a40e2aede072da74a06d6f",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "main1"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "start-main-phase-1"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "edab88b0ecd82c885f2413c57f03418d5c59e81c58062d1955e92160a138bf9c"
-    },
-    {
-      "recorded_at": "2026-10-05T11:15:17.235153+00:00",
-      "before_sha256": "777734f2dfafc38553c93ea874f3a291ce48a8e16b61fe99f412aa0d6b791b63",
-      "after_sha256": "61b7126273117502b5d17843a8ba7cf2f46f35a3edda5bf2e3133d516c2fc19f",
-      "action": {
-        "kind": "set",
-        "actor": "agent",
-        "expected_revision": 46,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn used its Normal Summon/Set to set a face-down Defense Position monster in zone 1, then set one Spell/Trap in zone 1. No legal opposing response to these Sets is available.",
-        "id": "workflow-edison-r46-agent-two-sets",
-        "workflow_request_id": "edison-r46-agent-two-sets",
-        "workflow_digest": "54044d89cf7bfe818229bad1aa3a60536f949ec2644f2e7cc24f5a4abe5e6aa8",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "228d4e62820947d98cfc3382a3ad6a49",
-            "from": [
-              "players",
-              "agent",
-              "hand",
-              4
-            ],
-            "to": [
-              "players",
-              "agent",
-              "spell_trap_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "agent",
-              "position": "face-down",
-              "hidden": true,
-              "set_turn": 4
-            }
-          },
-          {
-            "op": "move",
-            "instance": "fad05d5181c84d8181055aa07a824d44",
-            "from": [
-              "players",
-              "agent",
-              "hand",
-              4
-            ],
-            "to": [
-              "players",
-              "agent",
-              "monster_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "agent",
-              "position": "face-down defense",
-              "hidden": true,
-              "set_turn": 4
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "agent",
-              "normal_summon_used"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "2de7c21f555a8110446bb0d2ca8052befe11a10754558053b1a3ae5c25322b10"
-    },
-    {
-      "recorded_at": "2026-10-05T11:15:18.389576+00:00",
-      "before_sha256": "61b7126273117502b5d17843a8ba7cf2f46f35a3edda5bf2e3133d516c2fc19f",
-      "after_sha256": "054ab24480fc8d483758a0eae0d9d6f12e47747b9756e2ab604905c565789ed5",
-      "action": {
-        "kind": "turn",
-        "actor": "agent",
-        "expected_revision": 47,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn ended Turn 4 with one face-down monster and one set backrow card. No attack, End Phase effect, or hand-limit discard applied. Turn 5 begins: Blackwing's Draw Phase.",
-        "id": "workflow-edison-r47-agent-end-turn",
-        "workflow_request_id": "edison-r47-agent-end-turn",
-        "workflow_digest": "902a03bdc176c3427e39b5216f4216b548899b7ae4b17daa2d8d0174d19e5b17",
-        "operations": [
-          {
-            "op": "delta",
-            "path": [
-              "turn"
-            ],
-            "delta": 1
-          },
-          {
-            "op": "set",
-            "path": [
-              "active_player"
-            ],
-            "value": "human"
-          },
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "draw"
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "agent",
-              "normal_summon_used"
-            ],
-            "value": false
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "9221a34f87b7a7d4e06b4e45851452ec6c9cbea110081ae8f798b8c13a2add64"
-    },
-    {
-      "recorded_at": "2026-10-05T11:15:19.531143+00:00",
-      "before_sha256": "054ab24480fc8d483758a0eae0d9d6f12e47747b9756e2ab604905c565789ed5",
-      "after_sha256": "346d0cd29a1dacccce948ee21e69c13bb762c99f2e9438fbdacc1fd7a171c464",
-      "action": {
-        "kind": "draw",
-        "actor": "moderator",
-        "expected_revision": 48,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing drew one card for Turn 5.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "No applicable pre-draw activation or delayed effect exists. Apply the compulsory draw, then check the updated hand and both fields/GYs for Draw/Standby options."
-        },
-        "id": "workflow-edison-r48-human-draw",
-        "workflow_request_id": "edison-r48-human-draw",
-        "workflow_digest": "44195a08aeb5453b51427766537381e6c3657384f4796543f94b5fd775393197",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "edecde8c55c841c8bbef6dd68f824f52",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              26
-            ],
-            "to": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 1
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "edecde8c55c841c8bbef6dd68f824f52",
-              "card_id": 64697231
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "7aa00cf1ef448ee63723f7c0a7029a7eee23936072e34eb7e0813abc082e039a"
-    },
-    {
-      "recorded_at": "2026-10-05T11:16:46.361199+00:00",
-      "before_sha256": "346d0cd29a1dacccce948ee21e69c13bb762c99f2e9438fbdacc1fd7a171c464",
-      "after_sha256": "0d8ac6b9486f4b09907eee312c8773968f528edefb61a17917f3b37a2dd066f9",
-      "action": {
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 49,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal Draw/Standby activation or effect applied. Blackwing entered Main Phase 1 of Turn 5.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The human's hand has Vayu and an unset Trap; the set traps and field have no appropriate current activation event. Opponent's set monster has no applicable face-down Quick Effect, and its set Trap lacks legal activation requirements under current hand/GY state. No Draw/Standby trigger or effect applies."
-        },
-        "id": "workflow-edison-r49-human-main5",
-        "workflow_request_id": "edison-r49-human-main5",
-        "workflow_digest": "7f3bd2bb0f66a2ee6d3792f6a70eda0d04d2565399703269612315baed07e7bd",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "main1"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-1-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "d5b5a6c4b774295b0776dddd44ae54f4f3dbbcb87857bc31aa5eb40dec04a1ee"
-    },
-    {
-      "recorded_at": "2026-10-05T11:27:40.866799+00:00",
-      "before_sha256": "0d8ac6b9486f4b09907eee312c8773968f528edefb61a17917f3b37a2dd066f9",
-      "after_sha256": "986123f7cd5f90f8e2929633745f3847fc494b4ae493bf3250f39343fdee5072",
-      "action": {
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 50,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing activated Dark Armed Dragon: banished Gale from the GY as cost and targeted Lightsworn's set Spell/Trap in zone 1.",
-        "id": "workflow-edison-r50-dad-backrow",
-        "workflow_request_id": "edison-r50-dad-backrow",
-        "workflow_digest": "5840cfb87372e85c2242b6380637f914a9c89f1d8c2fbb2d7589a00451c2c27b",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "4f2e63168645436c87d6f45fac96e352",
-            "from": [
-              "players",
-              "human",
-              "graveyard",
-              2
-            ],
-            "to": [
-              "players",
-              "human",
-              "banished"
-            ],
-            "index": 2
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "dad-turn5-destruction-1",
-                "actor": "human",
-                "name": "Dark Armed Dragon",
-                "source_instance_id": "f93044314d0541e1b30204782bb871fd",
-                "effect": "Destroy the targeted card on the field.",
-                "costs": [
-                  {
-                    "instance_id": "4f2e63168645436c87d6f45fac96e352",
-                    "card_id": 2009101,
-                    "actor": "human",
-                    "zone": "graveyard",
-                    "kind": "banish"
-                  }
-                ],
-                "targets": [
-                  {
-                    "instance_id": "228d4e62820947d98cfc3382a3ad6a49",
-                    "actor": "agent",
-                    "zone": "spell_trap_zones",
-                    "index": 0
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "dad-backrow-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "58e849a7b613b4ef9bb9de7d9d4c5062f740edaf304294157fa6fb2faa6d77e7"
-    },
-    {
-      "recorded_at": "2026-10-05T11:28:04.741858+00:00",
-      "before_sha256": "986123f7cd5f90f8e2929633745f3847fc494b4ae493bf3250f39343fdee5072",
-      "after_sha256": "046b2ab70575f2d7a22f7dad69d1af4191826737ce795d596ee7f6d122cd1ceb",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 51,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn had no legally available response. Dark Armed Dragon's effect proceeds to resolution.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Beckoning Light requires enough LIGHT monsters already in the GY for every card in hand: four cards in hand, only one eligible LIGHT in GY. Remaining hand, face-down monster and GY provide no legal response. Human selected destruction and resolution; no undecided self-negation remains."
-        },
-        "id": "workflow-edison-r51-dad-backrow-no-response",
-        "workflow_request_id": "edison-r51-dad-backrow-no-response",
-        "workflow_digest": "36362525b665639e28dc5bfa007352649fca79388ef9e3aedd8188df18b60519",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "42845717f17dd3f12c8f420265c513f1ba0dac71454069315770070a2619dbf4"
-    },
-    {
-      "recorded_at": "2026-10-05T11:28:05.884410+00:00",
-      "before_sha256": "046b2ab70575f2d7a22f7dad69d1af4191826737ce795d596ee7f6d122cd1ceb",
-      "after_sha256": "65bec35bdf6828639e0ffccb72b9c8a29de83b048690bde01aec84cb5a1cad4e",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 52,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Dark Armed Dragon destroyed the set Spell/Trap. It was Beckoning Light, now revealed and sent to Lightsworn's GY.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Responses are closed; the target remains destructible. Beckoning Light has no destruction or GY trigger. Return to the human's Main Phase 1 decision."
-        },
-        "id": "workflow-edison-r52-dad-backrow-resolve",
-        "workflow_request_id": "edison-r52-dad-backrow-resolve",
-        "workflow_digest": "1a1762ea0f5b3f106d367b17f8fcc78de76589ff153b36736eba381d6f2f9036",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "228d4e62820947d98cfc3382a3ad6a49",
-            "from": [
-              "players",
-              "agent",
-              "spell_trap_zones",
-              0
-            ],
-            "to": [
-              "players",
-              "agent",
-              "graveyard"
-            ],
-            "index": 1,
-            "attributes": {
-              "position": "face-up",
-              "hidden": false
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-1-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "39de34ad2a620ab025518123229fca7d1cda5b96f67b45695714f26605179a9c"
-    },
-    {
-      "recorded_at": "2026-10-05T11:47:54.198743+00:00",
-      "before_sha256": "65bec35bdf6828639e0ffccb72b9c8a29de83b048690bde01aec84cb5a1cad4e",
-      "after_sha256": "6bb13cfe1b87575abb0388d99b31ca28632e00e8df977d2ab66c1f9b33f4e99b",
-      "action": {
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 53,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing banished Sirocco from the GY to activate Dark Armed Dragon, targeting Lightsworn's set monster.",
-        "id": "workflow-edison-r53-dad-monster",
-        "workflow_request_id": "edison-r53-dad-monster",
-        "workflow_digest": "f335d528c1a3f0cb86e8f420492a9a7adebaf23157bf3d66b7fc61b76500c84b",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "943725c19c3f4604bb76c9eefd1652b8",
-            "from": [
-              "players",
-              "human",
-              "graveyard",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "banished"
-            ],
-            "index": 3
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "dad-turn5-destruction-2",
-                "actor": "human",
-                "name": "Dark Armed Dragon",
-                "source_instance_id": "f93044314d0541e1b30204782bb871fd",
-                "effect": "Destroy the targeted card on the field.",
-                "costs": [
-                  {
-                    "instance_id": "943725c19c3f4604bb76c9eefd1652b8",
-                    "card_id": 75498415,
-                    "actor": "human",
-                    "zone": "graveyard",
-                    "kind": "banish"
-                  }
-                ],
-                "targets": [
-                  {
-                    "instance_id": "fad05d5181c84d8181055aa07a824d44",
-                    "actor": "agent",
-                    "zone": "monster_zones",
-                    "index": 0
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "dad-monster-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "246c942a156c2d05a79e774132fe7070f38661ca2fe72e5b6c7310e88a6f5c5c"
-    },
-    {
-      "recorded_at": "2026-10-05T11:47:55.347834+00:00",
-      "before_sha256": "6bb13cfe1b87575abb0388d99b31ca28632e00e8df977d2ab66c1f9b33f4e99b",
-      "after_sha256": "5baa7d139e8ae8d045a53f64de28d700551db44f42ba201ff298658571ae3130",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 54,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No opposing response was available to Dark Armed Dragon's activation.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Opponent has no backrow, no applicable effect in its hand or GY, and no Quick Effect on its face-down monster. Human authorized this destruction and attack sequence."
-        },
-        "id": "workflow-edison-r54-dad-no-response",
-        "workflow_request_id": "edison-r54-dad-no-response",
-        "workflow_digest": "98929dba1d43d7517e87fe58b5db1e5be91e36c033e2b0ab9aa89dd768fc7e1e",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "35214221a838c8aa61cf8be034609d6cac9164dae213d4b80b2f220069ce960c"
-    },
-    {
-      "recorded_at": "2026-10-05T11:47:56.518270+00:00",
-      "before_sha256": "5baa7d139e8ae8d045a53f64de28d700551db44f42ba201ff298658571ae3130",
-      "after_sha256": "933faa5c8b6ceddf692c35e5d66cccd238a90546b2855cd4d72c3cd24280c5da",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 55,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Dark Armed Dragon destroyed the set monster: Necro Gardna, now revealed in Lightsworn's GY. Necro Gardna may now use its GY Quick Effect during the human's turn.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Closed chain resolves destruction of the existing target. No destruction trigger applies. Open the opponent's real optional GY-effect decision after resolution."
-        },
-        "id": "workflow-edison-r55-dad-destroys-gardna",
-        "workflow_request_id": "edison-r55-dad-destroys-gardna",
-        "workflow_digest": "be7f15f88582ef8788f51dd33175ef89c4e29add501c3a2cb95b30452f5f96d1",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "fad05d5181c84d8181055aa07a824d44",
-            "from": [
-              "players",
-              "agent",
-              "monster_zones",
-              0
-            ],
-            "to": [
-              "players",
-              "agent",
-              "graveyard"
-            ],
-            "index": 2,
-            "attributes": {
-              "position": "face-up",
-              "hidden": false
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "post-resolution-necro-gardna"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "8adc922ffdb3d38be12d99af2210eb8c91d2c6311c60c018e4ef87a88cbc2cf0"
-    },
-    {
-      "recorded_at": "2026-10-05T11:48:58.369570+00:00",
-      "before_sha256": "933faa5c8b6ceddf692c35e5d66cccd238a90546b2855cd4d72c3cd24280c5da",
-      "after_sha256": "b402aa13435af187e4dcba5f144a3cb873379440e562c5481753aadd52917fd0",
-      "action": {
-        "kind": "activate",
-        "actor": "agent",
-        "expected_revision": 56,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Lightsworn activated Necro Gardna from the GY, banishing it as cost to negate Blackwing's next attack this turn.",
-        "id": "workflow-edison-r56-gardna-activate",
-        "workflow_request_id": "edison-r56-gardna-activate",
-        "workflow_digest": "27c1f6a08ce03dd715f8cd1e7af3b4b9ac1f13a914f228f884b932f3019c9d7a",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "fad05d5181c84d8181055aa07a824d44",
-            "from": [
-              "players",
-              "agent",
-              "graveyard",
-              2
-            ],
-            "to": [
-              "players",
-              "agent",
-              "banished"
-            ],
-            "index": 0
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "gardna-turn5-negation",
-                "actor": "agent",
-                "name": "Necro Gardna",
-                "source_instance_id": "fad05d5181c84d8181055aa07a824d44",
-                "effect": "Negate the next attack this turn from a monster the opponent controls.",
-                "costs": [
-                  {
-                    "instance_id": "fad05d5181c84d8181055aa07a824d44",
-                    "card_id": 4906301,
-                    "actor": "agent",
-                    "zone": "graveyard",
-                    "kind": "banish"
-                  }
-                ],
-                "targets": []
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "necro-gardna-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "72cc54b56c04b586f0c9de033ccbd4531d49886dd2a3244196c77f2763b169ec"
-    },
-    {
-      "recorded_at": "2026-10-05T11:50:10.963180+00:00",
-      "before_sha256": "b402aa13435af187e4dcba5f144a3cb873379440e562c5481753aadd52917fd0",
-      "after_sha256": "a53cf5abbff9003cd663628c0aa7413d964b46f9905d9af1382e8a14f5846e06",
-      "action": {
-        "kind": "pass",
-        "actor": "moderator",
-        "expected_revision": 57,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing has no legal response to Necro Gardna: its effect does not destroy, and neither Solemn Judgment nor Mirror Force can negate it.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "The human's hand and field have no legally activatable response to this non-destruction monster effect. Their attack sequence remains authorized."
-        },
-        "id": "workflow-edison-r57-gardna-responses-closed",
-        "workflow_request_id": "edison-r57-gardna-responses-closed",
-        "workflow_digest": "66e5893f5f48b71fe30387f785a12d377a36fe65bac291e9b81a7fe02b293ec1",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "79e0150f806e038ed7bd465886760fd5365eb57407419e852113bae7ac857ba8"
-    },
-    {
-      "recorded_at": "2026-10-05T11:50:12.108364+00:00",
-      "before_sha256": "a53cf5abbff9003cd663628c0aa7413d964b46f9905d9af1382e8a14f5846e06",
-      "after_sha256": "1f8808193240da3f29fdcacafcb792276d688513070345a692ddc02c5d2ba385",
-      "action": {
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 58,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Necro Gardna resolved: Blackwing's next attack this turn will be negated.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Closed chain resolves the non-targeting effect without choices."
-        },
-        "id": "workflow-edison-r58-gardna-resolve",
-        "workflow_request_id": "edison-r58-gardna-resolve",
-        "workflow_digest": "7e15ab7e20bcdc9e9343588e61b9bce3530effe40570d097cd6b7187768345b4",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "gardna-turn5-next-attack",
-                "kind": "lingering",
-                "actor": "agent",
-                "owner": "agent",
-                "source_instance_id": "fad05d5181c84d8181055aa07a824d44",
-                "name": "Necro Gardna",
-                "effect": "Negate the next attack this turn from a monster controlled by human.",
-                "turn": 5,
-                "phase": "any",
-                "window": "next-opposing-attack",
-                "expires_turn": 5
-              }
-            ]
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "593efc8daf0814b7268011b798afad2a1ceb54af63db0bbce3e65ae291084260"
-    },
-    {
-      "recorded_at": "2026-10-05T11:50:13.258153+00:00",
-      "before_sha256": "1f8808193240da3f29fdcacafcb792276d688513070345a692ddc02c5d2ba385",
-      "after_sha256": "eae754d3bd4d9812ff0f8cb62698152867ade1a72da69ca51a9964f5de0e1374",
-      "action": {
-        "kind": "attack",
-        "actor": "human",
-        "expected_revision": 59,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Blackwing entered the Battle Phase. Bora declared a direct attack, using the authorized attack-for-game sequence.",
-        "id": "workflow-edison-r59-bora-attack",
-        "workflow_request_id": "edison-r59-bora-attack",
-        "workflow_digest": "50770f8f96bd0ac93f975fa7a5ba101061913d2012e03d75e9bd9f498669a6c5",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "battle"
-          },
-          {
-            "op": "delta",
-            "path": [
-              "players",
-              "human",
-              "monster_zones",
-              1,
-              "attacked_turn"
-            ],
-            "delta": 2
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "attack-bora-turn5"
-            ],
-            "value": {
-              "id": "attack-bora-turn5",
-              "kind": "attack",
-              "actor": "human",
-              "owner": "human",
-              "source_instance_id": "23f7864ab79c490bb9326024e671727f",
-              "name": "Bora direct attack",
-              "turn": 5,
-              "used": true,
-              "count": 1
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 1,
-            "delete": 0,
-            "values": [
-              {
-                "id": "battle-turn5-bora",
-                "kind": "battle",
-                "actor": "human",
-                "source_instance_id": "23f7864ab79c490bb9326024e671727f",
-                "name": "Bora direct attack",
-                "effect": "Direct attack at 1700 ATK; Necro Gardna's resolved effect applies.",
-                "turn": 5,
-                "phase": "battle",
-                "window": "attack-declaration"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "bora-attack-response"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "ce1be7300a5da285cc0d2fa7322c78f618797f2967cd287aad81e80f11f5ad03"
-    },
-    {
-      "recorded_at": "2026-10-05T11:50:14.401190+00:00",
-      "before_sha256": "eae754d3bd4d9812ff0f8cb62698152867ade1a72da69ca51a9964f5de0e1374",
-      "after_sha256": "0cef00fa2e014eb34809dcc25df8bb9102f338c62a828d5b2c0042f5cae3e2f1",
-      "action": {
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 60,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Necro Gardna's resolved effect negated Bora's attack. No damage was dealt. That one-attack negation is consumed; Stardust and DAD can still attack.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Gardna negates the next attack automatically, not through a new chain. Opponent's hand, empty field and remaining GY have no applicable response. No human response is applicable. Clear the negated battle and continue the authorized attack sequence."
-        },
-        "id": "workflow-edison-r60-bora-negated",
-        "workflow_request_id": "edison-r60-bora-negated",
-        "workflow_digest": "ce0497bdce679e51f1da3b7f2037d675f32df43568fdaebc31c369154617a1f2",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 2,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "adb194d756bbcf6b610398f20df878663a58d2209ee92cb4b79790a5baff4e17"
-    },
-    {
-      "recorded_at": "2026-10-05T11:50:15.550960+00:00",
-      "before_sha256": "0cef00fa2e014eb34809dcc25df8bb9102f338c62a828d5b2c0042f5cae3e2f1",
-      "after_sha256": "f6694e47a4f02b6de2d18c78fa082e3de5a0b2434871f1f466de6d87c5049167",
-      "action": {
-        "kind": "attack",
-        "actor": "human",
-        "expected_revision": 61,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Stardust Dragon declared a direct attack for 2500 ATK against Lightsworn's empty field.",
-        "id": "workflow-edison-r61-stardust-attack",
-        "workflow_request_id": "edison-r61-stardust-attack",
-        "workflow_digest": "6b299945352011ea4421a2e0e7d5d56a30b6bbfffaddf949f4b8e044d3077360",
-        "operations": [
-          {
-            "op": "delta",
-            "path": [
-              "players",
-              "human",
-              "monster_zones",
-              0,
-              "attacked_turn"
-            ],
-            "delta": 2
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "attack-stardust-turn5"
-            ],
-            "value": {
-              "id": "attack-stardust-turn5",
-              "kind": "attack",
-              "actor": "human",
-              "owner": "human",
-              "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
-              "name": "Stardust direct attack",
-              "turn": 5,
-              "used": true,
-              "count": 1
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "battle-turn5-stardust",
-                "kind": "battle",
-                "actor": "human",
-                "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
-                "name": "Stardust direct attack",
-                "effect": "Direct attack at 2500 ATK; awaiting responses.",
-                "turn": 5,
-                "phase": "battle",
-                "window": "attack-declaration"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "agent",
-              "window": "stardust-attack-response"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "b3ec2f692499afc4d1218eb3e2382d2c18da442f14d480150e7c4504c9024bba"
-    },
-    {
-      "recorded_at": "2026-10-05T11:50:16.691603+00:00",
-      "before_sha256": "f6694e47a4f02b6de2d18c78fa082e3de5a0b2434871f1f466de6d87c5049167",
-      "after_sha256": "ff66bbc548892361df758c50243b1fca924238768801e9fbf5937cccaef1f0e0",
-      "action": {
-        "kind": "damage",
-        "actor": "moderator",
-        "expected_revision": 62,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal attack or Damage Step response was available. Stardust Dragon inflicted 2500 direct battle damage; Lightsworn's remaining 1000 LP fell to 0.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Necro Gardna was already banished and its resolved effect consumed. Opponent's empty field, remaining GY and four hand cards have no legal attack/Damage Step response. Human has no applicable optional Damage Step action. Direct battle damage is compulsory, with LP floored at zero."
-        },
-        "id": "workflow-edison-r62-stardust-lethal",
-        "workflow_request_id": "edison-r62-stardust-lethal",
-        "workflow_digest": "3781867fb89058ba3c38ad5ec6e26896bf5e2f0244e3da0952847218b422f7b2",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "status"
-            ],
-            "value": "finished"
-          },
-          {
-            "op": "lp",
-            "path": [
-              "players",
-              "agent",
-              "lp"
-            ],
-            "delta": -1000
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "3847946f71c78d091ae6fe1aaddfdc4168b332c2aa9785e9bafec9b6e19ba93d"
-    }
-  ],
   "source_tail_sha256": "622b47691e8fc62d45338a987bcfa63abcb62fff1aa20f65505fa5753ee78503",
   "catalog_refs": {
     "agent": {
@@ -4618,5 +906,637 @@
     ],
     "scope": "non-automatic player actions; delegated continuations may intentionally have no new menu",
     "reasoning": "submitted intentions only; unrecorded model reasoning is unavailable"
-  }
+  },
+  "event_index": [
+    {
+      "file": "events/000001.json",
+      "revision": 1,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "Both decks were independently shuffled and five-card opening hands dealt. Blackwing starts: drew one card under Edison rules; no legal actions in the empty Draw/Standby windows. Advanced to Main Phase 1. No first-turn Battle Phase.",
+      "event_sha256": "3aab92e7b988ae7f621fcbcf31ebbd16876fcd504396ac2163367af0d00fdd01"
+    },
+    {
+      "file": "events/000002.json",
+      "revision": 2,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Blackwing activated Allure of Darkness as Chain Link 1; no activation cost or targets.",
+      "event_sha256": "31889c1df0d6d13a6fb4ea8dedcad93bd58f873013613e59a16a4ebc2c5a9411"
+    },
+    {
+      "file": "events/000003.json",
+      "revision": 3,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "Neither player had a legally activatable response to Allure of Darkness. Closed the response window.",
+      "event_sha256": "5eeb9de986ba672804ef26fb5bdd7ec4b4d37e9f9839d1c67486c89378979426"
+    },
+    {
+      "file": "events/000004.json",
+      "revision": 4,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Allure of Darkness began resolving: Blackwing drew two cards. Resolution is suspended for the required DARK monster selection; no new activations are allowed.",
+      "event_sha256": "018637c905db6a1e5c347550cbced8bfb7fd1db33dc86f8e50e7c2b80949e117"
+    },
+    {
+      "file": "events/000005.json",
+      "revision": 5,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "choice",
+      "public_summary": "Blackwing banished Blackwing - Blizzard the Far North face-up for Allure of Darkness.",
+      "event_sha256": "ddb89c1fd86082d912dcb12882a224fb7e18c5caff864cd15718c6cd0bcafe13"
+    },
+    {
+      "file": "events/000006.json",
+      "revision": 6,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Allure of Darkness finished resolving and went to Blackwing's Graveyard.",
+      "event_sha256": "9ad4cc2d126742d04626ecaf927a62aac41a1796215fda4efb50868bed87bd75"
+    },
+    {
+      "file": "events/000007.json",
+      "revision": 7,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Blackwing activated Black Whirlwind as Chain Link 1.",
+      "event_sha256": "5edc978a152bebf8ecb9393203aca9ca306f2ccdf7558d50b9a15d9093291de2"
+    },
+    {
+      "file": "events/000008.json",
+      "revision": 8,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "Neither player had a legal response to Black Whirlwind's activation.",
+      "event_sha256": "c31573a49535c673d2f8580508c5fe5eac4049764a42d11df6621add6c51795c"
+    },
+    {
+      "file": "events/000009.json",
+      "revision": 9,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Black Whirlwind's activation resolved; it remains face-up.",
+      "event_sha256": "2602c15341732155a8910933e8b0268ea2cad5a8843a58484fe83dadc74c56f3"
+    },
+    {
+      "file": "events/000010.json",
+      "revision": 10,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "set",
+      "public_summary": "Blackwing set two cards in Spell/Trap zones 2 and 3.",
+      "event_sha256": "45cc90cce9a3fe085375937eb9a37f43603adc09ded4d4d41bbb3f9e67ae919a"
+    },
+    {
+      "file": "events/000011.json",
+      "revision": 11,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "summon",
+      "public_summary": "Blackwing Normal Summoned Blizzard the Far North in Attack Position. No legal summon negation is available. Blizzard has no eligible GY target, so its revival effect cannot activate. Black Whirlwind's optional search is available.",
+      "event_sha256": "b9a2007b92b1f990d36b0df2b95cb01a9c7ee01bd8fe13f08225568091034c81"
+    },
+    {
+      "file": "events/000012.json",
+      "revision": 12,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Blackwing activated Black Whirlwind's optional search effect following Blizzard's Normal Summon.",
+      "event_sha256": "5ef750909220327235dd97af571de196bfcd040bc802108e73b58609e78d1160"
+    },
+    {
+      "file": "events/000013.json",
+      "revision": 13,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "Neither player had a legal response to Black Whirlwind's search effect.",
+      "event_sha256": "f7b26edefb2112528bb901ab6b576bd085a4dc525c1f7369f01586d84a81d9c5"
+    },
+    {
+      "file": "events/000014.json",
+      "revision": 14,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Black Whirlwind resolved: Blackwing revealed and added Vayu the Emblem of Honor from Deck to hand, then shuffled the remaining Deck.",
+      "event_sha256": "6f2374a01e492d442da40f4d921d99723dda5faf0570b9d59c58b4c7b531ee26"
+    },
+    {
+      "file": "events/000015.json",
+      "revision": 15,
+      "turn": 2,
+      "phase": "draw",
+      "actor": "human",
+      "kind": "turn",
+      "public_summary": "Blackwing ended Turn 1 with Blizzard, Black Whirlwind, and two set cards. No End Phase effects or hand-limit discard applied. Turn 2 begins: Lightsworn's Draw Phase.",
+      "event_sha256": "8d6401199d3c7370b9eed71c67ad59c091177724df71c196b6e063484edff972"
+    },
+    {
+      "file": "events/000016.json",
+      "revision": 16,
+      "turn": 2,
+      "phase": "draw",
+      "actor": "moderator",
+      "kind": "draw",
+      "public_summary": "Lightsworn drew one card for Turn 2.",
+      "event_sha256": "3f2b5a677210830071afdb27f7dc8e6b396b53b70170ec914ddd1cd03e7186ea"
+    },
+    {
+      "file": "events/000017.json",
+      "revision": 17,
+      "turn": 2,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "No legal Draw/Standby activations or pending effects apply. Lightsworn entered the start of Main Phase 1.",
+      "event_sha256": "2aec14c036bed657163e1e3daa2e7b8118045c699ec1ba39b6cf556779156816"
+    },
+    {
+      "file": "events/000018.json",
+      "revision": 18,
+      "turn": 2,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "set",
+      "public_summary": "Lightsworn used its Normal Summon/Set to set one monster face-down in Defense Position. No Flip effect activates, and no legal human response to this Set exists.",
+      "event_sha256": "75a6a56e37df4f2c9bb88596148a45c1290acb9b5158c665da91c470e014f1a5"
+    },
+    {
+      "file": "events/000019.json",
+      "revision": 19,
+      "turn": 3,
+      "phase": "draw",
+      "actor": "agent",
+      "kind": "turn",
+      "public_summary": "Lightsworn ended its turn with one face-down Defense Position monster and no backrow. No attack, End Phase effect, or hand-limit discard applied. Turn 3 begins: Blackwing's Draw Phase.",
+      "event_sha256": "c10b2eba38ce949b87892a39dd83180c6b5809079bfa723b171d2262cc7e9813"
+    },
+    {
+      "file": "events/000020.json",
+      "revision": 20,
+      "turn": 3,
+      "phase": "draw",
+      "actor": "moderator",
+      "kind": "draw",
+      "public_summary": "Blackwing drew one card for Turn 3.",
+      "event_sha256": "5613c90ec407dccb2ce33aeb090dfad2582cd183ae9c78483d4967688c5fbc15"
+    },
+    {
+      "file": "events/000021.json",
+      "revision": 21,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "No legal Draw/Standby actions or pending effects applied. Blackwing entered Main Phase 1 of Turn 3.",
+      "event_sha256": "734da708ed8907f4603e539429315fcc02d1e001515a924f44c62f8a17ca8a59"
+    },
+    {
+      "file": "events/000022.json",
+      "revision": 22,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "summon",
+      "public_summary": "Blackwing Tributed Blizzard the Far North and Tribute Summoned Sirocco the Dawn in Attack Position. No legal opposing summon negation or response is available. Black Whirlwind's optional Normal Summon search is available.",
+      "event_sha256": "dc0a50cc74add1a7a42bd1f79412e5ae1ac6d4e2b224c6fddacab4817feb434f"
+    },
+    {
+      "file": "events/000023.json",
+      "revision": 23,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Blackwing activated Black Whirlwind's optional search following Sirocco's Tribute Summon.",
+      "event_sha256": "84e7d3ee95b7ac1fde70be095e1035b356749bf6863b7c5e75f0651d4dc0bc2e"
+    },
+    {
+      "file": "events/000024.json",
+      "revision": 24,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "No opposing response to Black Whirlwind's search was available.",
+      "event_sha256": "770dee738feab3253b645cff9c15a89fa5c827a74f09fc4e966e4aada918f2f6"
+    },
+    {
+      "file": "events/000025.json",
+      "revision": 25,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Black Whirlwind added the revealed Bora the Spear to Blackwing's hand; the remaining Deck was shuffled.",
+      "event_sha256": "8a0f987f4a2f911863071b0d42f5a15eadaedbab33cb548548a34e48c784be12"
+    },
+    {
+      "file": "events/000026.json",
+      "revision": 26,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "summon",
+      "public_summary": "Blackwing Special Summoned Bora the Spear in Attack Position beside Sirocco. No legal opposing summon negation or response is available.",
+      "event_sha256": "7bb83817d5b066e356103e0c4d342ac518f8b76a6c23fdc2443aef0df7b94765"
+    },
+    {
+      "file": "events/000027.json",
+      "revision": 27,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "summon",
+      "public_summary": "Blackwing Special Summoned Gale the Whirlwind in Attack Position beside the differently named Blackwings. No legal opposing summon negation or response is available.",
+      "event_sha256": "955bf03d5fcc59aad17133e0c1d2f5c06d9b9923afcedf653a1b6cf5f39a8e56"
+    },
+    {
+      "file": "events/000028.json",
+      "revision": 28,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "summon",
+      "public_summary": "Blackwing sent Level 3 Tuner Gale and Level 5 non-Tuner Sirocco to the GY, and Synchro Summoned Stardust Dragon in Attack Position. No legal opposing summon negation or response is available. The GY now has exactly three DARK monsters: Blizzard, Sirocco, and Gale.",
+      "event_sha256": "703a1d4d83c8e14a5a95bbfa0d16f45d870da1a86d780ac206e3983942e2e578"
+    },
+    {
+      "file": "events/000029.json",
+      "revision": 29,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "summon",
+      "public_summary": "Blackwing Special Summoned Dark Armed Dragon in Attack Position with exactly three DARK monsters in the GY. No legal opposing summon negation or response is available.",
+      "event_sha256": "b970b05eeec776cb371366058aa38c30a206b1b2febdcee13fea118feb1228af"
+    },
+    {
+      "file": "events/000030.json",
+      "revision": 30,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Blackwing activated Dark Armed Dragon's destruction effect: banished Blizzard from the GY as cost and targeted Lightsworn's face-down monster in zone 1.",
+      "event_sha256": "d93c85df2851a5cc3585c6939b2b21286c9b10a5d610dcde789f7cd24cec505c"
+    },
+    {
+      "file": "events/000031.json",
+      "revision": 31,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "No opposing response to Dark Armed Dragon's destruction effect was available.",
+      "event_sha256": "61764b2290e6e63e0984d9d0e4d85601442273c566bcc32e1f1f4496c2c7b8c9"
+    },
+    {
+      "file": "events/000032.json",
+      "revision": 32,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Dark Armed Dragon destroyed the targeted face-down monster. It was revealed as Ryko, Lightsworn Hunter and sent to Lightsworn's GY. Ryko was not flipped, so its Flip effect did not activate; no cards were milled.",
+      "event_sha256": "7a10d46119d1dc5fd61a51da8e8b11de0cc8bade6d19cd385114ad58299720b4"
+    },
+    {
+      "file": "events/000033.json",
+      "revision": 33,
+      "turn": 3,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "The requested Stardust and Dark Armed Dragon line is complete. Blackwing retains Bora, Stardust, and Dark Armed Dragon; battle decisions remain with the human.",
+      "event_sha256": "1bffb907e1f37ce44069bf29eab9aa2409af79dd608397c38ee192a4e3f7b081"
+    },
+    {
+      "file": "events/000034.json",
+      "revision": 34,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "human",
+      "kind": "attack",
+      "public_summary": "Blackwing entered the Battle Phase. Bora the Spear declared a direct attack against Lightsworn's empty field.",
+      "event_sha256": "2d474015be7902dd3422ee39774784111c3d7bb23c2f7828c14f224cead5b2f9"
+    },
+    {
+      "file": "events/000035.json",
+      "revision": 35,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "damage",
+      "public_summary": "No legal attack-declaration or Damage Step response applied. Bora's direct attack dealt 1700 battle damage: Lightsworn 8000 → 6300 LP.",
+      "event_sha256": "9a26e3a8bd833a606362eecec16b7a9bcaccb05fdb22711fbc7db855e31bf92f"
+    },
+    {
+      "file": "events/000036.json",
+      "revision": 36,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "No post-damage trigger or response applied. Bora's attack is complete; Stardust Dragon and Dark Armed Dragon have not attacked.",
+      "event_sha256": "1cbb02640e6f65596dd1b9b206728179a2f4fff72f124a46d0207596eda6b88d"
+    },
+    {
+      "file": "events/000037.json",
+      "revision": 37,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "human",
+      "kind": "attack",
+      "public_summary": "Stardust Dragon declared a direct attack against Lightsworn's empty field.",
+      "event_sha256": "4c0d097365f5210a7e48ba325eb694a0379ddf064263bf0b40206122879c13ff"
+    },
+    {
+      "file": "events/000038.json",
+      "revision": 38,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "damage",
+      "public_summary": "Stardust Dragon's unopposed direct attack dealt 2500 battle damage.",
+      "event_sha256": "5384e63c5a1ae7386daeba29a378834b33358c8ba7e548db63ecb113dcdb8c70"
+    },
+    {
+      "file": "events/000039.json",
+      "revision": 39,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "No post-damage response applied; Stardust Dragon's attack is complete.",
+      "event_sha256": "9970b46f0bfa6e3cae7a4d0063e4109f07fdd189145ea37015607b93a19b6722"
+    },
+    {
+      "file": "events/000040.json",
+      "revision": 40,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "human",
+      "kind": "attack",
+      "public_summary": "Dark Armed Dragon declared a direct attack against Lightsworn's empty field.",
+      "event_sha256": "6a2a658bbdbdfdfb5e892af3eff777e36fffbfab346976a37ada574a6400db4a"
+    },
+    {
+      "file": "events/000041.json",
+      "revision": 41,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "damage",
+      "public_summary": "Dark Armed Dragon's unopposed direct attack dealt 2800 battle damage.",
+      "event_sha256": "99dc41e72c54a61a390039a9fcebf05c5556435a515f8119a9eb8ae8d6ea7c31"
+    },
+    {
+      "file": "events/000042.json",
+      "revision": 42,
+      "turn": 3,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "No post-damage response applied; Dark Armed Dragon's attack is complete.",
+      "event_sha256": "6f49dccb358f6aae0e54c8fc63f321be368ab8956c8bfb1f5de9dfc807ffabfa"
+    },
+    {
+      "file": "events/000043.json",
+      "revision": 43,
+      "turn": 3,
+      "phase": "main2",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "All three attacks are complete. With no remaining Battle Phase actions or effects, Blackwing entered Main Phase 2. Lightsworn is at 1000 LP.",
+      "event_sha256": "06435f56fb0e53c89aacf0672939c7c8a934ba03c8a2b46905dcd2052228fe01"
+    },
+    {
+      "file": "events/000044.json",
+      "revision": 44,
+      "turn": 4,
+      "phase": "draw",
+      "actor": "human",
+      "kind": "turn",
+      "public_summary": "Blackwing ended Turn 3. No End Phase effects or hand-limit discard applied. Turn 4 begins: Lightsworn's Draw Phase, at 1000 LP.",
+      "event_sha256": "a08e3dbba8e559932ff7faa463153dd125fe5264e86c0a929fbb2dce7b6d7254"
+    },
+    {
+      "file": "events/000045.json",
+      "revision": 45,
+      "turn": 4,
+      "phase": "draw",
+      "actor": "moderator",
+      "kind": "draw",
+      "public_summary": "Lightsworn drew one card for Turn 4.",
+      "event_sha256": "d3c620212b6155f37e61791587a2ef6c2282c0ba4950e7ff13af8017a484d670"
+    },
+    {
+      "file": "events/000046.json",
+      "revision": 46,
+      "turn": 4,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "No legal Draw/Standby activation or effect applied. Lightsworn entered the start of Main Phase 1 of Turn 4.",
+      "event_sha256": "71f613e6ec9031b444c88c84cfbff0d31542f984619deaa157f56c0a9a5b2aa7"
+    },
+    {
+      "file": "events/000047.json",
+      "revision": 47,
+      "turn": 4,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "set",
+      "public_summary": "Lightsworn used its Normal Summon/Set to set a face-down Defense Position monster in zone 1, then set one Spell/Trap in zone 1. No legal opposing response to these Sets is available.",
+      "event_sha256": "b54541d5c813dce623426e59c49bd3d3328b10591f921f315660b45cd4ab5445"
+    },
+    {
+      "file": "events/000048.json",
+      "revision": 48,
+      "turn": 5,
+      "phase": "draw",
+      "actor": "agent",
+      "kind": "turn",
+      "public_summary": "Lightsworn ended Turn 4 with one face-down monster and one set backrow card. No attack, End Phase effect, or hand-limit discard applied. Turn 5 begins: Blackwing's Draw Phase.",
+      "event_sha256": "b3c4459d4c29a895d2d7437cc30ca791454db0415353736101b337eb19071892"
+    },
+    {
+      "file": "events/000049.json",
+      "revision": 49,
+      "turn": 5,
+      "phase": "draw",
+      "actor": "moderator",
+      "kind": "draw",
+      "public_summary": "Blackwing drew one card for Turn 5.",
+      "event_sha256": "05f9ec288d97761a5da41e0ffa52ac73fbdfcedd75f50295eb3ebea82625bfb0"
+    },
+    {
+      "file": "events/000050.json",
+      "revision": 50,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "No legal Draw/Standby activation or effect applied. Blackwing entered Main Phase 1 of Turn 5.",
+      "event_sha256": "6a38342061c8a61b5499ab5b3d9041c4722f5efacee16e482a51bf098330b880"
+    },
+    {
+      "file": "events/000051.json",
+      "revision": 51,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Blackwing activated Dark Armed Dragon: banished Gale from the GY as cost and targeted Lightsworn's set Spell/Trap in zone 1.",
+      "event_sha256": "6d3f1884708179a8feed95a181c778f2901290510c818e67fd0cf95445764450"
+    },
+    {
+      "file": "events/000052.json",
+      "revision": 52,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "Lightsworn had no legally available response. Dark Armed Dragon's effect proceeds to resolution.",
+      "event_sha256": "63ae3c9e9a3d41b250a90c8d3f90ce50ca98f5d0b81a3b557138b1b222b1d5d4"
+    },
+    {
+      "file": "events/000053.json",
+      "revision": 53,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Dark Armed Dragon destroyed the set Spell/Trap. It was Beckoning Light, now revealed and sent to Lightsworn's GY.",
+      "event_sha256": "983475738623d92e7326a481dc87dfc010efdd4341cf6d3ae54edc612c56d198"
+    },
+    {
+      "file": "events/000054.json",
+      "revision": 54,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Blackwing banished Sirocco from the GY to activate Dark Armed Dragon, targeting Lightsworn's set monster.",
+      "event_sha256": "7fdcf52912db1b19b2cdb2eabe139d9ec02b9885df7a5dc634250cb890b3077f"
+    },
+    {
+      "file": "events/000055.json",
+      "revision": 55,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "No opposing response was available to Dark Armed Dragon's activation.",
+      "event_sha256": "1fd8f599ddf748f88c2fec31c00a492894088de2f1d56c79f98e1bc27679a6ab"
+    },
+    {
+      "file": "events/000056.json",
+      "revision": 56,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Dark Armed Dragon destroyed the set monster: Necro Gardna, now revealed in Lightsworn's GY. Necro Gardna may now use its GY Quick Effect during the human's turn.",
+      "event_sha256": "4b15b6491cc043fcc9ce5484e1c1daf65fa69047b4fb975d3d20319bc1852a84"
+    },
+    {
+      "file": "events/000057.json",
+      "revision": 57,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "activate",
+      "public_summary": "Lightsworn activated Necro Gardna from the GY, banishing it as cost to negate Blackwing's next attack this turn.",
+      "event_sha256": "b46b2bddca4094b895868736f13e64cd4b366a4ba22256e730dd5ac6cadeefb8"
+    },
+    {
+      "file": "events/000058.json",
+      "revision": 58,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "pass",
+      "public_summary": "Blackwing has no legal response to Necro Gardna: its effect does not destroy, and neither Solemn Judgment nor Mirror Force can negate it.",
+      "event_sha256": "70a6790c7e94c14227659f0ba52d28f2c95a620bfc6bce86d713d7152396c39b"
+    },
+    {
+      "file": "events/000059.json",
+      "revision": 59,
+      "turn": 5,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Necro Gardna resolved: Blackwing's next attack this turn will be negated.",
+      "event_sha256": "57b8c2a31b86a8d5ce5cf5e2cdc1d8784a0fe7e34224df5e3ad287e40fbd8635"
+    },
+    {
+      "file": "events/000060.json",
+      "revision": 60,
+      "turn": 5,
+      "phase": "battle",
+      "actor": "human",
+      "kind": "attack",
+      "public_summary": "Blackwing entered the Battle Phase. Bora declared a direct attack, using the authorized attack-for-game sequence.",
+      "event_sha256": "9ed516d196f7110c1d0225cea8f315f4fa015c495af21ba71b3798aa23ab65e8"
+    },
+    {
+      "file": "events/000061.json",
+      "revision": 61,
+      "turn": 5,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Necro Gardna's resolved effect negated Bora's attack. No damage was dealt. That one-attack negation is consumed; Stardust and DAD can still attack.",
+      "event_sha256": "552b818b2c38d893a0884ef1724810131e9ce4cc76e525f0cfbc69716dab25b4"
+    },
+    {
+      "file": "events/000062.json",
+      "revision": 62,
+      "turn": 5,
+      "phase": "battle",
+      "actor": "human",
+      "kind": "attack",
+      "public_summary": "Stardust Dragon declared a direct attack for 2500 ATK against Lightsworn's empty field.",
+      "event_sha256": "5d180aa89b3f582ecd42b6cfbfb6fceac313dd84d25c9e6ab438d83e78a5d4dc"
+    },
+    {
+      "file": "events/000063.json",
+      "revision": 63,
+      "turn": 5,
+      "phase": "battle",
+      "actor": "moderator",
+      "kind": "damage",
+      "public_summary": "No legal attack or Damage Step response was available. Stardust Dragon inflicted 2500 direct battle damage; Lightsworn's remaining 1000 LP fell to 0.",
+      "event_sha256": "4a0b48895ad224e76b28fa6adb8bd7c67dbeb1346ec1bd2bffb6a75c1bdca2f6"
+    }
+  ]
 }

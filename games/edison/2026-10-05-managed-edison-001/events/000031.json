@@ -1,0 +1,37 @@
+{
+  "revision": 31,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:58:02.429709+00:00",
+  "before_sha256": "5affcedb085998cbf1ef040c90ac60a0b1d4402057a1109348b745eba536a1d9",
+  "after_sha256": "afadca08a00141130ccc87c8922a7f2c34015ec720bf2b3f12a4ed874969b731",
+  "action": {
+    "kind": "pass",
+    "actor": "moderator",
+    "expected_revision": 30,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No opposing response to Dark Armed Dragon's destruction effect was available.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Opponent's unchanged hand has no legally activatable response, no backrow exists, and its face-down monster has no applicable Quick Effect. The human explicitly delegated this destruction line, including resolution rather than negating their own effect with Stardust; no undecided response remains."
+    },
+    "id": "workflow-edison-r30-dad-response-closed",
+    "workflow_request_id": "edison-r30-dad-response-closed",
+    "workflow_digest": "a1a55972d02f3e145c900f4aa51bf5f31cde85b9eecb68d41c0d8da898e301d1",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "61764b2290e6e63e0984d9d0e4d85601442273c566bcc32e1f1f4496c2c7b8c9"
+}

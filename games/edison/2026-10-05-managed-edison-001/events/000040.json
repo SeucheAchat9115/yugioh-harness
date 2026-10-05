@@ -1,0 +1,84 @@
+{
+  "revision": 40,
+  "turn": 3,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T10:56:33.987969+00:00",
+  "before_sha256": "5a83f472076b0541ceec5741c6633f774801b4012bf46c461dac9e067d1832a9",
+  "after_sha256": "771ab07ca38c205a6042a8be28ae11869482deb211d3d3890d1118a3c88bc899",
+  "action": {
+    "kind": "attack",
+    "actor": "human",
+    "expected_revision": 39,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Dark Armed Dragon declared a direct attack against Lightsworn's empty field.",
+    "id": "workflow-edison-r39-dad-attack",
+    "workflow_request_id": "edison-r39-dad-attack",
+    "workflow_digest": "0f39842f9e6cfd0d70dc35eae38944547e0a9c118cc86a6ccc3a585957ec223b",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "monster_zones",
+          2,
+          "attacked_turn"
+        ],
+        "value": 3
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "effect_usage",
+          "attack-dad-turn3"
+        ],
+        "value": {
+          "id": "attack-dad-turn3",
+          "kind": "attack",
+          "actor": "human",
+          "source_instance_id": "f93044314d0541e1b30204782bb871fd",
+          "name": "Dark Armed Dragon direct attack",
+          "turn": 3,
+          "used": true,
+          "count": 1
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "id": "battle-turn3-dad",
+            "kind": "battle",
+            "actor": "human",
+            "source_instance_id": "f93044314d0541e1b30204782bb871fd",
+            "name": "Dark Armed Dragon direct attack",
+            "effect": "Direct attack at 2800 ATK; awaiting responses.",
+            "turn": 3,
+            "phase": "battle",
+            "window": "attack-declaration"
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "agent",
+          "window": "dad-direct-attack-response"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "6a2a658bbdbdfdfb5e892af3eff777e36fffbfab346976a37ada574a6400db4a"
+}

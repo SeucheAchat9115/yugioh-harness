@@ -1,0 +1,89 @@
+{
+  "revision": 54,
+  "turn": 5,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T11:47:54.198743+00:00",
+  "before_sha256": "65bec35bdf6828639e0ffccb72b9c8a29de83b048690bde01aec84cb5a1cad4e",
+  "after_sha256": "6bb13cfe1b87575abb0388d99b31ca28632e00e8df977d2ab66c1f9b33f4e99b",
+  "action": {
+    "kind": "activate",
+    "actor": "human",
+    "expected_revision": 53,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing banished Sirocco from the GY to activate Dark Armed Dragon, targeting Lightsworn's set monster.",
+    "id": "workflow-edison-r53-dad-monster",
+    "workflow_request_id": "edison-r53-dad-monster",
+    "workflow_digest": "f335d528c1a3f0cb86e8f420492a9a7adebaf23157bf3d66b7fc61b76500c84b",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "943725c19c3f4604bb76c9eefd1652b8",
+        "from": [
+          "players",
+          "human",
+          "graveyard",
+          1
+        ],
+        "to": [
+          "players",
+          "human",
+          "banished"
+        ],
+        "index": 3
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "id": "dad-turn5-destruction-2",
+            "actor": "human",
+            "name": "Dark Armed Dragon",
+            "source_instance_id": "f93044314d0541e1b30204782bb871fd",
+            "effect": "Destroy the targeted card on the field.",
+            "costs": [
+              {
+                "instance_id": "943725c19c3f4604bb76c9eefd1652b8",
+                "card_id": 75498415,
+                "actor": "human",
+                "zone": "graveyard",
+                "kind": "banish"
+              }
+            ],
+            "targets": [
+              {
+                "instance_id": "fad05d5181c84d8181055aa07a824d44",
+                "actor": "agent",
+                "zone": "monster_zones",
+                "index": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "actor"
+        ],
+        "value": "agent"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "dad-monster-response"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "7fdcf52912db1b19b2cdb2eabe139d9ec02b9885df7a5dc634250cb890b3077f"
+}

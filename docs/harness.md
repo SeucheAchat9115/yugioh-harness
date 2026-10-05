@@ -237,7 +237,7 @@ record the actual boundary separately; an enforced transport may satisfy a
 cooperative game. Actual capabilities/evidence are saved privately per attempt.
 Neither policy changes hidden-information projection or legality review.
 
-Repository persistence uses the single omniscient schema-3 `events.json` archive
+Repository persistence uses the omniscient schema-4 `events.json` index and `events/*.json` archive
 described in [game storage](game-storage.md). It includes hidden identities and
 realized outcomes; player contexts stay filtered. Private checkpoints retain
 exact shuffled orders for continuation.

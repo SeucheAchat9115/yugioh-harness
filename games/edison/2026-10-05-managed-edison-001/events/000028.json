@@ -1,0 +1,101 @@
+{
+  "revision": 28,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:56:22.062827+00:00",
+  "before_sha256": "788b8c975a6eaa4dfe00025f3943c52f96dd811afc3c935e413ad986b205a35e",
+  "after_sha256": "fa783559e53c4c25a0450e403dbdfa150fa86ea0754c193e28abdb07aa3a4d5d",
+  "action": {
+    "kind": "summon",
+    "actor": "human",
+    "expected_revision": 27,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing sent Level 3 Tuner Gale and Level 5 non-Tuner Sirocco to the GY, and Synchro Summoned Stardust Dragon in Attack Position. No legal opposing summon negation or response is available. The GY now has exactly three DARK monsters: Blizzard, Sirocco, and Gale.",
+    "id": "workflow-edison-r27-synchro-stardust",
+    "workflow_request_id": "edison-r27-synchro-stardust",
+    "workflow_digest": "c2c8bcaca9165b6075c1b21769cdfcc00f8ec4ae86364c6113856b633041bcc8",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "943725c19c3f4604bb76c9eefd1652b8",
+        "from": [
+          "players",
+          "human",
+          "monster_zones",
+          0
+        ],
+        "to": [
+          "players",
+          "human",
+          "graveyard"
+        ],
+        "index": 2,
+        "attributes": {
+          "position": "face-up"
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "players",
+          "human",
+          "extra_deck"
+        ],
+        "index": 5,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "monster_zones",
+          0
+        ],
+        "value": {
+          "$instance": "576e318bfa6d43bab1a699a147ec6d7d",
+          "set": {
+            "owner": "human",
+            "position": "face-up attack",
+            "hidden": false,
+            "summon_type": "synchro",
+            "summoned_turn": 3,
+            "properly_summoned": true
+          }
+        }
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "monster_zones",
+          2
+        ],
+        "value": null
+      },
+      {
+        "op": "splice",
+        "path": [
+          "players",
+          "human",
+          "graveyard"
+        ],
+        "index": 3,
+        "delete": 0,
+        "values": [
+          {
+            "$instance": "4f2e63168645436c87d6f45fac96e352",
+            "set": {
+              "position": "face-up"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "703a1d4d83c8e14a5a95bbfa0d16f45d870da1a86d780ac206e3983942e2e578"
+}

@@ -1,0 +1,237 @@
+{
+  "revision": 37,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T20:23:29.497339+00:00",
+  "before_sha256": "fbdd1efde8ea6cc40bf324b769cdc484ad9a2c3624190f3cc7f42c0d02a2ecbd",
+  "after_sha256": "ff494c45c0baba90d002c24c8ea80de6b595f6a6627536b078cc0e9d67a9f2ec",
+  "action": {
+    "id": "turn1-decision-037",
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 36,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Branded Fusion resolves: send Fallen of Albaz and Quem from Deck to GY, Fusion Summon Albion in Attack Position, shuffle remaining Deck, and send Branded Fusion to GY. Albion and Lost optional triggers await human ordering.",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "a03b7cc3dd084c19b8db4b3038a2504e",
+        "from": [
+          "players",
+          "human",
+          "extra_deck",
+          0
+        ],
+        "to": [
+          "players",
+          "human",
+          "monster_zones",
+          1
+        ],
+        "attributes": {
+          "owner": "human",
+          "controller": "human",
+          "hidden": false,
+          "position": "face-up Attack",
+          "summon_type": "fusion",
+          "summon_source": "Branded Fusion",
+          "summoned_from": "extra_deck",
+          "summoned_turn": 1,
+          "properly_summoned": true,
+          "fusion_materials": [
+            {
+              "$instance": "c85fee6d77af422a8e6381050a0b1f9c",
+              "set": {
+                "source": "deck"
+              }
+            },
+            {
+              "$instance": "c512adb42bcb44bc893f78724adda058",
+              "set": {
+                "source": "deck"
+              }
+            }
+          ],
+          "summon_event_id": "turn1-fusion-summon-001"
+        }
+      },
+      {
+        "op": "move",
+        "instance": "c85fee6d77af422a8e6381050a0b1f9c",
+        "from": [
+          "players",
+          "human",
+          "deck",
+          33
+        ],
+        "to": [
+          "players",
+          "human",
+          "graveyard"
+        ],
+        "index": 3,
+        "attributes": {
+          "owner": "human",
+          "hidden": false,
+          "position": "face-up",
+          "sent_to_gy_turn": 1,
+          "sent_reason": "fusion-material-by-effect",
+          "sent_source": "Branded Fusion",
+          "send_event_id": "turn1-fusion-summon-001-materials"
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "splice",
+        "path": [
+          "players",
+          "agent",
+          "restrictions"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "kind": "activation-prohibition",
+            "source": "Branded Lost",
+            "source_instance_id": "97a29f83327d444d90127b23403244be",
+            "summon_event_id": "turn1-fusion-summon-001",
+            "window": "post-fusion-summon-trigger-window-and-chain",
+            "expires": "after-this-post-summon-trigger-window-and-chain",
+            "condition": "Branded Lost remains applicable"
+          }
+        ]
+      },
+      {
+        "op": "splice",
+        "path": [
+          "players",
+          "human",
+          "deck"
+        ],
+        "index": 32,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "spell_trap_zones",
+          1
+        ],
+        "value": null
+      },
+      {
+        "op": "splice",
+        "path": [
+          "players",
+          "human",
+          "graveyard"
+        ],
+        "index": 4,
+        "delete": 0,
+        "values": [
+          {
+            "$instance": "c512adb42bcb44bc893f78724adda058",
+            "set": {
+              "owner": "human",
+              "hidden": false,
+              "position": "face-up",
+              "sent_to_gy_turn": 1,
+              "sent_reason": "fusion-material-by-effect",
+              "sent_source": "Branded Fusion",
+              "send_event_id": "turn1-fusion-summon-001-materials"
+            }
+          },
+          {
+            "$instance": "89e6831af774477a91aa08d1c1adc555",
+            "set": {
+              "activation_resolved": true,
+              "sent_to_gy_turn": 1,
+              "sent_reason": "resolved-spell"
+            }
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "effect_usage",
+          "branded_fusion_activation",
+          "resolved"
+        ],
+        "value": true
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "kind": "optional-trigger",
+            "controller": "human",
+            "source_instance_id": "a03b7cc3dd084c19b8db4b3038a2504e",
+            "card_id": 87746184,
+            "effect": "Albion Fusion Summon",
+            "event_id": "turn1-fusion-summon-001",
+            "turn": 1,
+            "status": "awaiting-activation"
+          },
+          {
+            "kind": "optional-trigger",
+            "controller": "human",
+            "source_instance_id": "97a29f83327d444d90127b23403244be",
+            "card_id": 18973184,
+            "effect": "Branded Lost search",
+            "event_id": "turn1-fusion-summon-001",
+            "turn": 1,
+            "status": "awaiting-activation"
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "albion-and-lost-simultaneous-triggers"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "human",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "c512adb42bcb44bc893f78724adda058",
+          "card_id": 45883110
+        },
+        {
+          "instance_id": "c85fee6d77af422a8e6381050a0b1f9c",
+          "card_id": 68468459
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "b63f3400298b445af99c9c529d7b4109df88ebaad2b3ef25b07879779bcab045"
+}

@@ -1,0 +1,83 @@
+{
+  "revision": 47,
+  "turn": 4,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T11:15:17.235153+00:00",
+  "before_sha256": "777734f2dfafc38553c93ea874f3a291ce48a8e16b61fe99f412aa0d6b791b63",
+  "after_sha256": "61b7126273117502b5d17843a8ba7cf2f46f35a3edda5bf2e3133d516c2fc19f",
+  "action": {
+    "kind": "set",
+    "actor": "agent",
+    "expected_revision": 46,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Lightsworn used its Normal Summon/Set to set a face-down Defense Position monster in zone 1, then set one Spell/Trap in zone 1. No legal opposing response to these Sets is available.",
+    "id": "workflow-edison-r46-agent-two-sets",
+    "workflow_request_id": "edison-r46-agent-two-sets",
+    "workflow_digest": "54044d89cf7bfe818229bad1aa3a60536f949ec2644f2e7cc24f5a4abe5e6aa8",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "228d4e62820947d98cfc3382a3ad6a49",
+        "from": [
+          "players",
+          "agent",
+          "hand",
+          4
+        ],
+        "to": [
+          "players",
+          "agent",
+          "spell_trap_zones",
+          0
+        ],
+        "attributes": {
+          "owner": "agent",
+          "position": "face-down",
+          "hidden": true,
+          "set_turn": 4
+        }
+      },
+      {
+        "op": "move",
+        "instance": "fad05d5181c84d8181055aa07a824d44",
+        "from": [
+          "players",
+          "agent",
+          "hand",
+          4
+        ],
+        "to": [
+          "players",
+          "agent",
+          "monster_zones",
+          0
+        ],
+        "attributes": {
+          "owner": "agent",
+          "position": "face-down defense",
+          "hidden": true,
+          "set_turn": 4
+        }
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "agent",
+          "normal_summon_used"
+        ],
+        "value": true
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "b54541d5c813dce623426e59c49bd3d3328b10591f921f315660b45cd4ab5445"
+}

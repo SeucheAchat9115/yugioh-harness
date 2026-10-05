@@ -1,0 +1,47 @@
+{
+  "revision": 21,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:34:42.240018+00:00",
+  "before_sha256": "49c06cfb71bbbdd8d3aac820bd71643b64676e0d967090bb5dab18e7a250842b",
+  "after_sha256": "2ca09fd30bb62ec3cb70738bfc3a901d61420a54a20d964d50b1a101ca9555da",
+  "action": {
+    "kind": "phase",
+    "actor": "moderator",
+    "expected_revision": 20,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No legal Draw/Standby actions or pending effects applied. Blackwing entered Main Phase 1 of Turn 3.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The updated human hand contains only Main Phase-playable monsters; neither player's current field or hand has a legal Draw/Standby activation. Both GYs and effects were checked; no mandatory or optional Standby effect applies."
+    },
+    "id": "workflow-edison-r20-human-main-phase",
+    "workflow_request_id": "edison-r20-human-main-phase",
+    "workflow_digest": "8da2dec0e352069e54857be7dfffba4f5623197faa225cd0b2a610c98a4f6088",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "main1"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "main-phase-1-open"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "734da708ed8907f4603e539429315fcc02d1e001515a924f44c62f8a17ca8a59"
+}

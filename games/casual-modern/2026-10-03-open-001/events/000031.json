@@ -1,0 +1,31 @@
+{
+  "revision": 31,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T20:09:46.284125+00:00",
+  "before_sha256": "aef4821374c4e74306120d2dae1f1a5024f4ff16849f748eb1debbff548f9907",
+  "after_sha256": "23c2d384af57500a0bc9c3fd0135ebd384ecea91c6f5dc85253776b36c6c3ce1",
+  "action": {
+    "id": "turn1-decision-031",
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 30,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Return to an open Main Phase 1 window and continue the human requested Branded Fusion activation.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "main-phase-open"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "aeb68928d3f16837264487ddbf8a0ee296ce3fc8d0d6151e612d04b13e99676b"
+}

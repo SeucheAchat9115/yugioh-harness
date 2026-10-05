@@ -11,7 +11,9 @@ Each `games/<format>/<game-id>/` contains:
 
 - `game.json`: identity, mode, rules/banlist versions, settings, original deck
   identities, logical snapshot names, result and current progress.
-- `events.json`: the single authoritative replay archive. Intermediate states,
+- `events.json`: the authoritative archive index and baseline; it contains no event payload array.
+- `events/000001.json`, etc.: one immutable recorded event per resulting revision.
+  Intermediate states,
   readable action logs and review contexts are generated on demand.
 
 Immutable asset bytes are shared under `snapshots/<first-two-hash-characters>/<sha256>`.
@@ -32,11 +34,11 @@ Do not persist duplicate game-folder `state.json`, `actions.md`, `log.md` or
 logs. `harness.storage.snapshots.collect(game_dir)` resolves logical resources for
 runtime use and supports legacy games with local snapshot files.
 
-## `events.json` schema 3.0
+## `events.json` schema 4.0
 
 | Field | Meaning |
 | --- | --- |
-| `schema_version` | `3.0`; schema-2 archives remain readable, schema-1 summary logs require migration from private history. |
+| `schema_version` | `4.0`; schema-2 and schema-3 archives remain readable, schema-1 summary logs require migration from private history. |
 | `visibility` | `omniscient-archive`. Never give this file directly to a player agent. |
 | `deck_order` | `unordered-instance-inventory`: deck arrays are sorted by physical instance ID, not draw order. |
 | `purpose` | `replay-and-review-not-live-resume`. |
@@ -44,7 +46,7 @@ runtime use and supports legacy games with local snapshot files.
 | `initial_state` | Known initial hands, zones, physical copies and gameplay bookkeeping; catalogs are referenced separately. |
 | `initial_state_sha256` | Hash of the hydrated baseline, including revision-zero games. |
 | `operation_encoding` | `physical-moves-and-deltas-v1`. |
-| `events` | Ordered timestamps, approved action metadata, compact operations, explicit deck outcomes and integrity hashes. |
+| `event_index` | Ordered entries with `file`, `revision`, resulting `turn`/`phase`, `actor`, `kind`, reviewed `public_summary` and `event_sha256`; no operations or state copies. |
 | `source_tail_sha256` | Digest connecting the export to its private source journal, without exporting the shuffled queue. |
 | `assets_sha256` | Logical names and content hashes of shared immutable resources. |
 | `catalog_refs` | Per-player catalog object hash and optional field selector. |
@@ -53,7 +55,26 @@ runtime use and supports legacy games with local snapshot files.
 | `decisions` | Recorded human/AI intentions, selected-option details, actor, revision and IDs. |
 | `decision_evidence` | Explicit coverage status, counts, and player-action revisions with no recorded intention/menu. |
 
-Schema-3 actions retain ID, kind, actor, expected revision, reviewed narration,
+Each event file contains `revision`, resulting `turn` and `phase`, `recorded_at`,
+`before_sha256`, `after_sha256`, `action`, `deck_outcomes` and `event_sha256`.
+A recorded event is one state transition: an activation, response and resolution
+can occupy separate records. It is not necessarily a whole human move or turn.
+The filename uses the resulting revision, padded to at least six digits; revisions
+are contiguous after the baseline. No monolithic event array is also persisted.
+
+For selective review, read `events.json`, filter `event_index` by turn, phase,
+actor or kind, then read only the referenced files. `records.read_event(game_dir,
+entry)` verifies one record's hash and discovery metadata without loading others.
+The index and records contain omniscient information and are moderator/reviewer
+resources; active player children continue to receive filtered runtime contexts.
+
+The single writer writes new records first, then atomically replaces the index.
+Existing records are immutable. An interrupted append can leave an unindexed
+record; readers ignore it, and an identical retry reuses it. A different record
+at the same revision is rejected. Do not delete indexed files or reuse revisions.
+Changing recorded history requires a separate archive rather than overwriting it.
+
+Schema-4 actions retain ID, kind, actor, expected revision, reviewed narration,
 moderator approval, automatic/no-choice review, result and workflow correlation.
 They contain `operations`, not whole-zone before/after copies:
 
@@ -89,7 +110,7 @@ Coin/die/selection outcomes must likewise be explicitly recorded in action/state
 ## Revision caches and compatibility
 
 `load_replay(game_dir, revision=None, perspective='moderator', cache_dir=None)`
-reads both schema 2 and 3. A cold replay verifies the entire history, even when
+reads schemas 2, 3 and 4. A cold replay verifies the entire history, even when
 requesting an early revision. It then caches every 16th revision, the final state
 and requested revisions locally. Warm reads reuse these verified states instead
 of replaying the full prefix. Archive contents determine the cache namespace;
@@ -142,5 +163,5 @@ The internal `harness.storage.archive` CLI supports `migrate`, `replay` and `log
 Migration requires an authoritative private journal, checks game identity/newer
 history, interns assets, converts transitions and verifies the resulting state.
 Historical packet/intention gaps remain explicitly partial. Existing schema-1
-private journals/checkpoints and schema-2 repository archives remain supported.
+private journals/checkpoints and schema-2/schema-3 repository archives remain supported.
 Humans never need to execute these commands during a duel.

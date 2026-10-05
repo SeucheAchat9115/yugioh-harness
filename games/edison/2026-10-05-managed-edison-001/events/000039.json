@@ -1,0 +1,46 @@
+{
+  "revision": 39,
+  "turn": 3,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T10:56:32.833990+00:00",
+  "before_sha256": "053baa01c7fb1d1bab1697f6e78be52d31f9a5cd0304baf4c3ff3b1cd0e05e87",
+  "after_sha256": "5a83f472076b0541ceec5741c6633f774801b4012bf46c461dac9e067d1832a9",
+  "action": {
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 38,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No post-damage response applied; Stardust Dragon's attack is complete.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Neither player's current cards have an applicable post-damage trigger or response. Clear this completed combat and continue only the human's explicitly authorized attack sequence."
+    },
+    "id": "workflow-edison-r38-stardust-complete",
+    "workflow_request_id": "edison-r38-stardust-complete",
+    "workflow_digest": "f6fb4f30ce2e0f6749b7674a7859859151581242220524c0fcfc80b95b650e60",
+    "operations": [
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "9970b46f0bfa6e3cae7a4d0063e4109f07fdd189145ea37015607b93a19b6722"
+}

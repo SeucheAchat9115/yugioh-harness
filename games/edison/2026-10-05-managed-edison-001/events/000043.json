@@ -1,0 +1,47 @@
+{
+  "revision": 43,
+  "turn": 3,
+  "phase": "main2",
+  "recorded_at": "2026-10-05T10:56:37.434045+00:00",
+  "before_sha256": "e035109eaa24b7fccc26820abe99e3200fd4f0b1b0f955105b115ecb48cbea97",
+  "after_sha256": "223476060840f33f69e94ab5935c218565d58b81a433c58c42711b49c5947d78",
+  "action": {
+    "kind": "phase",
+    "actor": "moderator",
+    "expected_revision": 42,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "All three attacks are complete. With no remaining Battle Phase actions or effects, Blackwing entered Main Phase 2. Lightsworn is at 1000 LP.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "All three monsters have used their sole attacks; neither player's hand, field, or GY has a legal action or End of Battle Phase effect at the current empty chain. Proceed to Main Phase 2 and stop for the human's next decision."
+    },
+    "id": "workflow-edison-r42-battle-to-main2",
+    "workflow_request_id": "edison-r42-battle-to-main2",
+    "workflow_digest": "331bd85479346d976f944afa980716ae31fb075a72329c70e6465d170de82fd7",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "main2"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "main-phase-2-open"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "06435f56fb0e53c89aacf0672939c7c8a934ba03c8a2b46905dcd2052228fe01"
+}

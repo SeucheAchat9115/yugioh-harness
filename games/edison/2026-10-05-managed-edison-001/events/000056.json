@@ -1,0 +1,69 @@
+{
+  "revision": 56,
+  "turn": 5,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T11:47:56.518270+00:00",
+  "before_sha256": "5baa7d139e8ae8d045a53f64de28d700551db44f42ba201ff298658571ae3130",
+  "after_sha256": "933faa5c8b6ceddf692c35e5d66cccd238a90546b2855cd4d72c3cd24280c5da",
+  "action": {
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 55,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Dark Armed Dragon destroyed the set monster: Necro Gardna, now revealed in Lightsworn's GY. Necro Gardna may now use its GY Quick Effect during the human's turn.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Closed chain resolves destruction of the existing target. No destruction trigger applies. Open the opponent's real optional GY-effect decision after resolution."
+    },
+    "id": "workflow-edison-r55-dad-destroys-gardna",
+    "workflow_request_id": "edison-r55-dad-destroys-gardna",
+    "workflow_digest": "be7f15f88582ef8788f51dd33175ef89c4e29add501c3a2cb95b30452f5f96d1",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "fad05d5181c84d8181055aa07a824d44",
+        "from": [
+          "players",
+          "agent",
+          "monster_zones",
+          0
+        ],
+        "to": [
+          "players",
+          "agent",
+          "graveyard"
+        ],
+        "index": 2,
+        "attributes": {
+          "position": "face-up",
+          "hidden": false
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "agent",
+          "window": "post-resolution-necro-gardna"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "4b15b6491cc043fcc9ce5484e1c1daf65fa69047b4fb975d3d20319bc1852a84"
+}

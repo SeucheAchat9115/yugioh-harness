@@ -1,0 +1,69 @@
+{
+  "revision": 53,
+  "turn": 5,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T11:28:05.884410+00:00",
+  "before_sha256": "046b2ab70575f2d7a22f7dad69d1af4191826737ce795d596ee7f6d122cd1ceb",
+  "after_sha256": "65bec35bdf6828639e0ffccb72b9c8a29de83b048690bde01aec84cb5a1cad4e",
+  "action": {
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 52,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Dark Armed Dragon destroyed the set Spell/Trap. It was Beckoning Light, now revealed and sent to Lightsworn's GY.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Responses are closed; the target remains destructible. Beckoning Light has no destruction or GY trigger. Return to the human's Main Phase 1 decision."
+    },
+    "id": "workflow-edison-r52-dad-backrow-resolve",
+    "workflow_request_id": "edison-r52-dad-backrow-resolve",
+    "workflow_digest": "1a1762ea0f5b3f106d367b17f8fcc78de76589ff153b36736eba381d6f2f9036",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "228d4e62820947d98cfc3382a3ad6a49",
+        "from": [
+          "players",
+          "agent",
+          "spell_trap_zones",
+          0
+        ],
+        "to": [
+          "players",
+          "agent",
+          "graveyard"
+        ],
+        "index": 1,
+        "attributes": {
+          "position": "face-up",
+          "hidden": false
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "main-phase-1-open"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "983475738623d92e7326a481dc87dfc010efdd4341cf6d3ae54edc612c56d198"
+}

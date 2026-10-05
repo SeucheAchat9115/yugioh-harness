@@ -1,0 +1,55 @@
+{
+  "revision": 36,
+  "turn": 3,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T10:00:44.492124+00:00",
+  "before_sha256": "a0f440cf25c804b3b80e367f4675f5a9c48520127f93046a4d835e340f30165b",
+  "after_sha256": "f1150896999bdb0606a81837003c73f06449e5d1b10f786c544ae90341ea1bb8",
+  "action": {
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 35,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No post-damage trigger or response applied. Bora's attack is complete; Stardust Dragon and Dark Armed Dragon have not attacked.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Neither current hand, field, or GY has a legal post-damage trigger; specifically no applicable Gorz/Tragoedia is present. Clear the completed battle and return the next attack choice to the human."
+    },
+    "id": "workflow-edison-r35-bora-attack-complete",
+    "workflow_request_id": "edison-r35-bora-attack-complete",
+    "workflow_digest": "ea411c2369906b7004361ff5755d5fae970ec02efd513f9f5d3233a9b07ded26",
+    "operations": [
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "actor"
+        ],
+        "value": "human"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "battle-phase-open"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "1cbb02640e6f65596dd1b9b206728179a2f4fff72f124a46d0207596eda6b88d"
+}

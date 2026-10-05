@@ -1,0 +1,35 @@
+{
+  "revision": 21,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T19:57:39.041833+00:00",
+  "before_sha256": "2c84e70260bca9a696949dbf4bc196d7b26a97fc3cb5c00f07f9bedd3841dad9",
+  "after_sha256": "b92007e319340e6076abd63f5d6169e6d08ca889bb24de83c675fa48456098a4",
+  "action": {
+    "id": "turn1-decision-021",
+    "kind": "pass",
+    "actor": "human",
+    "expected_revision": 20,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No legal additional human response. Close the response window automatically and begin resolving Opening.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Human hand contains only Ecclesia and Albion, neither activatable from hand in this chain window. Ash has no GY response; Lost has no applicable trigger. No other field/GY/banished response exists."
+    },
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "46df3b1a1e4f18660bc998cd0d04bc49d6d4feb1086f7b13a30d13f313b6ae12"
+}

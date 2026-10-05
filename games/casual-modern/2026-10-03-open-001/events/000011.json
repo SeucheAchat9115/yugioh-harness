@@ -1,0 +1,29 @@
+{
+  "revision": 11,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T19:05:45.298165+00:00",
+  "before_sha256": "c630fa49154292046de6791be7de726e0d954740e0dc740b03d5d3a4bb7977b1",
+  "after_sha256": "3ef563a3974fd01905bb4f471e1f5f6b46b991e4adc6877aab1b3c64323531c2",
+  "action": {
+    "id": "turn1-decision-011",
+    "kind": "pass",
+    "actor": "agent",
+    "expected_revision": 10,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No response to Ash Blossom. Await human final response or permission to resolve.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "actor"
+        ],
+        "value": "human"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "1d18d1372832652cb8843cd54ee9b27bf97833be038cc36e9d555060e84bafe9"
+}

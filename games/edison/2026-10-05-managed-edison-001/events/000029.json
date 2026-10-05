@@ -1,0 +1,47 @@
+{
+  "revision": 29,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:58:00.141555+00:00",
+  "before_sha256": "fa783559e53c4c25a0450e403dbdfa150fa86ea0754c193e28abdb07aa3a4d5d",
+  "after_sha256": "6c1e943783d6b1a58f1c0f53484f6bc4a07a5aebd9e8634453d486d724366b15",
+  "action": {
+    "kind": "summon",
+    "actor": "human",
+    "expected_revision": 28,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing Special Summoned Dark Armed Dragon in Attack Position with exactly three DARK monsters in the GY. No legal opposing summon negation or response is available.",
+    "id": "workflow-edison-r28-special-dad",
+    "workflow_request_id": "edison-r28-special-dad",
+    "workflow_digest": "5a5339cba126585125e03b4a80bc1264afd5a2a51f41a03ff4f4beeee5213783",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "f93044314d0541e1b30204782bb871fd",
+        "from": [
+          "players",
+          "human",
+          "hand",
+          0
+        ],
+        "to": [
+          "players",
+          "human",
+          "monster_zones",
+          2
+        ],
+        "attributes": {
+          "owner": "human",
+          "position": "face-up attack",
+          "hidden": false,
+          "summon_type": "special",
+          "summoned_turn": 3,
+          "properly_summoned": true
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "b970b05eeec776cb371366058aa38c30a206b1b2febdcee13fea118feb1228af"
+}

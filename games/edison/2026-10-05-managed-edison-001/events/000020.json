@@ -1,0 +1,57 @@
+{
+  "revision": 20,
+  "turn": 3,
+  "phase": "draw",
+  "recorded_at": "2026-10-05T09:33:34.866800+00:00",
+  "before_sha256": "35e6e75cf98c7cf6341916955156ae879a1463a25c845cc4b6a41f887dced658",
+  "after_sha256": "49c06cfb71bbbdd8d3aac820bd71643b64676e0d967090bb5dab18e7a250842b",
+  "action": {
+    "kind": "draw",
+    "actor": "moderator",
+    "expected_revision": 19,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing drew one card for Turn 3.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "No pre-draw action or delayed effect applies. The normal draw is compulsory; afterward inspect the updated hand for optional Draw/Standby actions."
+    },
+    "id": "workflow-edison-r19-human-draw",
+    "workflow_request_id": "edison-r19-human-draw",
+    "workflow_digest": "dc11a0891f1fbd9804edb24ffe5e9e9d41ca342434dd6ceac12601bdac30ea13",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "4f2e63168645436c87d6f45fac96e352",
+        "from": [
+          "players",
+          "human",
+          "deck",
+          12
+        ],
+        "to": [
+          "players",
+          "human",
+          "hand"
+        ],
+        "index": 3
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "human",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "4f2e63168645436c87d6f45fac96e352",
+          "card_id": 2009101
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "5613c90ec407dccb2ce33aeb090dfad2582cd183ae9c78483d4967688c5fbc15"
+}

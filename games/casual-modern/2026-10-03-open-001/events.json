@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.0",
+  "schema_version": "4.0",
   "visibility": "omniscient-archive",
   "deck_order": "unordered-instance-inventory",
   "purpose": "replay-and-review-not-live-resume",
@@ -689,2297 +689,6 @@
     }
   },
   "initial_state_sha256": "fbc17e851761ba0ce7f93bc3cd54b76f3623d813d0152f5b607da9f12e3b484d",
-  "events": [
-    {
-      "recorded_at": "2026-10-03T18:50:13.261633+00:00",
-      "before_sha256": "fbc17e851761ba0ce7f93bc3cd54b76f3623d813d0152f5b607da9f12e3b484d",
-      "after_sha256": "15f4796b46399fe19742883ae760b2b8d819cedbdc2e2edec279e37197290b2d",
-      "action": {
-        "id": "opening-window-001",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 0,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Turn 1: human starts with five cards and no first-turn draw. Awaiting human Draw Phase decision.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "draw-phase-fast-effect"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "30afdc6deb820a4fba0ddb8840b0e3e06feb2deb22325d075cc4593ade7975c4"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.831548+00:00",
-      "before_sha256": "15f4796b46399fe19742883ae760b2b8d819cedbdc2e2edec279e37197290b2d",
-      "after_sha256": "3e6fbace98be450bf6f669d287f999558809159f2f382bad684a893682660d02",
-      "action": {
-        "id": "turn1-decision-002",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 1,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Requested Main Phase 1; passes the Draw Phase action window.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "ddabbff021d89ea36fa56fb83d7f18faf4f8335115a47730d94d40fc63af001c"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.838290+00:00",
-      "before_sha256": "3e6fbace98be450bf6f669d287f999558809159f2f382bad684a893682660d02",
-      "after_sha256": "41dd4238056bbdc8f7310631a1abba49c75c2f29461e42ef9750ed1a0f96e254",
-      "action": {
-        "id": "turn1-decision-003",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 2,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No action in the Draw Phase window.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "d50ffffe204359bd82c1a572e73616312bb6da79c1d50df3d38ac130afb50fea"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.846991+00:00",
-      "before_sha256": "41dd4238056bbdc8f7310631a1abba49c75c2f29461e42ef9750ed1a0f96e254",
-      "after_sha256": "17e24b0c0994453755b7ad9eb4b43816f791a0d903a8e968158ae0a32c1a5529",
-      "action": {
-        "id": "turn1-decision-004",
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 3,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Enter Standby Phase; no mandatory Standby effects.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "standby"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "standby-phase-fast-effect"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "f1a582ff4842ab95e60bbe38ae530d57806ad894c912e1118dfa3e0eb374d03e"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.857418+00:00",
-      "before_sha256": "17e24b0c0994453755b7ad9eb4b43816f791a0d903a8e968158ae0a32c1a5529",
-      "after_sha256": "053f31af2bba2d177a56330ee335ee955c71a3183420221b90bc5f3bdcc66852",
-      "action": {
-        "id": "turn1-decision-005",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 4,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Requested Main Phase 1; passes the Standby Phase action window.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "b1ee2cd6a5332d7e4fcf8e8918ede3d89319d7e1ba805a06ef8f0d8d706518d9"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.869861+00:00",
-      "before_sha256": "053f31af2bba2d177a56330ee335ee955c71a3183420221b90bc5f3bdcc66852",
-      "after_sha256": "9842f9b7766b570bad9469846914cebcb44a41850d2a2bd440807b3871e71cb6",
-      "action": {
-        "id": "turn1-decision-006",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 5,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No action in the Standby Phase window.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "bb44e8fd195d6ad2871a4bbe3c35d353563e79ffa3699f268ae9c9d3aefa8319"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.885287+00:00",
-      "before_sha256": "9842f9b7766b570bad9469846914cebcb44a41850d2a2bd440807b3871e71cb6",
-      "after_sha256": "834fea9937f7a93f86d2272c41ac15aab187ec6c984b0b25bb3536ee15d4fd1b",
-      "action": {
-        "id": "turn1-decision-007",
-        "kind": "phase",
-        "actor": "moderator",
-        "expected_revision": 6,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Enter human Main Phase 1.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "phase"
-            ],
-            "value": "main1"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "36974c9b495aff480c20f7a03e10fba49bc981f7c246862806956c9a5c3ae5e6"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.901107+00:00",
-      "before_sha256": "834fea9937f7a93f86d2272c41ac15aab187ec6c984b0b25bb3536ee15d4fd1b",
-      "after_sha256": "a3fa5acca5a71c937b97435ac50c6be26ce21aed02005a218f6928c25b14769a",
-      "action": {
-        "id": "turn1-decision-008",
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 7,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Activate Branded Lost in Spell/Trap Zone 1. No cost or target. Chain Link 1.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "97a29f83327d444d90127b23403244be",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              2
-            ],
-            "to": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "human",
-              "hidden": false,
-              "position": "face-up",
-              "placed_turn": 1
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "97a29f83327d444d90127b23403244be",
-                "set": {
-                  "id": "turn1-chain1-link1",
-                  "actor": "human",
-                  "name": "Branded Lost",
-                  "effect": "Continuous Spell card activation",
-                  "costs": [],
-                  "targets": []
-                }
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "chain-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "f62003f056de9a3641ff87fc97a54c7c375bf454b0cd7a213c73e15a48a76271"
-    },
-    {
-      "recorded_at": "2026-10-03T19:01:50.918958+00:00",
-      "before_sha256": "a3fa5acca5a71c937b97435ac50c6be26ce21aed02005a218f6928c25b14769a",
-      "after_sha256": "fb29053aa6dbeb83e4f7304f99288febd555e4962746ccf8a182a6c1062ef20d",
-      "action": {
-        "id": "turn1-decision-009",
-        "kind": "respond",
-        "actor": "agent",
-        "expected_revision": 8,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Chain Mulcharmy Fuwalos, discarding it as cost. Chain Link 2. Await human response.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "f6397db47bec4108a976311a9ba8ecb9",
-            "from": [
-              "players",
-              "agent",
-              "hand",
-              1
-            ],
-            "to": [
-              "players",
-              "agent",
-              "graveyard"
-            ],
-            "index": 0,
-            "attributes": {
-              "owner": "agent",
-              "hidden": false,
-              "position": "face-up",
-              "sent_to_gy_turn": 1,
-              "sent_reason": "activation-cost"
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 1,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "f6397db47bec4108a976311a9ba8ecb9",
-                "set": {
-                  "id": "turn1-chain1-link2",
-                  "actor": "agent",
-                  "name": "Mulcharmy Fuwalos",
-                  "effect": "Apply turn-long draw and End Phase hand-adjustment effects",
-                  "costs": [
-                    {
-                      "action": "discard",
-                      "instance_id": "f6397db47bec4108a976311a9ba8ecb9"
-                    }
-                  ],
-                  "targets": []
-                }
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "agent",
-              "effect_usage",
-              "mulcharmy_activations"
-            ],
-            "value": {
-              "turn": 1,
-              "count": 1,
-              "names": [
-                "Mulcharmy Fuwalos"
-              ]
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "2557f09bbb5743e0b06182dc80ce9cf95ba1781f24861679d0509ab783ba6771"
-    },
-    {
-      "recorded_at": "2026-10-03T19:05:45.276759+00:00",
-      "before_sha256": "fb29053aa6dbeb83e4f7304f99288febd555e4962746ccf8a182a6c1062ef20d",
-      "after_sha256": "c630fa49154292046de6791be7de726e0d954740e0dc740b03d5d3a4bb7977b1",
-      "action": {
-        "id": "turn1-decision-010",
-        "kind": "respond",
-        "actor": "human",
-        "expected_revision": 9,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Chain Ash Blossom & Joyous Spring, discarding it as cost to negate Fuwalos. Chain Link 3.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "44c2d9fefb5245a0a2feeda035d57c67",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 0,
-            "attributes": {
-              "owner": "human",
-              "hidden": false,
-              "position": "face-up",
-              "sent_to_gy_turn": 1,
-              "sent_reason": "activation-cost"
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 2,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "44c2d9fefb5245a0a2feeda035d57c67",
-                "set": {
-                  "id": "turn1-chain1-link3",
-                  "actor": "human",
-                  "name": "Ash Blossom & Joyous Spring",
-                  "effect": "Negate the effect of Mulcharmy Fuwalos",
-                  "negates_link_id": "turn1-chain1-link2",
-                  "costs": [
-                    {
-                      "action": "discard",
-                      "instance_id": "44c2d9fefb5245a0a2feeda035d57c67"
-                    }
-                  ],
-                  "targets": []
-                }
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "ash_blossom_effect"
-            ],
-            "value": {
-              "turn": 1,
-              "used": true
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "ec0f5c398245237a629e13a596e21ce992bd0f42b9b93da5caab1fe0f2328fc1"
-    },
-    {
-      "recorded_at": "2026-10-03T19:05:45.298165+00:00",
-      "before_sha256": "c630fa49154292046de6791be7de726e0d954740e0dc740b03d5d3a4bb7977b1",
-      "after_sha256": "3ef563a3974fd01905bb4f471e1f5f6b46b991e4adc6877aab1b3c64323531c2",
-      "action": {
-        "id": "turn1-decision-011",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 10,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No response to Ash Blossom. Await human final response or permission to resolve.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "bd1a14ab41dd83fae578e6bc5628bca6e5afc994359f100ff74f229bafda68a0"
-    },
-    {
-      "recorded_at": "2026-10-03T19:10:38.479543+00:00",
-      "before_sha256": "3ef563a3974fd01905bb4f471e1f5f6b46b991e4adc6877aab1b3c64323531c2",
-      "after_sha256": "13779193e8b4f8d0ff1c439994f7ec3cc2a9dd6e2c4bf5636a35ed2b023eae35",
-      "action": {
-        "id": "pause-2026-10-03-001",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 11,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Human requested a pause. Chain remains unresolved: Branded Lost, Mulcharmy Fuwalos, Ash Blossom. Await human final response on resume.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "status"
-            ],
-            "value": "paused"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "abbaa883684f4e6c1db1c4504d88c67972caac718b5b85b7751566b1446dfad8"
-    },
-    {
-      "recorded_at": "2026-10-03T19:44:37.851327+00:00",
-      "before_sha256": "13779193e8b4f8d0ff1c439994f7ec3cc2a9dd6e2c4bf5636a35ed2b023eae35",
-      "after_sha256": "8d668fdecd2fc19e237c327809596de0b8f20eb420067932754243db4aa5d307",
-      "action": {
-        "id": "resume-2026-10-03-001",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 12,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Human requested resumption. Restored the saved Main Phase 1 response window; no chain links resolved, cards drawn, or costs repaid.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "status"
-            ],
-            "value": "active"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "b06e1157057a74667ab3a3f46a27a158090c97fc3a02432f5c11386d35dd87b4"
-    },
-    {
-      "recorded_at": "2026-10-03T19:48:19.362582+00:00",
-      "before_sha256": "8d668fdecd2fc19e237c327809596de0b8f20eb420067932754243db4aa5d307",
-      "after_sha256": "d93049599b62abdabaa0d3875cb9fb9732db08cd481814c62b00997aa89a2a23",
-      "action": {
-        "id": "turn1-decision-014",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 13,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Human chose option 1: pass and let the existing chain resolve.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "d67abb5ff900d90c560dcee8d8a9fd443d6d2ea4637b672de832b7abf3fedbd9"
-    },
-    {
-      "recorded_at": "2026-10-03T19:48:19.465813+00:00",
-      "before_sha256": "d93049599b62abdabaa0d3875cb9fb9732db08cd481814c62b00997aa89a2a23",
-      "after_sha256": "13c8bc41c7e802e7f1f8a8547757f3753df292215832bc64bbdc112d6515ebe3",
-      "action": {
-        "id": "turn1-decision-015",
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 14,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Resolve CL3: Ash Blossom negates the effect of Mulcharmy Fuwalos.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "public-rules-verified",
-          "reason": "This chain link resolves without a selection; no new effects can be activated during chain resolution."
-        },
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 2,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "ash_blossom_effect",
-              "resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "kind": "effect-negation",
-                "chain_link_id": "turn1-chain1-link2",
-                "source": "Ash Blossom & Joyous Spring"
-              }
-            ]
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "124d3420c63ce96f0d9309eaa3b8de43f214cd4f25c637081d4227602e448d1b"
-    },
-    {
-      "recorded_at": "2026-10-03T19:48:19.570069+00:00",
-      "before_sha256": "13c8bc41c7e802e7f1f8a8547757f3753df292215832bc64bbdc112d6515ebe3",
-      "after_sha256": "d54c942f8058ee25274a0417e95271b31ec707c1af7943bc3623b91252ac1e2d",
-      "action": {
-        "id": "turn1-decision-016",
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 15,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Resolve CL2: Fuwalos resolves negated. No draw effect or End Phase hand adjustment is applied.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "public-rules-verified",
-          "reason": "This chain link resolves without a selection; no new effects can be activated during chain resolution."
-        },
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 1,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "agent",
-              "effect_usage",
-              "mulcharmy_fuwalos_effect"
-            ],
-            "value": {
-              "turn": 1,
-              "resolved": true,
-              "effect_negated": true
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "cd400260dafca8413391b405b8da66c4f962f88ccd0f2e1d98621686bff7aed4"
-    },
-    {
-      "recorded_at": "2026-10-03T19:48:19.679091+00:00",
-      "before_sha256": "d54c942f8058ee25274a0417e95271b31ec707c1af7943bc3623b91252ac1e2d",
-      "after_sha256": "09acfe1e9395ae67f0e680d6b3d164f4dafcdd80fc1e98a97e3262ec4e9e7184",
-      "action": {
-        "id": "turn1-decision-017",
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 16,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Resolve CL1: Branded Lost becomes active. No Fusion Summon occurred, so its search effect does not trigger.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "public-rules-verified",
-          "reason": "This chain link resolves without a selection; no new effects can be activated during chain resolution."
-        },
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              0,
-              "activation_resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              0,
-              "continuous_effect_active"
-            ],
-            "value": true
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "02c4e414c108277a9fa6af283c604fe11f23e3468bad077cf7c138e2f8cd3c5d"
-    },
-    {
-      "recorded_at": "2026-10-03T19:48:19.793751+00:00",
-      "before_sha256": "09acfe1e9395ae67f0e680d6b3d164f4dafcdd80fc1e98a97e3262ec4e9e7184",
-      "after_sha256": "9b8f36d33082f8ac7ae8c365819cb5e8b5cb55938abb783f24c441e94c7f3f4f",
-      "action": {
-        "id": "turn1-decision-018",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 17,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No new trigger effects. Human has the first post-chain fast-effect opportunity.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "post-chain-fast-effect"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "8d163ebe504d4ccb0759f40d49d62b2dde8cb47decb8606434573ac8647d0bb2"
-    },
-    {
-      "recorded_at": "2026-10-03T19:57:38.781704+00:00",
-      "before_sha256": "9b8f36d33082f8ac7ae8c365819cb5e8b5cb55938abb783f24c441e94c7f3f4f",
-      "after_sha256": "139f01c623f79966adcab0841c5a7d6c9ba14af384a4d3a928d137c37411bd5d",
-      "action": {
-        "id": "turn1-decision-019",
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 18,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Activate Branded Opening in Spell/Trap Zone 2, Chain Link 1. No activation cost or target; discard is chosen during resolution.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "14eb157077084b00a0ebf7416eefb18c",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              2
-            ],
-            "to": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              1
-            ],
-            "attributes": {
-              "owner": "human",
-              "hidden": false,
-              "position": "face-up",
-              "placed_turn": 1,
-              "activation_resolved": false
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "14eb157077084b00a0ebf7416eefb18c",
-                "set": {
-                  "id": "turn1-chain2-link1",
-                  "actor": "human",
-                  "name": "Branded Opening",
-                  "effect": "Discard 1 card, then add or Special Summon a Despia from Deck; Fusion-only Extra Deck summons afterward.",
-                  "costs": [],
-                  "targets": []
-                }
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "branded_opening_activation"
-            ],
-            "value": {
-              "turn": 1,
-              "used": true
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "chain-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "20cd11559ff281283f84f4fc465e9a1f7a56d76e4b9b09a93a2f317292c1be24"
-    },
-    {
-      "recorded_at": "2026-10-03T19:57:38.908534+00:00",
-      "before_sha256": "139f01c623f79966adcab0841c5a7d6c9ba14af384a4d3a928d137c37411bd5d",
-      "after_sha256": "2c84e70260bca9a696949dbf4bc196d7b26a97fc3cb5c00f07f9bedd3841dad9",
-      "action": {
-        "id": "turn1-decision-020",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 19,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Opponent passes on Branded Opening.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "66ebf41d1390b1c45e28cae66de84d4e03ee44b0ac7066ab06336e8c0ab598fd"
-    },
-    {
-      "recorded_at": "2026-10-03T19:57:39.041833+00:00",
-      "before_sha256": "2c84e70260bca9a696949dbf4bc196d7b26a97fc3cb5c00f07f9bedd3841dad9",
-      "after_sha256": "b92007e319340e6076abd63f5d6169e6d08ca889bb24de83c675fa48456098a4",
-      "action": {
-        "id": "turn1-decision-021",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 20,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal additional human response. Close the response window automatically and begin resolving Opening.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Human hand contains only Ecclesia and Albion, neither activatable from hand in this chain window. Ash has no GY response; Lost has no applicable trigger. No other field/GY/banished response exists."
-        },
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "c0aae9c0d83a455311da9e7622fcbdada25c282e4f95f9f3ca7493aed9c63629"
-    },
-    {
-      "recorded_at": "2026-10-03T19:57:39.181102+00:00",
-      "before_sha256": "b92007e319340e6076abd63f5d6169e6d08ca889bb24de83c675fa48456098a4",
-      "after_sha256": "0e14311353fabbd395e3018fb7f2b616cea68d26bbf57a0f4fc83cde07cf8940",
-      "action": {
-        "id": "turn1-decision-022",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 21,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Branded Opening is resolving. Await human discard and Despia add/summon choices; nothing has been discarded or summoned yet.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "resolution_started"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "resolution_step"
-            ],
-            "value": "choose-discard-and-despia"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "branded-opening-resolution"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "63be20a4af7c7ade68fbd06dd2b05b08a24e511066ef95cf847ee5162ac2819f"
-    },
-    {
-      "recorded_at": "2026-10-03T20:01:58.686265+00:00",
-      "before_sha256": "0e14311353fabbd395e3018fb7f2b616cea68d26bbf57a0f4fc83cde07cf8940",
-      "after_sha256": "99839326fd0cb9b4a7980d782ee67dd47e3059bf0febe01c521319eb6567998c",
-      "action": {
-        "id": "turn1-decision-023",
-        "kind": "choice",
-        "actor": "human",
-        "expected_revision": 22,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "During Opening resolution, choose to discard Albion and Special Summon Aluber in Defense Position to monster zone 1.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "a64a8e2840d7317e798b366950b21fea6082d336c37ee25f6c2bc523e0ea2607"
-    },
-    {
-      "recorded_at": "2026-10-03T20:01:58.836898+00:00",
-      "before_sha256": "99839326fd0cb9b4a7980d782ee67dd47e3059bf0febe01c521319eb6567998c",
-      "after_sha256": "05aa330710fe512863576072fda1eaabfb49a7e3ef96d9b24bfe4004ccbb2b8b",
-      "action": {
-        "id": "turn1-decision-024",
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 23,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Opening resolves: discard Albion, summon Aluber in Defense Position, shuffle remaining Deck, and send Opening to GY. Fusion-only Extra Deck restriction applies for the rest of this turn. Await Aluber optional trigger.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "146ade71f19e4493ab7341882e3d70fd",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 1,
-            "attributes": {
-              "owner": "human",
-              "hidden": false,
-              "position": "face-up",
-              "current_name": "Fallen of Albaz",
-              "sent_to_gy_turn": 1,
-              "sent_reason": "effect-discard",
-              "sent_source": "Branded Opening"
-            }
-          },
-          {
-            "op": "move",
-            "instance": "14eb157077084b00a0ebf7416eefb18c",
-            "from": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 2,
-            "attributes": {
-              "activation_resolved": true,
-              "sent_to_gy_turn": 1,
-              "sent_reason": "resolved-spell"
-            }
-          },
-          {
-            "op": "move",
-            "instance": "a9e91a98a9ac4ce1a69c8c4234ff43a0",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              28
-            ],
-            "to": [
-              "players",
-              "human",
-              "monster_zones",
-              0
-            ],
-            "attributes": {
-              "owner": "human",
-              "controller": "human",
-              "hidden": false,
-              "position": "face-up Defense",
-              "summon_type": "special",
-              "summon_source": "Branded Opening",
-              "summoned_from": "deck",
-              "summoned_turn": 1,
-              "properly_summoned": true
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "branded_opening_activation",
-              "resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "restrictions"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "kind": "extra-deck-summon",
-                "allowed": [
-                  "Fusion"
-                ],
-                "source": "Branded Opening",
-                "turn": 1,
-                "expires": "end-of-turn"
-              }
-            ]
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "kind": "optional-trigger",
-                "controller": "human",
-                "source_instance_id": "a9e91a98a9ac4ce1a69c8c4234ff43a0",
-                "effect": "Aluber summon-search",
-                "event": "special-summoned",
-                "turn": 1,
-                "status": "awaiting-activation"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "aluber-summon-trigger"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "a9e91a98a9ac4ce1a69c8c4234ff43a0",
-              "card_id": 62962630
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "0022f03cc5f358c9d5a0cd3e975e77e9cf750f8082435c9f3d3f4cc2c24adcf0"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:45.184315+00:00",
-      "before_sha256": "05aa330710fe512863576072fda1eaabfb49a7e3ef96d9b24bfe4004ccbb2b8b",
-      "after_sha256": "7fb62fac7abec6e9a4d0ac30ee82d85f6a1babf13368bd00987f54c4f7cee14e",
-      "action": {
-        "id": "turn1-decision-025",
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 24,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Activate Aluber summon-trigger search, Chain Link 1. Human requests Branded Fusion at resolution, then activation in the next legal open Main Phase window.",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "turn1-chain3-link1",
-                "actor": "human",
-                "instance_id": "a9e91a98a9ac4ce1a69c8c4234ff43a0",
-                "card_id": 62962630,
-                "name": "Aluber the Jester of Despia",
-                "effect": "Add 1 Branded Spell/Trap from Deck to hand",
-                "costs": [],
-                "targets": [],
-                "requested_search_card_id": 44362883
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "aluber_effect"
-            ],
-            "value": {
-              "turn": 1,
-              "used": true,
-              "effect": "summon-search"
-            }
-          },
-          {
-            "op": "delete",
-            "path": [
-              "pending_effects",
-              0,
-              "effect"
-            ]
-          },
-          {
-            "op": "delete",
-            "path": [
-              "pending_effects",
-              0,
-              "event"
-            ]
-          },
-          {
-            "op": "delete",
-            "path": [
-              "pending_effects",
-              0,
-              "source_instance_id"
-            ]
-          },
-          {
-            "op": "delete",
-            "path": [
-              "pending_effects",
-              0,
-              "status"
-            ]
-          },
-          {
-            "op": "delete",
-            "path": [
-              "pending_effects",
-              0,
-              "turn"
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "kind"
-            ],
-            "value": "queued-user-action"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "action"
-            ],
-            "value": "activate"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "card_id"
-            ],
-            "value": 44362883
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "condition"
-            ],
-            "value": "Successful Aluber search, then a legal open Main Phase window"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_effects",
-              0,
-              "source"
-            ],
-            "value": "explicit human instruction"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "chain-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "317ff3c07b508fc11d4b6dc83b98515d1db9d511b5218374aa4e463eae080563"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:45.352154+00:00",
-      "before_sha256": "7fb62fac7abec6e9a4d0ac30ee82d85f6a1babf13368bd00987f54c4f7cee14e",
-      "after_sha256": "39f6efe33242ab06a96a083ccf35e17a85f42520c7b833a0436c039e1a88d913",
-      "action": {
-        "id": "turn1-decision-026",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 25,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Opponent passes on Aluber search.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "603b6ee058fd462dfaae9581b6d501e4224c1a095cb247c15d3eda5d60cab75f"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:45.525555+00:00",
-      "before_sha256": "39f6efe33242ab06a96a083ccf35e17a85f42520c7b833a0436c039e1a88d913",
-      "after_sha256": "ffc12871baa1beb6f77fb3795637c9d5d3318dc88902787641d34ee3a3a4c0c0",
-      "action": {
-        "id": "turn1-decision-027",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 26,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal human chain response to Aluber; close the response window automatically.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Only Ecclesia is in hand; it cannot activate there. Lost has no Fusion trigger, Ash has no GY response, Albion is an Ignition effect, and Opening has no applicable destruction replacement."
-        },
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "6a1d4ead3392f26dad769bef3c3d802c4b066403256285b24d4eaa7822b4f75c"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:45.704091+00:00",
-      "before_sha256": "ffc12871baa1beb6f77fb3795637c9d5d3318dc88902787641d34ee3a3a4c0c0",
-      "after_sha256": "22e1f984fb605da009c90bb98385fcdb3d217433ca8b3d956394826d5a9c637b",
-      "action": {
-        "id": "turn1-decision-028",
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 27,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Aluber resolves: add the requested Branded Fusion to human hand and shuffle the remaining Deck once.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "89e6831af774477a91aa08d1c1adc555",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              19
-            ],
-            "to": [
-              "players",
-              "human",
-              "hand"
-            ],
-            "index": 1
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "aluber_effect",
-              "resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "post-chain-fast-effect"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "89e6831af774477a91aa08d1c1adc555",
-              "card_id": 44362883
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "334217e1d2bea50447951dfb5663926f785fc19fc92482330a8a484b1c7479b9"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:45.898083+00:00",
-      "before_sha256": "22e1f984fb605da009c90bb98385fcdb3d217433ca8b3d956394826d5a9c637b",
-      "after_sha256": "e976025a91453d559ab390cb152f44cf62a57d7843b81ba24df7f0977ec48296",
-      "action": {
-        "id": "turn1-decision-029",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 28,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal human fast effect after the search. Pass that window automatically; the requested Normal Spell activation waits for open Main Phase.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Human hand is Ecclesia and Branded Fusion; neither can activate in this fast-effect window. No other applicable public or private human fast effect exists."
-        },
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "80bedf4d76af4c4eb6212479f13c6e826381ba9a57cb1525821e4a9ff62d6dc0"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:46.088238+00:00",
-      "before_sha256": "e976025a91453d559ab390cb152f44cf62a57d7843b81ba24df7f0977ec48296",
-      "after_sha256": "aef4821374c4e74306120d2dae1f1a5024f4ff16849f748eb1debbff548f9907",
-      "action": {
-        "id": "turn1-decision-030",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 29,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Opponent passes the post-search fast-effect window.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "8d015485f1f1e8ca2d419b5a958a027e5de00a4d1085bd32a39ddc0edf458fc0"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:46.284125+00:00",
-      "before_sha256": "aef4821374c4e74306120d2dae1f1a5024f4ff16849f748eb1debbff548f9907",
-      "after_sha256": "23c2d384af57500a0bc9c3fd0135ebd384ecea91c6f5dc85253776b36c6c3ce1",
-      "action": {
-        "id": "turn1-decision-031",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 30,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Return to an open Main Phase 1 window and continue the human requested Branded Fusion activation.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "main-phase-open"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "c2fa778547c6f0da87d69106f7e8ca6d273becadc001e61b1a85966d23bfc17f"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:46.486112+00:00",
-      "before_sha256": "23c2d384af57500a0bc9c3fd0135ebd384ecea91c6f5dc85253776b36c6c3ce1",
-      "after_sha256": "469fb4752c88144a9cc35e89ab0d7c7a5d818a16a26bc91b3bc859357639c32e",
-      "action": {
-        "id": "turn1-decision-032",
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 31,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "As requested, activate Branded Fusion in Spell/Trap Zone 2, Chain Link 1. No activation cost or target. Fusion Monster and materials are selected during resolution.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "89e6831af774477a91aa08d1c1adc555",
-            "from": [
-              "players",
-              "human",
-              "hand",
-              1
-            ],
-            "to": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              1
-            ],
-            "attributes": {
-              "owner": "human",
-              "hidden": false,
-              "position": "face-up",
-              "placed_turn": 1,
-              "activation_resolved": false
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "89e6831af774477a91aa08d1c1adc555",
-                "set": {
-                  "id": "turn1-chain4-link1",
-                  "actor": "human",
-                  "name": "Branded Fusion",
-                  "effect": "Fusion Summon a monster mentioning Fallen of Albaz, using 2 hand/Deck/field materials",
-                  "costs": [],
-                  "targets": []
-                }
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "branded_fusion_activation"
-            ],
-            "value": {
-              "turn": 1,
-              "used": true
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "restrictions"
-            ],
-            "index": 1,
-            "delete": 0,
-            "values": [
-              {
-                "kind": "extra-deck-summon",
-                "allowed": [
-                  "Fusion"
-                ],
-                "source": "Branded Fusion",
-                "turn": 1,
-                "scope": "whole-turn",
-                "expires": "end-of-turn"
-              }
-            ]
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "chain-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "5bf824f93f069e7b7d815d4f59999a0172df09752c6b8eca309dbfac44347cf5"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:46.694562+00:00",
-      "before_sha256": "469fb4752c88144a9cc35e89ab0d7c7a5d818a16a26bc91b3bc859357639c32e",
-      "after_sha256": "fa9db955b1f1b1c95ffbedae19d35fe47267682de85fe1a1a96561d31ac935a7",
-      "action": {
-        "id": "turn1-decision-033",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 32,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Opponent passes on Branded Fusion.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "c16480cc22a69e320842a021a03307d64cc4678b70bb67abfd2a417daa99cb8b"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:46.911448+00:00",
-      "before_sha256": "fa9db955b1f1b1c95ffbedae19d35fe47267682de85fe1a1a96561d31ac935a7",
-      "after_sha256": "5c8a2fdb7077d96c574dbe21c0f83978d22f749465d66994823bddab9dcf7f97",
-      "action": {
-        "id": "turn1-decision-034",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 33,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal additional human chain response. Close the window automatically and begin Branded Fusion resolution.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Only Ecclesia is in hand. No applicable field/GY/banished fast effect or trigger is available; Lost has not seen a Fusion Summon yet."
-        },
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "bf97e1fa8e9b17b7b0060e16aecd6bcdc5c62e46e9247b8d8953282e6988f435"
-    },
-    {
-      "recorded_at": "2026-10-03T20:09:47.133655+00:00",
-      "before_sha256": "5c8a2fdb7077d96c574dbe21c0f83978d22f749465d66994823bddab9dcf7f97",
-      "after_sha256": "eb4bb97dd9a2847e654040b2e4890d77ec7ab157f0057fa2f012103f01d71d2f",
-      "action": {
-        "id": "turn1-decision-035",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 34,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Branded Fusion is resolving. Await the human Fusion Monster, two material sources, and placement choices. No materials sent or Fusion Summon performed yet.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "resolution_started"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "resolution_step"
-            ],
-            "value": "choose-fusion-and-two-materials"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "branded-fusion-resolution"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "9822d504a5c00627f9d78190c59d0d113726b7f69981a94ee97e9fda9813c490"
-    },
-    {
-      "recorded_at": "2026-10-03T20:23:29.266841+00:00",
-      "before_sha256": "eb4bb97dd9a2847e654040b2e4890d77ec7ab157f0057fa2f012103f01d71d2f",
-      "after_sha256": "fbdd1efde8ea6cc40bf324b769cdc484ad9a2c3624190f3cc7f42c0d02a2ecbd",
-      "action": {
-        "id": "turn1-decision-036",
-        "kind": "choice",
-        "actor": "human",
-        "expected_revision": 35,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Choose Albion the Branded Dragon, with Fallen of Albaz and Guiding Quem from Deck as materials; Attack Position in monster zone 2.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              0,
-              "resolution_choices"
-            ],
-            "value": {
-              "fusion_instance_id": "a03b7cc3dd084c19b8db4b3038a2504e",
-              "material_instance_ids": [
-                "c85fee6d77af422a8e6381050a0b1f9c",
-                "c512adb42bcb44bc893f78724adda058"
-              ],
-              "material_sources": [
-                "deck",
-                "deck"
-              ],
-              "monster_zone": 1,
-              "position": "face-up Attack"
-            }
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "85ffc90cf2ab12309d2b814b50c1807ce753113a97fc518fbe6cba918d0357dc"
-    },
-    {
-      "recorded_at": "2026-10-03T20:23:29.497339+00:00",
-      "before_sha256": "fbdd1efde8ea6cc40bf324b769cdc484ad9a2c3624190f3cc7f42c0d02a2ecbd",
-      "after_sha256": "ff494c45c0baba90d002c24c8ea80de6b595f6a6627536b078cc0e9d67a9f2ec",
-      "action": {
-        "id": "turn1-decision-037",
-        "kind": "resolve",
-        "actor": "moderator",
-        "expected_revision": 36,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Branded Fusion resolves: send Fallen of Albaz and Quem from Deck to GY, Fusion Summon Albion in Attack Position, shuffle remaining Deck, and send Branded Fusion to GY. Albion and Lost optional triggers await human ordering.",
-        "operations": [
-          {
-            "op": "move",
-            "instance": "a03b7cc3dd084c19b8db4b3038a2504e",
-            "from": [
-              "players",
-              "human",
-              "extra_deck",
-              0
-            ],
-            "to": [
-              "players",
-              "human",
-              "monster_zones",
-              1
-            ],
-            "attributes": {
-              "owner": "human",
-              "controller": "human",
-              "hidden": false,
-              "position": "face-up Attack",
-              "summon_type": "fusion",
-              "summon_source": "Branded Fusion",
-              "summoned_from": "extra_deck",
-              "summoned_turn": 1,
-              "properly_summoned": true,
-              "fusion_materials": [
-                {
-                  "$instance": "c85fee6d77af422a8e6381050a0b1f9c",
-                  "set": {
-                    "source": "deck"
-                  }
-                },
-                {
-                  "$instance": "c512adb42bcb44bc893f78724adda058",
-                  "set": {
-                    "source": "deck"
-                  }
-                }
-              ],
-              "summon_event_id": "turn1-fusion-summon-001"
-            }
-          },
-          {
-            "op": "move",
-            "instance": "c85fee6d77af422a8e6381050a0b1f9c",
-            "from": [
-              "players",
-              "human",
-              "deck",
-              33
-            ],
-            "to": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 3,
-            "attributes": {
-              "owner": "human",
-              "hidden": false,
-              "position": "face-up",
-              "sent_to_gy_turn": 1,
-              "sent_reason": "fusion-material-by-effect",
-              "sent_source": "Branded Fusion",
-              "send_event_id": "turn1-fusion-summon-001-materials"
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "agent",
-              "restrictions"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "kind": "activation-prohibition",
-                "source": "Branded Lost",
-                "source_instance_id": "97a29f83327d444d90127b23403244be",
-                "summon_event_id": "turn1-fusion-summon-001",
-                "window": "post-fusion-summon-trigger-window-and-chain",
-                "expires": "after-this-post-summon-trigger-window-and-chain",
-                "condition": "Branded Lost remains applicable"
-              }
-            ]
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "deck"
-            ],
-            "index": 32,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "spell_trap_zones",
-              1
-            ],
-            "value": null
-          },
-          {
-            "op": "splice",
-            "path": [
-              "players",
-              "human",
-              "graveyard"
-            ],
-            "index": 4,
-            "delete": 0,
-            "values": [
-              {
-                "$instance": "c512adb42bcb44bc893f78724adda058",
-                "set": {
-                  "owner": "human",
-                  "hidden": false,
-                  "position": "face-up",
-                  "sent_to_gy_turn": 1,
-                  "sent_reason": "fusion-material-by-effect",
-                  "sent_source": "Branded Fusion",
-                  "send_event_id": "turn1-fusion-summon-001-materials"
-                }
-              },
-              {
-                "$instance": "89e6831af774477a91aa08d1c1adc555",
-                "set": {
-                  "activation_resolved": true,
-                  "sent_to_gy_turn": 1,
-                  "sent_reason": "resolved-spell"
-                }
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "branded_fusion_activation",
-              "resolved"
-            ],
-            "value": true
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "kind": "optional-trigger",
-                "controller": "human",
-                "source_instance_id": "a03b7cc3dd084c19b8db4b3038a2504e",
-                "card_id": 87746184,
-                "effect": "Albion Fusion Summon",
-                "event_id": "turn1-fusion-summon-001",
-                "turn": 1,
-                "status": "awaiting-activation"
-              },
-              {
-                "kind": "optional-trigger",
-                "controller": "human",
-                "source_instance_id": "97a29f83327d444d90127b23403244be",
-                "card_id": 18973184,
-                "effect": "Branded Lost search",
-                "event_id": "turn1-fusion-summon-001",
-                "turn": 1,
-                "status": "awaiting-activation"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "albion-and-lost-simultaneous-triggers"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [
-        {
-          "player": "human",
-          "cards_leaving_deck_in_order": [
-            {
-              "instance_id": "c512adb42bcb44bc893f78724adda058",
-              "card_id": 45883110
-            },
-            {
-              "instance_id": "c85fee6d77af422a8e6381050a0b1f9c",
-              "card_id": 68468459
-            }
-          ],
-          "cards_returned_to_deck": []
-        }
-      ],
-      "event_sha256": "0293b264943e4a5d1883ac77746059d08299dc14e7b3593ab6e2f07dd1baa78a"
-    },
-    {
-      "recorded_at": "2026-10-03T20:34:08.045188+00:00",
-      "before_sha256": "ff494c45c0baba90d002c24c8ea80de6b595f6a6627536b078cc0e9d67a9f2ec",
-      "after_sha256": "ae5ae5a412a13cf550b83228595de9d09ef2e4493ee091d16ee765115c1442de",
-      "action": {
-        "id": "turn1-decision-038",
-        "kind": "activate",
-        "actor": "human",
-        "expected_revision": 37,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Activate Albion the Branded Dragon as Chain Link 1, following the selected simultaneous-trigger order. No cost or target.",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 0,
-            "delete": 0,
-            "values": [
-              {
-                "id": "turn1-chain5-link1",
-                "actor": "human",
-                "instance_id": "a03b7cc3dd084c19b8db4b3038a2504e",
-                "card_id": 87746184,
-                "name": "Albion the Branded Dragon",
-                "effect": "Fusion Summon a Level 8 or lower Fusion by banishing hand/field/GY materials",
-                "costs": [],
-                "targets": [],
-                "chain_origin": "simultaneous-trigger",
-                "protected_by": "Branded Lost"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "albion_fusion_effect"
-            ],
-            "value": {
-              "turn": 1,
-              "used": true
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "complete-simultaneous-trigger-order"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "b49abe03a84182aa70e080de5734e42fc0b20203441c21a67db3c9966b8f3902"
-    },
-    {
-      "recorded_at": "2026-10-03T20:34:08.296096+00:00",
-      "before_sha256": "ae5ae5a412a13cf550b83228595de9d09ef2e4493ee091d16ee765115c1442de",
-      "after_sha256": "5ba9bc252428b60c58bc112fa66d370fbe36679312aca6608d00636311d6ab20",
-      "action": {
-        "id": "turn1-decision-039",
-        "kind": "respond",
-        "actor": "human",
-        "expected_revision": 38,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Activate Branded Lost as Chain Link 2, following the selected simultaneous-trigger order. No cost or target.",
-        "operations": [
-          {
-            "op": "splice",
-            "path": [
-              "chain"
-            ],
-            "index": 1,
-            "delete": 0,
-            "values": [
-              {
-                "id": "turn1-chain5-link2",
-                "actor": "human",
-                "instance_id": "97a29f83327d444d90127b23403244be",
-                "card_id": 18973184,
-                "name": "Branded Lost",
-                "effect": "Add Fallen of Albaz or a monster mentioning it from Deck",
-                "costs": [],
-                "targets": [],
-                "chain_origin": "simultaneous-trigger",
-                "protected_by": "Branded Lost"
-              }
-            ]
-          },
-          {
-            "op": "set",
-            "path": [
-              "players",
-              "human",
-              "effect_usage",
-              "branded_lost_search"
-            ],
-            "value": {
-              "turn": 1,
-              "used": true
-            }
-          },
-          {
-            "op": "splice",
-            "path": [
-              "pending_effects"
-            ],
-            "index": 0,
-            "delete": 1,
-            "values": []
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "agent"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "window"
-            ],
-            "value": "chain-response"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "a9c6004083c705f4e8b325a549d72b49f9f0d918b6864d153739497af3497660"
-    },
-    {
-      "recorded_at": "2026-10-03T20:34:08.555566+00:00",
-      "before_sha256": "5ba9bc252428b60c58bc112fa66d370fbe36679312aca6608d00636311d6ab20",
-      "after_sha256": "c082885ce553ba253288e30439dd3f7eb6410d32a001c153bd013cdd2c7fb759",
-      "action": {
-        "id": "turn1-decision-040",
-        "kind": "pass",
-        "actor": "agent",
-        "expected_revision": 39,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Branded Lost forbids opponent responses in this protected post-Fusion Summon window. Advance that window automatically.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "public-rules-verified",
-          "reason": "Branded Fusion resolved as the last chain link and Fusion Summoned Albion while Branded Lost was active; opponent cannot activate cards/effects in this post-summon trigger chain."
-        },
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision",
-              "actor"
-            ],
-            "value": "human"
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "56761067f03d8babbb7dd1ac60219c1aec1dabf52b9faa74656d45c72efd41ab"
-    },
-    {
-      "recorded_at": "2026-10-03T20:34:08.814982+00:00",
-      "before_sha256": "c082885ce553ba253288e30439dd3f7eb6410d32a001c153bd013cdd2c7fb759",
-      "after_sha256": "c50eaef6591bd9dc2a522fbae9bc4556e1efde859337f806c41ef1478808bd0b",
-      "action": {
-        "id": "turn1-decision-041",
-        "kind": "pass",
-        "actor": "human",
-        "expected_revision": 40,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "No legal additional human fast effect. Close the response window automatically.",
-        "automatic": true,
-        "option_review": {
-          "complete": true,
-          "meaningful_choices": 0,
-          "basis": "open-state-verified",
-          "reason": "Ecclesia cannot activate from hand in this chain window. Both applicable triggers are already activated; no other human field/GY/banished response is legal."
-        },
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": null
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "7829879d122caaf939edc47d65eff621110cc072886c272a675675e31e1af9c2"
-    },
-    {
-      "recorded_at": "2026-10-03T20:34:09.084035+00:00",
-      "before_sha256": "c50eaef6591bd9dc2a522fbae9bc4556e1efde859337f806c41ef1478808bd0b",
-      "after_sha256": "1d6ffa78a4f94ae0d9090f5f275aab85029e25cf2a9772b181aecbfe44adfad7",
-      "action": {
-        "id": "turn1-decision-042",
-        "kind": "choice",
-        "actor": "moderator",
-        "expected_revision": 41,
-        "moderator_approved": true,
-        "public_summary_reviewed": true,
-        "public_summary": "Begin resolving CL2 Branded Lost. Await human search choice; CL1 Albion will resolve afterward.",
-        "operations": [
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              1,
-              "resolution_started"
-            ],
-            "value": true
-          },
-          {
-            "op": "set",
-            "path": [
-              "chain",
-              1,
-              "resolution_step"
-            ],
-            "value": "choose-albaz-related-search"
-          },
-          {
-            "op": "set",
-            "path": [
-              "pending_decision"
-            ],
-            "value": {
-              "actor": "human",
-              "window": "branded-lost-search-resolution"
-            }
-          }
-        ]
-      },
-      "deck_outcomes": [],
-      "event_sha256": "cc7bca0961e307de0f3c67bb0451502e65b3352002d907322b9e6158b49f7eb2"
-    }
-  ],
   "source_tail_sha256": "4bb4d5747250c949895915805ba93ad4e7f254c08f26733dca96d40fc0822dbf",
   "catalog_refs": {
     "agent": {
@@ -3090,5 +799,427 @@
     ],
     "scope": "non-automatic player actions; delegated continuations may intentionally have no new menu",
     "reasoning": "submitted intentions only; unrecorded model reasoning is unavailable"
-  }
+  },
+  "event_index": [
+    {
+      "file": "events/000001.json",
+      "revision": 1,
+      "turn": 1,
+      "phase": "draw",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Turn 1: human starts with five cards and no first-turn draw. Awaiting human Draw Phase decision.",
+      "event_sha256": "c895cea7c3b1e33aca76166d1681d42c69e227210ea4caf3f9042b6830d502e9"
+    },
+    {
+      "file": "events/000002.json",
+      "revision": 2,
+      "turn": 1,
+      "phase": "draw",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "Requested Main Phase 1; passes the Draw Phase action window.",
+      "event_sha256": "b75ed9994f4a0997e089b0e1aa8cca5b74691f608d6d2bd70b4d6abb7bfdc1a5"
+    },
+    {
+      "file": "events/000003.json",
+      "revision": 3,
+      "turn": 1,
+      "phase": "draw",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "No action in the Draw Phase window.",
+      "event_sha256": "f10966009d5bb4772f82ff5d30f21bbd77c80dc0cb4211b2bef0fd96c1e0e61a"
+    },
+    {
+      "file": "events/000004.json",
+      "revision": 4,
+      "turn": 1,
+      "phase": "standby",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "Enter Standby Phase; no mandatory Standby effects.",
+      "event_sha256": "f4563127c53c286c07bdd33c69d6d4fa3c0baef2c950e56e9ec425d448d0d605"
+    },
+    {
+      "file": "events/000005.json",
+      "revision": 5,
+      "turn": 1,
+      "phase": "standby",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "Requested Main Phase 1; passes the Standby Phase action window.",
+      "event_sha256": "2707699933acf84a4a5a8ecc77b7a1bbe306d98c2ed4d2a54063ce50b19de017"
+    },
+    {
+      "file": "events/000006.json",
+      "revision": 6,
+      "turn": 1,
+      "phase": "standby",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "No action in the Standby Phase window.",
+      "event_sha256": "38b8e16ca4723aed9ab99024800e5248029a027844fe3450396ffa824eadd468"
+    },
+    {
+      "file": "events/000007.json",
+      "revision": 7,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "phase",
+      "public_summary": "Enter human Main Phase 1.",
+      "event_sha256": "86dbd4321c92b024b3f05d2aa3bb8c24f56fcc9877721c5745c6fcab6c17041d"
+    },
+    {
+      "file": "events/000008.json",
+      "revision": 8,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Activate Branded Lost in Spell/Trap Zone 1. No cost or target. Chain Link 1.",
+      "event_sha256": "05847529a91d1682377a192ef62a3143da0758461ddf02f2d9884cb5ce2a3647"
+    },
+    {
+      "file": "events/000009.json",
+      "revision": 9,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "respond",
+      "public_summary": "Chain Mulcharmy Fuwalos, discarding it as cost. Chain Link 2. Await human response.",
+      "event_sha256": "85f6357cad1cc67f38a23e20d32d3592f53594143c1419cbbe2967d1cb791e00"
+    },
+    {
+      "file": "events/000010.json",
+      "revision": 10,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "respond",
+      "public_summary": "Chain Ash Blossom & Joyous Spring, discarding it as cost to negate Fuwalos. Chain Link 3.",
+      "event_sha256": "e233448e40ed5dd1beae5eddf12b60920b2d2b017acdcf7f46fecd8459f84ee9"
+    },
+    {
+      "file": "events/000011.json",
+      "revision": 11,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "No response to Ash Blossom. Await human final response or permission to resolve.",
+      "event_sha256": "1d18d1372832652cb8843cd54ee9b27bf97833be038cc36e9d555060e84bafe9"
+    },
+    {
+      "file": "events/000012.json",
+      "revision": 12,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Human requested a pause. Chain remains unresolved: Branded Lost, Mulcharmy Fuwalos, Ash Blossom. Await human final response on resume.",
+      "event_sha256": "0815cc612025adf7edb0ee7e40cbe5f1446cf216871915a918ca10932ffe3ce9"
+    },
+    {
+      "file": "events/000013.json",
+      "revision": 13,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Human requested resumption. Restored the saved Main Phase 1 response window; no chain links resolved, cards drawn, or costs repaid.",
+      "event_sha256": "e519c49f6a422a6d111638cdffe99c1bcc6cfb35524e0daacc282a3d79ae1ca5"
+    },
+    {
+      "file": "events/000014.json",
+      "revision": 14,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "Human chose option 1: pass and let the existing chain resolve.",
+      "event_sha256": "999d75a294277de17cca73f19d39dec6f0d893507eade950133e22b76ebee312"
+    },
+    {
+      "file": "events/000015.json",
+      "revision": 15,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Resolve CL3: Ash Blossom negates the effect of Mulcharmy Fuwalos.",
+      "event_sha256": "7ee3d3bc85294e0d423cd1cea4ad173141b7dafd3ff9218b585077649713af85"
+    },
+    {
+      "file": "events/000016.json",
+      "revision": 16,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Resolve CL2: Fuwalos resolves negated. No draw effect or End Phase hand adjustment is applied.",
+      "event_sha256": "ccb409340ee2340e16a44dc1e2217bc349bf668b96bfdd52ed9120e53a6eaa84"
+    },
+    {
+      "file": "events/000017.json",
+      "revision": 17,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Resolve CL1: Branded Lost becomes active. No Fusion Summon occurred, so its search effect does not trigger.",
+      "event_sha256": "831eaa95a425c76901da2bff2f028ac21635bfa83117033d93ac3552c247f9c0"
+    },
+    {
+      "file": "events/000018.json",
+      "revision": 18,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "No new trigger effects. Human has the first post-chain fast-effect opportunity.",
+      "event_sha256": "b9f7ed91667097439f905f81f986f433ec3d9c580232205ccec5d91f84331e71"
+    },
+    {
+      "file": "events/000019.json",
+      "revision": 19,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Activate Branded Opening in Spell/Trap Zone 2, Chain Link 1. No activation cost or target; discard is chosen during resolution.",
+      "event_sha256": "e8916436697a767df2e372b1126935d5dc4e16ac56cb515d22858b13196b6015"
+    },
+    {
+      "file": "events/000020.json",
+      "revision": 20,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "Opponent passes on Branded Opening.",
+      "event_sha256": "a00eb74735c06a61fe79c9bd6c81496ec81f80123f32ce90e317b615b2b9feea"
+    },
+    {
+      "file": "events/000021.json",
+      "revision": 21,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "No legal additional human response. Close the response window automatically and begin resolving Opening.",
+      "event_sha256": "46df3b1a1e4f18660bc998cd0d04bc49d6d4feb1086f7b13a30d13f313b6ae12"
+    },
+    {
+      "file": "events/000022.json",
+      "revision": 22,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Branded Opening is resolving. Await human discard and Despia add/summon choices; nothing has been discarded or summoned yet.",
+      "event_sha256": "45b3fe94cc8c0099b02400891f3cfc61a1e6fc093287219f1058e46d73652e69"
+    },
+    {
+      "file": "events/000023.json",
+      "revision": 23,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "choice",
+      "public_summary": "During Opening resolution, choose to discard Albion and Special Summon Aluber in Defense Position to monster zone 1.",
+      "event_sha256": "ba338361f4d46925ceb42d5b84192c52a922f7c8b6811e751aceeb08783ad308"
+    },
+    {
+      "file": "events/000024.json",
+      "revision": 24,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Opening resolves: discard Albion, summon Aluber in Defense Position, shuffle remaining Deck, and send Opening to GY. Fusion-only Extra Deck restriction applies for the rest of this turn. Await Aluber optional trigger.",
+      "event_sha256": "c7a26776702987bcac11110be9b971e8640431e878885d1b437a923cabe30e70"
+    },
+    {
+      "file": "events/000025.json",
+      "revision": 25,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Activate Aluber summon-trigger search, Chain Link 1. Human requests Branded Fusion at resolution, then activation in the next legal open Main Phase window.",
+      "event_sha256": "2ed7f5647365d59145b8b140cb5c944168d97b5f7607d8ef60e447cf6ec4ccbc"
+    },
+    {
+      "file": "events/000026.json",
+      "revision": 26,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "Opponent passes on Aluber search.",
+      "event_sha256": "c41f367afada436cbd7f4f86bcd44607a901be88828b576d58194a17a7308465"
+    },
+    {
+      "file": "events/000027.json",
+      "revision": 27,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "No legal human chain response to Aluber; close the response window automatically.",
+      "event_sha256": "27d23726065eacbfc06c1b0949d8757792d2e512fe8d9ae809b3f7fd4274ff13"
+    },
+    {
+      "file": "events/000028.json",
+      "revision": 28,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Aluber resolves: add the requested Branded Fusion to human hand and shuffle the remaining Deck once.",
+      "event_sha256": "8244115db58580929b36b0f846ce519c6c170f9e13f30dcbd8433987aa38b976"
+    },
+    {
+      "file": "events/000029.json",
+      "revision": 29,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "No legal human fast effect after the search. Pass that window automatically; the requested Normal Spell activation waits for open Main Phase.",
+      "event_sha256": "e489f56072be1abada5d2aeebef9bcdbde8978b724fdcefe510efa554f00f40c"
+    },
+    {
+      "file": "events/000030.json",
+      "revision": 30,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "Opponent passes the post-search fast-effect window.",
+      "event_sha256": "d6755ec671c29084f299b6b20c86de3a1e477a83de1e0056adc7d599506d8731"
+    },
+    {
+      "file": "events/000031.json",
+      "revision": 31,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Return to an open Main Phase 1 window and continue the human requested Branded Fusion activation.",
+      "event_sha256": "aeb68928d3f16837264487ddbf8a0ee296ce3fc8d0d6151e612d04b13e99676b"
+    },
+    {
+      "file": "events/000032.json",
+      "revision": 32,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "As requested, activate Branded Fusion in Spell/Trap Zone 2, Chain Link 1. No activation cost or target. Fusion Monster and materials are selected during resolution.",
+      "event_sha256": "6e49e98cc05b804f6f75f28a24ac289f66f4f38a830cdf8ca67c08538e2dd59f"
+    },
+    {
+      "file": "events/000033.json",
+      "revision": 33,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "Opponent passes on Branded Fusion.",
+      "event_sha256": "062a790aba7bf08c9eb2ea19111d03ef12777f8ad15a882d50a8b1470ea642e4"
+    },
+    {
+      "file": "events/000034.json",
+      "revision": 34,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "No legal additional human chain response. Close the window automatically and begin Branded Fusion resolution.",
+      "event_sha256": "ea6d12205cf50b8dc02f49d2fec9c4a3c48b2e0b0c5f176eb904cf19e8384c10"
+    },
+    {
+      "file": "events/000035.json",
+      "revision": 35,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Branded Fusion is resolving. Await the human Fusion Monster, two material sources, and placement choices. No materials sent or Fusion Summon performed yet.",
+      "event_sha256": "138ec2f8fedcceebba9d27ba6ed67e3a0f9c083e94a06d879f5e415ca2c652bb"
+    },
+    {
+      "file": "events/000036.json",
+      "revision": 36,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "choice",
+      "public_summary": "Choose Albion the Branded Dragon, with Fallen of Albaz and Guiding Quem from Deck as materials; Attack Position in monster zone 2.",
+      "event_sha256": "25062c3880975607da7f2fb88ecdb2f18b23c5261b0314d2d4f4b5768990a029"
+    },
+    {
+      "file": "events/000037.json",
+      "revision": 37,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "resolve",
+      "public_summary": "Branded Fusion resolves: send Fallen of Albaz and Quem from Deck to GY, Fusion Summon Albion in Attack Position, shuffle remaining Deck, and send Branded Fusion to GY. Albion and Lost optional triggers await human ordering.",
+      "event_sha256": "b63f3400298b445af99c9c529d7b4109df88ebaad2b3ef25b07879779bcab045"
+    },
+    {
+      "file": "events/000038.json",
+      "revision": 38,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "activate",
+      "public_summary": "Activate Albion the Branded Dragon as Chain Link 1, following the selected simultaneous-trigger order. No cost or target.",
+      "event_sha256": "e92b3b75005abaf6957b3b3c2ccdbb9699456f64456361590273fffc060463bb"
+    },
+    {
+      "file": "events/000039.json",
+      "revision": 39,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "respond",
+      "public_summary": "Activate Branded Lost as Chain Link 2, following the selected simultaneous-trigger order. No cost or target.",
+      "event_sha256": "791e70a529673d39846a82b4ba6c89adb7f520e5c64bdde87918f8729742bb24"
+    },
+    {
+      "file": "events/000040.json",
+      "revision": 40,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "agent",
+      "kind": "pass",
+      "public_summary": "Branded Lost forbids opponent responses in this protected post-Fusion Summon window. Advance that window automatically.",
+      "event_sha256": "a04956e16c518db71c5caee064c524f74300c009ef0331d8ad69f511cb3ed428"
+    },
+    {
+      "file": "events/000041.json",
+      "revision": 41,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "human",
+      "kind": "pass",
+      "public_summary": "No legal additional human fast effect. Close the response window automatically.",
+      "event_sha256": "7191df48715a625bc662875841a40f59e6f14ca68cd893df60530774881c5562"
+    },
+    {
+      "file": "events/000042.json",
+      "revision": 42,
+      "turn": 1,
+      "phase": "main1",
+      "actor": "moderator",
+      "kind": "choice",
+      "public_summary": "Begin resolving CL2 Branded Lost. Await human search choice; CL1 Albion will resolve afterward.",
+      "event_sha256": "8a8ed0c2ed94ec18f2eb2704432e6f6a027d5abb789e43d07f23aa2af56e5f07"
+    }
+  ]
 }

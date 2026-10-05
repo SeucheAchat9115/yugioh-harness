@@ -1,0 +1,74 @@
+{
+  "revision": 41,
+  "turn": 3,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T10:56:35.147132+00:00",
+  "before_sha256": "771ab07ca38c205a6042a8be28ae11869482deb211d3d3890d1118a3c88bc899",
+  "after_sha256": "c4a10d3b9c9c0c2ef9a2134f70a2f5bfd815d95f98ff2ade94c991cf54777c79",
+  "action": {
+    "kind": "damage",
+    "actor": "moderator",
+    "expected_revision": 40,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Dark Armed Dragon's unopposed direct attack dealt 2800 battle damage.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The opponent's current hand, empty field, and Ryko-only GY provide no legal attack/Damage Step response; the human explicitly authorized this attack sequence. Attacker remains in Attack Position at its unchanged ATK."
+    },
+    "id": "workflow-edison-r40-dad-damage",
+    "workflow_request_id": "edison-r40-dad-damage",
+    "workflow_digest": "09285733426ad4482f658170007c41b9b0dc908eb67a45ba25d37563f83dcb1f",
+    "operations": [
+      {
+        "op": "lp",
+        "path": [
+          "players",
+          "agent",
+          "lp"
+        ],
+        "delta": -2800
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "effect"
+        ],
+        "value": "2800 battle damage applied; checking post-damage triggers."
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "window"
+        ],
+        "value": "post-damage"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "resolved"
+        ],
+        "value": true
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "dad-post-damage-response"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "99dc41e72c54a61a390039a9fcebf05c5556435a515f8119a9eb8ae8d6ea7c31"
+}

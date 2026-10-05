@@ -8,7 +8,7 @@ do not require a duel display.
 
 During play, keep the omniscient replay archive under `games/<format>/<id>` and
 live runtime/checkpoint files outside the repository. Follow
-[game storage](game-storage.md): one schema-3 `events.json` contains hidden hands,
+[game storage](game-storage.md): a schema-4 `events.json` index plus individual `events/*.json` records preserve hidden hands,
 set identities and transitions. Shuffled queues stay in the private checkpoint.
 Player contexts and outward displays remain filtered.
 
@@ -125,5 +125,5 @@ A paused game remains paused; requested resumption is a separate recorded change
 
 Checkpoints are local private files, not a cloud backup. Keep any requested backup
 in authorized durable storage. They do not survive deletion of the entire workspace
-unless separately backed up. Do not commit raw runtime files. The separate schema-3 archive intentionally
+unless separately backed up. Do not commit raw runtime files. The separate schema-4 archive intentionally
 includes known hidden identities, but never the shuffled queue.

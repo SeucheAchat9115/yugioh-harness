@@ -1,0 +1,35 @@
+{
+  "revision": 41,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T20:34:08.814982+00:00",
+  "before_sha256": "c082885ce553ba253288e30439dd3f7eb6410d32a001c153bd013cdd2c7fb759",
+  "after_sha256": "c50eaef6591bd9dc2a522fbae9bc4556e1efde859337f806c41ef1478808bd0b",
+  "action": {
+    "id": "turn1-decision-041",
+    "kind": "pass",
+    "actor": "human",
+    "expected_revision": 40,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No legal additional human fast effect. Close the response window automatically.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Ecclesia cannot activate from hand in this chain window. Both applicable triggers are already activated; no other human field/GY/banished response is legal."
+    },
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "7191df48715a625bc662875841a40f59e6f14ca68cd893df60530774881c5562"
+}

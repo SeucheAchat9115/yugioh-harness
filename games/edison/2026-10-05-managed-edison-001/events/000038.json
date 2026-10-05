@@ -1,0 +1,74 @@
+{
+  "revision": 38,
+  "turn": 3,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T10:56:31.700184+00:00",
+  "before_sha256": "cb0be4f672b4404f685a2d29a236c61eb869fdad2764dfcccafa0ad0519301c5",
+  "after_sha256": "053baa01c7fb1d1bab1697f6e78be52d31f9a5cd0304baf4c3ff3b1cd0e05e87",
+  "action": {
+    "kind": "damage",
+    "actor": "moderator",
+    "expected_revision": 37,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Stardust Dragon's unopposed direct attack dealt 2500 battle damage.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The opponent's current hand, empty field, and Ryko-only GY provide no legal attack/Damage Step response; the human explicitly authorized this attack sequence. Attacker remains in Attack Position at its unchanged ATK."
+    },
+    "id": "workflow-edison-r37-stardust-damage",
+    "workflow_request_id": "edison-r37-stardust-damage",
+    "workflow_digest": "0b0ce1d7b954d224c3566a1d36b99434f16ae667b0b8572f55ecdb1c23751d8e",
+    "operations": [
+      {
+        "op": "lp",
+        "path": [
+          "players",
+          "agent",
+          "lp"
+        ],
+        "delta": -2500
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "effect"
+        ],
+        "value": "2500 battle damage applied; checking post-damage triggers."
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "window"
+        ],
+        "value": "post-damage"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "resolved"
+        ],
+        "value": true
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "stardust-post-damage-response"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "5384e63c5a1ae7386daeba29a378834b33358c8ba7e548db63ecb113dcdb8c70"
+}

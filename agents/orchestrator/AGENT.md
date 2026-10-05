@@ -52,4 +52,4 @@ attempt before spawning. Report failures with their safe fixed state display.
 
 Follow [game storage](../../docs/game-storage.md): the repository archive includes
 known hidden states for review. Never give it directly to player subagents or use
-it as a public display. Save one replayable `events.json`, not duplicate logs.
+it as a public display. Save the replayable `events.json` index and individual `events/*.json` records, without duplicate logs.

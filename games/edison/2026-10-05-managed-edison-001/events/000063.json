@@ -1,0 +1,62 @@
+{
+  "revision": 63,
+  "turn": 5,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T11:50:16.691603+00:00",
+  "before_sha256": "f6694e47a4f02b6de2d18c78fa082e3de5a0b2434871f1f466de6d87c5049167",
+  "after_sha256": "ff66bbc548892361df758c50243b1fca924238768801e9fbf5937cccaef1f0e0",
+  "action": {
+    "kind": "damage",
+    "actor": "moderator",
+    "expected_revision": 62,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No legal attack or Damage Step response was available. Stardust Dragon inflicted 2500 direct battle damage; Lightsworn's remaining 1000 LP fell to 0.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Necro Gardna was already banished and its resolved effect consumed. Opponent's empty field, remaining GY and four hand cards have no legal attack/Damage Step response. Human has no applicable optional Damage Step action. Direct battle damage is compulsory, with LP floored at zero."
+    },
+    "id": "workflow-edison-r62-stardust-lethal",
+    "workflow_request_id": "edison-r62-stardust-lethal",
+    "workflow_digest": "3781867fb89058ba3c38ad5ec6e26896bf5e2f0244e3da0952847218b422f7b2",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "status"
+        ],
+        "value": "finished"
+      },
+      {
+        "op": "lp",
+        "path": [
+          "players",
+          "agent",
+          "lp"
+        ],
+        "delta": -1000
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "4a0b48895ad224e76b28fa6adb8bd7c67dbeb1346ec1bd2bffb6a75c1bdca2f6"
+}

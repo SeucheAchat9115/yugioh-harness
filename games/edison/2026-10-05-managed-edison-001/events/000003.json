@@ -1,0 +1,37 @@
+{
+  "revision": 3,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:19:53.485901+00:00",
+  "before_sha256": "5c00ff355c80dc007fb82a7fff6c66c08a6e211f91100be5bf2ff0fdd43ed6d8",
+  "after_sha256": "516ae0b991cb44c84a6db6522e4e5e312810cd08d0d4af64a1045c530ea1b182",
+  "action": {
+    "kind": "pass",
+    "actor": "moderator",
+    "expected_revision": 2,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Neither player had a legally activatable response to Allure of Darkness. Closed the response window.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Both fields were empty before Allure; no previously set cards or active effects exist. Both current hands were checked: neither contains a card legally activatable in this response window."
+    },
+    "id": "workflow-edison-r2-allure-no-responses",
+    "workflow_request_id": "edison-r2-allure-no-responses",
+    "workflow_digest": "b9df84ed79d2046199a6820d28e30d8250a3feac06bb73f42673c6e948cb6f86",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "5eeb9de986ba672804ef26fb5bdd7ec4b4d37e9f9839d1c67486c89378979426"
+}

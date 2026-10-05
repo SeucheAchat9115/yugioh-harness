@@ -118,7 +118,7 @@
   retrying. Preserve deadlines on resume and bound retries to three per decision.
   Never evade the limit by changing a menu or silently replace a player's choice.
 
-- Use schema-3 `events.json` as the sole archived action log. Reconstruct states and
+- Use the schema-4 `events.json` index and `events/<revision:06d>.json` as the sole archived action log. Reconstruct states and
   readable logs on demand; do not persist game-folder state/actions/log/resume duplicates.
   Preserve exact rules, deck snapshots, all known hidden zones and gameplay bookkeeping.
   Self/blind archives must declare unknown human hidden-state coverage.

@@ -1,0 +1,37 @@
+{
+  "revision": 8,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:25:47.778641+00:00",
+  "before_sha256": "3f38f9434f90c62e7cbce11bd2d2bf1efc594bd4d5ca8f295e67c7d478d107f4",
+  "after_sha256": "3b56c3dd4965017bef676baa0730e0381ba74d1687b43e017cb3bedd34d71224",
+  "action": {
+    "kind": "pass",
+    "actor": "moderator",
+    "expected_revision": 7,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Neither player had a legal response to Black Whirlwind's activation.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The opponent's unchanged hand contains no legal response; Blackwing has no previously set activatable cards. Closed the response window."
+    },
+    "id": "workflow-edison-r7-whirlwind-no-response",
+    "workflow_request_id": "edison-r7-whirlwind-no-response",
+    "workflow_digest": "e3d7051dea45ea233859b9502280f331c72c882115ee928ef1095e4d2de87ddf",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "c31573a49535c673d2f8580508c5fe5eac4049764a42d11df6621add6c51795c"
+}

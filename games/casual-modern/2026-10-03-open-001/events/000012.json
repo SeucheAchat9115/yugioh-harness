@@ -1,0 +1,28 @@
+{
+  "revision": 12,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T19:10:38.479543+00:00",
+  "before_sha256": "3ef563a3974fd01905bb4f471e1f5f6b46b991e4adc6877aab1b3c64323531c2",
+  "after_sha256": "13779193e8b4f8d0ff1c439994f7ec3cc2a9dd6e2c4bf5636a35ed2b023eae35",
+  "action": {
+    "id": "pause-2026-10-03-001",
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 11,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Human requested a pause. Chain remains unresolved: Branded Lost, Mulcharmy Fuwalos, Ash Blossom. Await human final response on resume.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "status"
+        ],
+        "value": "paused"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "0815cc612025adf7edb0ee7e40cbe5f1446cf216871915a918ca10932ffe3ce9"
+}

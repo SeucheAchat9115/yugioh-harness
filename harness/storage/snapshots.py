@@ -62,7 +62,7 @@ def collect(game_dir):
         archive = json.loads(archive_path.read_text())
         for name, sha in archive.get('assets_sha256', {}).items():
             relative = valid_name(name)
-            if archive.get('schema_version') == '3.0':
+            if archive.get('schema_version') in ('3.0', '4.0'):
                 content = get(game_dir, sha)
             else:
                 path = game_dir / relative

@@ -7,9 +7,10 @@ from pathlib import Path
 from harness.engine.actions import apply, digest, replay, validate_state
 from harness.modes import self_managed
 from harness.storage.atomic import save
+from harness.storage.records import load as read_archive, write as save_archive
 
-SCHEMA = '3.0'
-SUPPORTED = ('2.0', SCHEMA)
+SCHEMA = '4.0'
+SUPPORTED = ('2.0', '3.0', SCHEMA)
 DUPLICATE_LOGS = ('state.json', 'actions.md', 'log.md', 'resume.md')
 
 
@@ -64,7 +65,8 @@ def _event(source, before, after):
     from harness.storage.compact import operations
     action.pop('changes', None)
     action['operations'] = operations(first, last)
-    event = {'recorded_at': source['recorded_at'], 'before_sha256': digest(first),
+    event = {'revision': last['revision'], 'turn': last['turn'], 'phase': last['phase'],
+             'recorded_at': source['recorded_at'], 'before_sha256': digest(first),
              'after_sha256': digest(last), 'action': action,
              'deck_outcomes': _outcomes(before, after)}
     event['event_sha256'] = digest(event)
@@ -126,7 +128,7 @@ def build_archive(journal, state=None, existing=None, catalog_refs=None):
 def write_archive(journal, state, game_dir, assets=None):
     game_dir = Path(game_dir)
     path = game_dir / 'events.json'
-    existing = json.loads(path.read_text()) if path.exists() else None
+    existing = read_archive(game_dir) if path.exists() else None
     from harness.storage.snapshots import collect, intern, put, remove_copies
     assets = collect(game_dir) if assets is None else assets
     manifest = intern(game_dir, assets)
@@ -143,7 +145,7 @@ def write_archive(journal, state, game_dir, assets=None):
     archive['assets_sha256'] = manifest
     archive['configuration_sha256'] = digest(json.loads((game_dir / 'game.json').read_text()))
     archive['decision_evidence'] = evidence_coverage(archive)
-    save(path, archive)
+    save_archive(game_dir, archive)
     remove_copies(game_dir, manifest)
     for name in DUPLICATE_LOGS:
         (game_dir / name).unlink(missing_ok=True)
@@ -168,7 +170,7 @@ def load_replay(game_dir, revision=None, perspective='moderator', cache_dir=None
 def render_log(game_dir):
     """Generate readable summaries on demand, without a second persisted log."""
     load_replay(game_dir)
-    archive = json.loads((Path(game_dir) / 'events.json').read_text())
+    archive = read_archive(game_dir)
     return '\n'.join(f"{event['action']['expected_revision']+1}. {event['action']['actor']}: {event['action']['public_summary']}"
                      for event in archive['events'])
 
@@ -178,7 +180,7 @@ def write_decisions(game_dir, workflow):
     path = Path(game_dir) / 'events.json'
     if not path.exists():
         return
-    archive = json.loads(path.read_text())
+    archive = read_archive(game_dir)
     if archive.get('schema_version') not in SUPPORTED:
         return
     decisions = [{'request_id': key, **{field: deepcopy(value[field]) for field in
@@ -189,7 +191,7 @@ def write_decisions(game_dir, workflow):
         archive['decisions'] = decisions
         archive['decision_packets'] = deepcopy(packets)
         archive['decision_evidence'] = evidence_coverage(archive)
-        save(path, archive)
+        save_archive(game_dir, archive)
 
 
 def evidence_coverage(archive):
@@ -249,7 +251,7 @@ def main():
                 raise ValueError('Migration journal belongs to a different game')
             old = args.game_dir / 'events.json'
             if old.exists():
-                data = json.loads(old.read_text())
+                data = read_archive(args.game_dir)
                 old_revision = data.get('initial_state', {}).get('revision', 0) + len(data.get('events', []))
                 if old_revision > state['revision']:
                     raise ValueError('Migration would discard newer history')
@@ -268,11 +270,11 @@ def main():
             if checkpoint.exists():
                 packet = json.loads(checkpoint.read_text()).get('decision_packet')
                 if packet:
-                    archive = json.loads((args.game_dir / 'events.json').read_text())
+                    archive = read_archive(args.game_dir)
                     if not archive.get('decision_packets'):
                         archive['decision_packets'] = [packet]
                         archive['decision_evidence'] = evidence_coverage(archive)
-                        save(args.game_dir / 'events.json', archive)
+                        save_archive(args.game_dir, archive)
             if load_replay(args.game_dir) != archive_state(state):
                 raise ValueError('Migrated archive does not reproduce the source state')
             print(json.dumps({'game_id': state['game_id'], 'revision': state['revision'], 'verified': True}))

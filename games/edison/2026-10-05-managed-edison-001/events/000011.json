@@ -1,0 +1,66 @@
+{
+  "revision": 11,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:25:51.218691+00:00",
+  "before_sha256": "81d50a8a2754b82c481a125772fc9f2cb45f75cf4a3dca02b050c70789c40828",
+  "after_sha256": "83c9bcee6b85ae45f2612953a9fd899bf5417d0a1886189bf1218a875798a385",
+  "action": {
+    "kind": "summon",
+    "actor": "human",
+    "expected_revision": 10,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing Normal Summoned Blizzard the Far North in Attack Position. No legal summon negation is available. Blizzard has no eligible GY target, so its revival effect cannot activate. Black Whirlwind's optional search is available.",
+    "id": "workflow-edison-r10-normal-blizzard",
+    "workflow_request_id": "edison-r10-normal-blizzard",
+    "workflow_digest": "b73d09f8286a30f7d8a263d27401933554781a7b399b1d704a6e78674dda44d0",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "54031bf869124a898d042d1f1226caec",
+        "from": [
+          "players",
+          "human",
+          "hand",
+          1
+        ],
+        "to": [
+          "players",
+          "human",
+          "monster_zones",
+          0
+        ],
+        "attributes": {
+          "owner": "human",
+          "position": "face-up attack",
+          "hidden": false,
+          "summon_type": "normal",
+          "summoned_turn": 1,
+          "properly_summoned": true
+        }
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "normal_summon_used"
+        ],
+        "value": true
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "black-whirlwind-summon-trigger"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "b9a2007b92b1f990d36b0df2b95cb01a9c7ee01bd8fe13f08225568091034c81"
+}

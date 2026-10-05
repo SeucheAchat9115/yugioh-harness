@@ -1,0 +1,47 @@
+{
+  "revision": 27,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:56:20.915624+00:00",
+  "before_sha256": "da025e9245b15ee9b87564d9853c9aa159fb2b1bad38881daf0cbbd413db2b31",
+  "after_sha256": "788b8c975a6eaa4dfe00025f3943c52f96dd811afc3c935e413ad986b205a35e",
+  "action": {
+    "kind": "summon",
+    "actor": "human",
+    "expected_revision": 26,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing Special Summoned Gale the Whirlwind in Attack Position beside the differently named Blackwings. No legal opposing summon negation or response is available.",
+    "id": "workflow-edison-r26-special-gale",
+    "workflow_request_id": "edison-r26-special-gale",
+    "workflow_digest": "c8e4e79cdc24be625204c25e244849186e6974e3590d4315e04ce06768883a18",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "4f2e63168645436c87d6f45fac96e352",
+        "from": [
+          "players",
+          "human",
+          "hand",
+          2
+        ],
+        "to": [
+          "players",
+          "human",
+          "monster_zones",
+          2
+        ],
+        "attributes": {
+          "owner": "human",
+          "position": "face-up attack",
+          "hidden": false,
+          "summon_type": "special",
+          "summoned_turn": 3,
+          "properly_summoned": true
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "955bf03d5fcc59aad17133e0c1d2f5c06d9b9923afcedf653a1b6cf5f39a8e56"
+}

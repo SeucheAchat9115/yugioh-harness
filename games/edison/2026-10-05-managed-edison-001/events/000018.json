@@ -1,0 +1,62 @@
+{
+  "revision": 18,
+  "turn": 2,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:32:05.555907+00:00",
+  "before_sha256": "182c4528ceecc7685576f67ae6fe1779a5b206f440581254e32aeab20c4576ae",
+  "after_sha256": "02a257dd441fbef3b908e1782effa9d9e1f558200112212d99b925189cd18567",
+  "action": {
+    "kind": "set",
+    "actor": "agent",
+    "expected_revision": 17,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Lightsworn used its Normal Summon/Set to set one monster face-down in Defense Position. No Flip effect activates, and no legal human response to this Set exists.",
+    "id": "workflow-edison-r17-agent-set-ryko",
+    "workflow_request_id": "edison-r17-agent-set-ryko",
+    "workflow_digest": "55a1f249c0978e75b0e3ddeda6c2d07ec6e6c72161e7c9e1e27c9ba131781d32",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "7b8c95ed3a814f0fa5290deaade33cf5",
+        "from": [
+          "players",
+          "agent",
+          "hand",
+          2
+        ],
+        "to": [
+          "players",
+          "agent",
+          "monster_zones",
+          0
+        ],
+        "attributes": {
+          "owner": "agent",
+          "position": "face-down defense",
+          "hidden": true,
+          "set_turn": 2
+        }
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "agent",
+          "normal_summon_used"
+        ],
+        "value": true
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "main-phase-1-open"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "75a6a56e37df4f2c9bb88596148a45c1290acb9b5158c665da91c470e014f1a5"
+}

@@ -1,0 +1,39 @@
+{
+  "revision": 9,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:25:48.925831+00:00",
+  "before_sha256": "3b56c3dd4965017bef676baa0730e0381ba74d1687b43e017cb3bedd34d71224",
+  "after_sha256": "0782f5bfcfe9d7c98d9298f680330ee4889514810b7994142772735806391cef",
+  "action": {
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 8,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Black Whirlwind's activation resolved; it remains face-up.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "No response or resolution choice exists. Finish the activation chain; no search occurs merely by activating this Continuous Spell."
+    },
+    "id": "workflow-edison-r8-whirlwind-resolved",
+    "workflow_request_id": "edison-r8-whirlwind-resolved",
+    "workflow_digest": "b0277748e269becf4b15724c895bb140d143eb6552995cbee92a7810373a72df",
+    "operations": [
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "2602c15341732155a8910933e8b0268ea2cad5a8843a58484fe83dadc74c56f3"
+}

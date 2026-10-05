@@ -1,0 +1,57 @@
+{
+  "revision": 45,
+  "turn": 4,
+  "phase": "draw",
+  "recorded_at": "2026-10-05T11:09:24.916556+00:00",
+  "before_sha256": "38bed014692fb3cb4720ca915afc857b801002124c89f1d26618de1fa702e27c",
+  "after_sha256": "b5c3c1dce7f33a46c4581eed1939ae405f489949b75f84cd63da5daa5711ad0c",
+  "action": {
+    "kind": "draw",
+    "actor": "moderator",
+    "expected_revision": 44,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Lightsworn drew one card for Turn 4.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "No applicable pre-draw activation or delayed effect exists. Apply the compulsory normal draw, then examine the updated hand for Draw Phase choices."
+    },
+    "id": "workflow-edison-r44-agent-draw",
+    "workflow_request_id": "edison-r44-agent-draw",
+    "workflow_digest": "faf88134ea3e653b8a393a27c3d258251848b8b4142745470593163a63cbc36f",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "fad05d5181c84d8181055aa07a824d44",
+        "from": [
+          "players",
+          "agent",
+          "deck",
+          33
+        ],
+        "to": [
+          "players",
+          "agent",
+          "hand"
+        ],
+        "index": 5
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "agent",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "fad05d5181c84d8181055aa07a824d44",
+          "card_id": 4906301
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "d3c620212b6155f37e61791587a2ef6c2282c0ba4950e7ff13af8017a484d670"
+}

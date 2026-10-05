@@ -1,0 +1,31 @@
+{
+  "revision": 1,
+  "turn": 1,
+  "phase": "draw",
+  "recorded_at": "2026-10-03T18:50:13.261633+00:00",
+  "before_sha256": "fbc17e851761ba0ce7f93bc3cd54b76f3623d813d0152f5b607da9f12e3b484d",
+  "after_sha256": "15f4796b46399fe19742883ae760b2b8d819cedbdc2e2edec279e37197290b2d",
+  "action": {
+    "id": "opening-window-001",
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 0,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Turn 1: human starts with five cards and no first-turn draw. Awaiting human Draw Phase decision.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "draw-phase-fast-effect"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "c895cea7c3b1e33aca76166d1681d42c69e227210ea4caf3f9042b6830d502e9"
+}

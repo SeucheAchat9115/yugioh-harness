@@ -1,0 +1,57 @@
+{
+  "revision": 23,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:56:16.330301+00:00",
+  "before_sha256": "d539496081b1bb83af131817a327d7164459c1adac3d866c71876d430ba15226",
+  "after_sha256": "fdb043ca12d075987f1cb116ca2240d8306030ee0a61f05198f5938df8b2eff2",
+  "action": {
+    "kind": "activate",
+    "actor": "human",
+    "expected_revision": 22,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing activated Black Whirlwind's optional search following Sirocco's Tribute Summon.",
+    "id": "workflow-edison-r22-whirlwind-bora-trigger",
+    "workflow_request_id": "edison-r22-whirlwind-bora-trigger",
+    "workflow_digest": "8d723a5d8be2ad166519a944714d30af76a8e3778844bb1a4299d698142e6f80",
+    "operations": [
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "id": "whirlwind-turn3-search",
+            "actor": "human",
+            "name": "Black Whirlwind",
+            "effect": "Add a Blackwing from Deck to hand with ATK strictly lower than Sirocco's 2000 ATK.",
+            "costs": [],
+            "targets": []
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "actor"
+        ],
+        "value": "agent"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "black-whirlwind-search-response"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "84e7d3ee95b7ac1fde70be095e1035b356749bf6863b7c5e75f0651d4dc0bc2e"
+}

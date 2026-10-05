@@ -1,3 +1,4 @@
+from harness.storage.records import load as read_archive
 """Compact replay portability, cache invalidation, and context privacy boundaries."""
 from copy import deepcopy
 import json
@@ -45,7 +46,7 @@ class CompactStorageTests(unittest.TestCase):
         (other / 'rules.md').write_text('Historical rules')
         write_archive(self.journal, self.current, other)
         self.assertEqual(first_files, sorted(str(p.relative_to(shared)) for p in shared.rglob('*') if p.is_file()))
-        archive = json.loads((self.game / 'events.json').read_text())
+        archive = read_archive(self.game)
         self.assertNotIn('cards', archive['initial_state']['players']['agent'])
         self.assertFalse((self.game / 'rules.md').exists())
         self.assertEqual(load_replay(self.game, cache_dir=self.cache), archive_state(self.current))

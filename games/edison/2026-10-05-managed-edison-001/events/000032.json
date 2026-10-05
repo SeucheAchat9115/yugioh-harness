@@ -1,0 +1,59 @@
+{
+  "revision": 32,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:58:03.577938+00:00",
+  "before_sha256": "afadca08a00141130ccc87c8922a7f2c34015ec720bf2b3f12a4ed874969b731",
+  "after_sha256": "a2ea6f7fe898bd84ea042fbe8fb9cfcd32ccf6ba50cfa8ed50878d6f15bc37b7",
+  "action": {
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 31,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Dark Armed Dragon destroyed the targeted face-down monster. It was revealed as Ryko, Lightsworn Hunter and sent to Lightsworn's GY. Ryko was not flipped, so its Flip effect did not activate; no cards were milled.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The response window is closed; the target remains present and destructible. Destroying a face-down Flip monster by card effect does not flip it. No destruction/GY trigger applies."
+    },
+    "id": "workflow-edison-r31-dad-destroys-set",
+    "workflow_request_id": "edison-r31-dad-destroys-set",
+    "workflow_digest": "7d049d941b477290c3ea26eed17ca91912b6c628e2730f8be0978f291a4c6914",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "7b8c95ed3a814f0fa5290deaade33cf5",
+        "from": [
+          "players",
+          "agent",
+          "monster_zones",
+          0
+        ],
+        "to": [
+          "players",
+          "agent",
+          "graveyard"
+        ],
+        "index": 0,
+        "attributes": {
+          "position": "face-up",
+          "hidden": false
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "7a10d46119d1dc5fd61a51da8e8b11de0cc8bade6d19cd385114ad58299720b4"
+}

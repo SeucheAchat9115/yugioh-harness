@@ -1,0 +1,66 @@
+{
+  "revision": 14,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:28:52.853322+00:00",
+  "before_sha256": "453eb7b81f6fa3aa6df6823c988859eb8770030afc208eebf6b66cffa0baa421",
+  "after_sha256": "9717e92b0d45708a82624a7bc7f2238594e0ade2c5b953b4c257376efb13b767",
+  "action": {
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 13,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Black Whirlwind resolved: Blackwing revealed and added Vayu the Emblem of Honor from Deck to hand, then shuffled the remaining Deck.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The user selected Vayu. It is the sole eligible card below 1300 ATK, Whirlwind is face-up, and Blizzard still supplies 1300 ATK. No other selection or response remains."
+    },
+    "id": "workflow-edison-r13-search-vayu",
+    "workflow_request_id": "edison-r13-search-vayu",
+    "workflow_digest": "dd5855e2bbffc92fee4c9adad03d2720536546839a8d959b492b3e7f971e0d1c",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "c80fb96c6d1149039820b5d8b9648a45",
+        "from": [
+          "players",
+          "human",
+          "deck",
+          24
+        ],
+        "to": [
+          "players",
+          "human",
+          "hand"
+        ],
+        "index": 2
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "human",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "c80fb96c6d1149039820b5d8b9648a45",
+          "card_id": 72714392
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "6f2374a01e492d442da40f4d921d99723dda5faf0570b9d59c58b4c7b531ee26"
+}

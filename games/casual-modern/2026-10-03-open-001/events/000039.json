@@ -1,0 +1,81 @@
+{
+  "revision": 39,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T20:34:08.296096+00:00",
+  "before_sha256": "ae5ae5a412a13cf550b83228595de9d09ef2e4493ee091d16ee765115c1442de",
+  "after_sha256": "5ba9bc252428b60c58bc112fa66d370fbe36679312aca6608d00636311d6ab20",
+  "action": {
+    "id": "turn1-decision-039",
+    "kind": "respond",
+    "actor": "human",
+    "expected_revision": 38,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Activate Branded Lost as Chain Link 2, following the selected simultaneous-trigger order. No cost or target.",
+    "operations": [
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 1,
+        "delete": 0,
+        "values": [
+          {
+            "id": "turn1-chain5-link2",
+            "actor": "human",
+            "instance_id": "97a29f83327d444d90127b23403244be",
+            "card_id": 18973184,
+            "name": "Branded Lost",
+            "effect": "Add Fallen of Albaz or a monster mentioning it from Deck",
+            "costs": [],
+            "targets": [],
+            "chain_origin": "simultaneous-trigger",
+            "protected_by": "Branded Lost"
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "effect_usage",
+          "branded_lost_search"
+        ],
+        "value": {
+          "turn": 1,
+          "used": true
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "actor"
+        ],
+        "value": "agent"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "chain-response"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "791e70a529673d39846a82b4ba6c89adb7f520e5c64bdde87918f8729742bb24"
+}

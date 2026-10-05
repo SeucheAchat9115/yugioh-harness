@@ -1,0 +1,92 @@
+{
+  "revision": 60,
+  "turn": 5,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T11:50:13.258153+00:00",
+  "before_sha256": "1f8808193240da3f29fdcacafcb792276d688513070345a692ddc02c5d2ba385",
+  "after_sha256": "eae754d3bd4d9812ff0f8cb62698152867ade1a72da69ca51a9964f5de0e1374",
+  "action": {
+    "kind": "attack",
+    "actor": "human",
+    "expected_revision": 59,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing entered the Battle Phase. Bora declared a direct attack, using the authorized attack-for-game sequence.",
+    "id": "workflow-edison-r59-bora-attack",
+    "workflow_request_id": "edison-r59-bora-attack",
+    "workflow_digest": "50770f8f96bd0ac93f975fa7a5ba101061913d2012e03d75e9bd9f498669a6c5",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "battle"
+      },
+      {
+        "op": "delta",
+        "path": [
+          "players",
+          "human",
+          "monster_zones",
+          1,
+          "attacked_turn"
+        ],
+        "delta": 2
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "effect_usage",
+          "attack-bora-turn5"
+        ],
+        "value": {
+          "id": "attack-bora-turn5",
+          "kind": "attack",
+          "actor": "human",
+          "owner": "human",
+          "source_instance_id": "23f7864ab79c490bb9326024e671727f",
+          "name": "Bora direct attack",
+          "turn": 5,
+          "used": true,
+          "count": 1
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 1,
+        "delete": 0,
+        "values": [
+          {
+            "id": "battle-turn5-bora",
+            "kind": "battle",
+            "actor": "human",
+            "source_instance_id": "23f7864ab79c490bb9326024e671727f",
+            "name": "Bora direct attack",
+            "effect": "Direct attack at 1700 ATK; Necro Gardna's resolved effect applies.",
+            "turn": 5,
+            "phase": "battle",
+            "window": "attack-declaration"
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "agent",
+          "window": "bora-attack-response"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "9ed516d196f7110c1d0225cea8f315f4fa015c495af21ba71b3798aa23ab65e8"
+}

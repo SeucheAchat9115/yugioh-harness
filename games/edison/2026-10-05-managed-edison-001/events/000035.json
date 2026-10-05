@@ -1,0 +1,74 @@
+{
+  "revision": 35,
+  "turn": 3,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T10:00:43.339194+00:00",
+  "before_sha256": "7e5f3bbcea32ebdda919a9650ea218e4c2af1ff7610d799b2ff37389df054d24",
+  "after_sha256": "a0f440cf25c804b3b80e367f4675f5a9c48520127f93046a4d835e340f30165b",
+  "action": {
+    "kind": "damage",
+    "actor": "moderator",
+    "expected_revision": 34,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No legal attack-declaration or Damage Step response applied. Bora's direct attack dealt 1700 battle damage: Lightsworn 8000 → 6300 LP.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Opponent's field is empty, GY contains only Ryko, and current hand has no legal attack/Damage Step response. Human's hand and field have no relevant optional Damage Step action for Bora. Bora remains in Attack Position at unchanged 1700 ATK; calculate compulsory direct battle damage."
+    },
+    "id": "workflow-edison-r34-bora-damage",
+    "workflow_request_id": "edison-r34-bora-damage",
+    "workflow_digest": "4911090a7d8ccabb77a1a1c8846d5e4dca83cb2dc263c009845cea80da84cec1",
+    "operations": [
+      {
+        "op": "lp",
+        "path": [
+          "players",
+          "agent",
+          "lp"
+        ],
+        "delta": -1700
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "effect"
+        ],
+        "value": "1700 battle damage applied; checking post-damage triggers."
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "window"
+        ],
+        "value": "post-damage"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_effects",
+          0,
+          "resolved"
+        ],
+        "value": true
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "bora-post-damage-response"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "9a26e3a8bd833a606362eecec16b7a9bcaccb05fdb22711fbc7db855e31bf92f"
+}

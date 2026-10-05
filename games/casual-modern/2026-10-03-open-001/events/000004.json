@@ -1,0 +1,38 @@
+{
+  "revision": 4,
+  "turn": 1,
+  "phase": "standby",
+  "recorded_at": "2026-10-03T19:01:50.846991+00:00",
+  "before_sha256": "41dd4238056bbdc8f7310631a1abba49c75c2f29461e42ef9750ed1a0f96e254",
+  "after_sha256": "17e24b0c0994453755b7ad9eb4b43816f791a0d903a8e968158ae0a32c1a5529",
+  "action": {
+    "id": "turn1-decision-004",
+    "kind": "phase",
+    "actor": "moderator",
+    "expected_revision": 3,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Enter Standby Phase; no mandatory Standby effects.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "standby"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "standby-phase-fast-effect"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "f4563127c53c286c07bdd33c69d6d4fa3c0baef2c950e56e9ec425d448d0d605"
+}

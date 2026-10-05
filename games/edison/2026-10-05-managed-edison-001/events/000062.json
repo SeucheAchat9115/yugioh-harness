@@ -1,0 +1,85 @@
+{
+  "revision": 62,
+  "turn": 5,
+  "phase": "battle",
+  "recorded_at": "2026-10-05T11:50:15.550960+00:00",
+  "before_sha256": "0cef00fa2e014eb34809dcc25df8bb9102f338c62a828d5b2c0042f5cae3e2f1",
+  "after_sha256": "f6694e47a4f02b6de2d18c78fa082e3de5a0b2434871f1f466de6d87c5049167",
+  "action": {
+    "kind": "attack",
+    "actor": "human",
+    "expected_revision": 61,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Stardust Dragon declared a direct attack for 2500 ATK against Lightsworn's empty field.",
+    "id": "workflow-edison-r61-stardust-attack",
+    "workflow_request_id": "edison-r61-stardust-attack",
+    "workflow_digest": "6b299945352011ea4421a2e0e7d5d56a30b6bbfffaddf949f4b8e044d3077360",
+    "operations": [
+      {
+        "op": "delta",
+        "path": [
+          "players",
+          "human",
+          "monster_zones",
+          0,
+          "attacked_turn"
+        ],
+        "delta": 2
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "effect_usage",
+          "attack-stardust-turn5"
+        ],
+        "value": {
+          "id": "attack-stardust-turn5",
+          "kind": "attack",
+          "actor": "human",
+          "owner": "human",
+          "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
+          "name": "Stardust direct attack",
+          "turn": 5,
+          "used": true,
+          "count": 1
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "id": "battle-turn5-stardust",
+            "kind": "battle",
+            "actor": "human",
+            "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
+            "name": "Stardust direct attack",
+            "effect": "Direct attack at 2500 ATK; awaiting responses.",
+            "turn": 5,
+            "phase": "battle",
+            "window": "attack-declaration"
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "agent",
+          "window": "stardust-attack-response"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "5d180aa89b3f582ecd42b6cfbfb6fceac313dd84d25c9e6ab438d83e78a5d4dc"
+}

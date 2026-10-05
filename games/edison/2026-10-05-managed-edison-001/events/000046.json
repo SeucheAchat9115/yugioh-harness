@@ -1,0 +1,47 @@
+{
+  "revision": 46,
+  "turn": 4,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T11:10:49.179118+00:00",
+  "before_sha256": "b5c3c1dce7f33a46c4581eed1939ae405f489949b75f84cd63da5daa5711ad0c",
+  "after_sha256": "777734f2dfafc38553c93ea874f3a291ce48a8e16b61fe99f412aa0d6b791b63",
+  "action": {
+    "kind": "phase",
+    "actor": "moderator",
+    "expected_revision": 45,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No legal Draw/Standby activation or effect applied. Lightsworn entered the start of Main Phase 1 of Turn 4.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The updated agent hand contains only Normal Spells, a Trap, and Main Phase-playable monsters; neither player's field/GY has an applicable Draw/Standby activation or effect. Preserve the start-of-Main-Phase Cold Wave window."
+    },
+    "id": "workflow-edison-r45-agent-main4",
+    "workflow_request_id": "edison-r45-agent-main4",
+    "workflow_digest": "4f8635ecfd2e580797944c4f185543d5851f3327a4a40e2aede072da74a06d6f",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "main1"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "agent",
+          "window": "start-main-phase-1"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "71f613e6ec9031b444c88c84cfbff0d31542f984619deaa157f56c0a9a5b2aa7"
+}

@@ -1,0 +1,66 @@
+{
+  "revision": 25,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:56:18.628144+00:00",
+  "before_sha256": "e5a4ea073a2db9ba4e34829308334cec895057bf74ebc9f4265ad7e6063ec07c",
+  "after_sha256": "8b10e87f186e9102372d275360f4271d6f57eff967b4777f9e0e1418d32171f2",
+  "action": {
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 24,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Black Whirlwind added the revealed Bora the Spear to Blackwing's hand; the remaining Deck was shuffled.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The user explicitly authorized the previously described Bora line. Bora's 1700 ATK is lower than Sirocco's unchanged 2000 ATK; Whirlwind remains face-up and the search resolves."
+    },
+    "id": "workflow-edison-r24-search-bora",
+    "workflow_request_id": "edison-r24-search-bora",
+    "workflow_digest": "b2be2b5cb96779a9af834d3526d44eb4f704058ba51845de8c9ad7edf3b37fa0",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "23f7864ab79c490bb9326024e671727f",
+        "from": [
+          "players",
+          "human",
+          "deck",
+          8
+        ],
+        "to": [
+          "players",
+          "human",
+          "hand"
+        ],
+        "index": 3
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "human",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "23f7864ab79c490bb9326024e671727f",
+          "card_id": 49003716
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "8a0f987f4a2f911863071b0d42f5a15eadaedbab33cb548548a34e48c784be12"
+}

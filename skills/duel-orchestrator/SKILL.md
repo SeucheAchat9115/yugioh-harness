@@ -104,7 +104,7 @@ interfaces operated by the orchestrator, not steps the human performs.
 
 ## Repository replay storage
 
-Follow [game storage](../../docs/game-storage.md). Save schema-3 `events.json`
+Follow [game storage](../../docs/game-storage.md). Save the schema-4 `events.json` index and individual `events/*.json` records
 with all known hidden hands, set identities, exact transitions and realized random
 outcomes; remaining decks are unordered inventories. Preserve exact card/rules
 snapshots and submitted intentions for review. Do not maintain duplicate game-folder

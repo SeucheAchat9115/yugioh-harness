@@ -54,7 +54,7 @@ trusted verifier is used without revealing it to the agent.
 
 ## Game storage
 
-Use `games/<format>/<game-id>/game.json` and schema-3 `events.json` as described in
+Use `games/<format>/<game-id>/game.json` and the schema-4 `events.json` index plus `events/*.json` as described in
 [game storage](../../docs/game-storage.md). The archive contains all known hidden
 states and guarded transitions for replay. Do not write duplicate game-folder
 state, action, turn-log or resume files. Snapshot logical names remain

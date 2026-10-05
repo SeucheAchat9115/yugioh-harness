@@ -1,0 +1,35 @@
+{
+  "revision": 34,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T20:09:46.911448+00:00",
+  "before_sha256": "fa9db955b1f1b1c95ffbedae19d35fe47267682de85fe1a1a96561d31ac935a7",
+  "after_sha256": "5c8a2fdb7077d96c574dbe21c0f83978d22f749465d66994823bddab9dcf7f97",
+  "action": {
+    "id": "turn1-decision-034",
+    "kind": "pass",
+    "actor": "human",
+    "expected_revision": 33,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "No legal additional human chain response. Close the window automatically and begin Branded Fusion resolution.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Only Ecclesia is in hand. No applicable field/GY/banished fast effect or trigger is available; Lost has not seen a Fusion Summon yet."
+    },
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "ea6d12205cf50b8dc02f49d2fec9c4a3c48b2e0b0c5f176eb904cf19e8384c10"
+}

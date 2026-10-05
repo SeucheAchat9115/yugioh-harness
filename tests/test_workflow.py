@@ -1,3 +1,4 @@
+from harness.storage.records import load as read_archive
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -43,7 +44,7 @@ class WorkflowTests(unittest.TestCase):
             identity=display['decision_id']
             accepted=runner.workflow.submit(identity,'human-1','1')
             self.assertEqual(accepted['intention']['text'],'Pass')
-            archive=json.loads((game/'events.json').read_text())
+            archive=read_archive(game)
             self.assertEqual(archive['decision_packets'][0]['decision_id'],identity)
             self.assertEqual(len(archive['decision_packets'][0]['recommendations']),2)
             self.assertEqual(archive['decisions'][0]['intention']['text'],'Pass')

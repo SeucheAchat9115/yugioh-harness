@@ -1,0 +1,38 @@
+{
+  "revision": 7,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T19:01:50.885287+00:00",
+  "before_sha256": "9842f9b7766b570bad9469846914cebcb44a41850d2a2bd440807b3871e71cb6",
+  "after_sha256": "834fea9937f7a93f86d2272c41ac15aab187ec6c984b0b25bb3536ee15d4fd1b",
+  "action": {
+    "id": "turn1-decision-007",
+    "kind": "phase",
+    "actor": "moderator",
+    "expected_revision": 6,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Enter human Main Phase 1.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "main1"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "main-phase-open"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "86dbd4321c92b024b3f05d2aa3bb8c24f56fcc9877721c5745c6fcab6c17041d"
+}

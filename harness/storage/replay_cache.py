@@ -21,7 +21,7 @@ def _advance(state, event, schema):
     if event['before_sha256'] != digest(state):
         raise ValueError('Inconsistent archive state hash')
     action = deepcopy(event['action'])
-    if schema == '3.0':
+    if schema in ('3.0', '4.0'):
         from harness.storage.compact import execute
         from harness.storage.archive import _changes
         after = execute(state, action.pop('operations'))
@@ -35,9 +35,10 @@ def _advance(state, event, schema):
 def load(game_dir, revision=None, cache_dir=None):
     game = Path(game_dir).resolve()
     raw = (game / 'events.json').read_bytes()
-    archive = json.loads(raw)
+    from harness.storage.records import load as read_archive
+    archive = read_archive(game)
     schema = archive.get('schema_version')
-    if schema not in ('2.0', '3.0'):
+    if schema not in ('2.0', '3.0', '4.0'):
         raise ValueError('Legacy summaries cannot reconstruct hidden states; migrate a private journal')
     # Verify immutable resources and metadata even for a warm replay cache.
     for name, sha in archive.get('assets_sha256', {}).items():

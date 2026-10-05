@@ -205,7 +205,8 @@ on resume; legacy saves without a setting remain enforced. See
 
 ## Replay archives
 
-Games save one compact schema-3 `events.json` with hidden hands, set identities,
+Games save a schema-4 `events.json` index and one JSON record per event in `events/`,
+with hidden hands, set identities,
 physical moves, deltas and realized draw/mill outcomes. Rules, decks and card
 catalogs reference immutable objects shared under `snapshots/`. Private revision
 caches make repeat reviews fast without adding generated states to Git. Schema-2

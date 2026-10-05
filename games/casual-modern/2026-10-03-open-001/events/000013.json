@@ -1,0 +1,28 @@
+{
+  "revision": 13,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T19:44:37.851327+00:00",
+  "before_sha256": "13779193e8b4f8d0ff1c439994f7ec3cc2a9dd6e2c4bf5636a35ed2b023eae35",
+  "after_sha256": "8d668fdecd2fc19e237c327809596de0b8f20eb420067932754243db4aa5d307",
+  "action": {
+    "id": "resume-2026-10-03-001",
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 12,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Human requested resumption. Restored the saved Main Phase 1 response window; no chain links resolved, cards drawn, or costs repaid.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "status"
+        ],
+        "value": "active"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "e519c49f6a422a6d111638cdffe99c1bcc6cfb35524e0daacc282a3d79ae1ca5"
+}

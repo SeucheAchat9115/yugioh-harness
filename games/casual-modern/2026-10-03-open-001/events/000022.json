@@ -1,0 +1,49 @@
+{
+  "revision": 22,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T19:57:39.181102+00:00",
+  "before_sha256": "b92007e319340e6076abd63f5d6169e6d08ca889bb24de83c675fa48456098a4",
+  "after_sha256": "0e14311353fabbd395e3018fb7f2b616cea68d26bbf57a0f4fc83cde07cf8940",
+  "action": {
+    "id": "turn1-decision-022",
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 21,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Branded Opening is resolving. Await human discard and Despia add/summon choices; nothing has been discarded or summoned yet.",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "chain",
+          0,
+          "resolution_started"
+        ],
+        "value": true
+      },
+      {
+        "op": "set",
+        "path": [
+          "chain",
+          0,
+          "resolution_step"
+        ],
+        "value": "choose-discard-and-despia"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "branded-opening-resolution"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "45b3fe94cc8c0099b02400891f3cfc61a1e6fc093287219f1058e46d73652e69"
+}

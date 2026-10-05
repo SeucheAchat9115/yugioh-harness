@@ -1,0 +1,74 @@
+{
+  "revision": 1,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:14:57.214208+00:00",
+  "before_sha256": "8bdbd485317157ecedfc2b6ca4d908ddd1ee86b3cd0db2f0c66dd5dffeaef1ee",
+  "after_sha256": "53ed023d11fe7d21992104d8355d57158e40fccdeb4db24945796f09ecbeb787",
+  "action": {
+    "kind": "phase",
+    "actor": "moderator",
+    "expected_revision": 0,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Both decks were independently shuffled and five-card opening hands dealt. Blackwing starts: drew one card under Edison rules; no legal actions in the empty Draw/Standby windows. Advanced to Main Phase 1. No first-turn Battle Phase.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "public-rules-verified",
+      "reason": "Mandatory first-turn draw applies. No cards are on the field or in either Graveyard; these decklists contain no legal hand activations in the opening Draw/Standby windows. No optional or mandatory Standby effects apply."
+    },
+    "id": "workflow-edison-initial-draw-to-mp1",
+    "workflow_request_id": "edison-initial-draw-to-mp1",
+    "workflow_digest": "43edc667a730804806259953d166ff86d5d90d7e0b30f0572754fa576380a43f",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "f93044314d0541e1b30204782bb871fd",
+        "from": [
+          "players",
+          "human",
+          "deck",
+          33
+        ],
+        "to": [
+          "players",
+          "human",
+          "hand"
+        ],
+        "index": 5
+      },
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "main1"
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "main-phase-1-open"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "human",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "f93044314d0541e1b30204782bb871fd",
+          "card_id": 65192027
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "3aab92e7b988ae7f621fcbcf31ebbd16876fcd504396ac2163367af0d00fdd01"
+}

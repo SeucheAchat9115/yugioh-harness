@@ -1,0 +1,57 @@
+{
+  "revision": 16,
+  "turn": 2,
+  "phase": "draw",
+  "recorded_at": "2026-10-05T09:28:55.151160+00:00",
+  "before_sha256": "896eca89eec0535e7f00044cbec32d5fba71eb7115f642245b5e5add7a8bec81",
+  "after_sha256": "7d65709021fd21889289cc2d2930e30c23a97d7bbff1ad838324224bb3369357",
+  "action": {
+    "kind": "draw",
+    "actor": "moderator",
+    "expected_revision": 15,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Lightsworn drew one card for Turn 2.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "The normal Draw Phase draw is compulsory; neither player has a pre-draw action from current known state and card text."
+    },
+    "id": "workflow-edison-r15-agent-draw",
+    "workflow_request_id": "edison-r15-agent-draw",
+    "workflow_digest": "fb4868a45c1960bc167911c8dba5d39de8c713e09640b9208fe01c1090daa1b2",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "228d4e62820947d98cfc3382a3ad6a49",
+        "from": [
+          "players",
+          "agent",
+          "deck",
+          7
+        ],
+        "to": [
+          "players",
+          "agent",
+          "hand"
+        ],
+        "index": 5
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "agent",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "228d4e62820947d98cfc3382a3ad6a49",
+          "card_id": 16255442
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "3f2b5a677210830071afdb27f7dc8e6b396b53b70170ec914ddd1cd03e7186ea"
+}

@@ -1,0 +1,37 @@
+{
+  "revision": 52,
+  "turn": 5,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T11:28:04.741858+00:00",
+  "before_sha256": "986123f7cd5f90f8e2929633745f3847fc494b4ae493bf3250f39343fdee5072",
+  "after_sha256": "046b2ab70575f2d7a22f7dad69d1af4191826737ce795d596ee7f6d122cd1ceb",
+  "action": {
+    "kind": "pass",
+    "actor": "moderator",
+    "expected_revision": 51,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Lightsworn had no legally available response. Dark Armed Dragon's effect proceeds to resolution.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "open-state-verified",
+      "reason": "Beckoning Light requires enough LIGHT monsters already in the GY for every card in hand: four cards in hand, only one eligible LIGHT in GY. Remaining hand, face-down monster and GY provide no legal response. Human selected destruction and resolution; no undecided self-negation remains."
+    },
+    "id": "workflow-edison-r51-dad-backrow-no-response",
+    "workflow_request_id": "edison-r51-dad-backrow-no-response",
+    "workflow_digest": "36362525b665639e28dc5bfa007352649fca79388ef9e3aedd8188df18b60519",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "63ae3c9e9a3d41b250a90c8d3f90ce50ca98f5d0b81a3b557138b1b222b1d5d4"
+}

@@ -1,0 +1,175 @@
+{
+  "revision": 24,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T20:01:58.836898+00:00",
+  "before_sha256": "99839326fd0cb9b4a7980d782ee67dd47e3059bf0febe01c521319eb6567998c",
+  "after_sha256": "05aa330710fe512863576072fda1eaabfb49a7e3ef96d9b24bfe4004ccbb2b8b",
+  "action": {
+    "id": "turn1-decision-024",
+    "kind": "resolve",
+    "actor": "moderator",
+    "expected_revision": 23,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Opening resolves: discard Albion, summon Aluber in Defense Position, shuffle remaining Deck, and send Opening to GY. Fusion-only Extra Deck restriction applies for the rest of this turn. Await Aluber optional trigger.",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "146ade71f19e4493ab7341882e3d70fd",
+        "from": [
+          "players",
+          "human",
+          "hand",
+          1
+        ],
+        "to": [
+          "players",
+          "human",
+          "graveyard"
+        ],
+        "index": 1,
+        "attributes": {
+          "owner": "human",
+          "hidden": false,
+          "position": "face-up",
+          "current_name": "Fallen of Albaz",
+          "sent_to_gy_turn": 1,
+          "sent_reason": "effect-discard",
+          "sent_source": "Branded Opening"
+        }
+      },
+      {
+        "op": "move",
+        "instance": "14eb157077084b00a0ebf7416eefb18c",
+        "from": [
+          "players",
+          "human",
+          "spell_trap_zones",
+          1
+        ],
+        "to": [
+          "players",
+          "human",
+          "graveyard"
+        ],
+        "index": 2,
+        "attributes": {
+          "activation_resolved": true,
+          "sent_to_gy_turn": 1,
+          "sent_reason": "resolved-spell"
+        }
+      },
+      {
+        "op": "move",
+        "instance": "a9e91a98a9ac4ce1a69c8c4234ff43a0",
+        "from": [
+          "players",
+          "human",
+          "deck",
+          28
+        ],
+        "to": [
+          "players",
+          "human",
+          "monster_zones",
+          0
+        ],
+        "attributes": {
+          "owner": "human",
+          "controller": "human",
+          "hidden": false,
+          "position": "face-up Defense",
+          "summon_type": "special",
+          "summon_source": "Branded Opening",
+          "summoned_from": "deck",
+          "summoned_turn": 1,
+          "properly_summoned": true
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "effect_usage",
+          "branded_opening_activation",
+          "resolved"
+        ],
+        "value": true
+      },
+      {
+        "op": "splice",
+        "path": [
+          "players",
+          "human",
+          "restrictions"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "kind": "extra-deck-summon",
+            "allowed": [
+              "Fusion"
+            ],
+            "source": "Branded Opening",
+            "turn": 1,
+            "expires": "end-of-turn"
+          }
+        ]
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "kind": "optional-trigger",
+            "controller": "human",
+            "source_instance_id": "a9e91a98a9ac4ce1a69c8c4234ff43a0",
+            "effect": "Aluber summon-search",
+            "event": "special-summoned",
+            "turn": 1,
+            "status": "awaiting-activation"
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "aluber-summon-trigger"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [
+    {
+      "player": "human",
+      "cards_leaving_deck_in_order": [
+        {
+          "instance_id": "a9e91a98a9ac4ce1a69c8c4234ff43a0",
+          "card_id": 62962630
+        }
+      ],
+      "cards_returned_to_deck": []
+    }
+  ],
+  "event_sha256": "c7a26776702987bcac11110be9b971e8640431e878885d1b437a923cabe30e70"
+}

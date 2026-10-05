@@ -1,0 +1,73 @@
+{
+  "revision": 38,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-03T20:34:08.045188+00:00",
+  "before_sha256": "ff494c45c0baba90d002c24c8ea80de6b595f6a6627536b078cc0e9d67a9f2ec",
+  "after_sha256": "ae5ae5a412a13cf550b83228595de9d09ef2e4493ee091d16ee765115c1442de",
+  "action": {
+    "id": "turn1-decision-038",
+    "kind": "activate",
+    "actor": "human",
+    "expected_revision": 37,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Activate Albion the Branded Dragon as Chain Link 1, following the selected simultaneous-trigger order. No cost or target.",
+    "operations": [
+      {
+        "op": "splice",
+        "path": [
+          "chain"
+        ],
+        "index": 0,
+        "delete": 0,
+        "values": [
+          {
+            "id": "turn1-chain5-link1",
+            "actor": "human",
+            "instance_id": "a03b7cc3dd084c19b8db4b3038a2504e",
+            "card_id": 87746184,
+            "name": "Albion the Branded Dragon",
+            "effect": "Fusion Summon a Level 8 or lower Fusion by banishing hand/field/GY materials",
+            "costs": [],
+            "targets": [],
+            "chain_origin": "simultaneous-trigger",
+            "protected_by": "Branded Lost"
+          }
+        ]
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "human",
+          "effect_usage",
+          "albion_fusion_effect"
+        ],
+        "value": {
+          "turn": 1,
+          "used": true
+        }
+      },
+      {
+        "op": "splice",
+        "path": [
+          "pending_effects"
+        ],
+        "index": 0,
+        "delete": 1,
+        "values": []
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision",
+          "window"
+        ],
+        "value": "complete-simultaneous-trigger-order"
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "e92b3b75005abaf6957b3b3c2ccdbb9699456f64456361590273fffc060463bb"
+}

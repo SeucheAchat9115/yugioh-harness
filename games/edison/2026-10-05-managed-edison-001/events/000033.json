@@ -1,0 +1,40 @@
+{
+  "revision": 33,
+  "turn": 3,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:58:04.728257+00:00",
+  "before_sha256": "a2ea6f7fe898bd84ea042fbe8fb9cfcd32ccf6ba50cfa8ed50878d6f15bc37b7",
+  "after_sha256": "3a2bb2d993dbe96f5c20e41a2abf14425df7268a5fa1f7dab2f37374720b02c7",
+  "action": {
+    "kind": "choice",
+    "actor": "moderator",
+    "expected_revision": 32,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "The requested Stardust and Dark Armed Dragon line is complete. Blackwing retains Bora, Stardust, and Dark Armed Dragon; battle decisions remain with the human.",
+    "automatic": true,
+    "option_review": {
+      "complete": true,
+      "meaningful_choices": 0,
+      "basis": "public-rules-verified",
+      "reason": "Bookkeeping only: open the human's next decision without choosing any attack or other optional play."
+    },
+    "id": "workflow-edison-r32-open-human-main",
+    "workflow_request_id": "edison-r32-open-human-main",
+    "workflow_digest": "9e655a1613bb055de1b23209f4e44032ffbb33dd61fdb9ef15fabffb0dac9b5f",
+    "operations": [
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": {
+          "actor": "human",
+          "window": "main-phase-1-open"
+        }
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "1bffb907e1f37ce44069bf29eab9aa2409af79dd608397c38ee192a4e3f7b081"
+}

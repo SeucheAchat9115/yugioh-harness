@@ -1,3 +1,4 @@
+from harness.storage.records import load as read_archive
 """Verify hidden-state replay, randomness, integrity and live-view boundaries."""
 from copy import deepcopy
 import json
@@ -42,7 +43,7 @@ class ArchiveTests(unittest.TestCase):
         history.append(deepcopy(self.step('draw', [{'op': 'draw', 'player': 'agent', 'count': 2}])))
         for revision, original in enumerate(history):
             self.assertEqual(load_replay(self.game, revision), archive_state(original))
-        archive = json.loads((self.game / 'events.json').read_text())
+        archive = read_archive(self.game)
         self.assertEqual(archive['events'][0]['action']['operations'], [])
         self.assertEqual(archive['events'][1]['deck_outcomes'][0]['cards_leaving_deck_in_order'], drawn)
         self.assertEqual(archive['initial_state']['players']['agent']['deck'],
@@ -50,7 +51,7 @@ class ArchiveTests(unittest.TestCase):
         rebuilt = self.game / 'events.json'
         rebuilt.unlink()
         write_archive(self.journal, self.current, self.game)
-        self.assertEqual(json.loads(rebuilt.read_text()), archive)
+        self.assertEqual(read_archive(self.game), archive)
 
     def test_set_identity_and_counters_preserved_but_player_view_filtered(self):
         self.step('set', [{'op': 'move', 'card': 'copy-1',
@@ -67,24 +68,25 @@ class ArchiveTests(unittest.TestCase):
 
     def test_tampered_outcome_and_asset_rejected(self):
         self.step('draw', [{'op': 'draw', 'player': 'agent', 'count': 1}])
-        path = self.game / 'events.json'
-        archive = json.loads(path.read_text())
-        archive['events'][0]['deck_outcomes'] = []
-        path.write_text(json.dumps(archive))
+        path = self.game / 'events/000001.json'
+        event = json.loads(path.read_text())
+        event['deck_outcomes'] = []
+        path.write_text(json.dumps(event))
         with self.assertRaisesRegex(ValueError, 'event hash'):
             load_replay(self.game)
         path.unlink()
+        (self.game / 'events.json').unlink()
         (self.game / 'rules.md').write_text('Exact agreed rules')
         write_archive(self.journal, self.current, self.game)
         from harness.storage.snapshots import object_path
-        archived = json.loads(path.read_text())
+        archived = read_archive(self.game)
         object_path(self.game, archived['assets_sha256']['rules.md']).write_text('Changed rules')
         with self.assertRaisesRegex(ValueError, 'asset hash'):
             load_replay(self.game)
 
     def test_top_return_is_recorded_without_storing_rest_of_queue(self):
         self.step('move', [{'op': 'move', 'card': 'copy-1', 'to': ['players', 'agent', 'deck'], 'index': 0}])
-        archive = json.loads((self.game / 'events.json').read_text())
+        archive = read_archive(self.game)
         returned = archive['events'][0]['deck_outcomes'][0]['cards_returned_to_deck']
         self.assertEqual(returned[0]['position'], 'top')
         self.assertEqual(returned[0]['card']['instance_id'], 'copy-1')
@@ -97,7 +99,7 @@ class ArchiveTests(unittest.TestCase):
         (self.game / 'events.json').unlink()
         (self.game / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'blind'}))
         write_archive(journal, current, self.game)
-        archived = json.loads((self.game / 'events.json').read_text())
+        archived = read_archive(self.game)
         self.assertEqual(archived['hidden_state_coverage'], 'human-unknown')
         self.assertIsNone(load_replay(self.game)['players']['human']['hand'])
 

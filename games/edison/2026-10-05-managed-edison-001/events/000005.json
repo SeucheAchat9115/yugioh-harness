@@ -1,0 +1,51 @@
+{
+  "revision": 5,
+  "turn": 1,
+  "phase": "main1",
+  "recorded_at": "2026-10-05T09:25:44.191521+00:00",
+  "before_sha256": "506eaf471a92e8027d799353373c88257b159ef8c2972eef3e750c9f061f4f6e",
+  "after_sha256": "20e409c01bd789fb31ecc5f71e9e5596efa958d25d584a8c8ee3a3aec348ce06",
+  "action": {
+    "kind": "choice",
+    "actor": "human",
+    "expected_revision": 4,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Blackwing banished Blackwing - Blizzard the Far North face-up for Allure of Darkness.",
+    "id": "workflow-edison-r4-banish-blizzard",
+    "workflow_request_id": "edison-r4-banish-blizzard",
+    "workflow_digest": "3867359849b6f6df9ccd7c30552332f63c4db1585adaa7677fb41a47af8d5957",
+    "operations": [
+      {
+        "op": "move",
+        "instance": "8e947a7490134e3298670fca3526c021",
+        "from": [
+          "players",
+          "human",
+          "hand",
+          6
+        ],
+        "to": [
+          "players",
+          "human",
+          "banished"
+        ],
+        "index": 0,
+        "attributes": {
+          "owner": "human",
+          "position": "face-up",
+          "hidden": false
+        }
+      },
+      {
+        "op": "set",
+        "path": [
+          "pending_decision"
+        ],
+        "value": null
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "ddb89c1fd86082d912dcb12882a224fb7e18c5caff864cd15718c6cd0bcafe13"
+}

@@ -107,7 +107,8 @@ def _restore(checkpoint_path, state_path, game_dir):
         if public_path.exists() and json.loads(public_path.read_text()).get("revision", 0) > state["revision"]:
             raise ValueError("Refusing to overwrite a newer local game")
     if (game_dir / "events.json").exists():
-        archived = json.loads((game_dir / "events.json").read_text())
+        from harness.storage.records import load as read_archive
+        archived = read_archive(game_dir)
         archived_revision = archived.get('initial_state', {}).get('revision', 0) + len(archived.get('events', []))
         if archived_revision > state['revision']:
             raise ValueError("Refusing to overwrite a newer local game")

@@ -1,3 +1,4 @@
+from harness.storage.records import load as read_archive
 from copy import deepcopy
 import importlib.util
 import json
@@ -141,7 +142,7 @@ class SessionTests(unittest.TestCase):
         subprocess.run([sys.executable, str(SCRIPT.with_name("actions.py")), "replay",
                         "--state", str(path), "--game-dir", str(game)], check=True, capture_output=True)
         self.assertEqual(json.loads(path.read_text()), final)
-        self.assertEqual(len(json.loads((game / "events.json").read_text())["events"]), 1)
+        self.assertEqual(len(read_archive(game)["events"]), 1)
 
     def test_cli_record_decision_and_reject_retry(self):
         _, game, path = self.start()

@@ -1,0 +1,53 @@
+{
+  "revision": 48,
+  "turn": 5,
+  "phase": "draw",
+  "recorded_at": "2026-10-05T11:15:18.389576+00:00",
+  "before_sha256": "61b7126273117502b5d17843a8ba7cf2f46f35a3edda5bf2e3133d516c2fc19f",
+  "after_sha256": "054ab24480fc8d483758a0eae0d9d6f12e47747b9756e2ab604905c565789ed5",
+  "action": {
+    "kind": "turn",
+    "actor": "agent",
+    "expected_revision": 47,
+    "moderator_approved": true,
+    "public_summary_reviewed": true,
+    "public_summary": "Lightsworn ended Turn 4 with one face-down monster and one set backrow card. No attack, End Phase effect, or hand-limit discard applied. Turn 5 begins: Blackwing's Draw Phase.",
+    "id": "workflow-edison-r47-agent-end-turn",
+    "workflow_request_id": "edison-r47-agent-end-turn",
+    "workflow_digest": "902a03bdc176c3427e39b5216f4216b548899b7ae4b17daa2d8d0174d19e5b17",
+    "operations": [
+      {
+        "op": "delta",
+        "path": [
+          "turn"
+        ],
+        "delta": 1
+      },
+      {
+        "op": "set",
+        "path": [
+          "active_player"
+        ],
+        "value": "human"
+      },
+      {
+        "op": "set",
+        "path": [
+          "phase"
+        ],
+        "value": "draw"
+      },
+      {
+        "op": "set",
+        "path": [
+          "players",
+          "agent",
+          "normal_summon_used"
+        ],
+        "value": false
+      }
+    ]
+  },
+  "deck_outcomes": [],
+  "event_sha256": "b3c4459d4c29a895d2d7437cc30ca791454db0415353736101b337eb19071892"
+}
