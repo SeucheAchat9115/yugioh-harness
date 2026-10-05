@@ -99,13 +99,17 @@
   using only its task's permitted context and no inherited moderator/sibling
   history. Store the returned intention, review legality, then apply it as the
   sole moderator writer. Human choices are asked in the same conversation.
-  Never substitute moderator reasoning for a player child silently. Verify host
-  context/tool isolation; pause if required capabilities are unavailable.
+  Never substitute moderator reasoning for a player child silently. Use the saved
+  cooperative/enforced policy in `docs/player-isolation.md`.
+  Cooperative children must obey context-only/no-tools instructions; record actual
+  available capabilities. Enforced requires verified restrictions or a tool-free
+  transport; pause when unavailable. Never silently downgrade an enforced save.
 - The role-bound arena is an optional deployment backend, not the default user
   workflow. Any separate clients are managed internally by the orchestrator/host.
 
-- Follow `docs/player-isolation.md`: reserve each player attempt with verified host
-  isolation, spawn only when authorized, save its native handle, and submit both
+- Follow `docs/player-isolation.md`: reserve each player attempt with its saved
+  isolation policy and an honest host capability declaration. Spawn only when
+  authorized, save its native handle, and submit both
   task/attempt IDs. A declaration is host evidence, not sandbox attestation.
   A timeout does not kill a child: stop it and acknowledge termination before
   retrying. Preserve deadlines on resume and bound retries to three per decision.

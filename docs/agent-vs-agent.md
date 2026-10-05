@@ -21,7 +21,7 @@ both managed states; no LLM context contains future draw order.
 2. The moderator opens the active actor's decision window and presents its private
    options. `duel_next` returns only that actor's subagent task and permitted context.
 3. Follow [isolation and failure handling](player-isolation.md). Reserve an attempt
-   with `duel_player_start`, spawn only if authorized with no history/tools/files,
+   with `duel_player_start`, spawn only if authorized with no inherited history and the saved isolation policy,
    save its handle with `duel_player_bind`, and bind terminal output using both
    task and attempt IDs with `duel_agent_result`.
    Do not dispatch the other player concurrently or show these menus to observers.
@@ -32,10 +32,11 @@ both managed states; no LLM context contains future draw order.
    unless explicitly asked.
 
 The host orchestrator actually invokes native subagents; the Python scheduler
-returns tasks without model API calls. A host lacking safe subagent/runtime tools
-must explain the limitation and pause. Supplying private prompts alone does not
-restrict inherited filesystem or execution tools. Use host restrictions or
-context-only callbacks. The moderator must never silently choose both sides.
+returns tasks without model API calls. A host lacking runtime/subagent access must explain and pause. Cooperative
+children may inherit tools/files but are instructed not to use them; their
+capabilities are recorded honestly. Enforced requires host restrictions or a
+context-only callback and pauses if those are unavailable. Preserve the policy
+on resume. The moderator must never silently choose both sides.
 
 ## Resume
 

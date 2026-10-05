@@ -137,7 +137,9 @@ class Workflow:
         players = PlayerTasks(self.runner)
         players.refresh()
         packet=self.runner.packet or {}
+        from harness.isolation import saved_policy
         return {'revision':self.runner.state['revision'],'decision_id':packet.get('decision_id'),
+                'isolation_policy': saved_policy(self.runner.state),
                 'pending':deepcopy(self.runner.state.get('pending_decision')),
                 'player_tasks':[players.summary(task) for task in players.tasks.values()],
                 'submissions':[{'request_id':key,'status':value['status']} for key,value in self.data['submissions'].items()],

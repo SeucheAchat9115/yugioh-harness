@@ -1,5 +1,6 @@
 """Sequential host tasks: one moderator conversation, context-only player children."""
 from copy import deepcopy
+from harness.isolation import saved_policy
 from uuid import uuid4
 from harness.rendering.decision import render
 from harness.runner.player_tasks import PlayerTasks
@@ -7,7 +8,9 @@ from harness.runner.player_tasks import PlayerTasks
 PLAYER_POLICY = ('You are a Yu-Gi-Oh! player, not the moderator. Choose one intention '
                  'using only the supplied context and card text. Return response as a '
                  'number or free text. Do not mutate state, inspect files, call moderator '
-                 'tools, or use parent/sibling conversation history.')
+                 'tools or any other tools, or use parent/sibling conversation history. '
+                 'Do not use network, filesystem, execution, or delegation capabilities '
+                 'even if the host makes them available. Return only your intention.')
 
 
 class Orchestrator:
@@ -59,6 +62,7 @@ class Orchestrator:
             return {'kind': 'subagent_failure', **self.players.summary(task), 'text': self.progress_text()}
         return {'kind': 'subagent', 'task_id': task['task_id'], 'decision_id': task['decision_id'],
                 'revision': task['revision'], 'player': actor, 'instructions': PLAYER_POLICY,
+                'isolation_policy': saved_policy(runner.state),
                 'context': runner.context(actor)}
 
     def agent_result(self, task_id, attempt_id, response):

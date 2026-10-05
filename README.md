@@ -17,7 +17,7 @@ its own format, banlist, and rules version.
 
 Open this repository in a tool-capable Codex, Claude, or Gemini environment and say:
 
-> Read `agents/orchestrator/AGENT.md`. Start an managed duel: I play Branded Despia
+> Read `agents/orchestrator/AGENT.md`. Start a managed duel: I play Branded Despia
 > against Dracotail. Guide me through setup and play.
 
 You always speak to the **orchestrator**. It handles configuration, runtime calls,
@@ -25,8 +25,8 @@ local saves, and resumption. It asks you for human choices and launches player
 subagents sequentially with their respective contexts. In agent-versus-agent
 mode it manages both private player children while you watch public state.
 Dispatch reserves durable attempts with deadlines, saved child handles, and
-bounded retries; [player isolation](docs/player-isolation.md) requires verified
-host restrictions or a tool-free model request.
+bounded retries; [player isolation](docs/player-isolation.md) supports cooperative play using instructions,
+or enforced play using host restrictions or a tool-free model request.
 No Python commands, JSON preparation, or separate player sessions are required
 from you during a duel. See [conversational play](docs/codex-play.md) and the
 [orchestration skill](skills/duel-orchestrator/SKILL.md).
@@ -186,3 +186,17 @@ be checked before an agent uses a dependent line.
 information boundaries, hidden-card masking, private storage, fixed draws, and
 resume behavior. These tests do not adjudicate card effects. Run `python tests/benchmarks/runner.py`
 for local engine latency measurements; model latency is measured separately.
+
+## Opponent isolation policy
+
+Human card management and opponent isolation are independent. New games use
+`player_isolation: "cooperative"`: a fresh native subagent receives only its
+permitted context and is instructed to avoid all tools, files, network access,
+and delegation. This works in hosts with shared tools/workspaces; privacy relies
+on compliance rather than enforced access restrictions.
+
+Choose `"enforced"` when technical access restrictions are required. The host
+must provide a tool-free model transport or a verified child sandbox. The harness
+records the actual capabilities and boundary for every dispatch. Policies persist
+on resume; legacy saves without a setting remain enforced. See
+[player isolation](docs/player-isolation.md) for both policies.

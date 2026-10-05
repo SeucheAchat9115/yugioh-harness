@@ -1,5 +1,6 @@
 """One persistent moderator writer; no model, network, or git on the hot path."""
 from copy import deepcopy
+from harness.isolation import saved_policy
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -42,7 +43,8 @@ class DuelRunner:
             if verify_checkpoint(checkpoint) != self.state:
                 raise ValueError('Checkpoint differs from current journal')
             config = json.loads((self.game_dir / 'game.json').read_text())
-            if config['id'] != self.state['game_id'] or config['mode'] != self.state['mode']:
+            if (config['id'] != self.state['game_id'] or config['mode'] != self.state['mode']
+                    or saved_policy(config) != saved_policy(self.state)):
                 raise ValueError('Game directory does not match session')
             for name, asset in checkpoint['assets'].items():
                 if (self.game_dir / name).read_text(encoding='utf-8') != asset['content']:

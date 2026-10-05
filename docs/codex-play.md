@@ -2,7 +2,7 @@
 
 Open this repository in a tool-capable Codex, Claude, or Gemini environment and say:
 
-> Read `agents/orchestrator/AGENT.md`. Start an managed duel: I play Branded Despia
+> Read `agents/orchestrator/AGENT.md`. Start a managed duel: I play Branded Despia
 > against Dracotail. Ask me for any missing rules, then guide me through the game.
 
 For self mode say you manage your own hidden cards. To watch two agents, request
@@ -12,7 +12,8 @@ open player sessions, manage credentials, or relay agent messages during play.
 The orchestrator handles setup, runtime calls, player delegation, and saving.
 
 The app environment needs execution or MCP tools and a native subagent facility
-with safe context/tool boundaries. Plain chat apps do not gain those capabilities
+without inherited parent/sibling history. Cooperative is the normal native-host
+policy; enforced additionally needs a verified sandbox or tool-free transport. Plain chat apps do not gain those capabilities
 from these files. If a required capability is missing, the orchestrator explains
 it and pauses rather than pretending to run independent players. The workflow is
 provider-neutral; it does not include vendor model SDKs or API credentials.
@@ -33,7 +34,7 @@ already-running app. These are **moderator** tools; never expose them to players
 | `duel_start` | Create an agreed duel, internal private paths, snapshots, and hands |
 | `duel_resume` | Load a saved game by ID, without reshuffling |
 | `duel_next` | Return the next human display, private player task, or moderator review |
-| `duel_player_start` | Reserve a bounded attempt after verified host isolation |
+| `duel_player_start` | Reserve a bounded attempt under the saved isolation policy |
 | `duel_player_bind` | Save the native child handle for cancellation/resume |
 | `duel_player_fail` | Record failure and acknowledge actual child termination |
 | `duel_agent_result` | Bind terminal output to its task and attempt |
@@ -60,9 +61,10 @@ In managed mode only the moderator manages human hidden state; the opponent
 receives its own cards and legally revealed human information. Self mode never
 imports human hidden cards. Agent-versus-agent player views hide the
 other hand and guide. Child context envelopes must stay internal. Follow [isolation and failure handling](player-isolation.md)
-for dispatch declarations, deadlines, cancellation, and bounded retries. Host tool and
-filesystem restrictions or context-only callbacks are required for enforced
-isolation; merely supplying a private prompt does not sandbox a child.
+for policy selection, honest capability declarations, deadlines, cancellation,
+and bounded retries. Cooperative children use only their supplied context and
+are instructed to avoid tools/files; enforced requires actual restrictions or a
+tool-free transport. Shared native tools/files do not block cooperative play.
 
 Every gameplay message includes the fixed state display and reviewed intervening
 events. Human windows have two legal suggestions when available and accept free

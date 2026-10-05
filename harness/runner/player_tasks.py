@@ -1,5 +1,6 @@
-"""Durable, bounded player dispatch. The host enforces its declared sandbox."""
+"""Durable, bounded player dispatch. Cooperative boundaries are instructions; enforced boundaries require host restrictions."""
 from copy import deepcopy
+from harness.isolation import saved_policy
 import time
 from uuid import uuid4
 from harness.runner.workflow import fingerprint
@@ -15,12 +16,22 @@ class PlayerTaskError(ValueError):
         super().__init__(code)
 
 
-def validate_isolation(policy):
-    if not isinstance(policy, dict) or set(policy) != {'method', 'parent_history', 'tools', 'filesystem', 'evidence'}:
+def validate_isolation(declaration, required='enforced'):
+    if not isinstance(declaration, dict) or set(declaration) != {'method', 'parent_history', 'tools', 'filesystem', 'evidence'}:
         raise PlayerTaskError('isolation_required')
-    if policy['method'] not in ('context-only', 'host-sandbox') or policy['parent_history'] is not False or policy['tools'] != [] or policy['filesystem'] is not False:
+    if (required not in ('cooperative', 'enforced') or declaration['parent_history'] is not False
+            or not isinstance(declaration['tools'], list)
+            or any(not isinstance(tool, str) or not tool.strip() for tool in declaration['tools'])
+            or type(declaration['filesystem']) is not bool):
         raise PlayerTaskError('isolation_required')
-    if not isinstance(policy['evidence'], str) or not policy['evidence'].strip() or len(policy['evidence']) > 500:
+    if declaration['method'] == 'cooperative':
+        if required != 'cooperative':
+            raise PlayerTaskError('isolation_required')
+    elif (declaration['method'] not in ('context-only', 'host-sandbox')
+          or declaration['tools'] != [] or declaration['filesystem'] is not False):
+        # Even a cooperative game must reject a false claim of enforced isolation.
+        raise PlayerTaskError('isolation_required')
+    if not isinstance(declaration['evidence'], str) or not declaration['evidence'].strip() or len(declaration['evidence']) > 500:
         raise PlayerTaskError('isolation_required')
 
 
@@ -79,7 +90,8 @@ class PlayerTasks:
 
     def begin(self, task_id, request_id, isolation, timeout_seconds=60):
         self.runner._fresh()
-        validate_isolation(isolation)
+        required = saved_policy(self.runner.state)
+        validate_isolation(isolation, required)
         if not isinstance(request_id, str) or not request_id or type(timeout_seconds) is not int or not 1 <= timeout_seconds <= 120:
             raise PlayerTaskError('invalid_dispatch')
         task = self.task(task_id)
@@ -102,9 +114,12 @@ class PlayerTasks:
         task['attempt_id'] = identity
         task['status'] = 'running'
         task['attempts'][identity] = {'status': 'running', 'deadline': deadline,
-            'isolation': deepcopy(isolation), 'termination_confirmed': False}
+            'isolation': deepcopy(isolation), 'isolation_policy': required,
+            'isolation_boundary': 'cooperative' if isolation['method'] == 'cooperative' else 'enforced',
+            'termination_confirmed': False}
         receipt = {'task_id': task_id, 'attempt_id': identity, 'deadline': deadline,
-                   'player': task['player'], 'decision_id': task['decision_id'], 'revision': task['revision']}
+                   'player': task['player'], 'decision_id': task['decision_id'], 'revision': task['revision'],
+                   'isolation_policy': required, 'isolation_boundary': task['attempts'][identity]['isolation_boundary']}
         dispatches[request_id] = {'digest': digest, 'receipt': receipt}
         self.runner.workflow.persist()
         return {**deepcopy(receipt), 'dispatch_authorized': True}
@@ -154,6 +169,8 @@ class PlayerTasks:
         attempt = task.get('attempts', {}).get(task.get('attempt_id'), {})
         return {'task_id': task['task_id'], 'attempt_id': task.get('attempt_id'), 'player': task['player'],
                 'status': task.get('status', 'ready'), 'reason': attempt.get('reason'),
+                'isolation_policy': saved_policy(self.runner.state),
+                'isolation_boundary': attempt.get('isolation_boundary', 'enforced' if attempt else None),
                 'deadline': attempt.get('deadline'), 'child_id': attempt.get('child_id'), 'termination_confirmed': attempt.get('termination_confirmed', True),
                 'attempts_used': self.attempts_used(task), 'max_attempts': MAX_ATTEMPTS}
 

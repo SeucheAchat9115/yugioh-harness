@@ -1,44 +1,69 @@
 # Player isolation and failed subagents
 
-The orchestrator is the only moderator and user contact. A player receives its own
-permitted context and returns one intention. Player code must not receive parent
-or sibling histories, moderator MCP servers, execution/read tools, credentials,
-or private-state paths. A role-scoped context is not an operating-system sandbox.
+The orchestrator is the only moderator and user contact. Each player receives
+only its permitted context and returns an intention. Human card management
+(`managed` or `self`) and player isolation are independent settings.
 
-## Two supported dispatch boundaries
+## Select once and preserve on resume
 
-- **Context-only model request:** `harness.players.isolated.ContextOnlyPlayer`
-  builds exactly a system policy and a permitted player context, with `tools: []`
-  and `tool_choice: none`. It rejects moderator context, extra parent-message
-  fields, opponent hidden zones/guides, future deck orders, and authoritative card
-  catalogs. Returned tool-call objects are rejected; output is never executed.
-  The trusted host transport sends this request to a model API without appending
-  history, tools, or filesystem content. Provider-specific API translation is the
-  host's responsibility; it must preserve these restrictions.
-- **Native host sandbox:** configure a fresh child with no inherited conversation,
-  no tools, and no filesystem access. Verify the host's actual permissions before
-  dispatch. An instruction such as “do not read files” does not count as enforcement.
-  Native facilities that inherit unrestricted tools/shared private files cannot
-  be used as isolated players. Use the context-only route or pause the duel.
+New `managed`, `self`, and `agent-vs-agent` games default to
+`player_isolation: "cooperative"`, the normal native-agent workflow. State the
+policy during setup; honor an explicit request for `enforced`. Save the choice
+in configuration and journaled state. Never ask for an exception at each turn
+or silently downgrade an enforced game. Existing saves without this setting
+remain enforced. Legacy `open`/`blind` startup defaults also remain enforced.
+The policy cannot be changed through an action or metadata edit on resume.
 
-Before spawning, `duel_player_start` requires this exact declaration:
+| Policy | Requirements | Privacy limit |
+| --- | --- | --- |
+| Cooperative | Fresh child, no inherited parent/sibling history, permitted context only, instructions prohibiting all tools, file/network access, and delegation | The host may still expose tools/files; privacy depends on the child obeying instructions. |
+| Enforced | Fresh child plus a tool-free model request or verified host restrictions preventing tool and filesystem access | Host-enforced boundary; the harness records a declaration, not independent sandbox attestation. |
+
+Both use the same filtered views, sequential dispatch, sole moderator writer,
+legality review, deadlines, bounded retries, and durable receipts. Cooperative
+is not permission to include hidden opponent cards, moderator history, private
+paths, credentials, or opponent guides in a task. Do not label it hard-isolated.
+
+## Record the actual dispatch boundary
+
+Before spawning, `duel_player_start` requires exactly these declaration keys.
+For a cooperative native host with shared tools and files, an honest example is:
 
 ```json
 {
-  "method": "context-only",
+  "method": "cooperative",
   "parent_history": false,
-  "tools": [],
-  "filesystem": false,
-  "evidence": "Reference to the verified host configuration or context-only transport"
+  "tools": ["functions", "collaboration"],
+  "filesystem": true,
+  "evidence": "Fresh child with no inherited history; tools and workspace remain available; player instructions prohibit their use"
 }
 ```
 
-`method` can also be `host-sandbox`. The declaration and evidence are saved
-privately. The runtime rejects absent/unsafe declarations. This is a trusted
-host assertion, **not remote attestation**: the harness cannot independently
-verify a vendor app's sandbox or prevent a dishonest moderator from leaking data.
-Role-bound arena tools enforce API access; host filesystem restrictions remain
-necessary. Never label shared unrestricted native children as hard-isolated.
+`tools` describes capabilities actually available, not the requested tool-use
+policy. `filesystem` likewise describes actual access. Use the host's real
+capability names and configuration; do not copy evidence without verifying it.
+No inherited history is permitted under either policy. A cooperative declaration
+is rejected for an enforced game.
+
+For enforced dispatch use `method: "context-only"` or `"host-sandbox"`,
+`parent_history: false`, `tools: []`, `filesystem: false`, and nonempty evidence
+identifying the verified transport or host restrictions. Even in a cooperative
+game these methods must meet the enforced requirements; shared tools/files cannot
+be relabeled as a sandbox. A cooperative game may use a stronger enforced boundary.
+
+- `harness.players.isolated.ContextOnlyPlayer` constructs a system policy and
+  permitted player context, with `tools: []` and `tool_choice: none`. The trusted
+  transport must not append history, tools, or filesystem content. Provider-specific
+  API translation is the host's responsibility. Tool-call output is rejected.
+- A native host sandbox must actually prevent tool/file access. Instructions alone
+  are insufficient. If the saved policy is enforced and neither route exists,
+  explain the limitation and pause; do not downgrade it automatically.
+
+Attempts persist the selected policy, actual declaration, evidence, and boundary
+label. Task/dispatch/status responses expose the policy and boundary label to the
+moderator. Capability details remain in the private workflow/checkpoint. These
+receipts are host assertions, not remote attestation. Cooperative children must
+not use inherited tools even if a host exposes them.
 
 ## Durable attempt protocol
 
@@ -100,8 +125,7 @@ Tests cover missing/unsafe declarations, separate permitted views, moderator
 context rejection, tool-call rejection, duplicate starts, timeout boundaries,
 cancellation, malformed output, late replies, bounded retries, resumed attempts,
 and interrupted result finalization. They exercise trusted scripted transports,
-not a vendor sandbox. A real host's permissions must be verified before its first
-duel; no Python commands or credential handling are required from the player.
+not a vendor sandbox. The declaration must describe the real host before dispatch; no Python commands or credential handling are required from the player.
 
 ## Management and information
 

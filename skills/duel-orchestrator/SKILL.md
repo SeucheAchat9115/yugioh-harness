@@ -11,7 +11,11 @@ moderator instructions, and the human-duel or agent-duel policy.
 
 ## Setup
 
-1. Verify the host can run repository tools and spawn context-isolated children.
+1. Verify runtime/subagent access and select `player_isolation` once during setup.
+   New managed/self/agent-vs-agent games default to cooperative; announce that
+   privacy relies on a fresh child following its context-only/no-tools instructions.
+   Use enforced when requested, requiring a tool-free transport or actual sandbox.
+   Preserve the selected policy on resume; legacy missing settings mean enforced.
    Use a configured conversational MCP service if available. Otherwise the
    orchestrator can launch that service through its own execution tools and use
    the local stdio MCP protocol. Keep one process/writer alive for the session.
@@ -44,9 +48,13 @@ Call `duel_next` after setup, presentation, input, or an applied action:
   Give two distinct legal recommendations when available; free text is valid.
   Submit their answer with `duel_human_reply(decision_id, request_id, response)`.
   Keep stable IDs and identical payloads for retries; the user never types IDs.
-- `kind: subagent`: follow `docs/player-isolation.md`. Verify the actual host
-  boundary: no parent history, tools, or filesystem access, or use the context-only
-  model adapter. Reserve with `duel_player_start` and a stable request ID. Spawn
+- `kind: subagent`: follow `docs/player-isolation.md` and the saved policy. Both
+  require no inherited parent/sibling history and only the permitted context.
+  Cooperative children must be instructed not to use any tools/files/network or
+  delegation; declare actual available capabilities, including shared tools/files.
+  Enforced dispatch requires no tools/files via a verified sandbox or context-only
+  transport. Never claim instructions enforce access or downgrade a saved policy.
+  Reserve with `duel_player_start` and a stable request ID. Spawn
   only when `dispatch_authorized: true`; duplicate reservations never authorize
   another child. Give only the permitted context/policy, correlate by attempt ID,
   and immediately save the native handle through `duel_player_bind`.
@@ -74,7 +82,7 @@ actual human option; unknown self responses cannot be auto-passed.
 
 ## Safety and resumption
 
-Only the moderator gets conversational MCP tools. Player children get permitted
+Only the moderator may use conversational MCP tools. Player children get permitted
 context and return intentions. The service schedules work but does not itself
 call model APIs or spawn vendor agents: the host orchestrator does that. Native
 Codex/Claude/Gemini facilities differ; use the actual installed tools, never

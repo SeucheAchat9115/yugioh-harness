@@ -2,6 +2,7 @@
 """Self-contained private duel checkpoints; never commit these files."""
 
 from harness.modes import self_managed
+from harness.isolation import saved_policy
 import argparse
 from copy import deepcopy
 from datetime import datetime, timezone
@@ -30,7 +31,8 @@ def _write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _v
         raise ValueError("Checkpoint must be outside repository")
     state = replay(journal) if _verified_state is None else _verified_state
     config = json.loads((game_dir / "game.json").read_text())
-    if config["id"] != state["game_id"] or config["mode"] != state["mode"]:
+    if (config["id"] != state["game_id"] or config["mode"] != state["mode"]
+            or saved_policy(config) != saved_policy(state)):
         raise ValueError("Checkpoint/game mismatch")
     path = state_path.with_name("checkpoint.json")
     if decision_packet is None and path.exists():
@@ -78,7 +80,8 @@ def verify_checkpoint(checkpoint):
         raise ValueError("Checkpoint state differs from journal")
     validate_state(state)
     config = checkpoint["configuration"]
-    if config["id"] != state["game_id"] or config["mode"] != state["mode"]:
+    if (config["id"] != state["game_id"] or config["mode"] != state["mode"]
+            or saved_policy(config) != saved_policy(state)):
         raise ValueError("Checkpoint configuration differs from state")
     packet = checkpoint.get("decision_packet")
     if packet is not None and packet.get("expected_revision") != state["revision"]:

@@ -7,6 +7,7 @@ from harness.storage.locking import writer_lock
 from harness.storage.atomic import save
 from harness.views.perspective import view
 from harness.modes import MODES, self_managed, managed_cards
+from harness.isolation import startup_policy
 from copy import deepcopy
 from datetime import datetime, timezone
 import hashlib
@@ -82,6 +83,7 @@ def known_player(deck, settings):
 
 
 def validate_config(config):
+    startup_policy(config)
     if config.get("mode") not in MODES:
         raise ValueError("Choose managed, self, or agent-vs-agent mode (open/blind are legacy)")
     for key in ("id", "format"):
@@ -138,6 +140,8 @@ def start(repo, config, private_dir):
 
 
 def _start(repo, config, private_dir):
+    config = deepcopy(config)
+    config['player_isolation'] = startup_policy(config)
     repo, private_dir = repo.resolve(), private_dir.resolve()
     validate_config(config)
     if private_dir.is_relative_to(repo):
@@ -168,6 +172,7 @@ def _start(repo, config, private_dir):
         }
     state = {
         "game_id": config["id"], "mode": config["mode"], "status": "active",
+        "player_isolation": config["player_isolation"],
         "turn": 1, "active_player": config["starting_player"], "phase": "draw",
         "chain": [], "players": players, "pending_effects": [],
         "revision": 0, "pending_decision": None,

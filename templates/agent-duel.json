@@ -1,6 +1,7 @@
 {
   "id": null,
   "mode": "agent-vs-agent",
+  "player_isolation": "cooperative",
   "format": null,
   "banlist": null,
   "rules_profile": null,

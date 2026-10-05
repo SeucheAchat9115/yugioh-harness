@@ -9,7 +9,9 @@ remain `human` (Agent 1) and `agent` (Agent 2) for saved-state compatibility; bo
 participants are AI players. Follow `agents/shared/moderator.md` and
 `docs/agent-vs-agent.md`.
 
-Only the orchestrator receives moderator tools. If using the optional arena
+Only the orchestrator may use moderator tools. Apply the saved cooperative/enforced
+policy from `docs/player-isolation.md`; shared host tools do not imply player
+permission to use them. If using the optional arena
 backend, only the moderator receives its credential. Load both managed
 states through `duel_context(player="moderator")`; do not give that context to
 players. The harness preserves shuffled orders without revealing future draws

@@ -225,3 +225,14 @@ They are not rewritten: `open` retains opponent access to human hidden state,
 whereas `blind` behaves as self. The journal mode is immutable. The existing
 `open-state-verified` no-choice basis means a moderator review of known state;
 it is valid for managed games and never valid for unknown self/blind human state.
+
+## Saved player isolation
+
+The startup configuration and immutable journaled state contain
+`player_isolation: "cooperative"` or `"enforced"`. New managed/self/agent-vs-agent
+games default to cooperative; legacy open/blind startup and saved documents
+without a setting retain enforced requirements. Resume verifies configuration
+and state agree. `duel_next` and status report the policy, and dispatch receipts
+record the actual boundary separately; an enforced transport may satisfy a
+cooperative game. Actual capabilities/evidence are saved privately per attempt.
+Neither policy changes hidden-information projection or legality review.

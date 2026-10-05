@@ -15,8 +15,10 @@ returned intentions before changing the game. Follow the
 All modes use [shared moderator policy](shared/moderator.md). The LLM interprets
 rules and card text; the harness supplies structural checks and reliable saves.
 Player children get only their respective contexts, never parent/sibling history
-or unrestricted moderator tools. Host restrictions or context-only callbacks are
-needed to enforce file/tool boundaries.
+or permission to use moderator tools. Cooperative native children may have
+shared tools/files but must follow the no-tools/context-only instructions.
+Enforced isolation requires host restrictions or a tool-free transport. The
+selected policy is saved and preserved on resume.
 
 ## Start or resume conversationally
 

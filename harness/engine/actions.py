@@ -2,6 +2,7 @@
 """Record moderator-approved decisions; replay state changes without rerunning effects."""
 
 from harness.modes import self_managed
+from harness.isolation import saved_policy
 import argparse
 from copy import deepcopy
 from datetime import datetime, timezone
@@ -17,7 +18,7 @@ from harness.views.perspective import view
 KINDS = {"activate", "respond", "resolve", "pass", "summon", "set", "move",
          "search", "shuffle", "draw", "attack", "damage", "phase", "turn",
          "reveal", "usage", "choice", "finish", "correction"}
-PROTECTED = {"game_id", "mode", "presentation", "revision"}
+PROTECTED = {"game_id", "mode", "presentation", "revision", "player_isolation"}
 
 
 def validate_no_choice(state, review):
@@ -44,6 +45,7 @@ def initialize(state):
 
 
 def validate_state(state):
+    saved_policy(state)
     inventory(state)
     seen = set()
     for actor, player in state["players"].items():
