@@ -1,5 +1,6 @@
 """Allowlisted public fields. Free text in these fields needs moderator review."""
 from copy import deepcopy
+from harness.modes import shared_human_information
 
 CARD_FIELDS = ('instance_id', 'owner', 'card_id', 'name', 'position', 'hidden',
                'current_name', 'atk', 'def', 'level', 'attribute', 'type', 'race',
@@ -40,7 +41,7 @@ def effect_view(effects, viewer, mode):
         if effect.get('visibility', 'public') == 'private':
             owner = effect.get('owner', effect.get('actor'))
             if not (viewer == owner or viewer == 'moderator' or
-                    (mode == 'open' and owner == 'human' and viewer == 'agent')):
+                    (shared_human_information(mode) and owner == 'human' and viewer == 'agent')):
                 continue
         result.append(project(effect, EFFECT_FIELDS))
     return result

@@ -40,11 +40,12 @@
   opportunities, keep private information private, and use an agreed authoritative
   state/referee. Never treat the playbook as automatic permission for a legal action.
 
-- Use `agents/blind-duel/AGENT.md` for blind duels and
-  `agents/open-duel/AGENT.md` for guided open duels, together with the shared
-  moderator instructions. Blind mode must never load the human's hidden deck/hand.
-  Open mode explicitly knows all human state and coaches choices without taking
-  over the human's actions unless delegated. Label moderator/opponent/coach roles.
+- Use `agents/human-duel/AGENT.md` for both human modes, together with shared
+  moderator instructions. `managed` handles the human's selected deck and declared
+  moves, while keeping their hidden cards out of the opponent's context. `self`
+  never loads the human's hidden deck/hand; the human handles their own cards.
+  Coach without choosing human moves unless explicitly delegated. Label roles.
+  Preserve legacy `open`/`blind` saves and their original visibility semantics.
 - Store live private session state outside the repository. Use the session
   helper for fixed shuffled draws and perspective views; it is not an effect engine.
   Never reshuffle on resume, skip responses, or change rulings to favor the agent.
@@ -55,9 +56,9 @@
 - Follow `docs/duel-experience.md` for every gameplay message: fixed decision-v1
   state display, two distinct legal recommendations when available, and free-text
   input. Record and explain compulsory/no-choice steps automatically; stop at the
-  next actual human option. Blind unknown options are not no options.
+  next actual human option. Self unknown options are not no options.
 - Persist complete local checkpoints after updates and before questions, including
-  open-mode hidden states, numbered choices, rules/snapshots, costs/effects, and
+  managed-mode hidden states, numbered choices, rules/snapshots, costs/effects, and
   shuffled orders. Verify before resuming; never restart or reshuffle a saved game.
 
 - The harness owns live state. Use `harness/runner/duel.py` as the single persistent
@@ -83,7 +84,7 @@
 
 - Use `mode: "agent-vs-agent"` and `docs/agent-vs-agent.md` for two managed AI
   players. Legacy IDs `human`/`agent` identify slots only. Each player gets its own
-  private view and guide; the moderator gets both. Never apply open-mode human
+  private view and guide; the moderator gets both. Never apply legacy open-mode shared human
   visibility, publish private player menus, or share player/moderator histories.
 - Independent player clients use role-bound arena credentials and tools. They must
   not receive moderator credentials or direct filesystem access to private state,

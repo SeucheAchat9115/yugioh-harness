@@ -7,7 +7,7 @@ description: Run all duel modes through one conversational moderator and sequent
 
 Apply when the user asks to start, play, watch, pause, or resume a duel. The user
 speaks only to the orchestrator. Read `agents/orchestrator/AGENT.md`, shared
-moderator instructions, and the relevant open/blind/agent-duel policy.
+moderator instructions, and the human-duel or agent-duel policy.
 
 ## Setup
 
@@ -16,10 +16,15 @@ moderator instructions, and the relevant open/blind/agent-duel policy.
    orchestrator can launch that service through its own execution tools and use
    the local stdio MCP protocol. Keep one process/writer alive for the session.
    This is internal automation; do not give the user commands to execute.
-2. Discover complete bundles with `duel_decks`. Ask conversationally for missing
+2. Use `managed` or `self` for human games. Managed loads the selected human
+   bundle and coaches their choices, but keeps their hidden cards private from
+   the opponent child. Self tracks only counts and legally revealed information;
+   the human handles their own hidden cards. Do not choose human moves unless
+   delegated. Preserve legacy saved modes rather than rewriting them.
+   Discover complete bundles with `duel_decks`. Ask conversationally for missing
    mode, deck selection, rules/banlist, starting player, and settings. Reuse prior
    agreements. Populate `templates/duel-config.json` internally. Do not assume
-   current or historical rules. In blind mode take human counts, never their YDK
+   current or historical rules. In self mode take human counts, never their YDK
    or hidden card identities. A user can select by deck name or linked YDK.
 3. Start with `duel_start(config, rules_text)`. The runtime assigns an ID if absent,
    creates private storage outside the checkout, snapshots rules/decks, and deals
@@ -65,7 +70,7 @@ Every outward gameplay message must include the fixed state display; private
 subagent work stays internal. In agent-versus-agent mode report public spectator
 state using the decision renderer, without private menus. Accumulate reviewed
 intervening events and explain them when reporting the next choice. Stop at every
-actual human option; unknown blind responses cannot be auto-passed.
+actual human option; unknown self responses cannot be auto-passed.
 
 ## Safety and resumption
 

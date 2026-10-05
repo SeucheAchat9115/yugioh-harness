@@ -30,7 +30,7 @@ Decision: <player> / <window>
 LP: You <lp> | Opponent <lp>
 You counts: Hand <n> | Deck <n> | Extra <n> | Side <n>
 Opponent counts: Hand <n> | Deck <n> | Extra <n> | Side <n>
-Your hand: <H1, H2, ... in open mode; private in blind mode>
+Your hand: <H1, H2, ... in managed mode; private in self mode>
 Board: <both numbered fields, Field Zones, GYs, banishment, shared zones>
 Chain (activation order): <links, effects, costs, targets>
 Usage / restrictions: <Normal Summon use, effect limits, locks>
@@ -54,7 +54,7 @@ Never take over an optional human decision or use a recommendation automatically
 ## Continue until the next real choice
 
 Review hand/field/GY/banished effects, costs, targets, timing, restrictions, and
-required selections at every window. Open mode can check full human state. Blind
+required selections at every window. Managed mode can check full human state. Blind
 unknown cards mean unknown options: only public rules excluding action, or a human
 confirmation of no response, justify skipping. An empty menu does not prove absence.
 
@@ -85,7 +85,7 @@ has two choices. This is a moderator attestation, not automatic rules-engine pro
 [decision.json](../templates/decision.json) defines the private renderer input:
 revision, role, intervening events, recommendations (label/reason), question,
 `awaiting_user`, and option review. Complete reviews with at least two choices
-require two recommendations. For blind/uncertain options use `complete: false`
+require two recommendations. For self/uncertain options use `complete: false`
 and `meaningful_choices: null`; this cannot authorize automatic progression.
 No-choice active packets require a verified review and `awaiting_user: false`.
 Paused/finished displays request no action. Narration and advice must be human-safe.
@@ -103,7 +103,7 @@ displaying them, preserving the meaning of “1” or “H2” on resume.
 Initialization and every update refresh private `checkpoint.json`. Rendering adds
 the current decision packet/mapping. This self-contained file stores state and
 journal, configuration, rules, exact deck/card-text/guide snapshots with hashes,
-both hands/sets in open mode, managed Extra/Side Decks, fixed draw orders, LP/zones,
+both hands/sets in managed mode, managed Extra/Side Decks, fixed draw orders, LP/zones,
 materials, usage, restrictions, delayed effects, summon history, chain links,
 paid costs, targets, resolution choices, and pending windows as recorded by the
 moderator. Facts never entered into state/actions cannot be restored.

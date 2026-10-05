@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Self-contained private duel checkpoints; never commit these files."""
 
+from harness.modes import self_managed
 import argparse
 from copy import deepcopy
 from datetime import datetime, timezone
@@ -61,7 +62,7 @@ def _write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _v
                   "configuration": config, "state": state, "journal": journal,
                   "decision_packet": decision_packet, "assets": assets,
                   "blind_human_resume": "Human must preserve their own hidden cards/order independently."
-                  if state["mode"] == "blind" else None}
+                  if self_managed(state["mode"]) else None}
     workflow_path = state_path.with_name("workflow.json")
     if workflow_path.exists():
         checkpoint["workflow"] = json.loads(workflow_path.read_text())

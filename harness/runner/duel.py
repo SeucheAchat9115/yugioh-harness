@@ -86,7 +86,7 @@ class DuelRunner:
         if player not in ('human', 'agent', 'moderator', 'public'):
             raise ValueError('Player must be human or agent')
         permitted = view(self.state, player)
-        # The moderator may know an open human deck order; players never read ahead.
+        # The moderator may know a managed human deck order; players never read ahead.
         for details in permitted['players'].values():
             details.pop('remaining_deck_order', None)
         # Chain objects may carry internal resolution choices; give players only public fields.

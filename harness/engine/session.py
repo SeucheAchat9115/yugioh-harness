@@ -6,6 +6,7 @@ from contextlib import nullcontext
 from harness.storage.locking import writer_lock
 from harness.storage.atomic import save
 from harness.views.perspective import view
+from harness.modes import MODES, self_managed, managed_cards
 from copy import deepcopy
 from datetime import datetime, timezone
 import hashlib
@@ -81,8 +82,8 @@ def known_player(deck, settings):
 
 
 def validate_config(config):
-    if config.get("mode") not in ("blind", "open", "agent-vs-agent"):
-        raise ValueError("Choose blind, open, or agent-vs-agent mode")
+    if config.get("mode") not in MODES:
+        raise ValueError("Choose managed, self, or agent-vs-agent mode (open/blind are legacy)")
     for key in ("id", "format"):
         if not isinstance(config.get(key), str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]*", config[key]):
             raise ValueError(f"Set a lowercase hyphenated {key}")
@@ -115,9 +116,9 @@ def validate_config(config):
     for key in ("main_monster_zones", "spell_trap_zones", "extra_monster_zones"):
         if type(layout.get(key)) is not int or not 0 <= layout[key] <= 10:
             raise ValueError(f"Set field layout {key}")
-    if config["mode"] == "blind":
+    if self_managed(config["mode"]):
         if config.get("human_deck") is not None:
-            raise ValueError("Blind mode must not receive a human deck path")
+            raise ValueError("Self/blind mode must not receive a human deck path")
         counts = config.get("human_deck_counts", {})
         for key in ("main", "extra", "side"):
             if type(counts.get(key)) is not int or counts[key] < 0:
@@ -148,7 +149,7 @@ def _start(repo, config, private_dir):
     agent_folder, agent_deck = load_bundle(repo, config["agent_deck"])
     bundles = {"agent": agent_folder}
     players = {"agent": known_player(agent_deck, config["settings"])}
-    if config["mode"] in ("open", "agent-vs-agent"):
+    if managed_cards(config["mode"]):
         human_folder, human_deck = load_bundle(repo, config["human_deck"])
         bundles["human"] = human_folder
         players["human"] = known_player(human_deck, config["settings"])
@@ -179,7 +180,7 @@ def _start(repo, config, private_dir):
     metadata.setdefault("storage", {"game_commits": "explicit-user-request-only"})
     metadata.update({"status": "active", "date": datetime.now(timezone.utc).isoformat(),
                      "legality_checks": {"agent": "pending_format_verification",
-                                         "human": "self_attested" if config["mode"] == "blind" else "pending_format_verification"},
+                                         "human": "self_attested" if self_managed(config["mode"]) else "pending_format_verification"},
                      "deck_snapshots": {actor: f"decks/{actor}/{folder.name}/" for actor, folder in bundles.items()}})
     game_dir.mkdir(parents=True)
     private_dir.mkdir(parents=True, mode=0o700, exist_ok=True)

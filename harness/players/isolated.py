@@ -4,6 +4,7 @@ The trusted transport sends this request to a model API; it must not append pare
 messages, filesystem content, or tools. Native agents need host sandboxing instead.
 """
 from copy import deepcopy
+from harness.modes import shared_human_information
 import json
 from harness.runner.orchestrator import PLAYER_POLICY
 
@@ -18,7 +19,7 @@ def model_request(context):
     for owner, player in state['players'].items():
         if any(key in player for key in ('deck', 'cards', 'remaining_deck_order')):
             raise ValueError('Authoritative card catalogs/orders are forbidden')
-        open_human = state['mode'] == 'open' and actor == 'agent' and owner == 'human'
+        open_human = shared_human_information(state['mode']) and actor == 'agent' and owner == 'human'
         if owner != actor and not open_human and any(key in player for key in ('hand', 'extra_deck', 'side_deck')):
             raise ValueError('Opponent hidden zones are forbidden')
     if any(not name.startswith('decks/' + actor + '/') for name in context.get('guides', {})):

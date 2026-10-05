@@ -2,10 +2,10 @@
 
 Open this repository in a tool-capable Codex, Claude, or Gemini environment and say:
 
-> Read `agents/orchestrator/AGENT.md`. Start an open duel: I play Branded Despia
+> Read `agents/orchestrator/AGENT.md`. Start an managed duel: I play Branded Despia
 > against Dracotail. Ask me for any missing rules, then guide me through the game.
 
-For blind mode say you manage your own hidden cards. To watch two agents, request
+For self mode say you manage your own hidden cards. To watch two agents, request
 an agent-versus-agent duel and name both decks. To continue, ask to resume the saved
 game ID. You always talk to one orchestrator. You do not run Python, prepare JSON,
 open player sessions, manage credentials, or relay agent messages during play.
@@ -56,8 +56,9 @@ no inherited moderator history. Wait for each result, store it, review it, apply
 the action, then fetch fresh context for the next actor. The scheduler does not
 spawn a model itself; the app's orchestrator invokes its native subagent tools.
 
-In open mode the moderator and opposing player know human state as agreed. Blind
-mode never imports human hidden cards. Agent-versus-agent player views hide the
+In managed mode only the moderator manages human hidden state; the opponent
+receives its own cards and legally revealed human information. Self mode never
+imports human hidden cards. Agent-versus-agent player views hide the
 other hand and guide. Child context envelopes must stay internal. Follow [isolation and failure handling](player-isolation.md)
 for dispatch declarations, deadlines, cancellation, and bounded retries. Host tool and
 filesystem restrictions or context-only callbacks are required for enforced
@@ -66,7 +67,7 @@ isolation; merely supplying a private prompt does not sandbox a child.
 Every gameplay message includes the fixed state display and reviewed intervening
 events. Human windows have two legal suggestions when available and accept free
 text. Only verified compulsory/no-choice steps advance automatically. Unknown
-blind choices cannot be skipped. The user never supplies request IDs or operations.
+self choices cannot be skipped. The user never supplies request IDs or operations.
 
 Retries retain IDs and identical payloads. Recorded actions return receipts rather
 than reapplying effects. Outstanding task bindings, prompts, choices, and hidden

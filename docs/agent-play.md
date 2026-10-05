@@ -12,7 +12,7 @@ Agree on format, card pool, banlist, rules version, card text overrides, startin
 LP/hand size, field layout, first-turn rules, single game or match, and start player.
 Load each bundle from `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`,
 and `guide.md`; use the optional `README.md` for source notes. Validate known
-decklists, including Side Deck Extra Deck cards. In blind mode record the
+decklists, including Side Deck Extra Deck cards. In self mode record the
 human list as self-attested without requesting it. Snapshot each whole bundle into
 `games/<format>/<game-id>/decks/<player>/<deck-name>/`, retaining its generic filenames,
 and snapshot the rules into the game's records. Check each guide's JSON hash.
@@ -20,22 +20,22 @@ and snapshot the rules into the game's records. Check each guide's JSON hash.
 Use the harness for authoritative stored state and managed shuffles; assign the
 LLM moderator to interpret rules and approve gameplay updates. Agree on a ruling
 source or referee for uncertain interactions. Use independently shuffled,
-fixed deck orders and preserve them when saving/resuming. Select [blind or open
-mode](../agents/README.md) before providing hidden information. Blind mode never
-receives the human's hidden deck/hand; the human manages those privately. Open
-mode explicitly permits the combined moderator/opponent to know all human state
-and coach choices. Human display still hides agent cards unless agreed otherwise.
+fixed deck orders and preserve them when saving/resuming. Select [self or managed
+mode](../agents/README.md) before providing hidden information. Self mode never
+receives the human's hidden deck/hand; the human manages those privately. Managed mode loads the selected human bundle
+for the orchestrator and coach, while keeping hidden information private from
+the opponent child. Human display still hides agent cards unless agreed otherwise.
 
 ## Information and decisions
 
-In blind mode, a playing agent receives its own hand and permitted information,
+In self mode, a playing agent receives its own hand and permitted information,
 plus the public board, public GYs/banishment, LP, deck/hand counts, and log.
 Opponent face-down cards, private draws, and deck order remain unknown until
 revealed by a rule or effect. Face-down banished cards remain private as applicable.
 Separate a hypothesis about an unknown card from an observed fact.
-In open mode, the combined agent also knows the human's full state. It must disclose
-that knowledge model, let the human choose their actions, and never alter randomness
-or rule judgments to favor its opponent role.
+In managed mode the orchestrator knows the human's state and coaches their choices.
+The opponent child receives only legally revealed human information. The human
+decides their own actions; never alter randomness or rulings to favor a player.
 
 Use the playbook to propose candidate lines; verify their requirements against
 the actual state and full card text. Check costs, targets, material locations,
@@ -74,7 +74,7 @@ for the next legal window and order simultaneous effects under the selected rule
 Automatically progress through compulsory/pass-only windows after a complete
 no-choice review, recording the reason and reporting intervening events. Stop at
 the next actual human choice. Silence never passes an available option, and unknown
-blind hidden cards cannot prove no response. Uncertain rulings also stop progression.
+self hidden cards cannot prove no response. Uncertain rulings also stop progression.
 
 After resolution, update state before choosing another action. Check for summons,
 trigger opportunities, delayed effects, and battle/End Phase procedures. Confirm
@@ -97,8 +97,8 @@ records during a live game, with private states held by the authorized referee
 or respective player. Full records can be archived afterward by agreement.
 
 Refresh private `checkpoint.json` after changes and save exact numbered decision
-packets before asking. Preserve open-mode hands/sets and both orders, costs, counters,
-pending choices, rules, and exact snapshots. Verify on pause/resume. Blind human
+packets before asking. Preserve managed-mode hands/sets and both orders, costs, counters,
+pending choices, rules, and exact snapshots. Verify on pause/resume. Self human
 hidden state remains with the human; do not fabricate it or request it for a save.
 
 ## Errors, rulings, and ending the game

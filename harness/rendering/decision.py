@@ -62,7 +62,7 @@ def render(state, packet):
         player = players[actor]
         lines.append(f"**{label} counts:** Hand {player['hand_count']} | Deck {player['deck_count']} | Extra {player['extra_count']} | Side {player['side_count']}")
     lines.append("**Your hand:** " + ("; ".join(f"H{i}: {card_label(card)}" for i, card in enumerate(players['human'].get('hand', []), 1))
-                 if state["mode"] == "open" else ("private; managed by each agent" if state["mode"] == "agent-vs-agent" else "private; managed by you")))
+                 if state["mode"] in ("managed", "open") else ("private; managed by each agent" if state["mode"] == "agent-vs-agent" else "private; managed by you")))
     if state["presentation"].get("show_agent_hand"):
         lines.append("**Opponent hand (agreed visible):** " + "; ".join(card_label(card) for card in players['agent'].get('hand', [])))
     lines.append("**Board:**")

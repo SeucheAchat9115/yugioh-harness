@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Record moderator-approved decisions; replay state changes without rerunning effects."""
 
+from harness.modes import self_managed
 import argparse
 from copy import deepcopy
 from datetime import datetime, timezone
@@ -26,8 +27,8 @@ def validate_no_choice(state, review):
         raise ValueError("Automatic continuation requires a complete no-choice review")
     if review.get("basis") not in {"open-state-verified", "public-rules-verified", "human-confirmed-none"}:
         raise ValueError("Specify the basis for automatic continuation")
-    if state["mode"] == "blind" and review["basis"] == "open-state-verified":
-        raise ValueError("Unknown blind human state cannot prove absence of options")
+    if self_managed(state["mode"]) and review["basis"] == "open-state-verified":
+        raise ValueError("Unknown self/blind human state cannot prove absence of options")
 
 
 def digest(state):
@@ -48,7 +49,7 @@ def validate_state(state):
     for actor, player in state["players"].items():
         if type(player["lp"]) is not int or player["lp"] < 0:
             raise ValueError("LP must be a nonnegative integer")
-        if state["mode"] == "blind" and actor == "human":
+        if self_managed(state["mode"]) and actor == "human":
             if any(player[key] is not None for key in ("hand", "deck", "extra_deck", "side_deck")):
                 raise ValueError("Blind human hidden card identities must remain absent")
             for key in ("hand_count", "deck_count", "extra_count", "side_count"):
@@ -57,7 +58,7 @@ def validate_state(state):
         def visit(value):
             if isinstance(value, dict):
                 if "instance_id" in value:
-                    if state["mode"] == "blind" and actor == "human" and value.get("hidden"):
+                    if self_managed(state["mode"]) and actor == "human" and value.get("hidden"):
                         if set(value) - {"instance_id", "owner", "position", "hidden"}:
                             raise ValueError("Blind human face-down cards must be anonymous")
                     identity = value["instance_id"]

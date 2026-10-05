@@ -47,8 +47,8 @@ See [action.json](../templates/action.json). Required fields:
 
 Optional `automatic` is an explicit boolean. If true, `option_review` must contain
 `complete: true`, integer `meaningful_choices: 0`, a nonempty reason, and basis
-`open-state-verified`, `public-rules-verified`, or `human-confirmed-none`. Blind
-rejects open-state proof. This records a moderator-reviewed compulsory/pass-only
+`open-state-verified`, `public-rules-verified`, or `human-confirmed-none`. Self/blind
+rejects hidden-state proof. This records a moderator-reviewed compulsory/pass-only
 step, never a guessed strategic action or pass with unknown options.
 
 Paths are arrays of object keys and nonnegative indexes, such as
@@ -58,7 +58,7 @@ Paths must exist. Add custom tracking by replacing existing `effect_usage`,
 `game_id`, `mode`, `presentation`, and `revision` are protected.
 
 Move a card by replacing its source and destination containers in one action,
-preserving `instance_id`. Face-down cards use `hidden: true`. Blind human hidden
+preserving `instance_id`. Face-down cards use `hidden: true`. Self human hidden
 zones remain `null` with counts only; unknown face-down human cards contain only
 anonymous instance/owner/position/hidden fields. Keep legally observed identities
 in separate observations without importing unknown human cards.
@@ -82,7 +82,7 @@ Collect resulting triggers for their next window. These checks do not implement
 priority, simultaneous triggers, or complete resolution rules.
 
 Generate shuffle orders once using system randomness and record the resulting
-private array; replay restores it without shuffling again. For blind human
+private array; replay restores it without shuffling again. For self human
 draws/searches/shuffles, the human performs the private operation; record counts
 and legally revealed cards only. Include costs, usage, and restrictions when they
 become applicable. Phase/turn updates include applicable resets and delayed effects.
@@ -139,7 +139,7 @@ records, with uncertain rulings paused for review.
 Managed physical card IDs must survive every action across zones and attached
 materials. Retain the original `owner` when control changes; use `controller` for
 the new controller. Explicit `token: true` instances can appear or disappear.
-Blind human hidden cards remain count-based. These checks protect bookkeeping;
+Self human hidden cards remain count-based. These checks protect bookkeeping;
 the LLM still judges whether the action is legal.
 
 All mutation commands share the runner's session/game locks. A write failure blocks

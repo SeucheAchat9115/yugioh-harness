@@ -102,3 +102,12 @@ cancellation, malformed output, late replies, bounded retries, resumed attempts,
 and interrupted result finalization. They exercise trusted scripted transports,
 not a vendor sandbox. A real host's permissions must be verified before its first
 duel; no Python commands or credential handling are required from the player.
+
+## Management and information
+
+Human `managed` and `self` modes select who handles the human cards. Both give
+the opponent child only legally revealed human information. Managed additionally
+gives the moderator the full human state for bookkeeping and coaching. Self
+never imports hidden human cards. The same host isolation requirements apply to
+both modes; managing the human deck does not authorize sharing moderator history.
+Legacy `open` saves retain their explicitly shared human information.

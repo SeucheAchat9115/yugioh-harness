@@ -1,4 +1,5 @@
 """Build guarded actions from small bookkeeping operations; LLM judges legality."""
+from harness.modes import self_managed
 from copy import deepcopy
 from uuid import uuid4
 from harness.engine.actions import apply
@@ -78,7 +79,7 @@ def build(state, request, hand_refs=None):
             if path[-1]=='field_spell' or path[-2] in SLOTS or (path[0]=='shared_zones' and len(path)==3):container[key]=None
             else:container.pop(key)
         elif kind=='counts':
-            if working['mode']!='blind' or operation['player']!='human':raise ValueError('Counts apply only to blind human zones')
+            if not self_managed(working['mode']) or operation['player']!='human':raise ValueError('Counts apply only to self/blind human zones')
             for key,delta in operation['deltas'].items():
                 if key not in ('hand_count','deck_count','extra_count','side_count') or type(delta) is not int:raise ValueError('Invalid count delta')
                 working['players']['human'][key]+=delta

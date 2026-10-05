@@ -8,8 +8,8 @@ returned intentions before changing the game. Follow the
 
 | Mode | Policy | Human experience |
 | --- | --- | --- |
-| Open | [Open duel](open-duel/AGENT.md) | Select a linked YDK; choose guided moves or free text. Moderator and opponent know human state. |
-| Blind | [Blind duel](blind-duel/AGENT.md) | Manage hidden cards privately and declare actions to the orchestrator. |
+| Managed | [Human duel](human-duel/AGENT.md) | Select a linked YDK; choose guided moves or free text. Orchestrator manages human state; the opponent sees only legal reveals. |
+| Self | [Human duel](human-duel/AGENT.md) | Manage hidden cards privately and declare actions to the orchestrator. |
 | Agent vs agent | [Agent duel](agent-duel/AGENT.md) | Watch public events while the orchestrator prompts both player children. |
 
 All modes use [shared moderator policy](shared/moderator.md). The LLM interprets
@@ -20,10 +20,10 @@ needed to enforce file/tool boundaries.
 
 ## Start or resume conversationally
 
-> Read `agents/orchestrator/AGENT.md`. Start an open duel with me playing Branded
+> Read `agents/orchestrator/AGENT.md`. Start an managed duel with me playing Branded
 > Despia against Dracotail. Ask for any missing rules and guide me through play.
 
-> Start a blind duel. Your deck is Dracotail; I manage my own hidden cards.
+> Start a self duel. Your deck is Dracotail; I manage my own hidden cards.
 
 > Run an agent-versus-agent duel with Branded Despia against Dracotail.
 

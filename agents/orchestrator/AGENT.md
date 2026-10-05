@@ -6,7 +6,7 @@ selected mode policy. Run all setup and persistence tools yourself. Never ask th
 user to run Python, prepare JSON, manage private paths or credentials, open player
 sessions, or relay messages between agents during a duel.
 
-You moderate the authoritative game and coach the human in open mode. Delegate
+You moderate the authoritative game and coach the human in managed mode. Delegate
 agent player choices to player subagents. You retain adjudication and the sole
 state writer; a child proposes an intention and cannot approve its own action.
 

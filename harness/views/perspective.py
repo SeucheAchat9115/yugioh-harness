@@ -1,6 +1,7 @@
 """Permitted information views; no future draw order for player adapters."""
 from copy import deepcopy
-from harness.views.projection import CARD_FIELDS, EFFECT_FIELDS, project, chain_view, effect_view
+from harness.modes import managed_cards, shared_human_information
+from harness.views.projection import CARD_FIELDS, project, chain_view, effect_view
 
 def render_card(entry, player, reveal=False):
     if entry is None:
@@ -47,14 +48,14 @@ def view(state, viewer):
             owner = entry.get("owner")
             if owner not in state["players"]:
                 raise ValueError("Shared-zone card needs a human/agent owner")
-            reveal = viewer == owner or (viewer == "moderator" and (owner == "agent" or state["mode"] in ("open", "agent-vs-agent"))) or (
-                state["mode"] == "open" and owner == "human" and viewer == "agent")
+            reveal = viewer == owner or (viewer == "moderator" and (owner == "agent" or managed_cards(state["mode"]))) or (
+                shared_human_information(state["mode"]) and owner == "human" and viewer == "agent")
             result["shared_zones"][zone].append(render_card(entry, state["players"][owner], reveal))
     for actor, player in state["players"].items():
         known = player["hand"] is not None
         own = viewer == actor
-        open_human = state["mode"] == "open" and actor == "human" and viewer in ("agent", "moderator")
-        agent_access = viewer == "moderator" and (actor == "agent" or state["mode"] == "agent-vs-agent")
+        open_human = shared_human_information(state["mode"]) and actor == "human" and viewer in ("agent", "moderator")
+        agent_access = viewer == "moderator" and (actor == "agent" or managed_cards(state["mode"]))
         reveal_hand = own or open_human or agent_access or (
             state["mode"] != "agent-vs-agent" and actor == "agent" and state["presentation"]["show_agent_hand"])
         reveal_zones = own or open_human or agent_access
@@ -70,10 +71,11 @@ def view(state, viewer):
             output[zone] = [render_card(card, player, reveal_zones) for card in player[zone]]
         output["field_spell"] = render_card(player["field_spell"], player, reveal_zones)
         output["normal_summon_used"] = player["normal_summon_used"]
-        output["effect_usage"] = {key: project(value, EFFECT_FIELDS) for key, value in player["effect_usage"].items()}
+        output["effect_usage"] = {key: visible[0] for key, value in player["effect_usage"].items()
+                                  if (visible := effect_view([{**value, "owner": value.get("owner", actor)}], viewer, state["mode"]))}
         output["restrictions"] = effect_view(player["restrictions"], viewer, state["mode"])
-        # Unknown human cards are never represented in blind state, for ANY viewer.
-        if open_human:
+        # Unknown human cards are never represented in self/blind state, for ANY viewer.
+        if open_human or (viewer == "moderator" and actor == "human" and managed_cards(state["mode"])):
             output["remaining_deck_order"] = [render_card(card, player, True) for card in player["deck"]]
         result["players"][actor] = output
     return result

@@ -106,7 +106,7 @@ Send one JSON object per stdin line; each stdout line is a JSON response. For ex
 The draw example is legal only after the moderator checks a draw is due and no
 chain/decision is pending. Primitive commands reject pending windows. Shuffles
 store the resulting order in the journal; replay never samples randomness again.
-Blind human draws update counts only; blind human shuffles remain human-managed.
+Self human draws update counts only; self human shuffles remain human-managed.
 
 Other operations:
 
@@ -133,7 +133,7 @@ an intention. The moderator translates natural language and reviews legality,
 then executes a supported command/handler or approved action. The model client
 and human chat UI are supplied by the host application; no hosted bot ships here.
 Open coaching deliberately permits knowledge of the human hand. Future draw order
-is excluded from runner player contexts, even in open mode. The legacy moderator
+is excluded from runner player contexts, even in managed mode. The legacy moderator
 view can still expose it for authorized bookkeeping. Public cards, chains, costs,
 counters, restrictions, and delayed effects use explicit allowed fields; private
 annotations and resolution-choice payloads are omitted. Mark private delayed effects
@@ -157,7 +157,7 @@ response decision is pending.
 until a pending decision, paused/finished state, or absence of a supported step.
 Every automatic action needs the complete no-choice review defined in
 `docs/duel-experience.md`. Return the collected narration in the next decision
-packet. Unknown blind options cannot justify automatic progression. The LLM
+packet. Unknown self options cannot justify automatic progression. The LLM
 moderator identifies available actions and decides when phases or turns advance;
 a complete coded scheduler or legal-action generator is not required.
 
@@ -173,7 +173,7 @@ Structural checks conserve managed physical card IDs across all zones and attach
 materials, reject invalid zone containers/layout changes, and preserve card identity.
 On control changes, keep the original `owner` and track `controller` separately.
 Tokens use an explicit boolean `token: true` and may be created/removed; this never
-allows an ordinary card to disappear. Blind human hidden cards remain count-based
+allows an ordinary card to disappear. Self human hidden cards remain count-based
 and are not assigned invented identities.
 
 After a save failure, the live runner blocks gameplay and context delivery until
@@ -210,3 +210,18 @@ clear human decisions, ruling references, played-scenario evaluations, and
 agent-versus-agent coordination. Evaluate the LLM's gameplay separately from
 runtime integrity. An external simulator can be an optional integration if useful;
 it is not the default architecture or a prerequisite for playing new decks.
+
+## Human mode configuration
+
+For new human games set `mode` to `managed` or `self` in the internal
+`templates/duel-config.json` configuration. `managed` requires `human_deck` and
+loads its bundle; `self` requires `human_deck: null` and numeric
+`human_deck_counts` without card identities. The orchestrator fills these fields
+from conversation. Managed human hands, sets, private effects, and guides remain
+hidden from the opponent child. Agent-vs-agent still uses `agent-vs-agent`.
+
+Legacy `open` and `blind` are accepted for existing integrations and saved games.
+They are not rewritten: `open` retains opponent access to human hidden state,
+whereas `blind` behaves as self. The journal mode is immutable. The existing
+`open-state-verified` no-choice basis means a moderator review of known state;
+it is valid for managed games and never valid for unknown self/blind human state.

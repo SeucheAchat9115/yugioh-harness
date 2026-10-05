@@ -17,7 +17,7 @@ its own format, banlist, and rules version.
 
 Open this repository in a tool-capable Codex, Claude, or Gemini environment and say:
 
-> Read `agents/orchestrator/AGENT.md`. Start an open duel: I play Branded Despia
+> Read `agents/orchestrator/AGENT.md`. Start an managed duel: I play Branded Despia
 > against Dracotail. Guide me through setup and play.
 
 You always speak to the **orchestrator**. It handles configuration, runtime calls,
@@ -55,11 +55,15 @@ or the orchestrator can operate the backend through its execution tools.
 | Mode | Agent | How the human plays | Agent knowledge |
 | --- | --- | --- | --- |
 | Agent vs agent | [Isolated AI players and moderator](agents/agent-duel/AGENT.md) | Two independent agents choose plays; the moderator manages both decks. | Each player sees its own hidden state; the moderator knows both. |
-| Blind | [Blind orchestrator/player](agents/blind-duel/AGENT.md) | Human privately manages their own deck/hand and declares actions. | Own cards plus legally revealed human information; no human deck/hand import. |
-| Open | [Open orchestrator/coach/player](agents/open-duel/AGENT.md) | Human selects a linked YDK, then chooses from guided options; the agent manages both decks. | Full human state, explicitly including hidden cards. |
+| Self | [Human duel policy](agents/human-duel/AGENT.md) | Human privately manages their own deck/hand and declares actions. | Own cards plus legally revealed human information; no human deck/hand import. |
+| Managed | [Human duel policy](agents/human-duel/AGENT.md) | Human selects a linked YDK, then chooses from guided options; the agent manages both decks. | Orchestrator knows human state; the opponent sees only legally revealed information. |
+
+The two human modes change who handles your cards. In both, the opponent sees
+only information a real opponent would receive. Legacy `open`/`blind` saves keep
+their original behavior; `open` shared human hidden cards with the opponent.
 
 Read [agent setup and usage](agents/README.md) for invocation examples and the
-session helper. In open mode choose [Branded Despia](decks/unassigned/branded-despia/deck.ydk)
+session helper. In managed mode choose [Branded Despia](decks/unassigned/branded-despia/deck.ydk)
 or [Dracotail](decks/unassigned/dracotail/deck.ydk). Human choices and response
 opportunities are preserved in human modes. [Agent-vs-agent setup](docs/agent-vs-agent.md)
 uses one conversational orchestrator and two private player subagents.
@@ -101,7 +105,7 @@ recovery before play continues. Public projections omit private annotations.
 - `decks/unassigned/`: Imported decks awaiting a confirmed format and banlist.
 - `skills/`: Reusable card-data conversion and strategic-analysis workflows.
 - `harness/`: Persistent runner, engine, effect registry, player adapters, views, storage, and rendering.
-- `agents/`: Blind/open policies and moderator instructions; legacy CLI compatibility wrappers.
+- `agents/`: Self/managed policies and moderator instructions; legacy CLI compatibility wrappers.
 - `tests/`: State/replay, runner, information-boundary, resume, and transport tests plus benchmarks.
 - `docs/agent-play.md`: Shared action, response, information, and recording protocol.
 - `rules/`: Format profiles for card pools, banlists, and applicable rules.
@@ -155,8 +159,8 @@ rules version, LP/hand/first-turn settings, field layout, players, and start pla
 The live state also needs effect counters, locks, summon history, materials, delayed
 effects, and card-instance identities; the shared templates are starting points.
 
-Blind mode uses own permitted information and public observations; the human
-never supplies hidden deck/hand data to the agent. Open mode deliberately allows
+Self mode uses own permitted information and public observations; the human
+never supplies hidden deck/hand data to the agent. Managed mode deliberately allows
 the moderator/opponent to know all human state while guiding their decisions.
 Keep live public logs separate from private states, preserve shuffled order when
 resuming, and archive complete records only by agreement. Human and agent opponents
@@ -178,7 +182,7 @@ python skills/deck-playbook/scripts/audit.py check decks/unassigned/dracotail/de
 This audit does not simulate combos or certify legality; unresolved rulings must
 be checked before an agent uses a dependent line.
 
-[Duel agent helper checks](.github/workflows/duel-agents.yml) test blind/open
+[Duel agent helper checks](.github/workflows/duel-agents.yml) test self/managed
 information boundaries, hidden-card masking, private storage, fixed draws, and
 resume behavior. These tests do not adjudicate card effects. Run `python tests/benchmarks/runner.py`
 for local engine latency measurements; model latency is measured separately.

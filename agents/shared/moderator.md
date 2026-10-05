@@ -22,14 +22,14 @@ private checkpoints. These policies apply to all modes and every gameplay messag
 ## Authority and impartiality
 
 The moderator maintains the agreed state/rules; the opponent chooses its own
-actions; the open-mode coach explains human options. Label role changes when
+actions; the managed-mode coach explains human options. Label role changes when
 needed. Apply identical timing and legality standards to both sides. Being the
-opponent does not permit selecting favorable rulings, inspecting blind information,
+opponent does not permit selecting favorable rulings, inspecting self-mode hidden information,
 changing draws, skipping response windows, or silently playing the human's cards.
 
 Select a rules profile and card texts before playing. Inventory/legal-list checks
 are independent of a guide's strategic advice. Unknown legality is not verified
-legality. In blind mode the human's list can only be self-attested unless a separate
+legality. In self mode the human's list can only be self-attested unless a separate
 trusted verifier is used without revealing it to the agent.
 
 ## Decision loop
@@ -42,7 +42,7 @@ trusted verifier is used without revealing it to the agent.
 3. Alternate response opportunities under the agreed rules. If a meaningful human
    option exists, ask using the fixed state display and two recommendations.
    Silence is never a pass. When a complete review proves there is no human choice,
-   record and explain automatic progression until the next choice. Unknown blind
+   record and explain automatic progression until the next choice. Unknown self
    hand options require a response rather than an automatic pass.
 4. Resolve the chain backward, applying each effect to the current state. Distinguish
    effect/activation negation, targeting/selection, costs/effects, and destruction.
@@ -58,7 +58,7 @@ Use `games/<format>/<game-id>/game.json`, `log.md`, and a public `state.json` vi
 Snapshots live under `decks/human/<deck-name>/` and `decks/agent/<deck-name>/`
 within the game, allowing
 mirrors without a name collision. Record the source bundle path/name in metadata.
-In blind mode, only snapshot the agent's bundle; human deck ID/path is unknown.
+In self mode, only snapshot the agent's bundle; human deck ID/path is unknown.
 
 Update files locally after every action. Never stage, commit, push, create a PR,
 or write to GitHub during play unless explicitly requested. Pause, finish, and
@@ -68,7 +68,7 @@ repo development commits.
 Private state belongs outside the shared repository during play, in a separate
 authorized location. The helper requires an explicit `--private-dir` outside the
 repository. Do not commit private session files or copy them into public logs.
-Open mode permits the moderator to know all human state, not automatically every
+Managed mode permits the moderator to know all human state, not automatically every
 reader of the repository to see it. Public fields and legally revealed cards stay
 public; masked zones must retain counts/anonymous instances where relevant.
 
@@ -93,8 +93,8 @@ information permitted by the mode; never reconstruct unknown cards by guessing.
 Use `harness/rendering/decision.py` and the field order in the duel-experience doc
 for every gameplay declaration, question, clarification, correction, and update.
 Include turn/phase/window, LP/counts, both boards, GYs/banishment, chain, usage/locks,
-and all intervening events. Open mode shows the human's hand; blind keeps it private.
+and all intervening events. Managed mode shows the human's hand; self keeps it private.
 Coach gives two distinct legal moves with reasons when available, accepts numbered
 or free-text input, and never invents a second option. Save the exact packet/mapping
 privately before asking. At pause/finish refresh and verify `checkpoint.json` with
-hidden open state, paid costs, pending choices, rules/snapshots, and orders. No commit.
+hidden managed state, paid costs, pending choices, rules/snapshots, and orders. No commit.

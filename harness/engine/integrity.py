@@ -1,4 +1,5 @@
 """Structural card accounting, independent of LLM rule adjudication."""
+from harness.modes import self_managed
 ZONES = ('hand', 'deck', 'extra_deck', 'side_deck', 'monster_zones',
          'spell_trap_zones', 'graveyard', 'banished')
 HIDDEN = ('hand', 'deck', 'extra_deck', 'side_deck')
@@ -30,7 +31,7 @@ def inventory(state):
     for actor, player in state['players'].items():
         for zone in ZONES:
             entries = player[zone]
-            if entries is None and state['mode'] == 'blind' and actor == 'human' and zone in HIDDEN:
+            if entries is None and self_managed(state['mode']) and actor == 'human' and zone in HIDDEN:
                 continue
             if not isinstance(entries, list):
                 raise ValueError('Card zones must be lists')
@@ -62,7 +63,7 @@ def validate_transition(before, after):
             raise ValueError('Shared zone layout cannot change during play')
     for identity in old.keys() & new.keys():
         # Blind revealed identities can gain a card ID; managed identities cannot change.
-        if old[identity][0] != new[identity][0] and not (before['mode']=='blind' and old[identity][1]=='human' and old[identity][0] is None):
+        if old[identity][0] != new[identity][0] and not (self_managed(before['mode']) and old[identity][1]=='human' and old[identity][0] is None):
             raise ValueError('Physical card identity cannot change')
         if old[identity][1] != new[identity][1]:
             raise ValueError('Physical owner cannot change; record controller separately')
@@ -70,6 +71,6 @@ def validate_transition(before, after):
             raise ValueError('Existing cards cannot become tokens')
     def managed(cards):
         return {key for key, (_, owner, token) in cards.items()
-                if not token and not (before['mode']=='blind' and owner=='human')}
+                if not token and not (self_managed(before['mode']) and owner=='human')}
     if managed(old) != managed(new):
         raise ValueError('Managed physical cards must be conserved across zones')

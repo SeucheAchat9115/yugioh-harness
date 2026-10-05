@@ -7,8 +7,8 @@ description: Convert YDK exports into generic `deck.json` gameplay files in name
 
 Use this skill to import or refresh YDK decks for playing Yu-Gi-Oh!.
 Read `AGENTS.md` first. Accept user-supplied YDKs or decklists from the selected source; YGOPRODeck provides card information.
-During a blind duel, do not load or convert the human's hidden deck. In an open
-duel, convert the human-selected bundle when required by the open agent definition.
+During a self duel, do not load or convert the human's hidden deck. In a managed
+duel, convert the human-selected bundle when required by the human duel policy.
 
 ## Procedure
 
