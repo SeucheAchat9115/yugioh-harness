@@ -1,0 +1,299 @@
+{
+  "game_id": "2026-10-05-managed-edison-001",
+  "mode": "managed",
+  "status": "finished",
+  "turn": 5,
+  "active_player": "human",
+  "phase": "battle",
+  "chain": [],
+  "pending_effects": [],
+  "revision": 63,
+  "pending_decision": null,
+  "players": {
+    "agent": {
+      "lp": 0,
+      "hand_count": 4,
+      "deck_count": 33,
+      "extra_count": 15,
+      "side_count": 15,
+      "monster_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "spell_trap_zones": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "graveyard": [
+        {
+          "instance_id": "7b8c95ed3a814f0fa5290deaade33cf5",
+          "owner": "agent",
+          "card_id": 21502796,
+          "position": "face-up",
+          "hidden": false,
+          "name": "Ryko, Lightsworn Hunter",
+          "atk": 200,
+          "def": 100,
+          "level": 2,
+          "attribute": "LIGHT",
+          "type": "Flip Effect Monster"
+        },
+        {
+          "instance_id": "228d4e62820947d98cfc3382a3ad6a49",
+          "owner": "agent",
+          "card_id": 16255442,
+          "position": "face-up",
+          "hidden": false,
+          "name": "Beckoning Light",
+          "type": "Trap Card"
+        }
+      ],
+      "banished": [
+        {
+          "instance_id": "fad05d5181c84d8181055aa07a824d44",
+          "owner": "agent",
+          "card_id": 4906301,
+          "position": "face-up",
+          "hidden": false,
+          "name": "Necro Gardna",
+          "atk": 600,
+          "def": 1300,
+          "level": 3,
+          "attribute": "DARK",
+          "type": "Effect Monster"
+        }
+      ],
+      "field_spell": null,
+      "normal_summon_used": false,
+      "effect_usage": {},
+      "restrictions": []
+    },
+    "human": {
+      "lp": 8000,
+      "hand_count": 2,
+      "deck_count": 28,
+      "extra_count": 14,
+      "side_count": 15,
+      "monster_zones": [
+        {
+          "instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
+          "owner": "human",
+          "card_id": 44508094,
+          "position": "face-up attack",
+          "hidden": false,
+          "properly_summoned": true,
+          "summon_type": "synchro",
+          "summoned_turn": 3,
+          "name": "Stardust Dragon",
+          "atk": 2500,
+          "def": 2000,
+          "level": 8,
+          "attribute": "WIND",
+          "type": "Synchro Monster"
+        },
+        {
+          "instance_id": "23f7864ab79c490bb9326024e671727f",
+          "owner": "human",
+          "card_id": 49003716,
+          "position": "face-up attack",
+          "hidden": false,
+          "properly_summoned": true,
+          "summon_type": "special",
+          "summoned_turn": 3,
+          "name": "Blackwing - Bora the Spear",
+          "atk": 1700,
+          "def": 800,
+          "level": 4,
+          "attribute": "DARK",
+          "type": "Effect Monster"
+        },
+        {
+          "instance_id": "f93044314d0541e1b30204782bb871fd",
+          "owner": "human",
+          "card_id": 65192027,
+          "position": "face-up attack",
+          "hidden": false,
+          "properly_summoned": true,
+          "summon_type": "special",
+          "summoned_turn": 3,
+          "name": "Dark Armed Dragon",
+          "atk": 2800,
+          "def": 1000,
+          "level": 7,
+          "attribute": "DARK",
+          "type": "Effect Monster"
+        },
+        null,
+        null
+      ],
+      "spell_trap_zones": [
+        {
+          "instance_id": "9b163d36c0564134a20199cee366a913",
+          "owner": "human",
+          "card_id": 91351370,
+          "position": "face-up",
+          "hidden": false,
+          "name": "Black Whirlwind",
+          "type": "Spell Card"
+        },
+        {
+          "instance_id": "8bc4d6e66e0840c4ba6021f385c49c6d",
+          "owner": "human",
+          "position": "face-down",
+          "hidden": true
+        },
+        {
+          "instance_id": "4b10e8e36212453c819e707d31cbc01b",
+          "owner": "human",
+          "position": "face-down",
+          "hidden": true
+        },
+        null,
+        null
+      ],
+      "graveyard": [
+        {
+          "instance_id": "52056e63f49141b6b9c81b199840dab6",
+          "owner": "human",
+          "card_id": 1475311,
+          "position": "face-up",
+          "hidden": false,
+          "name": "Allure of Darkness",
+          "type": "Spell Card"
+        }
+      ],
+      "banished": [
+        {
+          "instance_id": "8e947a7490134e3298670fca3526c021",
+          "owner": "human",
+          "card_id": 22835145,
+          "position": "face-up",
+          "hidden": false,
+          "name": "Blackwing - Blizzard the Far North",
+          "atk": 1300,
+          "def": 0,
+          "level": 2,
+          "attribute": "DARK",
+          "type": "Tuner Monster"
+        },
+        {
+          "instance_id": "54031bf869124a898d042d1f1226caec",
+          "owner": "human",
+          "card_id": 22835145,
+          "position": "face-up",
+          "hidden": false,
+          "properly_summoned": true,
+          "summon_type": "normal",
+          "summoned_turn": 1,
+          "name": "Blackwing - Blizzard the Far North",
+          "atk": 1300,
+          "def": 0,
+          "level": 2,
+          "attribute": "DARK",
+          "type": "Tuner Monster"
+        },
+        {
+          "instance_id": "4f2e63168645436c87d6f45fac96e352",
+          "owner": "human",
+          "card_id": 2009101,
+          "position": "face-up",
+          "hidden": false,
+          "properly_summoned": true,
+          "summon_type": "special",
+          "summoned_turn": 3,
+          "name": "Blackwing - Gale the Whirlwind",
+          "atk": 1300,
+          "def": 400,
+          "level": 3,
+          "attribute": "DARK",
+          "type": "Tuner Monster"
+        },
+        {
+          "instance_id": "943725c19c3f4604bb76c9eefd1652b8",
+          "owner": "human",
+          "card_id": 75498415,
+          "position": "face-up",
+          "hidden": false,
+          "properly_summoned": true,
+          "summon_type": "tribute",
+          "summoned_turn": 3,
+          "name": "Blackwing - Sirocco the Dawn",
+          "atk": 2000,
+          "def": 900,
+          "level": 5,
+          "attribute": "DARK",
+          "type": "Effect Monster"
+        }
+      ],
+      "field_spell": null,
+      "normal_summon_used": false,
+      "effect_usage": {
+        "attack-bora-turn3": {
+          "id": "attack-bora-turn3",
+          "kind": "attack",
+          "actor": "human",
+          "owner": "human",
+          "source_instance_id": "23f7864ab79c490bb9326024e671727f",
+          "name": "Bora direct attack",
+          "turn": 3,
+          "used": true,
+          "count": 1
+        },
+        "attack-stardust-turn3": {
+          "id": "attack-stardust-turn3",
+          "kind": "attack",
+          "actor": "human",
+          "owner": "human",
+          "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
+          "name": "Stardust Dragon direct attack",
+          "turn": 3,
+          "used": true,
+          "count": 1
+        },
+        "attack-dad-turn3": {
+          "id": "attack-dad-turn3",
+          "kind": "attack",
+          "actor": "human",
+          "owner": "human",
+          "source_instance_id": "f93044314d0541e1b30204782bb871fd",
+          "name": "Dark Armed Dragon direct attack",
+          "turn": 3,
+          "used": true,
+          "count": 1
+        },
+        "attack-bora-turn5": {
+          "id": "attack-bora-turn5",
+          "kind": "attack",
+          "actor": "human",
+          "owner": "human",
+          "source_instance_id": "23f7864ab79c490bb9326024e671727f",
+          "name": "Bora direct attack",
+          "turn": 5,
+          "used": true,
+          "count": 1
+        },
+        "attack-stardust-turn5": {
+          "id": "attack-stardust-turn5",
+          "kind": "attack",
+          "actor": "human",
+          "owner": "human",
+          "source_instance_id": "576e318bfa6d43bab1a699a147ec6d7d",
+          "name": "Stardust direct attack",
+          "turn": 5,
+          "used": true,
+          "count": 1
+        }
+      },
+      "restrictions": []
+    }
+  },
+  "shared_zones": {
+    "extra_monster_zones": []
+  }
+}

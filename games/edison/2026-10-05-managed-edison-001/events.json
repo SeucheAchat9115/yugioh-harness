@@ -1,0 +1,509 @@
+{
+  "schema_version": "1.0",
+  "events": [
+    {
+      "revision": 1,
+      "id": "workflow-edison-initial-draw-to-mp1",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "Both decks were independently shuffled and five-card opening hands dealt. Blackwing starts: drew one card under Edison rules; no legal actions in the empty Draw/Standby windows. Advanced to Main Phase 1. No first-turn Battle Phase.",
+      "recorded_at": "2026-10-05T09:14:57.214208+00:00"
+    },
+    {
+      "revision": 2,
+      "id": "workflow-edison-r1-activate-allure",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Blackwing activated Allure of Darkness as Chain Link 1; no activation cost or targets.",
+      "recorded_at": "2026-10-05T09:19:52.339693+00:00"
+    },
+    {
+      "revision": 3,
+      "id": "workflow-edison-r2-allure-no-responses",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "Neither player had a legally activatable response to Allure of Darkness. Closed the response window.",
+      "recorded_at": "2026-10-05T09:19:53.485901+00:00"
+    },
+    {
+      "revision": 4,
+      "id": "workflow-edison-r3-allure-partial-resolution",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "Allure of Darkness began resolving: Blackwing drew two cards. Resolution is suspended for the required DARK monster selection; no new activations are allowed.",
+      "recorded_at": "2026-10-05T09:19:54.631141+00:00"
+    },
+    {
+      "revision": 5,
+      "id": "workflow-edison-r4-banish-blizzard",
+      "kind": "choice",
+      "actor": "human",
+      "summary": "Blackwing banished Blackwing - Blizzard the Far North face-up for Allure of Darkness.",
+      "recorded_at": "2026-10-05T09:25:44.191521+00:00"
+    },
+    {
+      "revision": 6,
+      "id": "workflow-edison-r5-allure-finish",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Allure of Darkness finished resolving and went to Blackwing's Graveyard.",
+      "recorded_at": "2026-10-05T09:25:45.339694+00:00"
+    },
+    {
+      "revision": 7,
+      "id": "workflow-edison-r6-whirlwind-activation",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Blackwing activated Black Whirlwind as Chain Link 1.",
+      "recorded_at": "2026-10-05T09:25:46.483080+00:00"
+    },
+    {
+      "revision": 8,
+      "id": "workflow-edison-r7-whirlwind-no-response",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "Neither player had a legal response to Black Whirlwind's activation.",
+      "recorded_at": "2026-10-05T09:25:47.778641+00:00"
+    },
+    {
+      "revision": 9,
+      "id": "workflow-edison-r8-whirlwind-resolved",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Black Whirlwind's activation resolved; it remains face-up.",
+      "recorded_at": "2026-10-05T09:25:48.925831+00:00"
+    },
+    {
+      "revision": 10,
+      "id": "workflow-edison-r9-set-two",
+      "kind": "set",
+      "actor": "human",
+      "summary": "Blackwing set two cards in Spell/Trap zones 2 and 3.",
+      "recorded_at": "2026-10-05T09:25:50.077292+00:00"
+    },
+    {
+      "revision": 11,
+      "id": "workflow-edison-r10-normal-blizzard",
+      "kind": "summon",
+      "actor": "human",
+      "summary": "Blackwing Normal Summoned Blizzard the Far North in Attack Position. No legal summon negation is available. Blizzard has no eligible GY target, so its revival effect cannot activate. Black Whirlwind's optional search is available.",
+      "recorded_at": "2026-10-05T09:25:51.218691+00:00"
+    },
+    {
+      "revision": 12,
+      "id": "workflow-edison-r11-whirlwind-trigger",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Blackwing activated Black Whirlwind's optional search effect following Blizzard's Normal Summon.",
+      "recorded_at": "2026-10-05T09:28:50.563043+00:00"
+    },
+    {
+      "revision": 13,
+      "id": "workflow-edison-r12-search-no-response",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "Neither player had a legal response to Black Whirlwind's search effect.",
+      "recorded_at": "2026-10-05T09:28:51.707251+00:00"
+    },
+    {
+      "revision": 14,
+      "id": "workflow-edison-r13-search-vayu",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Black Whirlwind resolved: Blackwing revealed and added Vayu the Emblem of Honor from Deck to hand, then shuffled the remaining Deck.",
+      "recorded_at": "2026-10-05T09:28:52.853322+00:00"
+    },
+    {
+      "revision": 15,
+      "id": "workflow-edison-r14-end-turn",
+      "kind": "turn",
+      "actor": "human",
+      "summary": "Blackwing ended Turn 1 with Blizzard, Black Whirlwind, and two set cards. No End Phase effects or hand-limit discard applied. Turn 2 begins: Lightsworn's Draw Phase.",
+      "recorded_at": "2026-10-05T09:28:54.007344+00:00"
+    },
+    {
+      "revision": 16,
+      "id": "workflow-edison-r15-agent-draw",
+      "kind": "draw",
+      "actor": "moderator",
+      "summary": "Lightsworn drew one card for Turn 2.",
+      "recorded_at": "2026-10-05T09:28:55.151160+00:00"
+    },
+    {
+      "revision": 17,
+      "id": "workflow-edison-r16-agent-main-phase",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "No legal Draw/Standby activations or pending effects apply. Lightsworn entered the start of Main Phase 1.",
+      "recorded_at": "2026-10-05T09:29:50.726059+00:00"
+    },
+    {
+      "revision": 18,
+      "id": "workflow-edison-r17-agent-set-ryko",
+      "kind": "set",
+      "actor": "agent",
+      "summary": "Lightsworn used its Normal Summon/Set to set one monster face-down in Defense Position. No Flip effect activates, and no legal human response to this Set exists.",
+      "recorded_at": "2026-10-05T09:32:05.555907+00:00"
+    },
+    {
+      "revision": 19,
+      "id": "workflow-edison-r18-agent-end",
+      "kind": "turn",
+      "actor": "agent",
+      "summary": "Lightsworn ended its turn with one face-down Defense Position monster and no backrow. No attack, End Phase effect, or hand-limit discard applied. Turn 3 begins: Blackwing's Draw Phase.",
+      "recorded_at": "2026-10-05T09:33:33.716643+00:00"
+    },
+    {
+      "revision": 20,
+      "id": "workflow-edison-r19-human-draw",
+      "kind": "draw",
+      "actor": "moderator",
+      "summary": "Blackwing drew one card for Turn 3.",
+      "recorded_at": "2026-10-05T09:33:34.866800+00:00"
+    },
+    {
+      "revision": 21,
+      "id": "workflow-edison-r20-human-main-phase",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "No legal Draw/Standby actions or pending effects applied. Blackwing entered Main Phase 1 of Turn 3.",
+      "recorded_at": "2026-10-05T09:34:42.240018+00:00"
+    },
+    {
+      "revision": 22,
+      "id": "workflow-edison-r21-tribute-sirocco",
+      "kind": "summon",
+      "actor": "human",
+      "summary": "Blackwing Tributed Blizzard the Far North and Tribute Summoned Sirocco the Dawn in Attack Position. No legal opposing summon negation or response is available. Black Whirlwind's optional Normal Summon search is available.",
+      "recorded_at": "2026-10-05T09:47:25.137900+00:00"
+    },
+    {
+      "revision": 23,
+      "id": "workflow-edison-r22-whirlwind-bora-trigger",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Blackwing activated Black Whirlwind's optional search following Sirocco's Tribute Summon.",
+      "recorded_at": "2026-10-05T09:56:16.330301+00:00"
+    },
+    {
+      "revision": 24,
+      "id": "workflow-edison-r23-search-pass",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "No opposing response to Black Whirlwind's search was available.",
+      "recorded_at": "2026-10-05T09:56:17.479674+00:00"
+    },
+    {
+      "revision": 25,
+      "id": "workflow-edison-r24-search-bora",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Black Whirlwind added the revealed Bora the Spear to Blackwing's hand; the remaining Deck was shuffled.",
+      "recorded_at": "2026-10-05T09:56:18.628144+00:00"
+    },
+    {
+      "revision": 26,
+      "id": "workflow-edison-r25-special-bora",
+      "kind": "summon",
+      "actor": "human",
+      "summary": "Blackwing Special Summoned Bora the Spear in Attack Position beside Sirocco. No legal opposing summon negation or response is available.",
+      "recorded_at": "2026-10-05T09:56:19.770994+00:00"
+    },
+    {
+      "revision": 27,
+      "id": "workflow-edison-r26-special-gale",
+      "kind": "summon",
+      "actor": "human",
+      "summary": "Blackwing Special Summoned Gale the Whirlwind in Attack Position beside the differently named Blackwings. No legal opposing summon negation or response is available.",
+      "recorded_at": "2026-10-05T09:56:20.915624+00:00"
+    },
+    {
+      "revision": 28,
+      "id": "workflow-edison-r27-synchro-stardust",
+      "kind": "summon",
+      "actor": "human",
+      "summary": "Blackwing sent Level 3 Tuner Gale and Level 5 non-Tuner Sirocco to the GY, and Synchro Summoned Stardust Dragon in Attack Position. No legal opposing summon negation or response is available. The GY now has exactly three DARK monsters: Blizzard, Sirocco, and Gale.",
+      "recorded_at": "2026-10-05T09:56:22.062827+00:00"
+    },
+    {
+      "revision": 29,
+      "id": "workflow-edison-r28-special-dad",
+      "kind": "summon",
+      "actor": "human",
+      "summary": "Blackwing Special Summoned Dark Armed Dragon in Attack Position with exactly three DARK monsters in the GY. No legal opposing summon negation or response is available.",
+      "recorded_at": "2026-10-05T09:58:00.141555+00:00"
+    },
+    {
+      "revision": 30,
+      "id": "workflow-edison-r29-dad-destruction",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Blackwing activated Dark Armed Dragon's destruction effect: banished Blizzard from the GY as cost and targeted Lightsworn's face-down monster in zone 1.",
+      "recorded_at": "2026-10-05T09:58:01.283448+00:00"
+    },
+    {
+      "revision": 31,
+      "id": "workflow-edison-r30-dad-response-closed",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "No opposing response to Dark Armed Dragon's destruction effect was available.",
+      "recorded_at": "2026-10-05T09:58:02.429709+00:00"
+    },
+    {
+      "revision": 32,
+      "id": "workflow-edison-r31-dad-destroys-set",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Dark Armed Dragon destroyed the targeted face-down monster. It was revealed as Ryko, Lightsworn Hunter and sent to Lightsworn's GY. Ryko was not flipped, so its Flip effect did not activate; no cards were milled.",
+      "recorded_at": "2026-10-05T09:58:03.577938+00:00"
+    },
+    {
+      "revision": 33,
+      "id": "workflow-edison-r32-open-human-main",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "The requested Stardust and Dark Armed Dragon line is complete. Blackwing retains Bora, Stardust, and Dark Armed Dragon; battle decisions remain with the human.",
+      "recorded_at": "2026-10-05T09:58:04.728257+00:00"
+    },
+    {
+      "revision": 34,
+      "id": "workflow-edison-r33-bora-direct-attack",
+      "kind": "attack",
+      "actor": "human",
+      "summary": "Blackwing entered the Battle Phase. Bora the Spear declared a direct attack against Lightsworn's empty field.",
+      "recorded_at": "2026-10-05T10:00:42.192753+00:00"
+    },
+    {
+      "revision": 35,
+      "id": "workflow-edison-r34-bora-damage",
+      "kind": "damage",
+      "actor": "moderator",
+      "summary": "No legal attack-declaration or Damage Step response applied. Bora's direct attack dealt 1700 battle damage: Lightsworn 8000 → 6300 LP.",
+      "recorded_at": "2026-10-05T10:00:43.339194+00:00"
+    },
+    {
+      "revision": 36,
+      "id": "workflow-edison-r35-bora-attack-complete",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "No post-damage trigger or response applied. Bora's attack is complete; Stardust Dragon and Dark Armed Dragon have not attacked.",
+      "recorded_at": "2026-10-05T10:00:44.492124+00:00"
+    },
+    {
+      "revision": 37,
+      "id": "workflow-edison-r36-stardust-attack",
+      "kind": "attack",
+      "actor": "human",
+      "summary": "Stardust Dragon declared a direct attack against Lightsworn's empty field.",
+      "recorded_at": "2026-10-05T10:56:30.539673+00:00"
+    },
+    {
+      "revision": 38,
+      "id": "workflow-edison-r37-stardust-damage",
+      "kind": "damage",
+      "actor": "moderator",
+      "summary": "Stardust Dragon's unopposed direct attack dealt 2500 battle damage.",
+      "recorded_at": "2026-10-05T10:56:31.700184+00:00"
+    },
+    {
+      "revision": 39,
+      "id": "workflow-edison-r38-stardust-complete",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "No post-damage response applied; Stardust Dragon's attack is complete.",
+      "recorded_at": "2026-10-05T10:56:32.833990+00:00"
+    },
+    {
+      "revision": 40,
+      "id": "workflow-edison-r39-dad-attack",
+      "kind": "attack",
+      "actor": "human",
+      "summary": "Dark Armed Dragon declared a direct attack against Lightsworn's empty field.",
+      "recorded_at": "2026-10-05T10:56:33.987969+00:00"
+    },
+    {
+      "revision": 41,
+      "id": "workflow-edison-r40-dad-damage",
+      "kind": "damage",
+      "actor": "moderator",
+      "summary": "Dark Armed Dragon's unopposed direct attack dealt 2800 battle damage.",
+      "recorded_at": "2026-10-05T10:56:35.147132+00:00"
+    },
+    {
+      "revision": 42,
+      "id": "workflow-edison-r41-dad-complete",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "No post-damage response applied; Dark Armed Dragon's attack is complete.",
+      "recorded_at": "2026-10-05T10:56:36.290592+00:00"
+    },
+    {
+      "revision": 43,
+      "id": "workflow-edison-r42-battle-to-main2",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "All three attacks are complete. With no remaining Battle Phase actions or effects, Blackwing entered Main Phase 2. Lightsworn is at 1000 LP.",
+      "recorded_at": "2026-10-05T10:56:37.434045+00:00"
+    },
+    {
+      "revision": 44,
+      "id": "workflow-edison-r43-end-turn",
+      "kind": "turn",
+      "actor": "human",
+      "summary": "Blackwing ended Turn 3. No End Phase effects or hand-limit discard applied. Turn 4 begins: Lightsworn's Draw Phase, at 1000 LP.",
+      "recorded_at": "2026-10-05T11:09:23.762235+00:00"
+    },
+    {
+      "revision": 45,
+      "id": "workflow-edison-r44-agent-draw",
+      "kind": "draw",
+      "actor": "moderator",
+      "summary": "Lightsworn drew one card for Turn 4.",
+      "recorded_at": "2026-10-05T11:09:24.916556+00:00"
+    },
+    {
+      "revision": 46,
+      "id": "workflow-edison-r45-agent-main4",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "No legal Draw/Standby activation or effect applied. Lightsworn entered the start of Main Phase 1 of Turn 4.",
+      "recorded_at": "2026-10-05T11:10:49.179118+00:00"
+    },
+    {
+      "revision": 47,
+      "id": "workflow-edison-r46-agent-two-sets",
+      "kind": "set",
+      "actor": "agent",
+      "summary": "Lightsworn used its Normal Summon/Set to set a face-down Defense Position monster in zone 1, then set one Spell/Trap in zone 1. No legal opposing response to these Sets is available.",
+      "recorded_at": "2026-10-05T11:15:17.235153+00:00"
+    },
+    {
+      "revision": 48,
+      "id": "workflow-edison-r47-agent-end-turn",
+      "kind": "turn",
+      "actor": "agent",
+      "summary": "Lightsworn ended Turn 4 with one face-down monster and one set backrow card. No attack, End Phase effect, or hand-limit discard applied. Turn 5 begins: Blackwing's Draw Phase.",
+      "recorded_at": "2026-10-05T11:15:18.389576+00:00"
+    },
+    {
+      "revision": 49,
+      "id": "workflow-edison-r48-human-draw",
+      "kind": "draw",
+      "actor": "moderator",
+      "summary": "Blackwing drew one card for Turn 5.",
+      "recorded_at": "2026-10-05T11:15:19.531143+00:00"
+    },
+    {
+      "revision": 50,
+      "id": "workflow-edison-r49-human-main5",
+      "kind": "phase",
+      "actor": "moderator",
+      "summary": "No legal Draw/Standby activation or effect applied. Blackwing entered Main Phase 1 of Turn 5.",
+      "recorded_at": "2026-10-05T11:16:46.361199+00:00"
+    },
+    {
+      "revision": 51,
+      "id": "workflow-edison-r50-dad-backrow",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Blackwing activated Dark Armed Dragon: banished Gale from the GY as cost and targeted Lightsworn's set Spell/Trap in zone 1.",
+      "recorded_at": "2026-10-05T11:27:40.866799+00:00"
+    },
+    {
+      "revision": 52,
+      "id": "workflow-edison-r51-dad-backrow-no-response",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "Lightsworn had no legally available response. Dark Armed Dragon's effect proceeds to resolution.",
+      "recorded_at": "2026-10-05T11:28:04.741858+00:00"
+    },
+    {
+      "revision": 53,
+      "id": "workflow-edison-r52-dad-backrow-resolve",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Dark Armed Dragon destroyed the set Spell/Trap. It was Beckoning Light, now revealed and sent to Lightsworn's GY.",
+      "recorded_at": "2026-10-05T11:28:05.884410+00:00"
+    },
+    {
+      "revision": 54,
+      "id": "workflow-edison-r53-dad-monster",
+      "kind": "activate",
+      "actor": "human",
+      "summary": "Blackwing banished Sirocco from the GY to activate Dark Armed Dragon, targeting Lightsworn's set monster.",
+      "recorded_at": "2026-10-05T11:47:54.198743+00:00"
+    },
+    {
+      "revision": 55,
+      "id": "workflow-edison-r54-dad-no-response",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "No opposing response was available to Dark Armed Dragon's activation.",
+      "recorded_at": "2026-10-05T11:47:55.347834+00:00"
+    },
+    {
+      "revision": 56,
+      "id": "workflow-edison-r55-dad-destroys-gardna",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Dark Armed Dragon destroyed the set monster: Necro Gardna, now revealed in Lightsworn's GY. Necro Gardna may now use its GY Quick Effect during the human's turn.",
+      "recorded_at": "2026-10-05T11:47:56.518270+00:00"
+    },
+    {
+      "revision": 57,
+      "id": "workflow-edison-r56-gardna-activate",
+      "kind": "activate",
+      "actor": "agent",
+      "summary": "Lightsworn activated Necro Gardna from the GY, banishing it as cost to negate Blackwing's next attack this turn.",
+      "recorded_at": "2026-10-05T11:48:58.369570+00:00"
+    },
+    {
+      "revision": 58,
+      "id": "workflow-edison-r57-gardna-responses-closed",
+      "kind": "pass",
+      "actor": "moderator",
+      "summary": "Blackwing has no legal response to Necro Gardna: its effect does not destroy, and neither Solemn Judgment nor Mirror Force can negate it.",
+      "recorded_at": "2026-10-05T11:50:10.963180+00:00"
+    },
+    {
+      "revision": 59,
+      "id": "workflow-edison-r58-gardna-resolve",
+      "kind": "resolve",
+      "actor": "moderator",
+      "summary": "Necro Gardna resolved: Blackwing's next attack this turn will be negated.",
+      "recorded_at": "2026-10-05T11:50:12.108364+00:00"
+    },
+    {
+      "revision": 60,
+      "id": "workflow-edison-r59-bora-attack",
+      "kind": "attack",
+      "actor": "human",
+      "summary": "Blackwing entered the Battle Phase. Bora declared a direct attack, using the authorized attack-for-game sequence.",
+      "recorded_at": "2026-10-05T11:50:13.258153+00:00"
+    },
+    {
+      "revision": 61,
+      "id": "workflow-edison-r60-bora-negated",
+      "kind": "choice",
+      "actor": "moderator",
+      "summary": "Necro Gardna's resolved effect negated Bora's attack. No damage was dealt. That one-attack negation is consumed; Stardust and DAD can still attack.",
+      "recorded_at": "2026-10-05T11:50:14.401190+00:00"
+    },
+    {
+      "revision": 62,
+      "id": "workflow-edison-r61-stardust-attack",
+      "kind": "attack",
+      "actor": "human",
+      "summary": "Stardust Dragon declared a direct attack for 2500 ATK against Lightsworn's empty field.",
+      "recorded_at": "2026-10-05T11:50:15.550960+00:00"
+    },
+    {
+      "revision": 63,
+      "id": "workflow-edison-r62-stardust-lethal",
+      "kind": "damage",
+      "actor": "moderator",
+      "summary": "No legal attack or Damage Step response was available. Stardust Dragon inflicted 2500 direct battle damage; Lightsworn's remaining 1000 LP fell to 0.",
+      "recorded_at": "2026-10-05T11:50:16.691603+00:00"
+    }
+  ]
+}

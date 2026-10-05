@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-05-managed-edison-001",
+  "mode": "managed",
+  "format": "edison",
+  "banlist": "2010-03-01",
+  "rules_profile": "rules/edison.md",
+  "rules_version": "edison-2010-with-agreed-historical-text",
+  "human_deck": "decks/edison/blackwing",
+  "agent_deck": "decks/edison/lightsworn",
+  "starting_player": "human",
+  "settings": {
+    "starting_lp": 8000,
+    "opening_hand_size": 5,
+    "starting_player_draws": true,
+    "starting_player_battle_phase": false,
+    "field_layout": {
+      "main_monster_zones": 5,
+      "spell_trap_zones": 5,
+      "extra_monster_zones": 0
+    }
+  },
+  "presentation": {
+    "show_agent_hand": false
+  },
+  "interaction": {
+    "decision_format": "decision-v1",
+    "recommended_moves": 2,
+    "automatic_continue_when_no_choice": true
+  },
+  "storage": {
+    "game_commits": "explicit-user-request-only"
+  },
+  "player_isolation": "cooperative",
+  "status": "finished",
+  "date": "2026-10-05T09:14:33.223957+00:00",
+  "legality_checks": {
+    "agent": "pending_format_verification",
+    "human": "pending_format_verification"
+  },
+  "deck_snapshots": {
+    "agent": "decks/agent/lightsworn/",
+    "human": "decks/human/blackwing/"
+  },
+  "resume": {
+    "revision": 63,
+    "turn": 5,
+    "phase": "battle",
+    "pending_actor": null,
+    "pending_window": null,
+    "private_checkpoint_saved": true
+  }
+}
