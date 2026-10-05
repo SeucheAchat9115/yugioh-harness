@@ -1,7 +1,7 @@
-# Lightsworn
+# Blackwing
 
 - [Deck export](deck.ydk)
-- Author: Aegon5
+- Author: BlackOrpheus
 - Uploaded by the user on 2026-10-05.
 - Format: Edison; banlist: 2010-03-01.
 
