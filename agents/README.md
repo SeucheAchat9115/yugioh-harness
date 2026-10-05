@@ -29,8 +29,10 @@ needed to enforce file/tool boundaries.
 
 > Resume our saved duel `<game-id>`.
 
-Current selectable bundles are [Branded Despia](../decks/unassigned/branded-despia/deck.ydk)
-and [Dracotail](../decks/unassigned/dracotail/deck.ydk). The orchestrator discovers
+Current selectable bundles are [Branded Despia](../decks/unassigned/branded-despia/deck.ydk),
+[Dracotail](../decks/unassigned/dracotail/deck.ydk),
+[Blackwing](../decks/edison/blackwing/deck.ydk), and
+[Lightsworn](../decks/edison/lightsworn/deck.ydk). The orchestrator discovers
 new complete bundles automatically and resolves deck names/YDK links internally.
 Unassigned decks need agreed format/banlist or explicit casual rules.
 

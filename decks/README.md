@@ -23,5 +23,6 @@ Store source links/author/import notes in the optional folder `README.md` and or
 YDK header. Use `templates/deck.json` for initial metadata if needed.
 
 Indexes: [Unassigned decks](unassigned/README.md) and [Edison](edison/README.md).
-Preliminary guides can exist before imports, but must say that `deck.ydk`/`deck.json`
+Both Edison bundles are complete; their guides flag historical text differences.
+Preliminary guides can exist before other imports, but must say that `deck.ydk`/`deck.json`
 are pending; never fabricate those files.

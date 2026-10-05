@@ -118,8 +118,10 @@ refresh it when the deck or relevant text changes.
 | --- | --- | --- | --- |
 | Branded Despia | 53 / 14 / 12 | [JSON](decks/unassigned/branded-despia/deck.json) | [Guide](decks/unassigned/branded-despia/guide.md) |
 | Dracotail | 40 / 15 / 15 | [JSON](decks/unassigned/dracotail/deck.json) | [Guide](decks/unassigned/dracotail/guide.md) |
+| Blackwing (Edison) | 40 / 15 / 15 | [JSON](decks/edison/blackwing/deck.json) | [Guide](decks/edison/blackwing/guide.md) |
+| Lightsworn (Edison) | 40 / 15 / 15 | [JSON](decks/edison/lightsworn/deck.json) | [Guide](decks/edison/lightsworn/guide.md) |
 
-Both decks were supplied as user-uploaded YDKs. Author and import notes remain
+Branded Despia and Dracotail were supplied as user-uploaded YDKs. Author and import notes remain
 in the [deck index](decks/unassigned/README.md). The guides are
 reviewed against the exact stored card text and inventory; their combo lines have
 not been comprehensively validated through played scenarios. Format and banlist
@@ -129,9 +131,10 @@ is locally saved during Turn 1 under agreed casual modern rules. No completed ga
 recorded. The [original planning file](games/planned/branded-despia-vs-dracotail.json)
 remains separate from the actual session.
 
-Preliminary [Edison Blackwings](decks/edison/blackwings/guide.md) and
-[Lightsworn](decks/edison/lightsworn/guide.md) notes live beside their deck index;
-their deck imports are pending.
+[Edison Blackwing and Lightsworn](decks/edison/README.md) are complete uploaded
+bundles with gameplay data and exact-list guides. They are assigned to Edison and
+the March 2010 banlist. Their API text is current; consult the guides for
+historical exceptions before play.
 
 ## Sources and versioning
 
