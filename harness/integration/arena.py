@@ -65,11 +65,21 @@ class ArenaClient:
         response_path=self.endpoint/f'{identity}.response.json'
         save(request_path,{'token':self.token,'request':request})
         deadline=time.monotonic()+30
+        read_error=None
         try:
             while time.monotonic()<deadline:
-                if response_path.exists():return json.loads(response_path.read_text(encoding="utf-8"))
+                try:
+                    return json.loads(response_path.read_text(encoding="utf-8"))
+                except FileNotFoundError:
+                    pass  # The response has not been published yet.
+                except PermissionError as error:
+                    # Windows may expose a renamed file while an exclusive handle
+                    # still prevents opening it. Wait for access, not just existence.
+                    if os.name != 'nt':raise
+                    read_error=error
                 check_process(marker['pid'])
                 time.sleep(.005)
+            if read_error is not None:raise read_error
             raise TimeoutError('Arena response timeout')
         finally:
             request_path.unlink(missing_ok=True)
