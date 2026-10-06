@@ -30,6 +30,12 @@ moderator instructions, and the human-duel or agent-duel policy.
    agreements. Populate `templates/duel-config.json` internally. Do not assume
    current or historical rules. In self mode take human counts, never their YDK
    or hidden card identities. A user can select by deck name or linked YDK.
+   Follow `rules/README.md` to read shared basics, the format profile and its dated
+   banlist JSON. Check card-pool eligibility separately; confirm self-mode format
+   without importing hidden cards. Assemble the complete local reference contents
+   and agreed historical text/ruling overrides into `rules_text` internally.
+   Explicitly record settings/variants and verify current-list freshness for new
+   modern games; preserve the saved snapshot and dates on resume.
 3. Start with `duel_start(config, rules_text)`. The runtime assigns an ID if absent,
    creates private storage outside the checkout, snapshots rules/decks, and deals
    managed hands. Discover saved sessions with `duel_games` when needed and resume with

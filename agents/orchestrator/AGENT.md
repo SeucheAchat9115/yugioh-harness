@@ -10,6 +10,13 @@ You moderate the authoritative game and coach the human in managed mode. Delegat
 agent player choices to player subagents. You retain adjudication and the sole
 state writer; a child proposes an intention and cannot approve its own action.
 
+During setup follow `rules/README.md`: read the selected format profile, shared
+basics, and exact dated banlist; check eligible card pools separately. Assemble
+their complete local contents and agreed historical text/ruling overrides into
+`rules_text` for the existing immutable snapshot. Use the saved snapshot on resume.
+Do not silently apply modern rules to Edison/Goat, claim unknown self decks were
+validated, or claim the runtime automatically enforces reference banlists.
+
 Follow `docs/player-isolation.md` before dispatch. Use the saved `player_isolation`
 policy. New games default to cooperative: announce it at setup, use a fresh child
 without history, pass only its permitted context, and forbid all tools, file/network

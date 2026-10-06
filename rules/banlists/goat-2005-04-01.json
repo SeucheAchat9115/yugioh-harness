@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "format": "goat",
+  "region": "TCG",
+  "effective_date": "2005-04-01",
+  "verified_on": "2026-10-06",
+  "default_copy_limit": 3,
+  "copy_limits": {
+    "forbidden": 0,
+    "limited": 1,
+    "semi_limited": 2
+  },
+  "copy_limit_scope": "Main, Extra/Fusion and Side Deck combined; card identity, including names treated as the same name",
+  "card_name_case": "uppercase English source names; compare case-insensitively",
+  "sources": [
+    {
+      "authority": "community-format-list",
+      "url": "https://www.goatformat.com/cardpool.html"
+    },
+    {
+      "authority": "official-konami-date-reference",
+      "url": "https://www.yugioh-card.com/en/play/alternate_format_tournaments/time-wizard/"
+    },
+    {
+      "authority": "official-konami-archive-cross-check",
+      "url": "https://www.yugioh-card.com/en/downloads/alt_format/2005-03-01.pdf"
+    }
+  ],
+  "notes": [
+    "GoatFormat.com April 2005 TCG restrictions for its August 17, 2005 premier-event card pool.",
+    "Konami Time Wizard FAQ calls this the April 2005 TCG list, but links an archive labeled March 1st, 2005. Do not silently reinterpret it as the March 2005 OCG format.",
+    "The official archive additionally lists Sixth Sense (Forbidden), and Crush Card Virus, Exchange of the Spirit and Marshmallon (Limited). Those four cards are outside this Goat card pool and are not legal at three copies.",
+    "CRV and Exarion Universe are excluded by the chosen community card pool; an unlisted card is not automatically legal."
+  ],
+  "archive_entries_outside_card_pool": {
+    "forbidden": [
+      "SIXTH SENSE"
+    ],
+    "limited": [
+      "CRUSH CARD VIRUS",
+      "EXCHANGE OF THE SPIRIT",
+      "MARSHMALLON"
+    ],
+    "semi_limited": []
+  },
+  "forbidden": [
+    "BUTTERFLY DAGGER - ELMA",
+    "CHANGE OF HEART",
+    "CHAOS EMPEROR DRAGON - ENVOY OF THE END",
+    "CONFISCATION",
+    "DARK HOLE",
+    "FIBER JAR",
+    "HARPIE'S FEATHER DUSTER",
+    "IMPERIAL ORDER",
+    "MAGICAL SCIENTIST",
+    "MAKYURA THE DESTRUCTOR",
+    "MIRAGE OF NIGHTMARE",
+    "MONSTER REBORN",
+    "PAINFUL CHOICE",
+    "RAIGEKI",
+    "THE FORCEFUL SENTRY",
+    "WITCH OF THE BLACK FOREST",
+    "YATA-GARASU"
+  ],
+  "limited": [
+    "BLACK LUSTER SOLDIER - ENVOY OF THE BEGINNING",
+    "BREAKER THE MAGICAL WARRIOR",
+    "CALL OF THE HAUNTED",
+    "CARD DESTRUCTION",
+    "CEASEFIRE",
+    "CYBER JAR",
+    "D.D. WARRIOR LADY",
+    "DARK MAGICIAN OF CHAOS",
+    "DECK DEVASTATION VIRUS",
+    "DELINQUENT DUO",
+    "EXILED FORCE",
+    "EXODIA THE FORBIDDEN ONE",
+    "GRACEFUL CHARITY",
+    "HEAVY STORM",
+    "INJECTION FAIRY LILY",
+    "JINZO",
+    "LEFT ARM OF THE FORBIDDEN ONE",
+    "LEFT LEG OF THE FORBIDDEN ONE",
+    "LIGHTNING VORTEX",
+    "MAGE POWER",
+    "MAGIC CYLINDER",
+    "MIRROR FORCE",
+    "MORPHING JAR",
+    "MYSTICAL SPACE TYPHOON",
+    "POT OF GREED",
+    "PREMATURE BURIAL",
+    "PROTECTOR OF THE SANCTUARY",
+    "RECKLESS GREED",
+    "REFLECT BOUNDER",
+    "RIGHT ARM OF THE FORBIDDEN ONE",
+    "RIGHT LEG OF THE FORBIDDEN ONE",
+    "RING OF DESTRUCTION",
+    "SACRED PHOENIX OF NEPHTHYS",
+    "SANGAN",
+    "SINISTER SERPENT",
+    "SNATCH STEAL",
+    "SWORDS OF REVEALING LIGHT",
+    "TORRENTIAL TRIBUTE",
+    "TRIBE-INFECTING VIRUS",
+    "TWIN-HEADED BEHEMOTH",
+    "UNITED WE STAND"
+  ],
+  "semi_limited": [
+    "ABYSS SOLDIER",
+    "CREATURE SWAP",
+    "DARK SCORPION - CHICK THE YELLOW",
+    "EMERGENCY PROVISIONS",
+    "GOOD GOBLIN HOUSEKEEPING",
+    "GRAVITY BIND",
+    "LAST TURN",
+    "LEVEL LIMIT - AREA B",
+    "MANTICORE OF DARKNESS",
+    "MARAUDING CAPTAIN",
+    "NIGHT ASSAILANT",
+    "NOBLEMAN OF CROSSOUT",
+    "REINFORCEMENT OF THE ARMY",
+    "UPSTART GOBLIN",
+    "VAMPIRE LORD"
+  ]
+}
