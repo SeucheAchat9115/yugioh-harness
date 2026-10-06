@@ -1,0 +1,50 @@
+name: Release harness
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Select version and verify pushed tag
+        id: version
+        run: |
+          python - <<'PY'
+          import os, tomllib
+          with open('pyproject.toml', 'rb') as handle:
+              project = tomllib.load(handle)['project']
+          tag = 'v' + project['version']
+          if os.environ['GITHUB_EVENT_NAME'] == 'push':
+              assert os.environ['GITHUB_REF_NAME'] == tag
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as handle:
+              handle.write('tag=' + tag + '\n')
+          PY
+      - run: python -m unittest discover -s tests -v
+      - run: python -m unittest discover -s skills/ydk-to-json/tests -v
+      - run: python -m pip install build
+      - run: python -m build
+      - run: python -m pip install --no-deps dist/*.whl
+      - run: python -I tests/smoke_install.py --repo .
+      - name: Generate checksums
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          assets = sorted(Path('dist').glob('*'))
+          Path('dist/SHA256SUMS').write_text(''.join(hashlib.sha256(path.read_bytes()).hexdigest() + '  ' + path.name + '\n' for path in assets))
+          PY
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: gh release create "$RELEASE_TAG" dist/* --target "$GITHUB_SHA" --title "$RELEASE_TAG" --notes-file CHANGELOG.md

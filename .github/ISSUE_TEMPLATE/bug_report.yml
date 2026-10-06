@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible harness or orchestration issue.
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Harness version, Python/OS, app/version and duel mode.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and expected behavior
+      description: Public steps and safe error codes. Do not include credentials, private checkpoints or opponent hidden cards.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true

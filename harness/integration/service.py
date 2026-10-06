@@ -16,12 +16,22 @@ class DuelService:
     conversational = True
     role = 'moderator'
 
-    def __init__(self, repo, private_root=None):
+    def __init__(self, repo, private_root=None, require_host=False):
         self.repo = Path(repo).resolve()
         self.private_root = Path(private_root or self.repo.parent / (self.repo.name + '-private')).resolve()
         if self.private_root.is_relative_to(self.repo):
             raise ValueError('Private root must be outside the repository')
         self.runner = None
+        self.require_host = require_host
+        self.host_capabilities = None
+
+    def preflight(self, host_capabilities=None):
+        from harness.preflight import inspect
+        self.host_capabilities = None
+        report = inspect(self.repo, self.private_root, host_capabilities)
+        if report["ready"]:
+            self.host_capabilities = deepcopy(host_capabilities)
+        return report
 
     def close(self):
         if self.runner:
@@ -58,6 +68,16 @@ class DuelService:
         if self.runner:
             raise ValueError('An active session is already loaded; resume or close it first')
         config = deepcopy(config)
+        from harness.preflight import inspect
+        from harness.modes import managed_cards
+        selected = [config['agent_deck']]
+        if managed_cards(config['mode']):
+            selected.append(config['human_deck'])
+        report = inspect(self.repo, self.private_root, self.host_capabilities, selected, require_docs=False)
+        if not report['runtime_ready'] or (self.require_host and not report['ready']):
+            raise ValueError('Run preflight with verified host capabilities before dealing')
+        if self.host_capabilities:
+            config['host_capabilities'] = deepcopy(self.host_capabilities)
         config['id'] = config.get('id') or 'duel-' + uuid4().hex
         if not isinstance(rules_text, str) or not rules_text.strip():
             raise ValueError('Agreed rules text required')
@@ -90,7 +110,9 @@ class DuelService:
     def request(self, request):
         try:
             op = request.get('op')
-            if op == 'decks':
+            if op == 'preflight':
+                result = self.preflight(request.get('host_capabilities'))
+            elif op == 'decks':
                 result = self.decks()
             elif op == 'games':
                 result = self.games()

@@ -1,8 +1,7 @@
-# One-time host configuration, installed by the orchestrator or host administrator.
-# No per-duel setup, private-state paths, or player sessions are required.
+# Generate usable paths with: yugioh-harness host-config --host codex --repo <checkout>
+# Replace every placeholder. Installed Python makes cwd unnecessary.
 [mcp_servers.yugioh]
-command = "python"
-args = ["-m", "harness.integration.mcp", "--repo", "/workspace/yugioh-harness"]
-cwd = "/workspace/yugioh-harness"
+command = "/absolute/path/to/checkout/.venv/bin/python"
+args = ["-m", "harness.integration.mcp", "--repo", "/absolute/path/to/checkout"]
 startup_timeout_sec = 10
 tool_timeout_sec = 30

@@ -20,6 +20,7 @@ TOOLS={
 
 
 CONVERSATIONAL_TOOLS = {
+ 'duel_preflight': ('Check local readiness and record an honest host capability declaration before dealing.', {'host_capabilities': {'type': 'object'}}, [], 'preflight'),
  'duel_decks': ('List complete selectable deck bundles.', {}, [], 'decks'),
  'duel_games': ('List saved local duels without exposing private cards.', {}, [], 'games'),
  'duel_start': ('Initialize an agreed duel internally; no user terminal steps.', {'config': {'type': 'object'}, 'rules_text': {'type': 'string'}}, ['config', 'rules_text'], 'start'),
@@ -86,7 +87,7 @@ def main():
     if args.repo:
         if args.credential or args.state or args.game_dir:parser.error('Choose repository lobby or a direct session')
         from harness.integration.service import DuelService
-        service = DuelService(args.repo, args.private_root)
+        service = DuelService(args.repo, args.private_root, require_host=True)
         try:run_stdio(service)
         finally:service.close()
         return

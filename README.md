@@ -13,6 +13,15 @@ the harness records and checks the structural consistency of its state updates.
 The repository supports current, historical, and custom formats. Each game selects
 its own format, banlist, and rules version.
 
+## Install and share
+
+See the [quickstart](docs/quickstart.md) for Python/platform requirements, one-time
+installation, portable host configuration and pre-deal capability checks. The
+runtime is installable as `yugioh-harness`; players still use natural language only.
+See [contributing](CONTRIBUTING.md), [releases](docs/releases.md),
+[changelog](CHANGELOG.md), [MIT license](LICENSE) and
+[third-party notices](THIRD_PARTY_NOTICES.md).
+
 ## Start a duel by talking to one agent
 
 Open this repository in a tool-capable Codex, Claude, or Gemini environment and say:

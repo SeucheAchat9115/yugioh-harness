@@ -119,3 +119,9 @@ text or full permitted context when needed, before dispatch or in a clarificatio
 Shared snapshot references replace per-game asset copies; local revision caches
 are disposable, private and outside Git. Schema-2 archive replay remains supported;
 retain explicit partial decision-evidence labels on migrated histories.
+
+Before starting a new game, follow `docs/quickstart.md` and call `duel_preflight`
+with observed host capabilities (`execution`, `native_subagents`, `fresh_history`,
+`context_only_instructions`, `stop_children`, and `evidence`). Never declare an
+unavailable capability true. The default MCP lobby requires a successful preflight
+before dealing. The user needs no terminal commands during play.

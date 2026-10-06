@@ -53,3 +53,9 @@ attempt before spawning. Report failures with their safe fixed state display.
 Follow [game storage](../../docs/game-storage.md): the repository archive includes
 known hidden states for review. Never give it directly to player subagents or use
 it as a public display. Save the replayable `events.json` index and individual `events/*.json` records, without duplicate logs.
+
+Before starting a new game, follow `docs/quickstart.md` and call `duel_preflight`
+with observed host capabilities (`execution`, `native_subagents`, `fresh_history`,
+`context_only_instructions`, `stop_children`, and `evidence`). Never declare an
+unavailable capability true. The default MCP lobby requires a successful preflight
+before dealing. The user needs no terminal commands during play.

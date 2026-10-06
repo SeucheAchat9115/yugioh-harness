@@ -18,6 +18,9 @@ from these files. If a required capability is missing, the orchestrator explains
 it and pauses rather than pretending to run independent players. The workflow is
 provider-neutral; it does not include vendor model SDKs or API credentials.
 
+See [quickstart](quickstart.md) for tested runtime installation and generated host
+configuration. Vendor subagent support must be checked in the actual app.
+
 ## Host integration (one-time configuration)
 
 The [MCP example](../examples/codex-mcp.toml) connects a repository-level lobby.
@@ -29,6 +32,7 @@ already-running app. These are **moderator** tools; never expose them to players
 
 | Tool | Purpose |
 | --- | --- |
+| `duel_preflight` | Check readiness and record observed host capabilities before dealing |
 | `duel_decks` | Discover prepared deck bundles |
 | `duel_games` | Discover saved local games for conversational resume |
 | `duel_start` | Create an agreed duel, internal private paths, snapshots, and hands |

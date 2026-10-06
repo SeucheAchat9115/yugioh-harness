@@ -3,29 +3,28 @@ name: Test duel harness
 on:
   push:
     branches: [main]
-    paths:
-      - 'agents/**'
-      - 'harness/**'
-      - 'tests/**'
-      - 'templates/**'
-      - '.github/workflows/duel-agents.yml'
   pull_request:
-    paths:
-      - 'agents/**'
-      - 'harness/**'
-      - 'tests/**'
-      - 'templates/**'
-      - '.github/workflows/duel-agents.yml'
 
 permissions:
   contents: read
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.11', '3.12', '3.13']
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: ${{ matrix.python }}
       - run: python -m unittest discover -s tests -v
+      - run: python -m unittest discover -s skills/ydk-to-json/tests -v
+      - run: python -m pip install build
+      - run: python -m build
+      - run: python -m pip install --no-deps dist/*.whl
+      - run: python -I tests/smoke_install.py --repo .
+      - run: yugioh-harness doctor --repo .

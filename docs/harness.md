@@ -53,7 +53,8 @@ its rule judgment is correct. Unclear interactions pause for a ruling.
 
 ## Start and resume
 
-For conversational play the orchestrator calls `duel_start` and `duel_resume`
+For new conversational sessions the orchestrator first calls `duel_preflight`
+with observed host capabilities, then `duel_start`. Saved sessions use `duel_resume`
 internally through the repository lobby. The commands below are the legacy
 maintainer interface, not player instructions.
 

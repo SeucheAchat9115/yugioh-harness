@@ -42,7 +42,7 @@ class OrchestratorTests(unittest.TestCase):
         service = DuelService(self.repo, self.private)
         self.addCleanup(service.close)
         names = [tool['name'] for tool in rpc(service, {'jsonrpc': '2.0', 'id': 1, 'method': 'tools/list'})['result']['tools']]
-        self.assertEqual(len(names), 17)
+        self.assertEqual(len(names), 18)
         self.assertIn('duel_agent_context', names)
         self.assertIn('duel_start', names)
         self.assertEqual(len(service.decks()), 2)
@@ -150,13 +150,19 @@ class OrchestratorTests(unittest.TestCase):
         def call(name, arguments=None, identity=1):
             return {'jsonrpc': '2.0', 'id': identity, 'method': 'tools/call',
                     'params': {'name': name, 'arguments': arguments or {}}}
-        messages = [call('duel_decks'), call('duel_start', {'config': self.config, 'rules_text': 'Test rules'}, 2),
+        import shutil
+        from smoke_install import HOST
+        for name in ('AGENTS.md', 'agents/orchestrator/AGENT.md', 'skills/duel-orchestrator/SKILL.md'):
+            target = self.repo / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(Path(__file__).resolve().parents[1] / name, target)
+        messages = [call('duel_preflight', {'host_capabilities': HOST}, 4), call('duel_decks'), call('duel_start', {'config': self.config, 'rules_text': 'Test rules'}, 2),
                     call('duel_next', identity=3)]
         completed = subprocess.run(command, input=''.join(json.dumps(message) + '\n' for message in messages),
                                    text=True, capture_output=True, cwd=Path(__file__).resolve().parents[1], timeout=10)
         self.assertEqual(completed.returncode, 0, completed.stderr)
         responses = [json.loads(line) for line in completed.stdout.splitlines()]
-        self.assertEqual(len(responses), 3)
+        self.assertEqual(len(responses), 4)
         self.assertTrue(all(not item['result']['isError'] for item in responses))
         completed = subprocess.run(command, input=json.dumps(call('duel_resume', {'game_id': 'test-001'})) + '\n',
                                    text=True, capture_output=True, cwd=Path(__file__).resolve().parents[1], timeout=10)
