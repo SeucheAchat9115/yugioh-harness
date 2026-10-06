@@ -17,13 +17,13 @@ class ConverterTests(unittest.TestCase):
             path = Path(directory) / "deck.ydk"
             raw = b"#created by Author - https://example.com/deck/abc\r\n#main\r\n001\r\n2\r\n1\r\n#extra\r\n2\r\n!side\r\n1\r\n"
             path.write_bytes(raw)
-            path.with_suffix(".json").write_text(json.dumps({"id": "stable-v1", "source": {"provided_by": "user"}}))
+            path.with_suffix(".json").write_text(json.dumps({"id": "stable-v1", "source": {"provided_by": "user"}}), encoding="utf-8")
             records = {i: {"id": i, "name": f"Card {i}", "desc": "Text", "type": "Spell Card", "race": "Normal",
                            "misc_info": [{"future_field": [1, 2]}], "card_prices": [{"price": "1.00"}]}
                        for i in (1, 2)}
             with patch.object(converter, "fetch_all", return_value=records):
                 converter.convert([path])
-            deck = json.loads(path.with_suffix(".json").read_text())
+            deck = json.loads(path.with_suffix(".json").read_text(encoding="utf-8"))
             self.assertEqual(path.read_bytes(), raw)
             self.assertEqual(deck["main"], [1, 2, 1])
             self.assertEqual(deck["counts"], {"main": 3, "extra": 1, "side": 1})
@@ -40,11 +40,11 @@ class ConverterTests(unittest.TestCase):
             folder = Path(directory) / "my-deck"
             folder.mkdir()
             path = folder / "deck.ydk"
-            path.write_text("#main\n1\n")
+            path.write_text("#main\n1\n", encoding="utf-8")
             record = {"id": 1, "name": "Spell", "type": "Spell Card", "race": "Normal", "desc": "Text"}
             with patch.object(converter, "fetch_all", return_value={1: record}):
                 converter.convert([path])
-            deck = json.loads((folder / "deck.json").read_text())
+            deck = json.loads((folder / "deck.json").read_text(encoding="utf-8"))
             self.assertEqual(deck["id"], "my-deck")
             self.assertEqual(deck["name"], "My Deck")
             self.assertEqual({f.name for f in folder.iterdir()}, {"deck.ydk", "deck.json"})
@@ -60,13 +60,13 @@ class ConverterTests(unittest.TestCase):
             for path in paths:
                 path.parent.mkdir()
             for i, path in enumerate(paths, 1):
-                path.write_text(f"#main\n{i}\n")
-                path.with_suffix(".json").write_text('{"keep": true}')
+                path.write_text(f"#main\n{i}\n", encoding="utf-8")
+                path.with_suffix(".json").write_text('{"keep": true}', encoding="utf-8")
             with patch.object(converter, "fetch_all", return_value={1: {"id": 1, "name": "Card 1", "type": "Spell Card", "race": "Normal", "desc": "Text"}}):
                 with self.assertRaisesRegex(ValueError, "incomplete card coverage"):
                     converter.convert(paths)
             for path in paths:
-                self.assertEqual(path.with_suffix(".json").read_text(), '{"keep": true}')
+                self.assertEqual(path.with_suffix(".json").read_text(encoding="utf-8"), '{"keep": true}')
 
     def test_monster_stats_pendulum_and_link_details_survive(self):
         monster = {"id": 1, "name": "Monster", "type": "Pendulum Effect Monster",
@@ -89,7 +89,7 @@ class ConverterTests(unittest.TestCase):
     def test_invalid_ydk_fails_before_network(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "invalid.ydk"
-            path.write_text("#main\n123\nnot-a-card\n")
+            path.write_text("#main\n123\nnot-a-card\n", encoding="utf-8")
             with patch.object(converter, "fetch_all") as fetch:
                 with self.assertRaisesRegex(ValueError, "invalid card ID"):
                     converter.convert([path])

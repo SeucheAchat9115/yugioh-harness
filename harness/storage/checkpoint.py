@@ -30,13 +30,13 @@ def _write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _v
     if game_dir.parent.parent.name == "games" and state_path.is_relative_to(game_dir.parent.parent.parent):
         raise ValueError("Checkpoint must be outside repository")
     state = replay(journal) if _verified_state is None else _verified_state
-    config = json.loads((game_dir / "game.json").read_text())
+    config = json.loads((game_dir / "game.json").read_text(encoding="utf-8"))
     if (config["id"] != state["game_id"] or config["mode"] != state["mode"]
             or saved_policy(config) != saved_policy(state)):
         raise ValueError("Checkpoint/game mismatch")
     path = state_path.with_name("checkpoint.json")
     if decision_packet is None and path.exists():
-        previous = json.loads(path.read_text())
+        previous = json.loads(path.read_text(encoding="utf-8"))
         before = {key: value for key, value in previous["state"].items() if key not in {"revision", "status"}}
         after = {key: value for key, value in state.items() if key not in {"revision", "status"}}
         same_rules = all(previous["configuration"].get(key) == config.get(key)
@@ -55,7 +55,7 @@ def _write_checkpoint(state_path, game_dir, journal, decision_packet=None, *, _v
                   if self_managed(state["mode"]) else None}
     workflow_path = state_path.with_name("workflow.json")
     if workflow_path.exists():
-        checkpoint["workflow"] = json.loads(workflow_path.read_text())
+        checkpoint["workflow"] = json.loads(workflow_path.read_text(encoding="utf-8"))
     save(path, checkpoint)
     path.chmod(0o600)
     return path
@@ -92,7 +92,7 @@ def restore(checkpoint_path, state_path, game_dir):
 def _restore(checkpoint_path, state_path, game_dir):
     from harness.engine.actions import publish
     checkpoint_path, state_path, game_dir = Path(checkpoint_path).resolve(), Path(state_path).resolve(), Path(game_dir).resolve()
-    checkpoint = json.loads(checkpoint_path.read_text())
+    checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
     state = verify_checkpoint(checkpoint)
     if game_dir.parent.parent.name != "games":
         raise ValueError("Use games/<format>/<id>")
@@ -100,11 +100,11 @@ def _restore(checkpoint_path, state_path, game_dir):
     if state_path.is_relative_to(repo) or checkpoint_path.is_relative_to(repo):
         raise ValueError("Private checkpoint/state must remain outside repository")
     if game_dir.exists():
-        metadata = json.loads((game_dir / "game.json").read_text())
+        metadata = json.loads((game_dir / "game.json").read_text(encoding="utf-8"))
         if metadata["id"] != state["game_id"] or metadata["mode"] != state["mode"]:
             raise ValueError("Refusing to replace a different game")
         public_path = game_dir / "state.json"
-        if public_path.exists() and json.loads(public_path.read_text()).get("revision", 0) > state["revision"]:
+        if public_path.exists() and json.loads(public_path.read_text(encoding="utf-8")).get("revision", 0) > state["revision"]:
             raise ValueError("Refusing to overwrite a newer local game")
     if (game_dir / "events.json").exists():
         from harness.storage.records import load as read_archive
@@ -143,7 +143,7 @@ def main():
     if args.command == "verify":
         if args.checkpoint is None:
             parser.error("verify requires --checkpoint")
-        state = verify_checkpoint(json.loads(args.checkpoint.read_text()))
+        state = verify_checkpoint(json.loads(args.checkpoint.read_text(encoding="utf-8")))
     else:
         if args.state is None or args.game_dir is None:
             parser.error("save/restore require --state and --game-dir")
@@ -153,9 +153,9 @@ def main():
             state = restore(args.checkpoint, args.state, args.game_dir)
         else:
             with writer_lock(args.state, args.game_dir):
-                journal = json.loads(args.state.with_name("journal.json").read_text())
+                journal = json.loads(args.state.with_name("journal.json").read_text(encoding="utf-8"))
                 path = write_checkpoint(args.state, args.game_dir, journal)
-                state = verify_checkpoint(json.loads(path.read_text()))
+                state = verify_checkpoint(json.loads(path.read_text(encoding="utf-8")))
     print(json.dumps({"game_id": state["game_id"], "revision": state["revision"], "status": state["status"],
                       "verified": True}))
 

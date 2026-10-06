@@ -24,7 +24,7 @@ class ArchiveTests(unittest.TestCase):
             {'instance_id': 'copy-0', 'card_id': 789}]
         self.journal = initialize(initial)
         self.current = replay(self.journal)
-        (self.game / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'managed'}))
+        (self.game / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'managed'}), encoding="utf-8")
         write_archive(self.journal, self.current, self.game)
 
     def step(self, kind, operations):
@@ -69,18 +69,18 @@ class ArchiveTests(unittest.TestCase):
     def test_tampered_outcome_and_asset_rejected(self):
         self.step('draw', [{'op': 'draw', 'player': 'agent', 'count': 1}])
         path = self.game / 'events/000001.json'
-        event = json.loads(path.read_text())
+        event = json.loads(path.read_text(encoding="utf-8"))
         event['deck_outcomes'] = []
-        path.write_text(json.dumps(event))
+        path.write_text(json.dumps(event), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, 'event hash'):
             load_replay(self.game)
         path.unlink()
         (self.game / 'events.json').unlink()
-        (self.game / 'rules.md').write_text('Exact agreed rules')
+        (self.game / 'rules.md').write_text('Exact agreed rules', encoding="utf-8")
         write_archive(self.journal, self.current, self.game)
         from harness.storage.snapshots import object_path
         archived = read_archive(self.game)
-        object_path(self.game, archived['assets_sha256']['rules.md']).write_text('Changed rules')
+        object_path(self.game, archived['assets_sha256']['rules.md']).write_text('Changed rules', encoding="utf-8")
         with self.assertRaisesRegex(ValueError, 'asset hash'):
             load_replay(self.game)
 
@@ -97,7 +97,7 @@ class ArchiveTests(unittest.TestCase):
         current = fixture('blind')
         journal = initialize(current)
         (self.game / 'events.json').unlink()
-        (self.game / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'blind'}))
+        (self.game / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'blind'}), encoding="utf-8")
         write_archive(journal, current, self.game)
         archived = read_archive(self.game)
         self.assertEqual(archived['hidden_state_coverage'], 'human-unknown')
@@ -120,8 +120,8 @@ class ArchiveTests(unittest.TestCase):
             build(initial, {**a, 'operations': []})
         (self.game / 'events.json').unlink()
         write_archive(initialize(initial), initial, self.game)
-        archive = json.loads((self.game / 'events.json').read_text())
+        archive = json.loads((self.game / 'events.json').read_text(encoding="utf-8"))
         archive['initial_state']['turn'] = 99
-        (self.game / 'events.json').write_text(json.dumps(archive))
+        (self.game / 'events.json').write_text(json.dumps(archive), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, 'initial-state hash'):
             load_replay(self.game)

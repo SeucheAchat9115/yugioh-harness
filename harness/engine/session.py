@@ -46,7 +46,7 @@ def load_bundle(repo, relative):
     if any(deck[section] != ids for section, ids in sections.items()):
         raise ValueError("YDK and gameplay JSON differ")
     digest = hashlib.sha256(raw).hexdigest()
-    if f"deck_json_sha256: {digest}\n" not in (folder / "guide.md").read_text():
+    if f"deck_json_sha256: {digest}\n" not in (folder / "guide.md").read_text(encoding="utf-8"):
         raise ValueError("Guide hash is stale; review the guide before playing")
     for section in ("main", "extra", "side"):
         if deck["counts"][section] != len(deck[section]):
@@ -239,17 +239,17 @@ def main():
     args = parser.parse_args()
     with writer_lock(args.state, args.game_dir) if args.command == 'draw' else nullcontext():
         if args.command == "start":
-            state, game_dir, _ = start(args.repo, json.loads(args.config.read_text()), args.private_dir)
+            state, game_dir, _ = start(args.repo, json.loads(args.config.read_text(encoding="utf-8")), args.private_dir)
             print(json.dumps({"game_dir": str(game_dir), "public_state": view(state, "public")}, indent=2))
         else:
-            state = json.loads(args.state.read_text())
+            state = json.loads(args.state.read_text(encoding="utf-8"))
             if args.command == "draw":
-                metadata = json.loads((args.game_dir / "game.json").read_text())
+                metadata = json.loads((args.game_dir / "game.json").read_text(encoding="utf-8"))
                 if metadata["id"] != state["game_id"] or metadata["mode"] != state["mode"]:
                     raise ValueError("Game directory does not match private state")
                 from harness.engine.actions import append, initialize, publish, replay
                 journal_path = args.state.with_name("journal.json")
-                journal = json.loads(journal_path.read_text()) if journal_path.exists() else initialize(state)
+                journal = json.loads(journal_path.read_text(encoding="utf-8")) if journal_path.exists() else initialize(state)
                 state.setdefault("revision", 0)
                 state.setdefault("pending_decision", None)
                 if state != replay(journal):

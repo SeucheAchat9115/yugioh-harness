@@ -26,7 +26,7 @@ class CompactStorageTests(unittest.TestCase):
         self.repo = Path(self.tmp.name) / 'repo'
         self.game = self.repo / 'games' / 'test' / 'test'
         self.game.mkdir(parents=True)
-        (self.game / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'open'}))
+        (self.game / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'open'}), encoding="utf-8")
         self.journal = initialize(state())
         self.current = replay(self.journal)
         self.cache = Path(self.tmp.name) / 'cache'
@@ -36,14 +36,14 @@ class CompactStorageTests(unittest.TestCase):
         write_archive(self.journal, self.current, self.game)
 
     def test_shared_objects_and_catalog_hydration_in_fresh_checkout(self):
-        (self.game / 'rules.md').write_text('Historical rules')
+        (self.game / 'rules.md').write_text('Historical rules', encoding="utf-8")
         write_archive(self.journal, self.current, self.game)
         shared = root(self.game)
         first_files = sorted(str(p.relative_to(shared)) for p in shared.rglob('*') if p.is_file())
         other = self.repo / 'games' / 'test' / 'another'
         other.mkdir()
-        (other / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'open'}))
-        (other / 'rules.md').write_text('Historical rules')
+        (other / 'game.json').write_text(json.dumps({'id': 'test', 'mode': 'open'}), encoding="utf-8")
+        (other / 'rules.md').write_text('Historical rules', encoding="utf-8")
         write_archive(self.journal, self.current, other)
         self.assertEqual(first_files, sorted(str(p.relative_to(shared)) for p in shared.rglob('*') if p.is_file()))
         archive = read_archive(self.game)
@@ -64,7 +64,7 @@ class CompactStorageTests(unittest.TestCase):
         with patch('harness.storage.replay_cache._advance', side_effect=AssertionError('Replay ran')):
             self.assertEqual(load_replay(self.game, cache_dir=self.cache), expected)
         entry = next(self.cache.glob('*/1.json'))
-        entry.write_text('{broken')
+        entry.write_text('{broken', encoding="utf-8")
         self.assertEqual(load_replay(self.game, cache_dir=self.cache), expected)
         self.step(action(self.current, 'choice', [change(['phase'], 'main1', 'end')], 'phase'))
         self.assertEqual(load_replay(self.game, cache_dir=self.cache)['phase'], 'end')
@@ -84,8 +84,8 @@ class CompactStorageTests(unittest.TestCase):
              'after_sha256': digest(final), 'action': a, 'deck_outcomes': []}
         e['event_sha256'] = digest(e)
         legacy = {'schema_version':'2.0','initial_state':first,'initial_state_sha256':digest(first),
-                  'events':[e],'assets_sha256':{},'configuration_sha256':digest(json.loads((self.game/'game.json').read_text()))}
-        (self.game / 'events.json').write_text(json.dumps(legacy))
+                  'events':[e],'assets_sha256':{},'configuration_sha256':digest(json.loads((self.game/'game.json').read_text(encoding="utf-8")))}
+        (self.game / 'events.json').write_text(json.dumps(legacy), encoding="utf-8")
         self.assertEqual(load_replay(self.game, cache_dir=self.cache), final)
         legacy['events'][0]['action']['kind'] = 'summon'
         self.assertEqual(evidence_coverage(legacy)['status'], 'partial')

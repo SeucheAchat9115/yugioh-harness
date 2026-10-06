@@ -51,13 +51,13 @@ class Arena:
 class ArenaClient:
     def __init__(self, credential_path):
         self.path=Path(credential_path)
-        credential=json.loads(self.path.read_text())
+        credential=json.loads(self.path.read_text(encoding="utf-8"))
         self.role=credential['role']
         self.endpoint=Path(credential['mailbox'])
         self.token=credential['token']
 
     def request(self, request):
-        marker=json.loads((self.endpoint/'server.json').read_text())
+        marker=json.loads((self.endpoint/'server.json').read_text(encoding="utf-8"))
         os.kill(marker['pid'],0)
         identity=uuid4().hex
         request_path=self.endpoint/f'{identity}.request.json'
@@ -66,7 +66,7 @@ class ArenaClient:
         deadline=time.monotonic()+30
         try:
             while time.monotonic()<deadline:
-                if response_path.exists():return json.loads(response_path.read_text())
+                if response_path.exists():return json.loads(response_path.read_text(encoding="utf-8"))
                 os.kill(marker['pid'],0)
                 time.sleep(.005)
             raise TimeoutError('Arena response timeout')
@@ -87,7 +87,7 @@ def serve(runner, private_dir):
     endpoint.chmod(0o700)
     marker=endpoint/'server.json'
     if marker.exists():
-        previous=json.loads(marker.read_text())
+        previous=json.loads(marker.read_text(encoding="utf-8"))
         try:os.kill(previous['pid'],0)
         except ProcessLookupError:pass
         else:raise ValueError('Arena endpoint is already active')
@@ -95,7 +95,7 @@ def serve(runner, private_dir):
     paths={}
     for role,label in (('human','player_1'),('agent','player_2'),('moderator','moderator')):
         path=private_dir/f'{label}.json'
-        value=json.loads(path.read_text()) if path.exists() else {}
+        value=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
         token=value.get('token') if value.get('role')==role and value.get('mailbox')==str(endpoint) and value.get('game_id')==runner.state['game_id'] and value.get('session')==str(runner.game_dir) else None
         token=token or secrets.token_urlsafe(32)
         credentials[role]=token
@@ -108,7 +108,7 @@ def serve(runner, private_dir):
         while True:
             for path in sorted(endpoint.glob('*.request.json')):
                 try:
-                    message=json.loads(path.read_text())
+                    message=json.loads(path.read_text(encoding="utf-8"))
                     result=arena.request(message.get('token'),message.get('request'))
                 except (ValueError,TypeError,AttributeError):
                     result={'ok':False,'error':{'code':'invalid_request','message':'Malformed arena request.'}}

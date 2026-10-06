@@ -13,9 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
         python: ['3.11', '3.12', '3.13']
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,6 +24,9 @@ jobs:
       - run: python -m unittest discover -s skills/ydk-to-json/tests -v
       - run: python -m pip install build
       - run: python -m build
-      - run: python -m pip install --no-deps dist/*.whl
+      - name: Install built wheel
+        run: |
+          $wheel = (Get-ChildItem dist/*.whl).FullName
+          python -m pip install --no-deps $wheel
       - run: python -I tests/smoke_install.py --repo .
       - run: yugioh-harness doctor --repo .

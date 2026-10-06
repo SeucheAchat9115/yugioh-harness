@@ -59,7 +59,7 @@ def collect(game_dir):
     assets = {}
     archive_path = game_dir / 'events.json'
     if archive_path.exists():
-        archive = json.loads(archive_path.read_text())
+        archive = json.loads(archive_path.read_text(encoding="utf-8"))
         for name, sha in archive.get('assets_sha256', {}).items():
             relative = valid_name(name)
             if archive.get('schema_version') in ('3.0', '4.0'):
@@ -78,7 +78,7 @@ def collect(game_dir):
         if not path.resolve().is_relative_to(game_dir.resolve()):
             raise ValueError('Snapshot escapes game directory')
         content = path.read_text(encoding='utf-8')
-        assets[str(path.relative_to(game_dir))] = {'sha256': hashlib.sha256(content.encode('utf-8')).hexdigest(), 'content': content}
+        assets[path.relative_to(game_dir).as_posix()] = {'sha256': hashlib.sha256(content.encode('utf-8')).hexdigest(), 'content': content}
     return assets
 
 

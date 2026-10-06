@@ -40,7 +40,7 @@ def main():
             print(card["desc"])
         return
     guide = args.deck.with_name("guide.md")
-    text = guide.read_text()
+    text = guide.read_text(encoding="utf-8")
     errors = []
     required = {
         "deck_id": deck["id"], "deck_json": args.deck.name,

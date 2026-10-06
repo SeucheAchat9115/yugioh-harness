@@ -16,7 +16,7 @@ class EventRecordTests(unittest.TestCase):
 
     def test_index_selective_read_and_immutable_records(self):
         self.step('draw', [{'op': 'draw', 'player': 'agent', 'count': 1}])
-        index = json.loads((self.game / 'events.json').read_text())
+        index = json.loads((self.game / 'events.json').read_text(encoding="utf-8"))
         self.assertNotIn('events', index)
         entry = index['event_index'][0]
         self.assertEqual(entry['revision'], 1)
@@ -72,7 +72,7 @@ class EventRecordTests(unittest.TestCase):
         self.step('draw', [{'op': 'draw', 'player': 'agent', 'count': 1}])
         self.step('shuffle', [{'op': 'shuffle', 'player': 'agent'}])
         path = self.game / 'events.json'
-        index = json.loads(path.read_text())
+        index = json.loads(path.read_text(encoding="utf-8"))
         index['event_index'].reverse()
         save(path, index)
         with self.assertRaisesRegex(ValueError, 'contiguous'):

@@ -90,7 +90,7 @@ class IsolationPolicyTests(unittest.TestCase):
         receipt = players.begin(task['task_id'], 'dispatch', COOPERATIVE, 120)
         players.bind(task['task_id'], receipt['attempt_id'], 'native-42')
         identity = service.runner.state['game_id']
-        checkpoint = json.loads(service.runner.state_path.with_name('checkpoint.json').read_text())
+        checkpoint = json.loads(service.runner.state_path.with_name('checkpoint.json').read_text(encoding="utf-8"))
         self.assertEqual(verify_checkpoint(checkpoint)['player_isolation'], 'cooperative')
         self.assertEqual(checkpoint['configuration']['player_isolation'], 'cooperative')
         service.close()
@@ -111,15 +111,15 @@ class IsolationPolicyTests(unittest.TestCase):
                       {'path': ['player_isolation'], 'before': 'enforced', 'after': 'cooperative'}]}
         with self.assertRaisesRegex(ValueError, 'protected'):
             apply(runner.state, action)
-        checkpoint = json.loads(runner.state_path.with_name('checkpoint.json').read_text())
+        checkpoint = json.loads(runner.state_path.with_name('checkpoint.json').read_text(encoding="utf-8"))
         checkpoint['configuration']['player_isolation'] = 'cooperative'
         with self.assertRaisesRegex(ValueError, 'configuration differs'):
             verify_checkpoint(checkpoint)
         path, game = runner.state_path, runner.game_dir
         service.close()
-        config = json.loads((game / 'game.json').read_text())
+        config = json.loads((game / 'game.json').read_text(encoding="utf-8"))
         config['player_isolation'] = 'cooperative'
-        (game / 'game.json').write_text(json.dumps(config))
+        (game / 'game.json').write_text(json.dumps(config), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, 'does not match'):
             DuelRunner(path, game)
 
@@ -129,15 +129,15 @@ class IsolationPolicyTests(unittest.TestCase):
         path, game = service.runner.state_path, service.runner.game_dir
         service.close()
         # Simulate an original pre-policy save without altering its journal history.
-        state = json.loads(path.read_text()); state.pop('player_isolation')
-        journal = json.loads(path.with_name('journal.json').read_text())
+        state = json.loads(path.read_text(encoding="utf-8")); state.pop('player_isolation')
+        journal = json.loads(path.with_name('journal.json').read_text(encoding="utf-8"))
         journal['initial_state'].pop('player_isolation')
-        config = json.loads((game / 'game.json').read_text()); config.pop('player_isolation')
-        checkpoint = json.loads(path.with_name('checkpoint.json').read_text())
+        config = json.loads((game / 'game.json').read_text(encoding="utf-8")); config.pop('player_isolation')
+        checkpoint = json.loads(path.with_name('checkpoint.json').read_text(encoding="utf-8"))
         checkpoint.update(state=state, journal=journal, configuration=config)
         for target, data in ((path,state),(path.with_name('journal.json'),journal),
                              (path.with_name('checkpoint.json'),checkpoint),(game/'game.json',config)):
-            target.write_text(json.dumps(data))
+            target.write_text(json.dumps(data), encoding="utf-8")
         service.resume(state['game_id'])
         self.assertNotIn('player_isolation', service.runner.state)
         self.assertEqual(service.request({'op': 'status'})['result']['isolation_policy'], 'enforced')

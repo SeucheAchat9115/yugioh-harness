@@ -31,12 +31,12 @@ def inspect(repo, private_root=None, host=None, decks=None, require_docs=True):
         except (OSError, ValueError, KeyError, TypeError, ImportError):
             checks.append({'name': name, 'ok': False, 'detail': 'Failed; check the path, permissions or resource validity.'})
     def runtime():
-        if sys.version_info < (3, 11) or os.name != 'posix':
-            raise ValueError('Requires Python 3.11+ on POSIX (Windows: use WSL)')
-        import fcntl
+        if sys.version_info < (3, 11) or os.name not in ('posix', 'nt'):
+            raise ValueError('Requires Python 3.11+ on Windows or POSIX')
+        from harness.storage.locking import lock_handle
         with tempfile.TemporaryFile() as handle:
-            fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        return 'Python 3.11+ and POSIX writer locks available'
+            lock_handle(handle)
+        return 'Python 3.11+ and native writer locks available'
     check('runtime', runtime)
     def repository():
         if not repo.is_dir() or not (repo / 'decks').is_dir():

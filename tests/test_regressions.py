@@ -103,7 +103,7 @@ class SessionRegressions(unittest.TestCase):
         requests=['[]','null','3','"text"','{"op":[]}','{"op":"command","request":[]}',
                   '{"op":"display","packet":null}','{bad','{"op":"capabilities"}']
         result=subprocess.run([sys.executable,'-m','harness','--state',str(path),'--game-dir',str(game)],
-                              input='\n'.join(requests)+'\n',text=True,capture_output=True,check=True)
+                              input='\n'.join(requests)+'\n',text=True, encoding="utf-8",capture_output=True,check=True)
         responses=[json.loads(line) for line in result.stdout.splitlines()]
         self.assertEqual(len(responses),len(requests))
         self.assertTrue(all(r['error']['code']=='invalid_request' for r in responses[:-1]))
@@ -122,7 +122,7 @@ class SessionRegressions(unittest.TestCase):
                               lambda:runner.advance(lambda state:None)):
                 with self.assertRaises(RecoveryRequired):operation()
             runner.recover()
-            self.assertEqual(json.loads(path.read_text())['revision'],1)
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8"))['revision'],1)
             self.assertEqual(len(runner.journal['events']),1)
             with self.assertRaises(ValueError):runner.command({**request,'expected_revision':1})
         with DuelRunner(path,game) as resumed:self.assertEqual(resumed.state['revision'],1)
@@ -141,9 +141,9 @@ class SessionRegressions(unittest.TestCase):
     def test_every_legacy_writer_respects_runner_lock(self):
         _,game,path=self.start('open')
         draft=path.with_name('action.json')
-        draft.write_text('{}')
+        draft.write_text('{}', encoding="utf-8")
         packet=path.with_name('decision.json')
-        packet.write_text('{}')
+        packet.write_text('{}', encoding="utf-8")
         commands=[
             ['harness.engine.actions','replay','--state',str(path),'--game-dir',str(game)],
             ['harness.engine.actions','record','--state',str(path),'--game-dir',str(game),'--action',str(draft)],
@@ -154,7 +154,7 @@ class SessionRegressions(unittest.TestCase):
         before={p.name:p.read_bytes() for p in path.parent.glob('*.json')}
         with DuelRunner(path,game):
             for args in commands:
-                result=subprocess.run([sys.executable,'-m',*args],capture_output=True,text=True)
+                result=subprocess.run([sys.executable,'-m',*args],capture_output=True,text=True, encoding="utf-8")
                 self.assertNotEqual(result.returncode,0,args)
                 self.assertIn('BlockingIOError',result.stderr,args)
         self.assertEqual(before,{p.name:p.read_bytes() for p in path.parent.glob('*.json')})
@@ -168,7 +168,7 @@ class SessionRegressions(unittest.TestCase):
             with self.assertRaises(BlockingIOError):DuelRunner(copy_dir/'state.json',game)
             result=subprocess.run([sys.executable,'-m','harness.engine.actions','replay',
                                    '--state',str(copy_dir/'state.json'),'--game-dir',str(game)],
-                                  capture_output=True,text=True)
+                                  capture_output=True,text=True, encoding="utf-8")
             self.assertNotEqual(result.returncode,0)
             self.assertIn('BlockingIOError',result.stderr)
 

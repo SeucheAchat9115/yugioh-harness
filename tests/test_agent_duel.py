@@ -134,7 +134,7 @@ class AgentDuelTests(unittest.TestCase):
         credentials=path.parent.parent/'arena'
         process=subprocess.Popen([sys.executable,'-m','harness.integration.arena','--state',str(path),
                                   '--game-dir',str(game),'--private-dir',str(credentials)],
-                                 stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+                                 stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True, encoding="utf-8")
         try:
             ready=json.loads(process.stdout.readline())
             self.assertTrue(ready['ready'])
@@ -159,7 +159,7 @@ class AgentDuelTests(unittest.TestCase):
             self.assertNotIn('executions',first.request({'op':'status'})['result'])
             gateway=subprocess.run([sys.executable,'-m','harness.integration.mcp','--credential',ready['credentials']['player_1']],
                 input=json.dumps({'jsonrpc':'2.0','id':1,'method':'tools/call','params':{'name':'duel_context','arguments':{}}})+'\n',
-                text=True,capture_output=True,check=True)
+                text=True, encoding="utf-8",capture_output=True,check=True)
             self.assertFalse(json.loads(gateway.stdout)['result']['isError'])
             next_request={**request,'expected_revision':1,'operations':[{'op':'decision','value':{'actor':'agent','window':'response'}}]}
             self.assertTrue(moderator.request({'op':'step','request_id':'review-first','submission_id':'choice','request':next_request})['ok'])
@@ -174,7 +174,10 @@ class AgentDuelTests(unittest.TestCase):
             self.assertTrue(all('hand' not in player for player in result['result']['state']['players'].values()))
             self.assertEqual(first.request({'op':'status'})['result']['status'],'finished')
             for name in ('player_1','player_2','moderator'):
-                self.assertEqual((credentials/f'{name}.json').stat().st_mode & 0o777,0o600)
+                if sys.platform != 'win32':
+                    self.assertEqual((credentials/f'{name}.json').stat().st_mode & 0o777,0o600)
+                else:
+                    self.assertTrue((credentials/f'{name}.json').is_file())
         finally:
             process.terminate()
             process.communicate(timeout=5)

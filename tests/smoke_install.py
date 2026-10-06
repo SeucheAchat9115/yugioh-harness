@@ -21,7 +21,7 @@ class Transport:
     def __init__(self, repo, private, cwd):
         self.process = subprocess.Popen([sys.executable, '-I', '-m', 'harness.integration.mcp',
             '--repo', str(repo), '--private-root', str(private)], cwd=cwd,
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8")
         self.identity = 0
 
     def call(self, name, arguments=None):
@@ -72,15 +72,15 @@ def run(repo):
         private = root / 'private'
         for host in ('codex', 'claude', 'gemini'):
             result = subprocess.run([sys.executable, '-I', '-m', 'harness.cli', 'host-config',
-                '--host', host, '--repo', str(clone)], cwd=root, capture_output=True, text=True, check=True)
+                '--host', host, '--repo', str(clone)], cwd=root, capture_output=True, text=True, encoding="utf-8", check=True)
             config = tomllib.loads(result.stdout)['mcp_servers']['yugioh'] if host == 'codex' else json.loads(result.stdout)['mcpServers']['yugioh']
             assert config['command'] == str(Path(sys.executable).absolute())
             assert config['args'][-1] == str(clone)
         result = subprocess.run([sys.executable, '-I', '-m', 'harness.cli', 'doctor',
-            '--repo', str(clone), '--require-host'], cwd=root, capture_output=True, text=True)
+            '--repo', str(clone), '--require-host'], cwd=root, capture_output=True, text=True, encoding="utf-8")
         assert result.returncode == 1 and json.loads(result.stdout)['host_ready'] is None
         for mode in ('managed', 'self', 'agent-vs-agent'):
-            c = json.loads((clone / 'templates/duel-config.json').read_text())
+            c = json.loads((clone / 'templates/duel-config.json').read_text(encoding="utf-8"))
             c.update(id='smoke-' + mode, mode=mode, format='edison', banlist='2010-03-01',
                 rules_profile='rules/edison.md', rules_version='smoke',
                 agent_deck='decks/edison/blackwing',
@@ -92,7 +92,7 @@ def run(repo):
             t = Transport(clone, private, root)
             try:
                 assert t.call('duel_preflight', {'host_capabilities': HOST})['ready']
-                t.call('duel_start', {'config': c, 'rules_text': (clone / 'rules/edison.md').read_text()})
+                t.call('duel_start', {'config': c, 'rules_text': (clone / 'rules/edison.md').read_text(encoding="utf-8")})
                 def step(identity, kind, actor, operations, submission=None):
                     revision = t.call('duel_status')['revision']
                     args = {'request_id': identity, 'request': {'kind': kind, 'actor': actor,
@@ -130,7 +130,7 @@ def run(repo):
                     t.call('duel_human_reply', {'decision_id': decision['decision_id'],
                         'request_id': submission, 'response': 'Pause the game'})
                 step('pause', 'choice', 'human', [{'op': 'status', 'value': 'paused'}], submission)
-                before = json.loads((private / c['id'] / 'checkpoint.json').read_text())
+                before = json.loads((private / c['id'] / 'checkpoint.json').read_text(encoding="utf-8"))
                 assert before['state']['status'] == 'paused'
             finally:
                 t.close()
@@ -138,7 +138,7 @@ def run(repo):
             try:
                 t.call('duel_resume', {'game_id': c['id']})
                 assert t.call('duel_next')['kind'] == 'paused'
-                after = json.loads((private / c['id'] / 'checkpoint.json').read_text())
+                after = json.loads((private / c['id'] / 'checkpoint.json').read_text(encoding="utf-8"))
                 assert after['state'] == before['state']  # Includes exact hidden deck queues.
                 assert after['decision_packet'] == before['decision_packet']
                 # Finish a cancelled fixture without claiming a competitive winner.
@@ -152,7 +152,7 @@ def run(repo):
                 assert t.call('duel_next')['kind'] == 'finished'
             finally:
                 t.close()
-            archive = json.loads((clone / 'games/edison' / c['id'] / 'events.json').read_text())
+            archive = json.loads((clone / 'games/edison' / c['id'] / 'events.json').read_text(encoding="utf-8"))
             assert archive['schema_version'] == '4.0' and 'events' not in archive
             assert len(archive['event_index']) == 4
             print(mode + ': setup, simulated player dispatch, pause/resume and cancellation passed')

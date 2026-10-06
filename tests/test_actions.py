@@ -108,15 +108,15 @@ class ActionsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as root:
             folder = Path(root) / "game"
             folder.mkdir()
-            (folder / "game.json").write_text(json.dumps({"id": "test", "mode": "open"}))
+            (folder / "game.json").write_text(json.dumps({"id": "test", "mode": "open"}), encoding="utf-8")
             publish(journal, Path(root) / "state.json", folder)
             from harness.storage.archive import load_replay, archive_state
             archived = load_replay(folder)
             self.assertEqual(archived, archive_state(current))
-            self.assertIn("copy-2", (folder / "events.json").read_text())
+            self.assertIn("copy-2", (folder / "events.json").read_text(encoding="utf-8"))
             for name in ("state.json", "actions.md", "log.md", "resume.md"):
                 self.assertFalse((folder / name).exists())
-            self.assertEqual(json.loads((Path(root) / "state.json").read_text()), current)
+            self.assertEqual(json.loads((Path(root) / "state.json").read_text(encoding="utf-8")), current)
 
     def test_history_tampering_detected(self):
         journal = initialize(state())

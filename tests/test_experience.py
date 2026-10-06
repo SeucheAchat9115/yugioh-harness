@@ -130,11 +130,11 @@ class ExperienceTests(unittest.TestCase):
             root = Path(root)
             game = root / "repo/games/casual/test"
             game.mkdir(parents=True)
-            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "open", "rules_version": "test-v1"}))
-            (game / "rules.md").write_text("Agreed test rules.\n")
+            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "open", "rules_version": "test-v1"}), encoding="utf-8")
+            (game / "rules.md").write_text("Agreed test rules.\n", encoding="utf-8")
             deck = game / "decks/human/test"
             deck.mkdir(parents=True)
-            (deck / "deck.ydk").write_text("#main\n789\n999\n#extra\n!side\n")
+            (deck / "deck.ydk").write_text("#main\n789\n999\n#extra\n!side\n", encoding="utf-8")
             private = root / "private"
             private.mkdir()
             current = fixture()
@@ -144,7 +144,7 @@ class ExperienceTests(unittest.TestCase):
             context = packet(current)
             context["hand_refs"] = {"H1": "human-1"}
             saved = write_checkpoint(private / "state.json", game, journal, context)
-            data = json.loads(saved.read_text())
+            data = json.loads(saved.read_text(encoding="utf-8"))
             self.assertEqual(verify_checkpoint(data), current)
             self.assertEqual(data["state"]["players"]["human"]["hand"], current["players"]["human"]["hand"])
             self.assertEqual(data["state"]["players"]["agent"]["deck"], current["players"]["agent"]["deck"])
@@ -153,7 +153,7 @@ class ExperienceTests(unittest.TestCase):
             self.assertEqual(resumed, current)
             from harness.storage.snapshots import collect
             self.assertEqual(collect(destination)["rules.md"]["content"], "Agreed test rules.\n")
-            self.assertEqual(json.loads((root / "resumed/checkpoint.json").read_text())["decision_packet"], context)
+            self.assertEqual(json.loads((root / "resumed/checkpoint.json").read_text(encoding="utf-8"))["decision_packet"], context)
             with self.assertRaises(ValueError):
                 restore(saved, root / "resumed/state.json", destination)
             from harness.storage.archive import load_replay, archive_state
@@ -168,12 +168,12 @@ class ExperienceTests(unittest.TestCase):
             root = Path(root)
             game = root / "game"
             game.mkdir()
-            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "blind"}))
+            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "blind"}), encoding="utf-8")
             private = root / "private"
             private.mkdir()
             current = fixture("blind")
             saved = write_checkpoint(private / "state.json", game, initialize(current))
-            data = json.loads(saved.read_text())
+            data = json.loads(saved.read_text(encoding="utf-8"))
             self.assertIsNone(data["state"]["players"]["human"]["hand"])
             self.assertIsNotNone(data["blind_human_resume"])
             data["state"]["turn"] += 1
@@ -185,7 +185,7 @@ class ExperienceTests(unittest.TestCase):
             root = Path(root)
             game = root / "game"
             game.mkdir()
-            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "open"}))
+            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "open"}), encoding="utf-8")
             private = root / "private"
             private.mkdir()
             current = fixture()
@@ -197,7 +197,7 @@ class ExperienceTests(unittest.TestCase):
                 decision = action(current, "choice", [change(["status"], current['status'], status)], status)
                 journal, current = append(journal, decision)
                 publish(journal, private / "state.json", game)
-                saved = json.loads((private / "checkpoint.json").read_text())
+                saved = json.loads((private / "checkpoint.json").read_text(encoding="utf-8"))
                 self.assertEqual(saved["decision_packet"]["hand_refs"], context["hand_refs"])
                 self.assertEqual(saved["decision_packet"]["recommendations"], context["recommendations"])
                 self.assertEqual(saved["decision_packet"]["expected_revision"], current["revision"])
@@ -207,16 +207,16 @@ class ExperienceTests(unittest.TestCase):
             root = Path(root)
             game = root / "game"
             game.mkdir()
-            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "open"}))
-            (game / "rules.md").write_text("Rules")
+            (game / "game.json").write_text(json.dumps({"id": "test", "mode": "open"}), encoding="utf-8")
+            (game / "rules.md").write_text("Rules", encoding="utf-8")
             private = root / "private"
             private.mkdir()
             path = write_checkpoint(private / "state.json", game, initialize(fixture()))
-            data = json.loads(path.read_text())
+            data = json.loads(path.read_text(encoding="utf-8"))
             data["assets"]["rules.md"]["content"] = "Changed"
             with self.assertRaises(ValueError):
                 verify_checkpoint(data)
-            data = json.loads(path.read_text())
+            data = json.loads(path.read_text(encoding="utf-8"))
             data["assets"]["../outside"] = data["assets"].pop("rules.md")
             with self.assertRaises(ValueError):
                 verify_checkpoint(data)

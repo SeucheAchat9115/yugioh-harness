@@ -1,0 +1,4 @@
+# Preserve deck hashes and UTF-8 resources on Windows checkouts.
+* text=auto eol=lf
+# Content-addressed objects must retain their exact bytes.
+snapshots/** -text

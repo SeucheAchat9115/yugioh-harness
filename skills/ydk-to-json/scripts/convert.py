@@ -119,7 +119,7 @@ def fetch_all(ids):
 def build_deck(path, parsed, cards):
     raw, sections, header = parsed
     output = path.with_name("deck.json")
-    deck = json.loads(output.read_text()) if output.exists() else {}
+    deck = json.loads(output.read_text(encoding="utf-8")) if output.exists() else {}
     if not isinstance(deck, dict):
         raise ValueError(f"{output}: expected metadata object")
     unique = sorted({card_id for values in sections.values() for card_id in values})
@@ -142,7 +142,7 @@ def build_deck(path, parsed, cards):
 def existing_cards(paths):
     cards = {}
     for path in paths:
-        deck = json.loads(path.with_name("deck.json").read_text())
+        deck = json.loads(path.with_name("deck.json").read_text(encoding="utf-8"))
         for card_id, card in deck.get("cards", {}).items():
             card_id = int(card_id)
             normalized = gameplay_card(card)

@@ -44,7 +44,7 @@ class HumanModeTests(unittest.TestCase):
 
     def test_managed_context_and_resume_preserve_state(self):
         state, game, path = self.start('managed')
-        self.assertEqual(verify_checkpoint(json.loads(path.with_name('checkpoint.json').read_text())), state)
+        self.assertEqual(verify_checkpoint(json.loads(path.with_name('checkpoint.json').read_text(encoding="utf-8"))), state)
         with DuelRunner(path, game) as runner:
             for actor in ('human', 'agent'):
                 context = runner.context(actor)
@@ -55,7 +55,7 @@ class HumanModeTests(unittest.TestCase):
         packet = {'expected_revision': 0, 'recommendations': [], 'awaiting_user': True}
         self.assertIn('H1:', render(state, packet))
         self.assertIsNone(state['pending_decision'])
-        self.assertEqual(json.loads(path.read_text()), state)
+        self.assertEqual(json.loads(path.read_text(encoding="utf-8")), state)
 
     def test_self_never_loads_human_deck_and_draws_counts_only(self):
         state, game, path = self.start('self')
@@ -69,7 +69,7 @@ class HumanModeTests(unittest.TestCase):
             self.assertNotIn('hand', human)
             self.assertEqual(human['hand_count'], 6)
         self.assertIsNone(state['players']['human']['deck'])
-        self.assertIsNotNone(json.loads(path.with_name('checkpoint.json').read_text())['blind_human_resume'])
+        self.assertIsNotNone(json.loads(path.with_name('checkpoint.json').read_text(encoding="utf-8"))['blind_human_resume'])
         with self.assertRaises(ValueError):
             validate_no_choice(state, {'complete': True, 'meaningful_choices': 0,
                                       'basis': 'open-state-verified', 'reason': 'Unknown hand'})
@@ -87,4 +87,4 @@ class HumanModeTests(unittest.TestCase):
         with DuelRunner(path, game) as runner:
             self.assertEqual(runner.state['mode'], 'open')
             self.assertIn('hand', runner.context('agent')['state']['players']['human'])
-        self.assertEqual(json.loads(path.read_text()), state)
+        self.assertEqual(json.loads(path.read_text(encoding="utf-8")), state)

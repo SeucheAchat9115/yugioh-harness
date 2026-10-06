@@ -68,7 +68,7 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaises(BlockingIOError):
                 DuelRunner(path, game)
             journal_path = path.with_name('journal.json')
-            journal_path.write_text(journal_path.read_text() + '\n')
+            journal_path.write_text(journal_path.read_text(encoding="utf-8") + '\n', encoding="utf-8")
             with self.assertRaisesRegex(ValueError, 'External writer'):
                 runner.command({'command': 'draw', 'actor': 'agent', 'expected_revision': 0,
                                 'moderator_approved': True})
@@ -82,7 +82,7 @@ class RunnerTests(unittest.TestCase):
             registry.register('test', lambda state, request: {})
         result = subprocess.run([sys.executable, '-m', 'harness', '--state', str(path),
                                  '--game-dir', str(game)], input='{"op":"capabilities"}\n{"op":"view","player":"human"}\n',
-                                text=True, capture_output=True, check=True)
+                                text=True, encoding="utf-8", capture_output=True, check=True)
         responses = [json.loads(line) for line in result.stdout.splitlines()]
         self.assertTrue(all(response['ok'] for response in responses))
         self.assertNotIn('hand', responses[1]['result']['state']['players']['agent'])

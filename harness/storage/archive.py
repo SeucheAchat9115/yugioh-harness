@@ -143,7 +143,7 @@ def write_archive(journal, state, game_dir, assets=None):
                            {'sha256': put(game_dir, json.dumps(player['cards'], sort_keys=True, separators=(',', ':'), ensure_ascii=False))})
     archive = build_archive(journal, state, existing, catalogs)
     archive['assets_sha256'] = manifest
-    archive['configuration_sha256'] = digest(json.loads((game_dir / 'game.json').read_text()))
+    archive['configuration_sha256'] = digest(json.loads((game_dir / 'game.json').read_text(encoding="utf-8")))
     archive['decision_evidence'] = evidence_coverage(archive)
     save_archive(game_dir, archive)
     remove_copies(game_dir, manifest)
@@ -244,9 +244,9 @@ def main():
             parser.error('Migration requires the authoritative private journal')
         from harness.storage.locking import writer_lock
         with writer_lock(args.journal.with_name('state.json'), args.game_dir):
-            journal = json.loads(args.journal.read_text())
+            journal = json.loads(args.journal.read_text(encoding="utf-8"))
             state = replay(journal)
-            config = json.loads((args.game_dir / 'game.json').read_text())
+            config = json.loads((args.game_dir / 'game.json').read_text(encoding="utf-8"))
             if config['id'] != state['game_id'] or config['mode'] != state['mode']:
                 raise ValueError('Migration journal belongs to a different game')
             old = args.game_dir / 'events.json'
@@ -265,10 +265,10 @@ def main():
             write_archive(journal, state, args.game_dir)
             workflow = args.workflow or args.journal.with_name('workflow.json')
             if workflow.exists():
-                write_decisions(args.game_dir, json.loads(workflow.read_text()))
+                write_decisions(args.game_dir, json.loads(workflow.read_text(encoding="utf-8")))
             checkpoint = args.journal.with_name('checkpoint.json')
             if checkpoint.exists():
-                packet = json.loads(checkpoint.read_text()).get('decision_packet')
+                packet = json.loads(checkpoint.read_text(encoding="utf-8")).get('decision_packet')
                 if packet:
                     archive = read_archive(args.game_dir)
                     if not archive.get('decision_packets'):

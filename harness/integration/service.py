@@ -53,10 +53,10 @@ class DuelService:
         result = []
         for locator in sorted(self.private_root.glob('*/session.json')):
             try:
-                game = Path(json.loads(locator.read_text())['game_dir']).resolve()
+                game = Path(json.loads(locator.read_text(encoding="utf-8"))['game_dir']).resolve()
                 if not game.is_relative_to(self.repo / 'games'):
                     continue
-                metadata = json.loads((game / 'game.json').read_text())
+                metadata = json.loads((game / 'game.json').read_text(encoding="utf-8"))
                 progress = metadata.get('resume', {})
                 result.append({'game_id': metadata['id'], 'mode': metadata['mode'],
                                'status': metadata['status'], 'revision': progress.get('revision', 0)})
@@ -83,9 +83,9 @@ class DuelService:
             raise ValueError('Agreed rules text required')
         _, game, state = start(self.repo, config, self.private_root / config['id'])
         (game / 'rules.md').write_text(rules_text, encoding='utf-8')
-        journal = json.loads(state.with_name('journal.json').read_text())
+        journal = json.loads(state.with_name('journal.json').read_text(encoding="utf-8"))
         from harness.storage.archive import write_archive
-        write_archive(journal, json.loads(state.read_text()), game)
+        write_archive(journal, json.loads(state.read_text(encoding="utf-8")), game)
         write_checkpoint(state, game, journal)
         save(state.with_name('session.json'), {'game_dir': str(game)})
         self.runner = DuelRunner(state, game)
@@ -95,7 +95,7 @@ class DuelService:
         if not isinstance(game_id, str) or not game_id or any(c not in 'abcdefghijklmnopqrstuvwxyz0123456789-' for c in game_id):
             raise ValueError('Invalid game ID')
         folder = self.private_root / game_id
-        metadata = json.loads((folder / 'session.json').read_text())
+        metadata = json.loads((folder / 'session.json').read_text(encoding="utf-8"))
         game = Path(metadata['game_dir']).resolve()
         if not game.is_relative_to(self.repo / 'games'):
             raise ValueError('Invalid game directory')

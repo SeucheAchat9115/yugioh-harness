@@ -179,7 +179,7 @@ def publish(journal, state_path, game_dir):
 
 def publish_verified(journal, state, state_path, game_dir, assets=None):
     """Internal persistence for a state already validated by apply/replay."""
-    metadata = json.loads((game_dir / "game.json").read_text())
+    metadata = json.loads((game_dir / "game.json").read_text(encoding="utf-8"))
     if metadata["id"] != state["game_id"] or metadata["mode"] != state["mode"]:
         raise ValueError("Game directory does not match session")
     if state_path.resolve().is_relative_to(game_dir.resolve()):
@@ -218,17 +218,17 @@ def main():
         if state_path.is_relative_to(repo) or (args.action and args.action.resolve().is_relative_to(repo)):
             raise ValueError("Private state and action drafts must be outside repository")
         journal_path = state_path.with_name("journal.json")
-        journal = json.loads(journal_path.read_text()) if journal_path.exists() else initialize(json.loads(state_path.read_text()))
+        journal = json.loads(journal_path.read_text(encoding="utf-8")) if journal_path.exists() else initialize(json.loads(state_path.read_text(encoding="utf-8")))
         if args.command == "record":
             if args.action is None:
                 raise ValueError("record requires --action")
-            cached = json.loads(state_path.read_text())
+            cached = json.loads(state_path.read_text(encoding="utf-8"))
             cached.setdefault("revision", 0)
             cached.setdefault("pending_decision", None)
             if cached != replay(journal):
                 raise ValueError("State cache differs from journal; replay to recover, do not edit directly")
-            journal, _ = append(journal, json.loads(args.action.read_text()))
-        metadata = json.loads((game_dir / "game.json").read_text())
+            journal, _ = append(journal, json.loads(args.action.read_text(encoding="utf-8")))
+        metadata = json.loads((game_dir / "game.json").read_text(encoding="utf-8"))
         current = replay(journal)
         if metadata["id"] != current["game_id"] or metadata["mode"] != current["mode"]:
             raise ValueError("Game directory does not match session")

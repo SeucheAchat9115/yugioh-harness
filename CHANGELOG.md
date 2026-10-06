@@ -14,4 +14,4 @@ Initial packaged release of the agentic harness:
 
 The LLM adjudicates gameplay. Unit/smoke tests validate runtime behavior and
 information boundaries, not comprehensive card legality or vendor app integration.
-Python 3.11–3.13 on POSIX; native Windows is unsupported (use WSL).
+Python 3.11–3.13; native Windows and POSIX writer locks. CI runs on Windows.

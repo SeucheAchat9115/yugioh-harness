@@ -48,7 +48,7 @@ def load(game_dir, revision=None, cache_dir=None):
                 raise ValueError('Archive asset hash mismatch')
         else:
             get(game, sha)
-    config = json.loads((game / 'game.json').read_text())
+    config = json.loads((game / 'game.json').read_text(encoding="utf-8"))
     if archive.get('configuration_sha256') != digest(config):
         raise ValueError('Archive configuration hash mismatch')
     initial = _hydrate(game, archive)
@@ -82,7 +82,7 @@ def load(game_dir, revision=None, cache_dir=None):
         return archive['initial_state_sha256'] if number == start else archive['events'][number-start-1]['after_sha256']
     def read(number):
         try:
-            value = json.loads((cache / f'{number}.json').read_text())
+            value = json.loads((cache / f'{number}.json').read_text(encoding="utf-8"))
             cached = value['state']
             if value['archive_sha256'] != key or value['verified_end'] != end or cached['revision'] != number or digest(cached) != expected(number):
                 return None

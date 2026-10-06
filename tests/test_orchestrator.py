@@ -159,12 +159,12 @@ class OrchestratorTests(unittest.TestCase):
         messages = [call('duel_preflight', {'host_capabilities': HOST}, 4), call('duel_decks'), call('duel_start', {'config': self.config, 'rules_text': 'Test rules'}, 2),
                     call('duel_next', identity=3)]
         completed = subprocess.run(command, input=''.join(json.dumps(message) + '\n' for message in messages),
-                                   text=True, capture_output=True, cwd=Path(__file__).resolve().parents[1], timeout=10)
+                                   text=True, encoding="utf-8", capture_output=True, cwd=Path(__file__).resolve().parents[1], timeout=10)
         self.assertEqual(completed.returncode, 0, completed.stderr)
         responses = [json.loads(line) for line in completed.stdout.splitlines()]
         self.assertEqual(len(responses), 4)
         self.assertTrue(all(not item['result']['isError'] for item in responses))
         completed = subprocess.run(command, input=json.dumps(call('duel_resume', {'game_id': 'test-001'})) + '\n',
-                                   text=True, capture_output=True, cwd=Path(__file__).resolve().parents[1], timeout=10)
+                                   text=True, encoding="utf-8", capture_output=True, cwd=Path(__file__).resolve().parents[1], timeout=10)
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertFalse(json.loads(completed.stdout)['result']['isError'])

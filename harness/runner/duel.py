@@ -35,14 +35,14 @@ class DuelRunner:
         self.last_action_status = None
         try:
             self.journal_path = self.state_path.with_name('journal.json')
-            self.journal = json.loads(self.journal_path.read_text())
+            self.journal = json.loads(self.journal_path.read_text(encoding="utf-8"))
             self.state = replay(self.journal)
-            if self.state != json.loads(self.state_path.read_text()):
+            if self.state != json.loads(self.state_path.read_text(encoding="utf-8")):
                 raise ValueError('State cache differs from journal; recover before resuming')
-            checkpoint = json.loads(self.state_path.with_name('checkpoint.json').read_text())
+            checkpoint = json.loads(self.state_path.with_name('checkpoint.json').read_text(encoding="utf-8"))
             if verify_checkpoint(checkpoint) != self.state:
                 raise ValueError('Checkpoint differs from current journal')
-            config = json.loads((self.game_dir / 'game.json').read_text())
+            config = json.loads((self.game_dir / 'game.json').read_text(encoding="utf-8"))
             if (config['id'] != self.state['game_id'] or config['mode'] != self.state['mode']
                     or saved_policy(config) != saved_policy(self.state)):
                 raise ValueError('Game directory does not match session')
@@ -60,7 +60,7 @@ class DuelRunner:
             self.timings = []
             from harness.runner.workflow import Workflow
             workflow_path = self.state_path.with_name('workflow.json')
-            workflow_data = json.loads(workflow_path.read_text()) if workflow_path.exists() else checkpoint.get('workflow')
+            workflow_data = json.loads(workflow_path.read_text(encoding="utf-8")) if workflow_path.exists() else checkpoint.get('workflow')
             self.workflow = Workflow(self, workflow_data)
         except BaseException:
             self.close()
@@ -145,7 +145,7 @@ class DuelRunner:
         if self.lock.closed:
             raise ValueError('Runner is closed')
         try:
-            journal = json.loads(self.journal_path.read_text())
+            journal = json.loads(self.journal_path.read_text(encoding="utf-8"))
             state = replay(journal)
             publish_verified(journal, state, self.state_path, self.game_dir, assets=self.assets)
         except Exception:
@@ -154,11 +154,11 @@ class DuelRunner:
         self.journal, self.state = journal, state
         self._ids = {event['action']['id'] for event in journal['events']}
         self._journal_stat = self.journal_path.stat()
-        self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text()).get('decision_packet')
+        self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text(encoding="utf-8")).get('decision_packet')
         self._recovery_required = False
         from harness.runner.workflow import Workflow
         workflow_path = self.state_path.with_name('workflow.json')
-        self.workflow = Workflow(self, json.loads(workflow_path.read_text()) if workflow_path.exists() else None)
+        self.workflow = Workflow(self, json.loads(workflow_path.read_text(encoding="utf-8")) if workflow_path.exists() else None)
         return {'revision': state['revision'], 'recovered': True, 'last_action': self.last_action_status}
 
     def record(self, action):
@@ -182,11 +182,11 @@ class DuelRunner:
             self._journal_stat = self.journal_path.stat()
             self.packet = None
             publish_verified(journal, updated, self.state_path, self.game_dir, assets=self.assets)
-            self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text()).get('decision_packet')
+            self.packet = json.loads(self.state_path.with_name('checkpoint.json').read_text(encoding="utf-8")).get('decision_packet')
         except Exception:
             # A failed write may have reached disk. Check commit status, then block every operation.
             try:
-                disk = json.loads(self.journal_path.read_text())
+                disk = json.loads(self.journal_path.read_text(encoding="utf-8"))
                 self.last_action_status['recorded'] = any(e['action']['id'] == action['id'] for e in disk['events'])
             except Exception:
                 self.last_action_status['recorded'] = None

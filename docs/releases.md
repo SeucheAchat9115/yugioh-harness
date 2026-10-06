@@ -28,7 +28,7 @@ three modes, preflight, filtered player tasks, simulated dispatch, decisions,
 pause/resume with identical hidden queues, cancellation and schema-4 records.
 It does not run model calls or certify rules adjudication/native host integration.
 
-CI runs unit tests and installed-wheel smoke tests on Linux/macOS with Python
+CI runs unit tests and installed-wheel smoke tests on Windows with Python
 3.11, 3.12 and 3.13. Real host trials should additionally record app/version,
 mode, actual child capabilities, pause/resume and observed latency. Do not label
 untested app versions as verified or include private opponent cards in reports.
@@ -48,3 +48,6 @@ not permission for the orchestrator to publish ongoing duels. See the repository
 explicit game-publication policy. For a maintainer-approved local publication,
 `gh release create <tag> dist/* --notes-file <release-notes>` can publish the same
 reviewed artifacts; preserve exact release notes in a file.
+
+On Windows, use `.venv\Scripts\python.exe` for the commands above. The release
+workflow uses Git Bash on a Windows runner for its scripts.

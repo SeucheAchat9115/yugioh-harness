@@ -28,7 +28,7 @@ def read_event(game_dir, entry):
     path = game / entry['file']
     if not path.resolve().is_relative_to(game):
         raise ValueError('Archive event escapes game directory')
-    event = json.loads(path.read_text())
+    event = json.loads(path.read_text(encoding="utf-8"))
     if event.get('event_sha256') != digest({k: v for k, v in event.items() if k != 'event_sha256'}):
         raise ValueError('Archive event hash mismatch')
     if _entry(event) != entry:
@@ -39,7 +39,7 @@ def read_event(game_dir, entry):
 def load(game_dir):
     """Hydrate event records for existing replay callers; legacy arrays remain readable."""
     game = Path(game_dir)
-    archive = json.loads((game / 'events.json').read_text())
+    archive = json.loads((game / 'events.json').read_text(encoding="utf-8"))
     if archive.get('schema_version') == '4.0':
         if 'events' in archive:
             raise ValueError('Schema-4 archives must not duplicate event records')
@@ -70,7 +70,7 @@ def write(game_dir, archive):
         if not path.resolve().is_relative_to(game.resolve()):
             raise ValueError('Archive event escapes game directory')
         if path.exists():
-            if json.loads(path.read_text()) != event:
+            if json.loads(path.read_text(encoding="utf-8")) != event:
                 raise ValueError('Refusing to replace a different archived event')
         else:
             save(path, event)

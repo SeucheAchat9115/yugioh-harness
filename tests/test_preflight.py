@@ -45,7 +45,7 @@ class PreflightTests(unittest.TestCase):
             start.assert_not_called()
         service.preflight(HOST)
         # A damaged selected bundle must still fail after a successful preflight.
-        (self.repo / self.config['agent_deck'] / 'guide.md').write_text('Changed guide')
+        (self.repo / self.config['agent_deck'] / 'guide.md').write_text('Changed guide', encoding="utf-8")
         with patch('harness.integration.service.start') as start:
             self.assertFalse(service.request(request)['ok'])
             start.assert_not_called()

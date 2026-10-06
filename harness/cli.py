@@ -29,7 +29,7 @@ def main():
     if args.command == 'doctor':
         from harness.preflight import inspect
         try:
-            host = json.loads(args.host_file.read_text()) if args.host_file else None
+            host = json.loads(args.host_file.read_text(encoding="utf-8")) if args.host_file else None
             result = inspect(args.repo, args.private_root, host)
         except (OSError, ValueError):
             parser.error('Cannot read host declaration JSON')

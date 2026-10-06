@@ -128,9 +128,9 @@ def main():
     if args.state.resolve().is_relative_to(repo) or args.packet.resolve().is_relative_to(repo):
         parser.error("State and human decision packet must be outside repository")
     with writer_lock(args.state, args.game_dir):
-        journal = json.loads(args.state.with_name("journal.json").read_text())
+        journal = json.loads(args.state.with_name("journal.json").read_text(encoding="utf-8"))
         state = replay(journal)
-        packet = json.loads(args.packet.read_text())
+        packet = json.loads(args.packet.read_text(encoding="utf-8"))
         text = render(state, packet)
         # Save the exact numbered choices/card mapping before asking the human.
         packet["hand_refs"] = {f"H{i}": card["instance_id"] for i, card in enumerate(state['players']['human']['hand'] or [], 1)}

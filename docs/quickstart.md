@@ -2,8 +2,8 @@
 
 ## Supported environment
 
-Python 3.11–3.13, Linux/macOS or Linux in WSL. The runtime uses POSIX writer locks;
-native Windows is not supported. Runtime dependencies are Python's standard library.
+Python 3.11–3.13 on Windows, Linux or macOS. Windows uses native byte-range
+writer locks; POSIX systems use `flock`. CI runs on Windows only. Runtime dependencies are Python's standard library.
 Install/build tools are needed only for setup. Deck conversion additionally needs
 network access to the YGOPRODeck API; prepared decks play offline with respect to
 card data (your model host may still use its own network).
@@ -27,6 +27,16 @@ python3 -m venv .venv
 .venv/bin/python -m pip install .
 .venv/bin/yugioh-harness --version
 .venv/bin/yugioh-harness doctor --repo .
+```
+
+On Windows PowerShell, use `python` to create the environment and the `Scripts`
+executables instead:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\yugioh-harness.exe doctor --repo .
+.\.venv\Scripts\yugioh-harness.exe host-config --host codex --repo .
 ```
 
 An installed wheel contains the runtime; keep this resource checkout for decklists,
@@ -113,3 +123,8 @@ Self players must preserve their own physical hidden cards/order for continuatio
   don't modify historical shared snapshots.
 
 See `docs/codex-play.md` for the tool protocol and `CONTRIBUTING.md` for development.
+
+Windows file privacy follows the directory ACLs inherited from the user profile.
+POSIX `chmod` modes do not establish equivalent ACL isolation on Windows. Choose
+a private save directory accessible only to the intended user; cooperative player
+children still rely on their no-tools instructions on either platform.

@@ -1,6 +1,6 @@
 # Contributing
 
-Use Python 3.11–3.13 on Linux/macOS, or Linux in WSL. Clone the repository, create
+Use Python 3.11–3.13 on Windows, Linux or macOS. CI runs on Windows. Clone the repository, create
 `.venv`, and install with `python -m pip install -e .`. Follow `AGENTS.md`.
 
 Keep the LLM responsible for rules interpretation and tactical play. Contributions

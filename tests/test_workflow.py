@@ -107,9 +107,9 @@ class WorkflowTests(unittest.TestCase):
 
     def test_context_rules_guides_and_hidden_boundary(self):
         _,game,path=self.start('blind')
-        (game/'rules.md').write_text('Scenario rules: starting player skips the draw.')
+        (game/'rules.md').write_text('Scenario rules: starting player skips the draw.', encoding="utf-8")
         from harness.storage.checkpoint import write_checkpoint
-        journal=json.loads(path.with_name('journal.json').read_text())
+        journal=json.loads(path.with_name('journal.json').read_text(encoding="utf-8"))
         write_checkpoint(path,game,journal)
         with DuelRunner(path,game) as runner:
             context=runner.context('agent')
@@ -169,7 +169,7 @@ class WorkflowTests(unittest.TestCase):
                   {'jsonrpc':'2.0','id':3,'method':'tools/call','params':{'name':'duel_context','arguments':{'player':'human'}}},
                   {'jsonrpc':'2.0','id':4,'method':'tools/call','params':{'name':'duel_status','arguments':{}}}]
         result=subprocess.run([sys.executable,'-m','harness.integration.mcp','--state',str(path),'--game-dir',str(game)],
-                               input='\n'.join(json.dumps(message) for message in messages)+'\n',text=True,capture_output=True,check=True)
+                               input='\n'.join(json.dumps(message) for message in messages)+'\n',text=True, encoding="utf-8",capture_output=True,check=True)
         responses=[json.loads(line) for line in result.stdout.splitlines()]
         self.assertEqual(len(responses),4)
         self.assertEqual(len(responses[1]['result']['tools']),7)
@@ -223,7 +223,7 @@ class WorkflowTests(unittest.TestCase):
                   call(3,'duel_submit',{'decision_id':'mcp-decision','request_id':'input-mcp','response':1}),
                   call(4,'duel_step',execute),call(5,'duel_step',execute)]
         result=subprocess.run([sys.executable,'-m','harness.integration.mcp','--state',str(path),'--game-dir',str(game)],
-                               input='\n'.join(json.dumps(message) for message in messages)+'\n',text=True,capture_output=True,check=True)
+                               input='\n'.join(json.dumps(message) for message in messages)+'\n',text=True, encoding="utf-8",capture_output=True,check=True)
         responses=[json.loads(line) for line in result.stdout.splitlines()]
         self.assertTrue(all(not response['result']['isError'] for response in responses))
         receipt=json.loads(responses[-1]['result']['content'][0]['text'])
