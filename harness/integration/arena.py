@@ -11,6 +11,7 @@ import threading
 from harness.runner.duel import DuelRunner
 from harness.__main__ import respond
 from harness.storage.atomic import save
+from harness.integration.process import check_process
 
 
 class Arena:
@@ -58,7 +59,7 @@ class ArenaClient:
 
     def request(self, request):
         marker=json.loads((self.endpoint/'server.json').read_text(encoding="utf-8"))
-        os.kill(marker['pid'],0)
+        check_process(marker['pid'])
         identity=uuid4().hex
         request_path=self.endpoint/f'{identity}.request.json'
         response_path=self.endpoint/f'{identity}.response.json'
@@ -67,7 +68,7 @@ class ArenaClient:
         try:
             while time.monotonic()<deadline:
                 if response_path.exists():return json.loads(response_path.read_text(encoding="utf-8"))
-                os.kill(marker['pid'],0)
+                check_process(marker['pid'])
                 time.sleep(.005)
             raise TimeoutError('Arena response timeout')
         finally:
@@ -88,7 +89,7 @@ def serve(runner, private_dir):
     marker=endpoint/'server.json'
     if marker.exists():
         previous=json.loads(marker.read_text(encoding="utf-8"))
-        try:os.kill(previous['pid'],0)
+        try:check_process(previous['pid'])
         except ProcessLookupError:pass
         else:raise ValueError('Arena endpoint is already active')
     credentials={}
