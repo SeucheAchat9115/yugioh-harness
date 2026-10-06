@@ -39,8 +39,8 @@ A context envelope is a model-information boundary, not a filesystem sandbox.
 If enforced isolation is unavailable, explain and pause. Cooperative play may use
 shared-tool native children with the documented instructions and honest capability
 receipt. Never silently play both roles yourself. Preserve the saved policy on resume.
-Save locally at every action and decision. No Git operations during play without
-an explicit user request. Resume rather than initialize an existing game.
+Save locally at every action and decision. Keep games and shared snapshots
+ignored and out of Git. Resume rather than initialize an existing game.
 
 For running tasks, use bounded waits and refresh status. Timeouts are checked on
 calls; the runtime cannot kill a vendor child. On failure, stop the child through
@@ -50,7 +50,7 @@ termination; three attempts maximum per decision. Preserve the pending choice,
 never invent a fallback move. On reconnect inspect the saved child handle and
 attempt before spawning. Report failures with their safe fixed state display.
 
-Follow [game storage](../../docs/game-storage.md): the repository archive includes
+Follow [game storage](../../docs/game-storage.md): the local archive includes
 known hidden states for review. Never give it directly to player subagents or use
 it as a public display. Save the replayable `events.json` index and individual `events/*.json` records, without duplicate logs.
 

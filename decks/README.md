@@ -20,7 +20,8 @@ card data and ordered sections, produced by the [conversion skill](../skills/ydk
 `guide.md` contains card roles, access maps, synergies, conditional combos, matchup
 notes, and agent decisions, produced by the [playbook skill](../skills/deck-playbook/SKILL.md).
 Store source links/author/import notes in the optional folder `README.md` and original
-YDK header. Use `templates/deck.json` for initial metadata if needed.
+YDK header. Generate `deck.json` through the conversion skill; provenance is not
+part of its gameplay-only schema.
 
 Indexes: [Unassigned decks](unassigned/README.md) and [Edison](edison/README.md).
 Both Edison bundles are complete; their guides flag historical text differences.

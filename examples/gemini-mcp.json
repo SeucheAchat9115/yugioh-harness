@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "yugioh": {
-      "command": "/absolute/path/to/checkout/.venv/bin/python",
-      "args": ["-m", "harness.integration.mcp", "--repo", "/absolute/path/to/checkout"]
-    }
-  }
-}

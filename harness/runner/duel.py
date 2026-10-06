@@ -8,7 +8,6 @@ from time import perf_counter
 
 from harness.engine.actions import apply, digest, publish_verified, replay
 from harness.engine.commands import prepare
-from harness.effects.registry import EffectRegistry
 from harness.storage.atomic import save
 from harness.storage.locking import acquire_writer
 from harness.storage.checkpoint import verify_checkpoint, write_checkpoint
@@ -23,7 +22,7 @@ class RecoveryRequired(RuntimeError):
 
 
 class DuelRunner:
-    def __init__(self, state_path, game_dir, effects=None):
+    def __init__(self, state_path, game_dir):
         self.state_path = Path(state_path).resolve()
         self.game_dir = Path(game_dir).resolve()
         if self.game_dir.parent.parent.name != 'games':
@@ -54,7 +53,6 @@ class DuelRunner:
             self.configuration = config
             self.assets = checkpoint['assets']
             self.packet = checkpoint.get('decision_packet')
-            self.effects = effects or EffectRegistry()
             self._ids = {event['action']['id'] for event in self.journal['events']}
             self._journal_stat = self.journal_path.stat()
             self.timings = []
@@ -96,7 +94,7 @@ class DuelRunner:
         # Chain objects may carry internal resolution choices; give players only public fields.
         permitted['chain'] = [{k: link[k] for k in ('id', 'actor', 'name', 'effect', 'costs', 'targets', 'effect_negated') if k in link}
                               for link in permitted['chain']]
-        context = {'perspective': player, 'state': permitted, 'capabilities': self.effects.capabilities(),
+        context = {'perspective': player, 'state': permitted,
                    'decision': deepcopy(permitted['pending_decision'])}
         if self.packet is not None and (player == 'moderator' or player == (self.state.get('pending_decision') or {}).get('actor','human')):
             context['prompt'] = {key: deepcopy(self.packet[key]) for key in
@@ -200,10 +198,6 @@ class DuelRunner:
         self._fresh()
         return self.record(prepare(self.state, request))
 
-    def effect(self, name, request):
-        self._fresh()
-        return self.record(self.effects.prepare(name, self.state, request))
-
     def display(self, packet):
         self._fresh()
         text = render(self.state, packet)
@@ -218,18 +212,3 @@ class DuelRunner:
             raise RecoveryRequired(self.last_action_status) from None
         self.packet = packet
         return text
-
-    def advance(self, next_step, limit=100):
-        """Trusted scheduler proposes verified automatic actions; stop at every choice."""
-        self._fresh()
-        events = []
-        for _ in range(limit):
-            if self.state['status'] != 'active' or self.state.get('pending_decision') is not None:
-                return events
-            action = next_step(deepcopy(self.state))
-            if action is None:
-                return events
-            if action.get('automatic') is not True:
-                raise ValueError('Scheduler may only propose verified automatic steps')
-            events.append(self.record(action)['summary'])
-        raise ValueError('Automatic continuation limit reached')

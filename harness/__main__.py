@@ -14,7 +14,7 @@ def dispatch(duel, request):
     if not isinstance(request, dict) or not isinstance(request.get('op'), str):
         raise InvalidRequest('Request must be an object with an operation')
     operation = request['op']
-    required = {'command': 'request', 'record': 'action', 'effect': 'request', 'display': 'packet', 'present': 'packet', 'step': 'request'}
+    required = {'command': 'request', 'record': 'action', 'display': 'packet', 'present': 'packet', 'step': 'request'}
     if operation in required and not isinstance(request.get(required[operation]), dict):
         raise InvalidRequest('Operation payload must be an object')
     if operation == 'view':
@@ -27,10 +27,6 @@ def dispatch(duel, request):
         return duel.command(request['request'])
     if operation == 'record':
         return duel.record(request['action'])
-    if operation == 'effect':
-        if not isinstance(request.get('name'), str):
-            raise InvalidRequest('Effect name required')
-        return duel.effect(request['name'], request['request'])
     if operation == 'display':
         return {'text': duel.display(request['packet'])}
     if operation == 'present':
@@ -44,7 +40,7 @@ def dispatch(duel, request):
     if operation == 'recover':
         return duel.recover()
     if operation == 'capabilities':
-        return {'commands': ['draw', 'shuffle'], 'effects': duel.effects.capabilities(),
+        return {'commands': ['draw', 'shuffle'],
                 'card_legality': 'moderator-reviewed'}
     raise InvalidRequest('Unknown operation')
 

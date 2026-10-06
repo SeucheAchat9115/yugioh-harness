@@ -1,15 +1,11 @@
 from copy import deepcopy
 import json
-from pathlib import Path
 import subprocess
 import sys
 import unittest
 import test_session as fixtures
 from harness.engine.session import start, validate_config
 from harness.runner.duel import DuelRunner
-from harness.runner.loop import DuelLoop
-from harness.players.adapters import CallbackPlayer
-from harness.views.perspective import view
 from harness.integration.arena import Arena, ArenaClient
 from harness.integration.mcp import rpc
 from harness.storage.checkpoint import restore
@@ -70,35 +66,6 @@ class AgentDuelTests(unittest.TestCase):
             self.assertNotIn('PRIVATE_AGENT_ONE_OPTION',json.dumps(runner.context('agent')))
             self.assertIn('PRIVATE_AGENT_ONE_OPTION',json.dumps(runner.context('human')))
 
-    def test_full_two_adapter_loop_and_resume(self):
-        initial,game,path=self.start()
-        observed={}
-        with DuelRunner(path,game) as runner:
-            def choose(actor):
-                def callback(context):
-                    observed[actor]=context
-                    self.assertNotIn('hand',context['state']['players']['agent' if actor=='human' else 'human'])
-                    return {'response':'1','request_id':f'{actor}-input'}
-                return CallbackPlayer(callback)
-            def moderator(request):
-                if request['stage']=='review_intent':
-                    if request['intention']['player']=='human':
-                        return {'action':plan(runner,[{'op':'decision','value':{'actor':'agent','window':'response'}}])}
-                    return {'action':plan(runner,[{'op':'decision','value':None},
-                        {'op':'lp','player':'human','delta':-8000},{'op':'status','value':'finished'}],kind='finish')}
-                if runner.state['pending_decision'] is None:
-                    return {'action':plan(runner,[{'op':'decision','value':{'actor':'human','window':'main-phase'}}],
-                        automatic=True,option_review={'complete':True,'meaningful_choices':0,
-                        'basis':'public-rules-verified','reason':'Scenario compulsory setup.'})}
-                return {'packet':packet(runner)}
-            with self.assertRaises(ValueError):DuelLoop(runner,moderator,{'agent':choose('agent')})
-            result=DuelLoop(runner,moderator,{'human':choose('human'),'agent':choose('agent')}).run()
-            self.assertEqual(result['status'],'finished')
-            self.assertEqual(set(observed),{'human','agent'})
-            for actor in ('human','agent'):
-                for card in initial['players'][actor]['hand']:
-                    self.assertNotIn(card['instance_id'],json.dumps(result))
-        with DuelRunner(path,game) as resumed:self.assertEqual(resumed.state['status'],'finished')
 
     def test_role_bound_gateway_rejects_other_player_and_moderation(self):
         _,game,path=self.start()

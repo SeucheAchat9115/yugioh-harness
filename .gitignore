@@ -4,11 +4,11 @@ __pycache__/
 .env
 .env.*
 
-# Local writer coordination; never archive lock files.
-games/**/.writer.lock
-
 # Local installation/build outputs.
 .venv/
 build/
 dist/
 *.egg-info/
+# Local replay archives and their shared assets.
+games/
+snapshots/

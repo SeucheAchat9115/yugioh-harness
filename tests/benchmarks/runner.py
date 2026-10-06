@@ -3,7 +3,6 @@ from pathlib import Path
 import json
 import statistics
 import sys
-import tempfile
 from time import perf_counter
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -25,4 +24,4 @@ try:
                           'median_action_ms': round(statistics.median(samples), 2),
                           'p95_action_ms': round(samples[int(.95 * (len(samples)-1))], 2)}, indent=2))
 finally:
-    fixture.tearDown()
+    fixture.doCleanups()

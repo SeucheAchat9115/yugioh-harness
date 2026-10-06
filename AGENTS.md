@@ -17,14 +17,15 @@
 - Create a new version when changing a deck. Previously played games retain
   their original deck snapshots.
 - Save game actions, random outcomes, and game states so they can be reviewed.
-  Keep live displays/player contexts filtered. Repository archives deliberately contain
+  Keep live displays/player contexts filtered. Local replay archives deliberately contain
   known hidden states for full replay; follow `docs/game-storage.md`. Never give
   an omniscient archive to a player child.
-- Save games locally after each action. Never stage/commit/push game records or
-  call GitHub write tools during play unless explicitly requested. “Save” and
-  pause/end-of-game do not authorize a commit. Keep game files out of unrelated
-  code commits. Never commit raw private runtime files. Requested game publication
-  includes its omniscient replay archive, excluding shuffled deck queues.
+- Save games locally after each action. `games/` and the shared `snapshots/` store
+  are ignored local data; never stage, force-add, commit or push them as part of
+  repository work. “Save”, pause and finish update local state only. Keep private
+  runtime files outside the checkout and out of Git. For backups or a requested
+  export, preserve archive/snapshot references and known hidden state separately
+  from source control; do not expose archives to a player child.
 
 - Enriched deck JSON must contain gameplay data only: deck identity, format/banlist,
   ordered Main/Extra/Side IDs, and card names, text, types, and applicable stats.
@@ -71,15 +72,15 @@
   legality, resolves effects/battles, and manages gameplay windows. The runtime
   provides structural safeguards and persistence; a full coded game engine is
   not required or the default roadmap.
-- Coded helpers in `harness/effects/` are optional optimizations. Missing handlers
-  do not prevent play: the LLM adjudicates and submits an approved action record.
-  Pause on uncertain rulings, not merely on absent code. Never claim moderator
-  approval is independent rules-engine certification.
-- Preserve schema-1 journals/checkpoints and legacy CLI compatibility. Test with
+- The LLM adjudicates card effects and submits approved action records. No empty
+  effect registry or alternative callback play loop is needed. Pause on uncertain
+  rulings; structural validation is not independent rules certification.
+- Preserve existing journals/checkpoints and archive readers. Maintainer CLIs use
+  `python -m harness.<module>`; removed `agents/runtime/` wrappers are not supported. Test with
   `python -m unittest discover -s tests -v`; benchmark with
   `python tests/benchmarks/runner.py`. Never run benchmarks against a real duel.
 
-- Use `docs/codex-play.md` for integrated sessions: persist numbered decisions with
+- Use `docs/orchestration.md` for integrated sessions: persist numbered decisions with
   IDs, submit input before reviewing it, and execute stable request IDs through
   the workflow. Identical retries must not apply actions twice. Bind H/A hand
   references to saved prompts. Never show opponent packets or moderator context

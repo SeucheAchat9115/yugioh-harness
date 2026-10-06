@@ -13,9 +13,9 @@ LP/hand size, field layout, first-turn rules, single game or match, and start pl
 Load each bundle from `decks/<format>/<deck-name>/`: `deck.ydk`, `deck.json`,
 and `guide.md`; use the optional `README.md` for source notes. Validate known
 decklists, including Side Deck Extra Deck cards. In self mode record the
-human list as self-attested without requesting it. Snapshot each whole bundle into
-`games/<format>/<game-id>/decks/<player>/<deck-name>/`, retaining its generic filenames,
-and snapshot the rules into the game's records. Check each guide's JSON hash.
+human list as self-attested without requesting it. The runtime interns each bundle and the agreed rules into the shared local
+`snapshots/` store. Archives retain logical resource names and exact hashes
+without per-game copies. Check each guide's JSON hash.
 
 Use the harness for authoritative stored state and managed shuffles; assign the
 LLM moderator to interpret rules and approve gameplay updates. Agree on a ruling
@@ -48,14 +48,14 @@ and follow-up. Do not continue a canned combo after its assumptions change.
 Follow [natural-language action recording](natural-language-actions.md): the human
 speaks normally, and the moderator records confirmed decisions as guarded internal
 changes. Keep the exact live journal private and export complete known hidden-state
-transitions to the repository archive. Display only permitted state/narration.
+transitions to the local archive. Display only permitted state/narration.
 Replay the private journal for recovery; see [game storage](game-storage.md).
 
 Follow [duel experience](duel-experience.md) for every gameplay message: the fixed
 state display, two recommended moves when available, free-text choices, verified
 no-choice continuation, and complete private checkpoints. All saves are local.
-Commit/publish game records only when explicitly requested; “save”, pause, and
-game end do not authorize a commit.
+Keep game records and snapshots local and ignored by Git; “save”, pause, and
+game end never publish them.
 
 For each action, state the phase/window, card and zone, intended effect, costs,
 targets, and any material choices required at activation. Allow the opponent to

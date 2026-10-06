@@ -7,7 +7,8 @@ The human never needs to write JSON or use commands.
 
 Use [duel experience](duel-experience.md) for fixed state displays, two recommended
 moves/free-text input, automatic verified no-choice progression, local-only saves,
-and complete private resume checkpoints plus omniscient repository replay archives. No game commit without explicit request.
+and complete private resume checkpoints plus omniscient local replay archives.
+Games and shared snapshots stay ignored and out of Git.
 
 ## Moderator workflow
 
@@ -101,7 +102,7 @@ an adjacent private `journal.json`. An older session without one uses its curren
 state as the baseline; earlier manual actions cannot be recovered retroactively.
 
 The authoritative private journal holds the baseline, action changes, timestamps,
-and before/after state hashes. Private `state.json` is a cache. Repository `events.json` plus `events/*.json` form the complete schema-4 replay archive (including known
+and before/after state hashes. Private `state.json` is a cache. Local `events.json` plus `events/*.json` form the complete schema-4 replay archive (including known
 hidden states, excluding shuffled deck order). Do not write duplicate game-folder
 state/action/turn logs; generate filtered states and readable logs on demand.
 See [game storage](game-storage.md). If interrupted after

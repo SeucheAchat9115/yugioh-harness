@@ -1,5 +1,4 @@
 """Local readiness checks and honest host capability declarations; no model calls."""
-import json
 import os
 from pathlib import Path
 import sys

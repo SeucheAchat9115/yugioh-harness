@@ -22,7 +22,7 @@ selected policy is saved and preserved on resume.
 
 ## Start or resume conversationally
 
-> Read `agents/orchestrator/AGENT.md`. Start an managed duel with me playing Branded
+> Read `agents/orchestrator/AGENT.md`. Start a managed duel with me playing Branded
 > Despia against Dracotail. Ask for any missing rules and guide me through play.
 
 > Start a self duel. Your deck is Dracotail; I manage my own hidden cards.
@@ -41,10 +41,12 @@ Unassigned decks need agreed format/banlist or explicit casual rules.
 Users need no Python commands, JSON setup files, credential handling, or separate
 player sessions during play. The host needs execution or MCP tools and safe native
 subagent support; an ordinary chat app without them cannot run the harness.
-See [host integration](../docs/codex-play.md) for one-time setup and backend tools.
+See [host integration](../docs/orchestration.md) for one-time setup and backend tools.
 [Harness internals](../docs/harness.md) retain command references for maintainers;
 they are operated by the orchestrator, not the human player.
 
-Saves, pause, and finish are local. No game commit/push without an explicit request.
+Saves, pause, and finish are local. `games/` and `snapshots/` stay out of Git.
 Private checkpoints preserve managed hidden state, task IDs, prompts, and receipts.
-Legacy `agents/runtime/` commands remain compatibility interfaces.
+Use `python -m harness.<module>` for maintainer CLI access; agent policies contain
+no runtime scripts. Historical `open`/`blind` saves retain their semantics through
+the shared human policy, without separate legacy agent definitions.

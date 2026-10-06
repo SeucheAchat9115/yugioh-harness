@@ -30,4 +30,4 @@ try:
     print(json.dumps({'revisions':33,'cold_replay_ms':round(cold,2),'warm_replay_ms':round(warm,2),
                       'full_context_bytes':full_bytes,'compact_context_bytes':compact_bytes}, indent=2))
 finally:
-    fixture.tearDown()
+    fixture.doCleanups()

@@ -34,7 +34,10 @@ duel, convert the human-selected bundle when required by the human duel policy.
    Preserve deck identity, format, banlist, and version.
    Remove all old non-gameplay metadata, including unknown fields.
 5. Check exact section order, duplicates, copy counts, and coverage of all IDs.
-   Confirm the YDK files remain unchanged. Commit the skill and generated JSONs.
+   Confirm the YDK files remain unchanged. Review/update `guide.md` through the
+   deck-playbook skill so its JSON hash matches the new data before play.
+   Submit deck changes through the repository's normal reviewed pull-request flow;
+   never publish a partial bundle or commit during a duel.
 
 To filter card records already fetched into the same folders' `deck.json` files without another
 network request, use:
@@ -43,11 +46,10 @@ network request, use:
 python skills/ydk-to-json/scripts/convert.py --repo . --from-existing
 ```
 
-This reuses the saved data; it does not refresh it. For network access through
-GitHub Actions, use `.github/workflows/enrich-ydk.yml`. It runs on changes to
-YDKs, this skill, or the workflow on `main`, and supports manual runs. It tests
-and runs this same converter, then commits successful outputs back to the branch.
-Confirm the run and generated files succeeded before reporting completion.
+This reuses saved data; it does not refresh it. The host running conversion needs
+API network access. Conversion is a reviewed deck-preparation task; no workflow
+pushes generated card data directly to `main`. A card-data refresh must also
+review the playbook and update its JSON hash before the deck can be selected.
 
 ## JSON format: schema version `2.0`
 

@@ -1,7 +1,5 @@
 """Regression coverage for privacy, bookkeeping, transport, recovery, and locking."""
-from copy import deepcopy
 import json
-from pathlib import Path
 import subprocess
 import sys
 import unittest
@@ -119,7 +117,7 @@ class SessionRegressions(unittest.TestCase):
             self.assertTrue(response['error']['action_status']['recorded'])
             self.assertNotIn('SECRET',json.dumps(response))
             for operation in (lambda:runner.context('human'),lambda:runner.command(request),
-                              lambda:runner.advance(lambda state:None)):
+                              lambda:runner.record({})):
                 with self.assertRaises(RecoveryRequired):operation()
             runner.recover()
             self.assertEqual(json.loads(path.read_text(encoding="utf-8"))['revision'],1)

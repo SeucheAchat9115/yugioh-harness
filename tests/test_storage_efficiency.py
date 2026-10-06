@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 
 from harness.engine.actions import append, digest, initialize, replay
-from harness.storage.archive import archive_state, build_archive, load_replay, write_archive
+from harness.storage.archive import archive_state, load_replay, write_archive
 from harness.storage.compact import execute, operations
 from harness.storage.snapshots import collect, object_path, root
 from harness.runner.duel import DuelRunner
