@@ -77,7 +77,9 @@ def collect(game_dir):
             continue
         if not path.resolve().is_relative_to(game_dir.resolve()):
             raise ValueError('Snapshot escapes game directory')
-        content = path.read_text(encoding='utf-8')
+        # Preserve bytes (including CRLF) so the interned hash matches the copy
+        # verified by remove_copies on every operating system.
+        content = path.read_bytes().decode('utf-8')
         assets[path.relative_to(game_dir).as_posix()] = {'sha256': hashlib.sha256(content.encode('utf-8')).hexdigest(), 'content': content}
     return assets
 

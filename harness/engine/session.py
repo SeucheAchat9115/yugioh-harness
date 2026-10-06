@@ -222,6 +222,8 @@ def draw(state, actor, count):
 
 
 def main():
+    from harness.integration.stdio import configure_utf8
+    configure_utf8()
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     setup = commands.add_parser("start")

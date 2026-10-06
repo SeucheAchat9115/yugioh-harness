@@ -114,6 +114,8 @@ def render(state, packet):
 
 
 def main():
+    from harness.integration.stdio import configure_utf8
+    configure_utf8()
     from harness.storage.checkpoint import write_checkpoint
     from harness.engine.actions import replay
     parser = argparse.ArgumentParser(description=__doc__)

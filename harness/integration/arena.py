@@ -115,8 +115,10 @@ def serve(runner, private_dir):
                     result={'ok':False,'error':{'code':'invalid_request','message':'Malformed arena request.'}}
                 except FileNotFoundError:continue
                 response=path.with_name(path.name.replace('.request.json','.response.json'))
-                save(response,result)
                 path.unlink(missing_ok=True)
+                # A response acknowledges consumption; clients may clean up only
+                # after the server has finished reading and deleting the request.
+                save(response,result)
             time.sleep(.005)
     finally:
         marker.unlink(missing_ok=True)
