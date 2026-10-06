@@ -50,7 +50,8 @@ does not import or change decklists.
    Record the deck ID, JSON SHA-256, counts, format/banlist status, and review
    status. Link the exact JSON and YDK. Preserve earlier format-specific guides.
 8. Audit coverage, manually review the combo traces, update guide indexes, and
-   commit the skill and playbooks to the requested repository:
+   submit changes through the repository's reviewed pull-request flow. Never
+   commit deck preparation during a duel:
 
    ```sh
    python skills/deck-playbook/scripts/audit.py check decks/unassigned/dracotail/deck.json

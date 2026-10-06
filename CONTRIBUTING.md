@@ -20,8 +20,9 @@ Before a pull request:
 - For packaging/transport changes, build a wheel and run the installed smoke test
   as described in `docs/releases.md`.
 - Explain the behavior change, relevant validation and compatibility impact.
-- Do not include private session/checkpoint files, credentials or unrelated duels.
-  Game publication requires the player's explicit request. Archives are omniscient.
+- Do not include private session/checkpoint files, credentials or duels.
+  `games/` and `snapshots/` stay local and ignored by Git; never force-add them.
+  Archives contain known hidden information and are not player contexts.
 
 Deck contributions use `decks/<format>/<name>/deck.ydk`, `deck.json`, `guide.md`
 and optional README provenance. Run the YDK conversion and deck-playbook skills,

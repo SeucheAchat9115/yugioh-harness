@@ -4,7 +4,6 @@ Host dispatch is simulated; this does not certify Codex/Claude/Gemini facilities
 Run with the installed wheel's Python: python tests/smoke_install.py --repo <source>.
 """
 import argparse
-from copy import deepcopy
 import json
 import tomllib
 from pathlib import Path

@@ -1,6 +1,5 @@
 """Omniscient replay archives. Remaining decks are unordered inventories, not queues."""
 from copy import deepcopy
-import hashlib
 import json
 from pathlib import Path
 

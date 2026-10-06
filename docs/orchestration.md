@@ -23,8 +23,10 @@ configuration. Vendor subagent support must be checked in the actual app.
 
 ## Host integration (one-time configuration)
 
-The [MCP example](../examples/codex-mcp.toml) connects a repository-level lobby.
-An installer or the orchestrator configures it; no per-duel state paths are needed.
+Use `yugioh-harness host-config --host codex|claude|gemini --repo <checkout>`
+to generate a repository-level lobby configuration as described in the
+[quickstart](quickstart.md). An installer or the orchestrator configures it;
+no per-duel state paths are needed.
 Equivalent MCP setup works in hosts that support stdio servers. If no MCP server
 is registered, the orchestrator can operate the stdio backend through its own
 execution tools. Adding a repository does not automatically register tools in an
@@ -80,7 +82,7 @@ Retries retain IDs and identical payloads. Recorded actions return receipts rath
 than reapplying effects. Outstanding task bindings, prompts, choices, and hidden
 managed cards survive checkpoint restore. Legacy sessions without lobby metadata
 can still be loaded by the orchestrator through their existing direct runner paths.
-No tool commits game records at pause, finish, or save.
+Game archives and their shared snapshots are ignored local files, never Git commits.
 
 ## Backend reference for maintainers
 
@@ -88,7 +90,7 @@ No tool commits game records at pause, finish, or save.
 `--private-root` optionally configures durable external storage. Direct `--state`
 and `--game-dir` and role-bound `--credential` transports remain compatible.
 `DuelService` owns setup and the persistent writer; `Orchestrator.next()` returns
-a sequential host task; `DuelLoop` supports synchronous moderator/player callbacks.
+a sequential host task; `player_tasks` binds native child attempts and results.
 See [harness internals](harness.md) and [agent duels](agent-vs-agent.md).
 
 `duel_step` uses moderator-approved `operations`: `move`, `card`, `lp`, `usage`,

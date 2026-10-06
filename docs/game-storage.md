@@ -1,11 +1,12 @@
 # Compact game archives and agent contexts
 
-The repository stores omniscient records for replay and review, including known
-hidden hands and face-down identities. Player agents receive filtered runtime
-contexts instead. Publishing requires an explicit user request; local saves,
-pauses and finishing do not authorize a commit.
+Games are stored locally for replay and review, including known hidden hands
+and face-down identities. Player agents receive filtered runtime contexts instead.
+`games/` and `snapshots/` are ignored by Git, and existing records are no longer
+tracked. Source commits and pushes do not upload or back up game data. Copies
+already present in older Git history are not removed by this policy.
 
-## Repository layout
+## Local layout and backups
 
 Each `games/<format>/<game-id>/` contains:
 
@@ -163,5 +164,10 @@ The internal `harness.storage.archive` CLI supports `migrate`, `replay` and `log
 Migration requires an authoritative private journal, checks game identity/newer
 history, interns assets, converts transitions and verifies the resulting state.
 Historical packet/intention gaps remain explicitly partial. Existing schema-1
-private journals/checkpoints and schema-2/schema-3 repository archives remain supported.
+private journals/checkpoints and schema-2/schema-3 local archives remain supported.
 Humans never need to execute these commands during a duel.
+
+Back up `games/`, `snapshots/`, and the external private save directory together.
+The replay archive reconstructs past states; exact continuation also requires its
+private checkpoint and shuffled queues. A self-mode human keeps their physical
+hidden cards separately. Do not force-add local archives to publish source changes.

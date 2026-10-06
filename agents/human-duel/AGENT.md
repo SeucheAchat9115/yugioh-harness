@@ -47,14 +47,14 @@ intervening actions, preserve response windows, accept free text, and stop at
 actual choices. Never revise an opponent's committed move after a human reply.
 Save locally after each action and before asking, including pending choices,
 chains, paid costs, effects, rules, random outcomes, and all managed hidden state.
-Resume from the checkpoint; never redeal or reshuffle. Never commit or push game
-records without an explicit request, including on save, pause, or finish.
+Resume from the checkpoint; never redeal or reshuffle. Keep game records and
+their shared snapshots local and ignored by Git, including on save, pause or finish.
 
 `agent-vs-agent` remains a separate participant arrangement: both player slots
 are managed and each child receives its own private view. Existing `open` saves
 retain their explicitly shared human information; existing `blind` saves behave
 as self. Do not silently convert an existing game's mode or visibility.
 
-Follow [game storage](../../docs/game-storage.md): the repository archive includes
+Follow [game storage](../../docs/game-storage.md): the local archive includes
 known hidden states for review. Never give it directly to player subagents or use
 it as a public display. Save the replayable `events.json` index and individual `events/*.json` records, without duplicate logs.

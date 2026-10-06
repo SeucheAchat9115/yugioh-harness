@@ -1,5 +1,4 @@
 """Readiness gates reject unsafe storage and unsupported host declarations before deal."""
-from pathlib import Path
 import shutil
 import unittest
 from unittest.mock import patch

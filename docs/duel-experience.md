@@ -1,6 +1,6 @@
 # Duel decisions, local saves, and continuation
 
-Apply these rules in both modes to every gameplay declaration, question,
+Apply these rules in all three modes to every gameplay declaration, question,
 clarification, correction, and pause/resume update. Repo development discussions
 do not require a duel display.
 
@@ -13,9 +13,9 @@ set identities and transitions. Shuffled queues stay in the private checkpoint.
 Player contexts and outward displays remain filtered.
 
 Do not stage, commit, push, create a PR, or call GitHub write tools automatically.
-Only an explicit publication request authorizes uploading the requested archive
-and snapshots. “Save”, pause and game end authorize local updates only. Exclude
-raw runtime/checkpoint/workflow files and unrelated game/code changes.
+`games/` and shared `snapshots/` remain ignored local data. Do not force-add them
+or upload private runtime files through source-control operations. Back up all
+local archive assets and external checkpoints together; see [game storage](game-storage.md).
 
 ## Fixed display: decision-v1
 

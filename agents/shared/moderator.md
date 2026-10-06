@@ -12,7 +12,7 @@ handling, or separate player sessions. Apply this policy in all three duel modes
 Follow [natural-language action recording](../../docs/natural-language-actions.md).
 Humans declare choices normally; translate confirmed decisions into private guarded
 records without asking them to write JSON. Preserve response windows and physical
-copy IDs. Use `actions.py record` for updates and `replay` for recovery; do not
+copy IDs. Use `duel_step` for normal updates and `duel_recover` for recovery; do not
 edit the state cache directly once its journal exists.
 
 Follow [duel experience](../../docs/duel-experience.md) for fixed state displays,
@@ -62,18 +62,17 @@ state, action, turn-log or resume files. Snapshot logical names remain
 is shared under `snapshots/`. Self human hidden cards
 remain unknown and the archive must say so.
 
-Save locally after every action. Never commit/push or write to GitHub without an
-explicit request. A requested game publication includes its omniscient replay
-archive, rules and snapshots; exclude raw private session/checkpoint/workflow
-files and shuffled deck queues. Local private checkpoints remain outside the
-repository for exact resumption. Player children must use permitted runtime views,
-never inspect the archive, even though shared native tools may expose the files.
+Save locally after every action. `games/` and `snapshots/` are ignored local data;
+never force-add them or include them in source commits. Keep raw private session,
+checkpoint and workflow files outside Git. Back up local archives, shared snapshots,
+and private checkpoints together for exact continuation. Player children use
+permitted runtime views, never the archive, even when shared tools expose files.
 
 The LLM moderator adjudicates summons, battle, chains, and card effects using
 exact card text and agreed rules. The harness supports initialization, views,
 fixed displays, draws, guarded updates, replay, and private checkpoints. Record
 your adjudicated results through approved actions following `docs/agent-play.md`.
-Missing coded effect handlers do not prevent play. Consult the agreed ruling
+No coded effect-handler registry is required for play. Consult the agreed ruling
 source or referee when uncertain. A full coded simulator is not required; do not
 claim structural validation independently certifies rule judgments.
 

@@ -1,14 +1,11 @@
 from copy import deepcopy
 import json
-from pathlib import Path
 import subprocess
 import sys
 import unittest
 
 import test_session as fixtures
 from harness.engine.actions import replay
-from harness.effects.registry import EffectRegistry, UnsupportedEffect
-from harness.players.adapters import CallbackPlayer
 from harness.runner.duel import DuelRunner
 
 
@@ -39,19 +36,12 @@ class RunnerTests(unittest.TestCase):
             context = runner.context('agent')
             self.assertNotIn('remaining_deck_order', context['state']['players']['human'])
             self.assertNotIn('remaining_deck_order', context['state']['players']['agent'])
-            def choose(context):
-                context['state']['players']['agent']['lp'] = 0
-                return {'intent': 'pass'}
-            self.assertEqual(CallbackPlayer(choose).choose(context), {'intent': 'pass'})
+            context['state']['players']['agent']['lp'] = 0
             self.assertEqual(runner.state, before)
 
-    def test_unsupported_effect_and_pending_window_do_not_mutate(self):
+    def test_pending_window_rejects_unprompted_commands(self):
         _, game, path = self.start('open')
         with DuelRunner(path, game) as runner:
-            before = deepcopy(runner.state)
-            with self.assertRaises(UnsupportedEffect):
-                runner.effect('branded-fusion', {})
-            self.assertEqual(runner.state, before)
             runner.record({'id': 'window', 'kind': 'choice', 'actor': 'moderator',
                 'expected_revision': 0, 'moderator_approved': True, 'public_summary_reviewed': True,
                 'public_summary': 'Human decision window opened.', 'changes': [
@@ -60,7 +50,6 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Pending'):
                 runner.command({'command': 'draw', 'actor': 'human', 'expected_revision': 1,
                                 'moderator_approved': True})
-            self.assertEqual(runner.advance(lambda state: self.fail('Must stop at human choice')), [])
 
     def test_single_writer_and_external_legacy_writer_detection(self):
         _, game, path = self.start('open')
@@ -73,13 +62,8 @@ class RunnerTests(unittest.TestCase):
                 runner.command({'command': 'draw', 'actor': 'agent', 'expected_revision': 0,
                                 'moderator_approved': True})
 
-    def test_registry_and_stdio_transport(self):
+    def test_stdio_transport(self):
         _, game, path = self.start('open')
-        registry = EffectRegistry()
-        registry.register('test', lambda state, request: {'intent': 'example'})
-        self.assertEqual(registry.capabilities(), ['test'])
-        with self.assertRaises(ValueError):
-            registry.register('test', lambda state, request: {})
         result = subprocess.run([sys.executable, '-m', 'harness', '--state', str(path),
                                  '--game-dir', str(game)], input='{"op":"capabilities"}\n{"op":"view","player":"human"}\n',
                                 text=True, encoding="utf-8", capture_output=True, check=True)

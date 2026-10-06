@@ -68,8 +68,8 @@ The command uses an absolute Python path; regenerate it if the virtual environme
 or checkout moves. It runs locally over stdio, with no public HTTP listener.
 
 Execution-capable orchestrators can launch the same backend themselves when MCP
-is not registered. Static files in `examples/` use marked placeholders; the
-configuration generator produces usable paths. Models/API credentials belong to
+is not registered. The configuration generator produces usable absolute paths; there is no
+second set of static host configurations to maintain. Models/API credentials belong to
 the host; this project does not require vendor SDKs or collect credentials.
 
 ## Verify capabilities before dealing
@@ -109,6 +109,8 @@ The orchestrator confirms rules and starting player, operates all runtime tools,
 and saves after actions. Say “save and pause” to stop and retain the pending
 window, or ask to resume the saved game ID later. A save does not publish to Git.
 Self players must preserve their own physical hidden cards/order for continuation.
+`games/` and `snapshots/` are ignored local data. Back them up together with the
+external private save directory; Git pushes do not back up or share duels.
 
 ## Troubleshooting
 
@@ -122,7 +124,7 @@ Self players must preserve their own physical hidden cards/order for continuatio
 - Corrupt guide/bundle: regenerate through the deck skills and review provenance;
   don't modify historical shared snapshots.
 
-See `docs/codex-play.md` for the tool protocol and `CONTRIBUTING.md` for development.
+See `docs/orchestration.md` for the tool protocol and `CONTRIBUTING.md` for development.
 
 Windows file privacy follows the directory ACLs inherited from the user profile.
 POSIX `chmod` modes do not establish equivalent ACL isolation on Windows. Choose

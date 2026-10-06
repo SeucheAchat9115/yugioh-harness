@@ -4,7 +4,7 @@ Ask the orchestrator in your current conversation to run an agent-versus-agent
 duel with two selected decks. It handles rules agreement, setup, runtime calls,
 private player subagents, public narration, and saving. You do not open three
 sessions, run Python, or relay messages. Follow
-[conversational play](codex-play.md) and the
+[conversational play](orchestration.md) and the
 [orchestration skill](../skills/duel-orchestrator/SKILL.md).
 
 ## Sequential private player tasks
@@ -15,7 +15,7 @@ its own hand, Extra/Side Deck, guide, and public observations. Neither receives
 the opponent's hidden cards/guide or the moderator's history. The moderator knows
 both managed states; no LLM context contains future draw order.
 
-1. The orchestrator internally fills the agent-duel configuration and calls
+1. The orchestrator internally fills `templates/duel-config.json` with `mode: "agent-vs-agent"` and calls
    `duel_start` with agreed rules. Both bundles need YDK, JSON, and guide;
    `show_agent_hand: true` is rejected.
 2. The moderator opens the active actor's decision window and presents its private
@@ -28,8 +28,7 @@ both managed states; no LLM context contains future draw order.
 4. `duel_next` requests moderator review. Adjudicate legality and responses, apply
    a guarded step with the submission ID, then repeat with fresh context.
 5. Report reviewed public events and the fixed spectator state display. Stop at
-   uncertain rulings, pause, finish, or observer requests. Never commit game files
-   unless explicitly asked.
+   uncertain rulings, pause, finish, or observer requests. Keep game archives and shared snapshots local and out of Git.
 
 The host orchestrator actually invokes native subagents; the Python scheduler
 returns tasks without model API calls. A host lacking runtime/subagent access must explain and pause. Cooperative
@@ -52,12 +51,15 @@ The role-bound `harness.integration.arena` remains available for hosts that mana
 independent player processes internally. One runner owns the game; private role
 credentials restrict players to their own context, submission, and status tools.
 The orchestrator/host operates these processes and credentials; humans never
-have to configure or switch player sessions to play. The
-[arena MCP example](../examples/agent-duel-mcp.toml) is an administrator reference,
-not the normal user workflow. Private credentials/mailboxes stay outside the repo.
+have to configure or switch player sessions to play. Host administrators launch
+`python -m harness.integration.arena --state <state> --game-dir <game> --private-dir <credentials>`
+and configure one stdio gateway per role with
+`python -m harness.integration.mcp --credential <role-credential.json>`.
+Private credentials/mailboxes stay outside the repo. Never register all roles in
+a player session or expose moderator credentials to a player.
 Tool gates require additional host filesystem restrictions for hard isolation.
 
 Tests cover sequential context tasks, durable task IDs, retries, checkpoint
-restoration, scripted two-player callbacks, role authorization, multi-client
+restoration, durable native-player attempts, role authorization, multi-client
 transport, and spectator masking. They test harness coordination; actual rules
 and tactical decisions remain the LLM's responsibility.

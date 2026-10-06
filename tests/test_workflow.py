@@ -1,15 +1,12 @@
 from harness.storage.records import load as read_archive
 from copy import deepcopy
 import json
-from pathlib import Path
 import subprocess
 import sys
 import unittest
 from unittest.mock import patch
 import test_session as fixtures
 from harness.runner.duel import DuelRunner, RecoveryRequired
-from harness.runner.loop import DuelLoop
-from harness.players.adapters import CallbackPlayer
 from harness.storage.checkpoint import restore
 
 
@@ -134,32 +131,6 @@ class WorkflowTests(unittest.TestCase):
             changed={**options,'decision_id':display['decision_id'],'question':'Changed prompt'}
             with self.assertRaises(ValueError):runner.workflow.present(changed)
 
-    def test_complete_host_driven_duel_and_human_pause(self):
-        _,game,path=self.start('open')
-        with DuelRunner(path,game) as runner:
-            def moderator(request):
-                if request['stage']=='review_intent':
-                    actor=request['intention']['player']
-                    if actor=='human':
-                        return {'action':plan(runner,[{'op':'decision','value':{'actor':'agent','window':'response'}}])}
-                    return {'action':plan(runner,[{'op':'decision','value':None},{'op':'lp','player':'human','delta':-8000},
-                                                 {'op':'status','value':'finished'}],kind='finish')}
-                if runner.state['pending_decision'] is None:
-                    return {'action':plan(runner,[{'op':'decision','value':{'actor':'human','window':'main-phase'}}],
-                        automatic=True,option_review={'complete':True,'meaningful_choices':0,'basis':'public-rules-verified',
-                                                      'reason':'Scenario initial setup is compulsory.'})}
-                return {'packet':packet(runner)}
-            agent=CallbackPlayer(lambda context:{'response':'1','request_id':'agent-choice'})
-            loop=DuelLoop(runner,moderator,{'agent':agent})
-            waiting=loop.run()
-            self.assertEqual(waiting['status'],'awaiting_input')
-            self.assertIn('**Board:**',waiting['text'])
-            runner.workflow.submit(waiting['decision_id'],'human-choice','1')
-            result=loop.run()
-            self.assertEqual(result['status'],'finished')
-            self.assertIn('**Board:**',result['text'])
-            self.assertEqual(len(runner.journal['events']),3)
-            self.assertTrue(loop.metrics)
 
     def test_mcp_process_handles_multiple_tools_without_reloading(self):
         _,game,path=self.start('open')

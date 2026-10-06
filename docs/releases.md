@@ -44,8 +44,8 @@ release is not overwritten. It does not publish to PyPI or upload game/private f
 the resource checkout; the wheel holds the runtime. Users need both.
 
 The workflow's scoped `contents: write` is for that requested versioned release,
-not permission for the orchestrator to publish ongoing duels. See the repository's
-explicit game-publication policy. For a maintainer-approved local publication,
+not permission to include local duels. Games and shared snapshots are ignored
+local data; see [game storage](game-storage.md). For a maintainer-approved release,
 `gh release create <tag> dist/* --notes-file <release-notes>` can publish the same
 reviewed artifacts; preserve exact release notes in a file.
 

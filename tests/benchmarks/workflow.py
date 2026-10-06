@@ -24,4 +24,4 @@ try:
         samples.sort()
         print(json.dumps({'actions':len(samples),'median_workflow_ms':round(statistics.median(samples),2),
                           'p95_workflow_ms':round(samples[int(.95*(len(samples)-1))],2)},indent=2))
-finally:fixture.tearDown()
+finally:fixture.doCleanups()

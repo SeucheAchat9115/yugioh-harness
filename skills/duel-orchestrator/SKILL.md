@@ -94,7 +94,7 @@ player task bindings, and execution receipts. On reconnect, resume the game and
 call `duel_next`; outstanding tasks, attempt IDs, deadlines, and child handles
 remain saved. Reconcile any existing child before retrying. Identical result/action
 retries are safe. Recover storage errors before continuing; never repeat a
-recorded effect. Do not publish game files without explicit authorization.
+recorded effect. Keep game files and their shared snapshots out of Git.
 
 Legacy saved games created before the lobby have no `session.json` locator. The
 orchestrator may use their existing private state/game paths with the direct
@@ -102,7 +102,7 @@ runner or arena, preserving the checkpoint and journal. Never initialize a new
 duel to replace them. Python entry points and role credentials are backend
 interfaces operated by the orchestrator, not steps the human performs.
 
-## Repository replay storage
+## Local replay storage
 
 Follow [game storage](../../docs/game-storage.md). Save the schema-4 `events.json` index and individual `events/*.json` records
 with all known hidden hands, set identities, exact transitions and realized random
@@ -110,8 +110,9 @@ outcomes; remaining decks are unordered inventories. Preserve exact card/rules
 snapshots and submitted intentions for review. Do not maintain duplicate game-folder
 state/actions/log/resume files. Native player children must never read the omniscient
 archive. Use permitted runtime views for play and private checkpoints for resumption.
-Self/blind human unknowns remain unknown. An explicit publication request includes
-the requested replay archive, but never raw private runtime files or shuffled queues.
+Self/blind human unknowns remain unknown. `games/` and `snapshots/` stay local
+and ignored by Git. Preserve both folders with external private checkpoints for
+backups; never force-add game data to source commits.
 
 Use `duel_agent_context` / compact-v1 for routine moderator/player decisions. The
 harness defaults subagent tasks to this format. Request focused Extra/Side card

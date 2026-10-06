@@ -32,8 +32,8 @@ observations. Preserve these boundaries even when both players use the same mode
 
 Save every action and pending decision locally. Pause/resume must preserve both
 hands, deck orders, physical IDs, submitted choices, and execution receipts.
-Never commit or publish game records without an explicit user request.
+Keep game archives and shared snapshots local and ignored by Git.
 
-Follow [game storage](../../docs/game-storage.md): the repository archive includes
+Follow [game storage](../../docs/game-storage.md): the local archive includes
 known hidden states for review. Never give it directly to player subagents or use
 it as a public display. Save the replayable `events.json` index and individual `events/*.json` records, without duplicate logs.

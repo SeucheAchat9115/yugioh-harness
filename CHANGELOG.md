@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Keep games and shared game snapshots local and ignored by Git; existing files
+  are untracked without deleting local saves. Earlier Git history is unchanged.
+- Remove obsolete agent CLI wrappers, open/blind policy stubs, unused record
+  templates, static host examples, callback play/advancement hooks, and the empty effect
+  registry. Module CLIs and historical save/archive readers remain supported.
+- Remove direct-to-main deck enrichment automation; conversion and guide/hash
+  review now use normal pull requests.
+- Consolidate setup and architecture documentation; use `docs/orchestration.md`
+  for the provider-neutral MCP protocol.
+
 ## 0.1.0 — 2026-10-06
 
 Initial packaged release of the agentic harness:

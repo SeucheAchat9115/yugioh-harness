@@ -1,6 +1,5 @@
 from harness.storage.records import load as read_archive
 from copy import deepcopy
-import importlib.util
 import json
 from pathlib import Path
 import shutil
@@ -10,9 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SCRIPT = Path(__file__).resolve().parents[1] / "agents/runtime/session.py"
-sys.path.insert(0, str(SCRIPT.parent))
-REPO = SCRIPT.parents[2]
+REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 from harness.engine import session
 
@@ -129,7 +126,7 @@ class SessionTests(unittest.TestCase):
     def test_cli_draw_and_replay_recover_exact_state(self):
         initial, game, path = self.start("open")
         expected = initial["players"]["agent"]["deck"][0]
-        subprocess.run([sys.executable, str(SCRIPT), "draw", "--state", str(path),
+        subprocess.run([sys.executable, "-m", "harness.engine.session", "draw", "--state", str(path),
                         "--game-dir", str(game), "--actor", "agent"], check=True, capture_output=True)
         final = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(final["revision"], 1)
@@ -141,7 +138,7 @@ class SessionTests(unittest.TestCase):
         self.assertEqual(checkpoint["configuration"]["storage"]["game_commits"], "explicit-user-request-only")
         path.write_text("{}", encoding="utf-8")
         (game / "events.json").unlink()
-        subprocess.run([sys.executable, str(SCRIPT.with_name("actions.py")), "replay",
+        subprocess.run([sys.executable, "-m", "harness.engine.actions", "replay",
                         "--state", str(path), "--game-dir", str(game)], check=True, capture_output=True)
         self.assertEqual(json.loads(path.read_text(encoding="utf-8")), final)
         self.assertEqual(len(read_archive(game)["events"]), 1)
@@ -153,7 +150,7 @@ class SessionTests(unittest.TestCase):
             "expected_revision": 0, "moderator_approved": True, "public_summary_reviewed": True,
             "public_summary": "Advance to Standby Phase.", "changes": [
                 {"path": ["phase"], "before": "draw", "after": "standby"}]}), encoding="utf-8")
-        command = [sys.executable, str(SCRIPT.with_name("actions.py")), "record",
+        command = [sys.executable, "-m", "harness.engine.actions", "record",
                    "--state", str(path), "--game-dir", str(game), "--action", str(draft)]
         subprocess.run(command, check=True, capture_output=True)
         journal_before = path.with_name("journal.json").read_text(encoding="utf-8")
@@ -169,7 +166,7 @@ class SessionTests(unittest.TestCase):
                   "recommendations": [], "awaiting_user": True, "question": "What do you do?",
                   "option_review": {"complete": False, "meaningful_choices": None}}
         draft.write_text(json.dumps(packet), encoding="utf-8")
-        result = subprocess.run([sys.executable, str(SCRIPT.with_name("decision.py")),
+        result = subprocess.run([sys.executable, "-m", "harness.rendering.decision",
                                  "--state", str(path), "--game-dir", str(game), "--packet", str(draft)],
                                 check=True, capture_output=True, text=True, encoding="utf-8")
         checkpoint = json.loads(path.with_name("checkpoint.json").read_text(encoding="utf-8"))
