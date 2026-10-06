@@ -62,7 +62,8 @@ def simulated_choice(transport, task, response):
 
 def run(repo):
     with tempfile.TemporaryDirectory() as temporary:
-        root = Path(temporary)
+        # Windows TEMP may use an 8.3 alias; generated configs use resolved paths.
+        root = Path(temporary).resolve()
         clone = root / 'checkout with spaces'
         clone.mkdir()
         for name in ('decks', 'agents', 'skills', 'rules', 'templates'):
@@ -75,7 +76,7 @@ def run(repo):
                 '--host', host, '--repo', str(clone)], cwd=root, capture_output=True, text=True, encoding="utf-8", check=True)
             config = tomllib.loads(result.stdout)['mcp_servers']['yugioh'] if host == 'codex' else json.loads(result.stdout)['mcpServers']['yugioh']
             assert config['command'] == str(Path(sys.executable).absolute())
-            assert config['args'][-1] == str(clone)
+            assert config['args'][-1] == str(clone.resolve())
         result = subprocess.run([sys.executable, '-I', '-m', 'harness.cli', 'doctor',
             '--repo', str(clone), '--require-host'], cwd=root, capture_output=True, text=True, encoding="utf-8")
         assert result.returncode == 1 and json.loads(result.stdout)['host_ready'] is None

@@ -35,6 +35,16 @@ class CompactStorageTests(unittest.TestCase):
         self.journal, self.current = append(self.journal, request)
         write_archive(self.journal, self.current, self.game)
 
+    def test_crlf_snapshot_preserves_exact_bytes_and_removes_verified_copy(self):
+        raw = b'Historical rules.\r\nSecond line.\r\n'
+        (self.game / 'rules.md').write_bytes(raw)
+        write_archive(self.journal, self.current, self.game)
+        self.assertFalse((self.game / 'rules.md').exists())
+        asset = collect(self.game)['rules.md']
+        self.assertEqual(asset['content'].encode('utf-8'), raw)
+        self.assertEqual(object_path(self.game, asset['sha256']).read_bytes(), raw)
+        self.assertEqual(load_replay(self.game), archive_state(self.current))
+
     def test_shared_objects_and_catalog_hydration_in_fresh_checkout(self):
         (self.game / 'rules.md').write_text('Historical rules', encoding="utf-8")
         write_archive(self.journal, self.current, self.game)

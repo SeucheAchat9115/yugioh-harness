@@ -20,6 +20,8 @@ from harness.engine import session
 class SessionTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
+        # LIFO cleanups close services/writer locks before deleting their files.
+        self.addCleanup(self.temp.cleanup)
         root = Path(self.temp.name)
         self.repo, self.private = root / "repo", root / "private"
         for slug in ("dracotail", "branded-despia"):
@@ -38,7 +40,7 @@ class SessionTests(unittest.TestCase):
         }
 
     def tearDown(self):
-        self.temp.cleanup()
+        pass
 
     def start(self, mode="blind"):
         config = deepcopy(self.config)

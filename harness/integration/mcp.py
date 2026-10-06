@@ -77,10 +77,8 @@ def rpc(duel,message):
 
 
 def main():
-    # Stdio transports always exchange UTF-8, including legacy Windows locales.
-    for stream in (sys.stdin, sys.stdout):
-        if hasattr(stream, "reconfigure"):
-            stream.reconfigure(encoding="utf-8")
+    from harness.integration.stdio import configure_utf8
+    configure_utf8()
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo',type=Path)
     parser.add_argument('--private-root',type=Path)

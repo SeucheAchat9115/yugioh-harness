@@ -8,6 +8,11 @@ should improve orchestration, context, persistence or evaluation; a complete cod
 effect engine is not required. Original contributions are submitted under MIT;
 retain attribution for imported third-party content.
 
+All files are owned by `@SeucheAchat9115` in `.github/CODEOWNERS`.
+The protection rule or ruleset for `main` must enable **Require review from
+Code Owners** to enforce that owner's approval. CODEOWNERS alone does not
+block direct pushes or merges. Submit changes through pull requests.
+
 Before a pull request:
 
 - Run `python -m unittest discover -s tests -v` and

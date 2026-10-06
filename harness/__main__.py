@@ -66,6 +66,8 @@ def respond(duel, line):
 
 
 def main():
+    from harness.integration.stdio import configure_utf8
+    configure_utf8()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--state', type=Path, required=True)
     parser.add_argument('--game-dir', type=Path, required=True)

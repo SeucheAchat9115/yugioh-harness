@@ -7,6 +7,8 @@ import sys
 
 
 def main():
+    from harness.integration.stdio import configure_utf8
+    configure_utf8()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--version', action='version', version=version('yugioh-harness'))
     commands = parser.add_subparsers(dest='command', required=True)

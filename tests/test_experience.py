@@ -131,7 +131,7 @@ class ExperienceTests(unittest.TestCase):
             game = root / "repo/games/casual/test"
             game.mkdir(parents=True)
             (game / "game.json").write_text(json.dumps({"id": "test", "mode": "open", "rules_version": "test-v1"}), encoding="utf-8")
-            (game / "rules.md").write_text("Agreed test rules.\n", encoding="utf-8")
+            (game / "rules.md").write_bytes(b"Agreed test rules.\n")
             deck = game / "decks/human/test"
             deck.mkdir(parents=True)
             (deck / "deck.ydk").write_text("#main\n789\n999\n#extra\n!side\n", encoding="utf-8")
