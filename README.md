@@ -7,7 +7,7 @@ local saves, and replay records. A full coded card-rules engine is outside the
 project's scope.
 
 Current, historical, and custom formats use their own rules profile and banlist.
-Prepared [rules profiles](rules/README.md) cover modern TCG, Edison, and Goat,
+Prepared [rules profiles](rules/README.md) cover modern TCG, Edison, Goat, and Perfect Circle,
 with sourced rule summaries, historical changes, and dated banlist JSONs.
 
 ## Start a duel

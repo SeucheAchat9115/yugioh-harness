@@ -7,6 +7,7 @@ legality validator. A banlist cannot establish release/card-pool legality.
 | --- | --- | --- |
 | [tcg-2026-09-21.json](tcg-2026-09-21.json) | Konami TCG Advanced; verified 2026-10-06 | 122 / 95 / 8 |
 | [tcg-2010-03-01.json](tcg-2010-03-01.json) | Full Konami archive, used with Edison pool | 45 / 70 / 20 |
+| [perfect-circle-2007-09-01.json](perfect-circle-2007-09-01.json) | Perfect Circle community TCG pool; archive differences retained | 36 / 56 / 14 |
 | [goat-2005-04-01.json](goat-2005-04-01.json) | Community Goat restrictions, cross-checked against Konami archive | 17 / 41 / 15 |
 
 ## JSON format, schema 1.0
@@ -38,3 +39,8 @@ When updating modern restrictions, add a new dated file after checking the offic
 TCG landing page, update the profile/check date, and compare every status and count.
 Do not overwrite an older list or mutate saved local rules snapshots. Traditional
 and other platforms need separately agreed profiles; these arrays describe Advanced.
+
+Perfect Circle uses a dated community-pool list. Its JSON records four extra
+restrictions in the third-party historical mirror for cards absent from the
+selected pool; those entries stay unavailable. “Disk Commander” in the sources
+is normalized to “Disc Commander”; this does not change the card’s limit.
