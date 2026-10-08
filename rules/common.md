@@ -28,7 +28,8 @@ triggers, distinguish mandatory turn-player, mandatory opponent, optional
 turn-player, optional opponent groups; historical profiles can alter ordering.
 In a closed state without triggers, offer turn-player fast effects, then opponent
 fast effects. A phase ends only after both pass. Ignition effects normally require
-an open Main Phase state; Edison/Goat have a historical priority exception.
+an open Main Phase state; Historical profiles, including Edison, Goat and Perfect Circle,
+have distinct priority exceptions; read the selected profile.
 Spell Speed 1 cannot normally chain; Spell Speed 2 chains to 1/2, while only
 Spell Speed 3 can respond to 3. Damage Step activation restrictions still apply.
 

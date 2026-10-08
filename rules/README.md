@@ -6,6 +6,7 @@ Use these sourced reference summaries and local banlist data:
 | --- | --- | --- |
 | [Modern TCG Advanced](tcg.md) | Current TCG rules, official 2021 supplement, current text | 2026-09-21; verified 2026-10-06 |
 | [Edison](edison.md) | April 2010 mechanics and historical text/rulings | 2010-03-01 |
+| [Perfect Circle](perfect-circle.md) | Orlando January 26, 2008 reference; historical TCG text/rulings | 2007-09-01, selected community pool |
 | [Goat](goat.md) | Community August 2005 pool and historical mechanics/text | 2005-04-01 TCG |
 
 [Shared basics](common.md) apply with the selected profile's overrides.
