@@ -82,3 +82,8 @@ See [contributing](CONTRIBUTING.md), [release validation](docs/releases.md),
 Windows CI checks Python 3.11–3.13, runtime tests, packaging, and all three duel
 modes through installed stdio smoke tests. These checks verify the harness;
 card legality, tactics, and real host subagent facilities require separate review.
+
+For evaluations or structured player clients, the optional
+[intent-v1 interface](docs/structured-intents.md) translates semantic card choices
+into unapproved bookkeeping proposals. Independent rules review and the existing
+persistent moderator workflow still govern execution and response windows.
