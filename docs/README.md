@@ -6,6 +6,7 @@ Use the linked page for each topic instead of maintaining competing copies.
 | --- | --- |
 | [Quickstart](quickstart.md) | Installation, generated host configuration, readiness, and starting a duel |
 | [Orchestration](orchestration.md) | Provider-neutral MCP tools and the single-conversation task workflow |
+| [Workflows and context](workflows-and-context.md) | Illustrated overview of agent roles, decision workflows, context filtering, and prompts |
 | [Harness](harness.md) | Maintainer architecture, direct CLI transport, state updates, and recovery |
 | [Agent play](agent-play.md) | Rules agreement, card legality, chains, response windows, and adjudication |
 | [Duel experience](duel-experience.md) | Fixed display, human recommendations, automatic continuation, and private checkpoints |
