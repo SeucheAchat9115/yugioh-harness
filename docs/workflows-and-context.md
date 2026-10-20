@@ -10,7 +10,21 @@ This page explains the existing workflow. Tool names describe internal calls mad
 by the orchestrator, not commands a duel player must run. See [orchestration](orchestration.md)
 for the tool catalog and [harness internals](harness.md) for backend details.
 
+The diagrams below are rendered SVG images so they remain visible without a
+Mermaid-enabled viewer. Expand **Editable Mermaid source** beneath each image
+to inspect or edit the original diagram.
+
+After editing diagram sources, regenerate the previews with Mermaid CLI 11
+installed: `python docs/render-workflow-diagrams.py`. The script also accepts
+`--mermaid-cli <executable>` and `--puppeteer-config <browser-config.json>` for
+hosts with a custom CLI or browser installation.
+
 ## 1. Roles and responsibilities
+
+![Roles and runtime components](diagrams/roles.svg)
+
+<details>
+<summary>Editable Mermaid source</summary>
 
 ```mermaid
 flowchart TB
@@ -26,6 +40,8 @@ flowchart TB
     A -->|"Intention only"| O
     O -->|"Reviewed operations"| S
 ```
+
+</details>
 
 | Component | Owns | Produces |
 | --- | --- | --- |
@@ -48,6 +64,11 @@ Yu-Gi-Oh! legality.
 
 ## 2. Setup and resume
 
+![Setup and resume](diagrams/setup.svg)
+
+<details>
+<summary>Editable Mermaid source</summary>
+
 ```mermaid
 flowchart TD
     U["User requests a duel or continuation"] --> Q{"New or saved game?"}
@@ -61,6 +82,8 @@ flowchart TD
     K --> N["duel_next"]
     S --> N
 ```
+
+</details>
 
 Setup policies are loaded by the host moderator from
 [the orchestrator policy](../agents/orchestrator/AGENT.md),
@@ -88,6 +111,11 @@ their original semantics; they are not interchangeable with the modes above.
 `duel_next` routes the workflow. It neither decides a move nor executes a returned
 player answer.
 
+![Decision routing](diagrams/decision-loop.svg)
+
+<details>
+<summary>Editable Mermaid source</summary>
+
 ```mermaid
 flowchart TD
     N["duel_next"] --> K{"Task kind"}
@@ -113,6 +141,8 @@ flowchart TD
     K -->|"paused / finished"| Z["Show permitted state and reviewed events; retain local save"]
 ```
 
+</details>
+
 The moderator reviews compulsory steps too. Only a complete no-choice review can
 justify automatic progression. Unknown human responses in self mode are not
 proof that no response exists. A chain or turn may require several decisions;
@@ -120,6 +150,11 @@ the loop is not one player call per turn and does not execute an entire combo
 without intervening response windows.
 
 ## 4. An AI choice from dispatch to execution
+
+![Player dispatch and moderator review](diagrams/player-dispatch.svg)
+
+<details>
+<summary>Editable Mermaid source</summary>
 
 ```mermaid
 sequenceDiagram
@@ -131,7 +166,7 @@ sequenceDiagram
     M->>H: duel_player_start(task_id, request_id, isolation)
     H-->>M: attempt_id, deadline, dispatch_authorized
     alt Dispatch authorized
-        M->>C: Spawn with policy, task identity, context; no inherited history
+        M->>C: Spawn with policy, task identity, context, no inherited history
         M->>H: duel_player_bind(task_id, attempt_id, child_id)
         C-->>M: Numbered choice or free-text intention
         M->>H: duel_agent_result(task_id, attempt_id, response)
@@ -140,12 +175,14 @@ sequenceDiagram
         H-->>M: moderator / review_intent + moderator context
         Note over M: Check exact text, timing, costs, targets, restrictions, and responses
         M->>H: duel_step(request_id, reviewed request, submission_id)
-        H->>H: Validate structure; record action; update checkpoint and receipt
+        H->>H: Validate structure, record action, update checkpoint and receipt
         H-->>M: Revision, public summary, permitted state
     else Duplicate reservation
-        Note over M,H: Reuse saved attempt; do not spawn another child
+        Note over M,H: Reuse saved attempt, do not spawn another child
     end
 ```
+
+</details>
 
 Player tasks are correlated by `task_id` and `decision_id`; a dispatch attempt adds
 `attempt_id`, a deadline, and the native child handle. Applied operations also
@@ -157,6 +194,11 @@ the moderator supplies the execution plan. Instructions never authorize giving a
 child moderator credentials, private checkpoints, or raw replay archives.
 
 ## 5. How a context is built
+
+![Context construction](diagrams/context-flow.svg)
+
+<details>
+<summary>Editable Mermaid source</summary>
 
 ```mermaid
 flowchart LR
@@ -173,6 +215,8 @@ flowchart LR
     C --> R
     I --> R
 ```
+
+</details>
 
 Filtering happens before compaction. Full context means a fuller **permitted
 view**, not the authoritative save or an omniscient archive. Neither full nor
@@ -324,6 +368,11 @@ verified host boundary or a tool-free transport. A filtered context is an
 information boundary, not a filesystem sandbox. Host declarations record
 capabilities and evidence, not independent sandbox attestation.
 
+![Failure and recovery](diagrams/recovery.svg)
+
+<details>
+<summary>Editable Mermaid source</summary>
+
 ```mermaid
 flowchart TD
     R["Resume or refresh task status"] --> Q{"Outstanding attempt?"}
@@ -340,6 +389,8 @@ flowchart TD
     C --> J["Replay recorded actions to repair projections"]
     J --> N
 ```
+
+</details>
 
 Timeouts are detected on runtime calls; they do not kill host children. A retry
 waits for confirmed termination, and the budget is three attempts per decision
