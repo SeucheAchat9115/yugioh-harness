@@ -80,6 +80,7 @@ def main():
     from harness.integration.stdio import configure_utf8
     configure_utf8()
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--ui-port', type=int, help='Serve a local player UI alongside the moderator MCP lobby')
     parser.add_argument('--repo',type=Path)
     parser.add_argument('--private-root',type=Path)
     parser.add_argument('--state',type=Path)
@@ -90,9 +91,19 @@ def main():
         if args.credential or args.state or args.game_dir:parser.error('Choose repository lobby or a direct session')
         from harness.integration.service import DuelService
         service = DuelService(args.repo, args.private_root, require_host=True)
+        web = None
+        if args.ui_port is not None:
+            from harness.web.server import start_server
+            web, url = start_server(service, args.ui_port)
+            print('Player UI: ' + url, file=sys.stderr, flush=True)
         try:run_stdio(service)
-        finally:service.close()
+        finally:
+            if web:
+                web.shutdown()
+                web.server_close()
+            service.close()
         return
+    if args.ui_port is not None:parser.error('ui-port requires repo')
     if args.private_root:parser.error('private-root requires repo')
     if args.credential:
         if args.state or args.game_dir:parser.error('Choose credential or direct session paths')

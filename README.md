@@ -35,6 +35,13 @@ Player isolation defaults to cooperative instructions. Enforced isolation requir
 verified host restrictions or a tool-free model transport. See
 [player isolation](docs/player-isolation.md) for capabilities and limitations.
 
+## Visual player UI
+
+An optional [browser client](docs/player-ui.md) shows the board, your hand, LP,
+chain, and reviewed choices. It accepts numbered or free-text actions while the
+same host orchestrator manages rules and the opponent. Add `--ui-port 8765` to
+the repository MCP command to enable it.
+
 ## Prepared decks
 
 | Deck | Main / Extra / Side | Card data | Playbook |

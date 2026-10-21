@@ -1,4 +1,5 @@
 """Conversational lobby and single-orchestrator transport, with internal setup."""
+from threading import RLock
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -17,6 +18,7 @@ class DuelService:
     role = 'moderator'
 
     def __init__(self, repo, private_root=None, require_host=False):
+        self.lock = RLock()
         self.repo = Path(repo).resolve()
         self.private_root = Path(private_root or self.repo.parent / (self.repo.name + '-private')).resolve()
         if self.private_root.is_relative_to(self.repo):
@@ -108,6 +110,10 @@ class DuelService:
         return self.runner.workflow.status()
 
     def request(self, request):
+        with self.lock:
+            return self._request(request)
+
+    def _request(self, request):
         try:
             op = request.get('op')
             if op == 'preflight':
