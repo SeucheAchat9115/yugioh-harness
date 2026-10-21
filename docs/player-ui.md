@@ -1,5 +1,67 @@
 # Visual player UI
 
+## Windows: launch the MCP orchestrator and board
+
+Install Python 3.11–3.13 and a current Codex CLI, then sign in to Codex using
+your supported ChatGPT subscription. The harness does not request an API key.
+Your actual host must support fresh native subagents and cancellation; the
+orchestrator checks these capabilities before dealing. Installing MCP alone
+does not supply an opponent model or subagent facility.
+
+In PowerShell, from this resource checkout, perform the one-time setup:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\python.exe -m harness.cli doctor --repo .
+```
+
+Double-click `Start-Duel.cmd`, or run:
+
+```powershell
+.\.venv\Scripts\python.exe -m harness.cli play --repo .
+```
+
+The launcher opens a local Codex conversation with a session-only `yugioh` MCP
+configuration. Codex starts the single persistent Python service, which opens
+your browser on a free loopback port. There is no separate UI server to launch,
+no global MCP configuration edit, and no Vercel deployment or tunnel. Keep the
+Codex host running. If the browser does not open, ask the orchestrator for
+`duel_ui`; it returns the current private player link. Reopen that link after a
+page reload. Do not share it with the opponent subagent.
+
+Use the Codex conversation for setup and moves; the local browser is your live
+board. The orchestrator delegates opponent intentions to fresh permitted-context
+children, reviews them, applies actions, and continues until your next decision
+or response window. It asks you in the same Codex conversation. Cooperative
+children follow no-tools instructions; this is not enforced filesystem isolation.
+Unavailable native delegation blocks play rather than making the orchestrator
+silently play the opponent. No child is launched by the Python service itself.
+
+Browser submissions are optional. If you use one, say “continue” in Codex to
+process it; the UI cannot wake an idle model host. Do not answer the same decision
+again in chat. Ask to save and pause before quitting. Relaunch and ask to resume
+the saved game; closing the browser alone does not end the duel. The default
+private save folder is the sibling `<checkout-name>-private/`, outside Git;
+archives and shared snapshots remain local ignored repository data.
+
+This ChatGPT web conversation does not gain access to your PC from this launcher.
+Gameplay runs in the local MCP-capable host conversation. To use this exact web
+chat instead would require a separately supported authenticated remote connector
+and verified opponent delegation, neither of which this launcher configures.
+
+For another MCP host, generate and merge its configuration instead:
+
+```powershell
+.\.venv\Scripts\python.exe -m harness.cli host-config --host claude --repo . --ui-port 0 --open-browser
+```
+
+Replace `claude` with `codex` or `gemini` as appropriate. Use only one orchestrator
+connection for the active duel. The launcher was checked with simulated host
+execution; a real signed-in Windows host/subagent trial is still required.
+
+## Local transport
+
 The optional browser client runs alongside the repository MCP lobby and shares its
 single persistent writer. It renders the human perspective, field slots, LP, hand,
 Extra/Side Decks, public piles, shared zones, chain, usage and restrictions. Select

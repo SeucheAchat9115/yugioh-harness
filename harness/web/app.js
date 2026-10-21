@@ -45,7 +45,15 @@ function render(data) {
   for (const id of ['human', 'agent']) { const p = s.players[id]; $('chain').append(el('p', `${id === 'human' ? 'You' : 'Opponent'}: Normal Summon ${p.normal_summon_used ? 'used' : 'available'}`)); if (p.restrictions.length || Object.keys(p.effect_usage).length) $('chain').append(el('p', JSON.stringify({usage: p.effect_usage, restrictions: p.restrictions}))); }
   if (s.pending_effects.length) $('chain').append(el('p', JSON.stringify(s.pending_effects)));
 }
-async function refresh() { try { const r = await fetch('/api/state', {headers: {'X-Duel-Token': token}}); if (!r.ok) throw Error('Connection unavailable. Reopen the player UI link from your host.'); render(await r.json()); $('connection').textContent = '● Connected'; } catch (e) { $('connection').textContent = '● Disconnected'; $('message').textContent = e.message; $('submit').disabled = true; } }
+function disconnect(message) {
+  current = undefined;
+  $('connection').textContent = '● Disconnected';
+  $('message').textContent = message;
+  $('submit').disabled = true;
+  $('action').disabled = true;
+  for (const button of $('choices').querySelectorAll('button')) button.disabled = true;
+}
+async function refresh() { try { const r = await fetch('/api/state', {headers: {'X-Duel-Token': token}}); if (!r.ok) throw Error('Connection unavailable. Reopen the player UI link from your host.'); render(await r.json()); $('connection').textContent = '● Connected'; } catch (e) { disconnect(e.message); } }
 async function submit(response) {
   if (sending || !current?.can_reply) return;
   const decision_id = current.decision.decision_id;

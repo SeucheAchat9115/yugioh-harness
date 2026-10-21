@@ -20,6 +20,7 @@ TOOLS={
 
 
 CONVERSATIONAL_TOOLS = {
+ 'duel_ui': ('Get the local player browser link for this MCP process. It is a private player credential; show only to the human, never a player child.', {}, [], 'ui'),
  'duel_preflight': ('Check local readiness and record an honest host capability declaration before dealing.', {'host_capabilities': {'type': 'object'}}, [], 'preflight'),
  'duel_decks': ('List complete selectable deck bundles.', {}, [], 'decks'),
  'duel_games': ('List saved local duels without exposing private cards.', {}, [], 'games'),
@@ -81,12 +82,17 @@ def main():
     configure_utf8()
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--ui-port', type=int, help='Serve a local player UI alongside the moderator MCP lobby')
+    parser.add_argument('--open-browser', action='store_true', help='Open the local player UI when the MCP host starts this server')
     parser.add_argument('--repo',type=Path)
     parser.add_argument('--private-root',type=Path)
     parser.add_argument('--state',type=Path)
     parser.add_argument('--game-dir',type=Path)
     parser.add_argument('--credential',type=Path)
     args=parser.parse_args()
+    if args.open_browser and args.ui_port is None:
+        parser.error('open-browser requires ui-port')
+    if args.ui_port is not None and not 0 <= args.ui_port <= 65535:
+        parser.error('ui-port must be between 0 and 65535 (0 selects a free port)')
     if args.repo:
         if args.credential or args.state or args.game_dir:parser.error('Choose repository lobby or a direct session')
         from harness.integration.service import DuelService
@@ -95,7 +101,15 @@ def main():
         if args.ui_port is not None:
             from harness.web.server import start_server
             web, url = start_server(service, args.ui_port)
+            service.ui_url = url
             print('Player UI: ' + url, file=sys.stderr, flush=True)
+            if args.open_browser:
+                import webbrowser
+                try:
+                    if not webbrowser.open(url):
+                        print('Browser did not open; use the Player UI link above.', file=sys.stderr, flush=True)
+                except webbrowser.Error:
+                    print('Browser unavailable; use the Player UI link above.', file=sys.stderr, flush=True)
         try:run_stdio(service)
         finally:
             if web:

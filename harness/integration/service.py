@@ -26,6 +26,7 @@ class DuelService:
         self.runner = None
         self.require_host = require_host
         self.host_capabilities = None
+        self.ui_url = None
 
     def preflight(self, host_capabilities=None):
         from harness.preflight import inspect
@@ -116,7 +117,9 @@ class DuelService:
     def _request(self, request):
         try:
             op = request.get('op')
-            if op == 'preflight':
+            if op == 'ui':
+                result = {'url': self.ui_url, 'message': 'Local player link; keep private.' if self.ui_url else 'Restart this MCP host with --ui-port and optionally --open-browser.'}
+            elif op == 'preflight':
                 result = self.preflight(request.get('host_capabilities'))
             elif op == 'decks':
                 result = self.decks()
