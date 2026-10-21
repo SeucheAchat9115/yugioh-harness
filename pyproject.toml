@@ -23,3 +23,6 @@ yugioh-harness = "harness.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["harness*"]
+
+[tool.setuptools.package-data]
+"harness.web" = ["*.html", "*.css", "*.js"]

@@ -1,0 +1,9 @@
+*
+!vercel.json
+!harness/
+harness/*
+!harness/web/
+harness/web/*
+!harness/web/index.html
+!harness/web/app.js
+!harness/web/style.css

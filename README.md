@@ -35,6 +35,18 @@ Player isolation defaults to cooperative instructions. Enforced isolation requir
 verified host restrictions or a tool-free model transport. See
 [player isolation](docs/player-isolation.md) for capabilities and limitations.
 
+## Visual player UI
+
+An optional [browser client](docs/player-ui.md) shows the board, your hand, LP,
+chain, and reviewed choices. It accepts numbered or free-text actions while the
+same host orchestrator manages rules and the opponent. Add `--ui-port 8765` to
+the repository MCP command to enable it.
+
+On Windows, install the runtime in `.venv`, sign in to a capable Codex CLI, then
+double-click `Start-Duel.cmd` to launch the local orchestrator and browser board.
+See the [Windows MCP setup](docs/player-ui.md#windows-launch-the-mcp-orchestrator-and-board).
+The harness needs no model API key; the conversation runs in your local agent host.
+
 ## Prepared decks
 
 | Deck | Main / Extra / Side | Card data | Playbook |

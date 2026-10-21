@@ -20,6 +20,12 @@ def main():
     config = commands.add_parser('host-config', help='Generate stdio MCP configuration')
     config.add_argument('--repo', type=Path, required=True)
     config.add_argument('--host', choices=('codex', 'claude', 'gemini'), required=True)
+    config.add_argument('--ui-port', type=int, choices=range(65536), metavar='PORT')
+    config.add_argument('--open-browser', action='store_true')
+    play = commands.add_parser('play', help='Launch a local Codex orchestrator and browser board')
+    play.add_argument('--repo', type=Path, default=Path.cwd())
+    play.add_argument('--private-root', type=Path)
+    play.add_argument('--ui-port', type=int, choices=range(65536), default=0, metavar='PORT')
     commands.add_parser('mcp', help='Start moderator MCP lobby', add_help=False)
     # Forward MCP flags untouched; legacy python -m harness.integration.mcp remains.
     if len(sys.argv) > 1 and sys.argv[1] == 'mcp':
@@ -28,6 +34,14 @@ def main():
         mcp_main()
         return
     args = parser.parse_args()
+    if args.command == 'play':
+        from harness.integration.launcher import launch
+        try:
+            raise SystemExit(launch(args.repo, args.private_root, args.ui_port))
+        except (ValueError, OSError) as error:
+            parser.error(str(error))
+    if args.command == 'host-config' and args.open_browser and args.ui_port is None:
+        parser.error('open-browser requires ui-port')
     if args.command == 'doctor':
         from harness.preflight import inspect
         try:
@@ -41,6 +55,10 @@ def main():
     else:
         executable = str(Path(sys.executable).absolute())
         argv = ['-m', 'harness.integration.mcp', '--repo', str(args.repo.resolve())]
+        if args.ui_port is not None:
+            argv.extend(['--ui-port', str(args.ui_port)])
+        if args.open_browser:
+            argv.append('--open-browser')
         if args.host == 'codex':
             print('[mcp_servers.yugioh]\ncommand = ' + json.dumps(executable) + '\nargs = ' + json.dumps(argv))
         else:
