@@ -12,3 +12,9 @@ dist/
 # Local replay archives and their shared assets.
 games/
 snapshots/
+
+# Local benchmark inputs and model output (at any monorepo entry point).
+imports/
+inspection/
+runs/
+.pytest_cache/

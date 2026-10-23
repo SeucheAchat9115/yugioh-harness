@@ -1,0 +1,2 @@
+# Replay byte hashes must survive checkouts on Windows and Unix.
+* text=auto eol=lf

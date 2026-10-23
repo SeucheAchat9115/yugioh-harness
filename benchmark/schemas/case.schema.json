@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "case",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "replay",
+        "before_sequence"
+      ],
+      "properties": {
+        "replay": {
+          "type": "string"
+        },
+        "before_sequence": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "status",
+        "reviewer"
+      ],
+      "properties": {
+        "status": {
+          "const": "approved"
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "player_context": {
+      "type": "object",
+      "required": [
+        "perspective",
+        "state",
+        "decision"
+      ],
+      "properties": {
+        "perspective": {
+          "enum": [
+            "human",
+            "agent"
+          ]
+        }
+      }
+    },
+    "grading": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "source",
+    "review",
+    "player_context",
+    "grading"
+  ]
+}

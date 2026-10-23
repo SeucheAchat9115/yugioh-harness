@@ -58,7 +58,7 @@ class DuelService:
                     continue
                 metadata = json.loads((game / 'game.json').read_text(encoding="utf-8"))
                 progress = metadata.get('resume', {})
-                result.append({'game_id': metadata['id'], 'mode': metadata['mode'],
+                result.append({'game_id': locator.parent.name, 'state_game_id': metadata['id'], 'mode': metadata['mode'],
                                'status': metadata['status'], 'revision': progress.get('revision', 0)})
             except (ValueError, KeyError, TypeError, OSError):
                 continue
@@ -99,7 +99,7 @@ class DuelService:
         game = Path(metadata['game_dir']).resolve()
         if not game.is_relative_to(self.repo / 'games'):
             raise ValueError('Invalid game directory')
-        if self.runner and self.runner.state['game_id'] == game_id:
+        if self.runner and self.runner.state_path.parent == folder:
             return self.runner.workflow.status()
         if self.runner and Orchestrator(self.runner).players.blocking():
             raise PlayerTaskError('child_still_active')

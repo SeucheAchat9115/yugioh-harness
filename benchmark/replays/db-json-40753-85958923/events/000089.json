@@ -1,0 +1,1 @@
+{"actor":"p1","game":1,"kind":"information_observation","payload":{"card_names":[],"elapsed_seconds":244,"native":{"action":"Duel","log":{"public_log":"Stopped viewing Opponent's GY","type":"duel","username":"Aco77"},"play":"Stop viewing","seconds":244,"username":"Aco77","viewing":"Opponent's Graveyard"},"play":"Stop viewing","turn":3},"sequence":89,"source_index":88}

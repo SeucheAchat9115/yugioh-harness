@@ -20,8 +20,13 @@ def main():
     config = commands.add_parser('host-config', help='Generate stdio MCP configuration')
     config.add_argument('--repo', type=Path, required=True)
     config.add_argument('--host', choices=('codex', 'claude', 'gemini'), required=True)
+    commands.add_parser('duel', help='Run the versioned headless duel API', add_help=False)
     commands.add_parser('mcp', help='Start moderator MCP lobby', add_help=False)
     # Forward MCP flags untouched; legacy python -m harness.integration.mcp remains.
+    if len(sys.argv) > 1 and sys.argv[1] == 'duel':
+        from harness.integration.headless import main as headless_main
+        sys.argv = [sys.argv[0], *sys.argv[2:]]
+        raise SystemExit(headless_main())
     if len(sys.argv) > 1 and sys.argv[1] == 'mcp':
         from harness.integration.mcp import main as mcp_main
         sys.argv = [sys.argv[0], *sys.argv[2:]]

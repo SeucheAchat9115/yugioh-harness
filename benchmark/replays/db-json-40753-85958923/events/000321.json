@@ -1,0 +1,1 @@
+{"actor":"p1","game":1,"kind":"result_observation","payload":{"card_names":[],"elapsed_seconds":861,"native":{"action":"Duel","log":{"public_log":"Admitted defeat","type":"game","username":"Aco77"},"over":false,"play":"Admit defeat","player1":{},"player2":{},"seconds":861,"username":"Aco77"},"play":"Admit defeat","turn":9},"sequence":321,"source_index":320}

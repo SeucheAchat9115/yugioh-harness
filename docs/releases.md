@@ -51,3 +51,14 @@ reviewed artifacts; preserve exact release notes in a file.
 
 On Windows, use `.venv\Scripts\python.exe` for the commands above. The release
 workflow uses Git Bash on a Windows runner for its scripts.
+
+## Monorepo release checks
+
+Install the root project once and run `python -m unittest discover -s benchmark/tests -v`
+as well as the harness/deck tests. The root wheel provides both `yugioh-harness`
+and `yugioh-benchmark`; it includes both projects' license notices. Current CI
+checks them together rather than downloading an older harness revision.
+The source distribution retains reviewed benchmark assets and Edison resources;
+live games, snapshots and ignored model-run data must not enter either artifact.
+See [headless integration](headless.md) for the `duel-v1` transport checks and
+[architecture](architecture-and-roadmap.md) for implemented versus planned work.

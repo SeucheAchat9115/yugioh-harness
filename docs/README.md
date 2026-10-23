@@ -4,6 +4,8 @@ Use the linked page for each topic instead of maintaining competing copies.
 
 | Page | Owns |
 | --- | --- |
+| [Headless and chat](headless.md) | Versioned JSON-lines CLI, one-shot resume, and future GUI boundary |
+| [Architecture and roadmap](architecture-and-roadmap.md) | Agreed monorepo, Edison scope, evaluation tracks, and RL preparation |
 | [Quickstart](quickstart.md) | Installation, generated host configuration, readiness, and starting a duel |
 | [Orchestration](orchestration.md) | Provider-neutral MCP tools and the single-conversation task workflow |
 | [Workflows and context](workflows-and-context.md) | Illustrated overview of agent roles, decision workflows, context filtering, and prompts |

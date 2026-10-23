@@ -1,0 +1,1 @@
+{"actor":"p2","game":1,"kind":"field_observation","payload":{"card_names":[],"elapsed_seconds":422,"native":{"action":"Duel","id":622,"log":{"public_log":"Summoned a token in M-3","type":"duel","username":"sdesowitz02"},"play":"Summon Token","seconds":422,"token":"1","username":"sdesowitz02"},"play":"Summon Token","turn":6},"sequence":166,"source_index":165}

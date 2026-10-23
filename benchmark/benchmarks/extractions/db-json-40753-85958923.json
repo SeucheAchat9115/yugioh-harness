@@ -1,0 +1,71 @@
+{
+  "status": "unreviewed_observation_reconstruction",
+  "audience": "reviewer_only_contains_both_private_hands_and_outcomes",
+  "source_url": "https://www.duelingbook.com/replay?id=40753-85958923",
+  "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+  "extractor_version": "native-observations-v1",
+  "source_replay": "40753-85958923",
+  "reviewed": false,
+  "legality_reviewed": false,
+  "limitations": [
+    "No inferred chains, effect resolution, response windows or legal choices",
+    "Hands are name multisets; physical-copy lineage through shuffles remains unresolved",
+    "Unseen deck identities/order and sideboarding identities remain unknown",
+    "Default card stats, token position/type, attachments and summon negation require review",
+    "Snapshots include reviewer-only LP baseline derivation from later absolute updates",
+    "Observed next operation is not necessarily a complete strategic human decision"
+  ],
+  "lp_baselines": [
+    {
+      "game": 1,
+      "player": "sdesowitz02",
+      "lp": 8000
+    },
+    {
+      "game": 1,
+      "player": "Aco77",
+      "lp": 8000
+    },
+    {
+      "game": 2,
+      "player": "sdesowitz02",
+      "lp": 8000
+    },
+    {
+      "game": 2,
+      "player": "Aco77",
+      "lp": 8000
+    }
+  ],
+  "gaps": [
+    {
+      "source_index": 313,
+      "reason": "Card returned to logged controller instead of recorded owner; needs adjudication"
+    }
+  ],
+  "source_events": 554,
+  "games": 2,
+  "candidate_decision_points": 174,
+  "candidates_before_concession": 173,
+  "candidates_after_concession": 1,
+  "candidate_kinds": {
+    "Enter SP": 17,
+    "Enter M1": 17,
+    "Activate ST": 28,
+    "SS ATK": 15,
+    "Declare": 15,
+    "Set ST": 12,
+    "Enter EP": 7,
+    "End turn": 15,
+    "Start turn": 15,
+    "Set monster": 4,
+    "Enter BP": 7,
+    "Attack": 6,
+    "Enter M2": 7,
+    "Normal Summon": 5,
+    "SS DEF": 1,
+    "Attack directly": 3
+  },
+  "reviewed_scored_cases": 0,
+  "player_packets_generated": 0
+}

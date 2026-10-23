@@ -1,0 +1,4436 @@
+[
+  {
+    "id": "db-json-40753-85958923-before-000004",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 4,
+      "source_index": 3,
+      "game": 1,
+      "seconds": 15
+    },
+    "actor": "sdesowitz02",
+    "play": "Pick first",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Pre-game choice: initial hands do not yet exist in the before-state; a separate match-setup contract is needed.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000004.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000004",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/3"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000007",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 7,
+      "source_index": 6,
+      "game": 1,
+      "seconds": 28
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000007",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/6"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000008",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 8,
+      "source_index": 7,
+      "game": 1,
+      "seconds": 30
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000008",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/7"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000011",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 11,
+      "source_index": 10,
+      "game": 1,
+      "seconds": 39
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Reasoning activation can be scoped before resolution, but requires an authored activation/chain-response endpoint and reviewed deck eligibility; the present draft has neither.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000011.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000011",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/10"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000014",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 14,
+      "source_index": 13,
+      "game": 1,
+      "seconds": 60
+    },
+    "actor": "Aco77",
+    "play": "Duel message",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "The level-4 declaration belongs to the resolving Reasoning from source 10. Bind the level choice to that effect; the current empty-chain draft loses the obligation.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000014.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000014",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/13"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000019",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 19,
+      "source_index": 18,
+      "game": 1,
+      "seconds": 67
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 10, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000019",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/18"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000021",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 21,
+      "source_index": 20,
+      "game": 1,
+      "seconds": 71
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Dark Magician of Chaos summon trigger timing and GY target must use historical text. Source 21 returns Reasoning directly from S3 rather than recording it in GY first; reconcile the missing resolution step.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Sourced historical card ruling for this affected action (currently deferred)"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000021.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000021",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/20"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000022",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 22,
+      "source_index": 21,
+      "game": 1,
+      "seconds": 73
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "excluded",
+    "blockers": [
+      "This is a recovery outcome of the source-20 effect; source 21 moves Reasoning directly from S3. It is not a fresh free-action choice or a certified GY target selection."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000022",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/21"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000025",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 25,
+      "source_index": 24,
+      "game": 1,
+      "seconds": 78
+    },
+    "actor": "sdesowitz02",
+    "play": "Set ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Basic Set is locally legal, but the preceding DMOC recovery at 20–21 has an unrecorded Reasoning-to-GY/trigger boundary. Establish settled checkpoint effects before asserting empty pending effects.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000025.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000025",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/24"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000026",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 26,
+      "source_index": 25,
+      "game": 1,
+      "seconds": 80
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter EP",
+    "status": "excluded",
+    "blockers": [
+      "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000026",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/25"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000027",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 27,
+      "source_index": 26,
+      "game": 1,
+      "seconds": 81
+    },
+    "actor": "sdesowitz02",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Earlier DMOC/Reasoning recovery20–21 is not a certified settled chain. Add the missing GY/trigger boundary before grading unchanged state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000027.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000027",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/26"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000028",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 28,
+      "source_index": 27,
+      "game": 1,
+      "seconds": 84
+    },
+    "actor": "Aco77",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000028",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000030",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 30,
+      "source_index": 29,
+      "game": 1,
+      "seconds": 86
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000030",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/29"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000031",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 31,
+      "source_index": 30,
+      "game": 1,
+      "seconds": 89
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000031",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/30"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000033",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 33,
+      "source_index": 32,
+      "game": 1,
+      "seconds": 127
+    },
+    "actor": "Aco77",
+    "play": "Set monster",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Basic Normal Set is locally legal; the carried DMOC recovery discrepancy at 20–21 has not been adjudicated. This draft cannot yet certify all unchanged gameplay roots.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000033.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000033",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/32"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000034",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 34,
+      "source_index": 33,
+      "game": 1,
+      "seconds": 128
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Basic Trap Set is locally legal; resolve the carried DMOC checkpoint discrepancy from 20–21 before declaring a complete initial state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000034.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000034",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/33"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000035",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 35,
+      "source_index": 34,
+      "game": 1,
+      "seconds": 129
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Earlier DMOC/Reasoning recovery20–21 is not a certified settled chain. Add the missing GY/trigger boundary before grading unchanged state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000035.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000035",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/34"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000036",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 36,
+      "source_index": 35,
+      "game": 1,
+      "seconds": 132
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000036",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000038",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 38,
+      "source_index": 37,
+      "game": 1,
+      "seconds": 135
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000038",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/37"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000039",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 39,
+      "source_index": 38,
+      "game": 1,
+      "seconds": 136
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000039",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/38"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000041",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 41,
+      "source_index": 40,
+      "game": 1,
+      "seconds": 142
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Gold Sarcophagus requires a banished-card selection and a two-own-Standby countdown; the draft has no persistent effect record or complete own-deck choice list.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000041.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000041",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/40"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000048",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 48,
+      "source_index": 47,
+      "game": 1,
+      "seconds": 153
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Requires the earlier Gold Sarcophagus countdown (source 43) plus a reviewed Reasoning chain boundary and deck-resolution scope.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000048.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000048",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/47"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000049",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 49,
+      "source_index": 48,
+      "game": 1,
+      "seconds": 158
+    },
+    "actor": "Aco77",
+    "play": "Duel message",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "The level-6 declaration belongs to the resolving Reasoning from source 47. Bind it to that effect and the appropriate player perspective.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000049.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000049",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/48"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000055",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 55,
+      "source_index": 54,
+      "game": 1,
+      "seconds": 168
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 47, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000055",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/54"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000058",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 58,
+      "source_index": 57,
+      "game": 1,
+      "seconds": 174
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Diamond Dude requires a once-per-turn effect/next-turn entitlement record and reviewed reveal-versus-mill semantics; the draft contains no such bookkeeping.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000058.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000058",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/57"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000067",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 67,
+      "source_index": 66,
+      "game": 1,
+      "seconds": 185
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Equip target for Phoenix Blade is not logged at this activation; cannot certify attachment, bonus or later destruction relationship.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000067.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000067",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/66"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000068",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 68,
+      "source_index": 67,
+      "game": 1,
+      "seconds": 189
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Monster Gate must pay its Tribute when activated (later source 68); Phoenix Blade attachment from source 66 is unresolved. Bundle the cost with activation instead of presenting a half-paid open state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000068.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000068",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/67"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000078",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 78,
+      "source_index": 77,
+      "game": 1,
+      "seconds": 205
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 67, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000078",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/77"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000081",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 81,
+      "source_index": 80,
+      "game": 1,
+      "seconds": 211
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter BP",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000081.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000081",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/80"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000082",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 82,
+      "source_index": 81,
+      "game": 1,
+      "seconds": 214
+    },
+    "actor": "sdesowitz02",
+    "play": "Attack",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000082.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000082",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/81"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000083",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 83,
+      "source_index": 82,
+      "game": 1,
+      "seconds": 234
+    },
+    "actor": "Aco77",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000083.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000083",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/82"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000086",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 86,
+      "source_index": 85,
+      "game": 1,
+      "seconds": 239
+    },
+    "actor": "sdesowitz02",
+    "play": "Attack",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000086.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000086",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/85"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000093",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 93,
+      "source_index": 92,
+      "game": 1,
+      "seconds": 251
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M2",
+    "status": "excluded",
+    "blockers": [
+      "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000093",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/92"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000096",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 96,
+      "source_index": 95,
+      "game": 1,
+      "seconds": 254
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter EP",
+    "status": "excluded",
+    "blockers": [
+      "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000096",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/95"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000097",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 97,
+      "source_index": 96,
+      "game": 1,
+      "seconds": 254
+    },
+    "actor": "sdesowitz02",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000097.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000097",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/96"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000098",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 98,
+      "source_index": 97,
+      "game": 1,
+      "seconds": 255
+    },
+    "actor": "Aco77",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000098",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000100",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 100,
+      "source_index": 99,
+      "game": 1,
+      "seconds": 257
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000100",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/99"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000102",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 102,
+      "source_index": 101,
+      "game": 1,
+      "seconds": 260
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000102",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/101"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000110",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 110,
+      "source_index": 109,
+      "game": 1,
+      "seconds": 313
+    },
+    "actor": "Aco77",
+    "play": "Set monster",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Gold Sarcophagus is still counting own Standby Phases toward turn 7; the draft omits that persistent effect. Add the source-43 countdown before certifying otherwise straightforward Normal Set.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000110.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000110",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/109"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000111",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 111,
+      "source_index": 110,
+      "game": 1,
+      "seconds": 315
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Same missing Gold Sarcophagus source-43 countdown; a legal Set alone cannot certify the complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000111.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000111",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/110"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000112",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 112,
+      "source_index": 111,
+      "game": 1,
+      "seconds": 316
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000112.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000112",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/111"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000116",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 116,
+      "source_index": 115,
+      "game": 1,
+      "seconds": 323
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000116",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000118",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 118,
+      "source_index": 117,
+      "game": 1,
+      "seconds": 329
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000118",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/117"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000120",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 120,
+      "source_index": 119,
+      "game": 1,
+      "seconds": 334
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000120",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/119"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000122",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 122,
+      "source_index": 121,
+      "game": 1,
+      "seconds": 337
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000122.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000122",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/121"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000123",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 123,
+      "source_index": 122,
+      "game": 1,
+      "seconds": 339
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "excluded",
+    "blockers": [
+      "Re-declares the Emergency Call already activated at source 121; not a second Spell activation."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000123",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/122"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000126",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 126,
+      "source_index": 125,
+      "game": 1,
+      "seconds": 347
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Search selection within effect at source 121. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "Complete own deck contents at this boundary",
+      "Reviewed resolving effect and filtered search-choice packet",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000126.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000126",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/125"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000130",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 130,
+      "source_index": 129,
+      "game": 1,
+      "seconds": 352
+    },
+    "actor": "sdesowitz02",
+    "play": "Normal Summon",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000130.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000130",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/129"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000131",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 131,
+      "source_index": 130,
+      "game": 1,
+      "seconds": 356
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000131.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000131",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/130"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000134",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 134,
+      "source_index": 133,
+      "game": 1,
+      "seconds": 363
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Search selection within effect at source 130. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "Complete own deck contents at this boundary",
+      "Reviewed resolving effect and filtered search-choice packet",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000134.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000134",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/133"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000137",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 137,
+      "source_index": 136,
+      "game": 1,
+      "seconds": 367
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Destiny Draw discard at source 137 is activation cost, not a later independent action; bundle cost with activation and preserve the pending Gold Sarcophagus record.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000137.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000137",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/136"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000138",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 138,
+      "source_index": 137,
+      "game": 1,
+      "seconds": 369
+    },
+    "actor": "sdesowitz02",
+    "play": "To GY",
+    "status": "excluded",
+    "blockers": [
+      "Recorded Destiny Draw discard cost for source 136. Merge into that activation rather than score it as an independent free move."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000138",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/137"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000148",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 148,
+      "source_index": 147,
+      "game": 1,
+      "seconds": 393
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter EP",
+    "status": "excluded",
+    "blockers": [
+      "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000148",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/147"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000149",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 149,
+      "source_index": 148,
+      "game": 1,
+      "seconds": 393
+    },
+    "actor": "sdesowitz02",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000149.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000149",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/148"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000150",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 150,
+      "source_index": 149,
+      "game": 1,
+      "seconds": 399
+    },
+    "actor": "Aco77",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000150",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000152",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 152,
+      "source_index": 151,
+      "game": 1,
+      "seconds": 401
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000152",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/151"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000153",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 153,
+      "source_index": 152,
+      "game": 1,
+      "seconds": 403
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000153",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/152"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000155",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 155,
+      "source_index": 154,
+      "game": 1,
+      "seconds": 407
+    },
+    "actor": "Aco77",
+    "play": "Normal Summon",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000155.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000155",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/154"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000158",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 158,
+      "source_index": 157,
+      "game": 1,
+      "seconds": 411
+    },
+    "actor": "Aco77",
+    "play": "Enter BP",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000158.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000158",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/157"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000159",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 159,
+      "source_index": 158,
+      "game": 1,
+      "seconds": 414
+    },
+    "actor": "Aco77",
+    "play": "Attack",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000159.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000159",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/158"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000161",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 161,
+      "source_index": 160,
+      "game": 1,
+      "seconds": 417
+    },
+    "actor": "Aco77",
+    "play": "Enter M2",
+    "status": "excluded",
+    "blockers": [
+      "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000161",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/160"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000164",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 164,
+      "source_index": 163,
+      "game": 1,
+      "seconds": 420
+    },
+    "actor": "Aco77",
+    "play": "Target card",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Breaker target choice is attached to the earlier counter removal at source 162. The target is an opponent face-down S3; use its visible location, not the privately logged Scapegoat identity.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000164.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000164",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/163"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000165",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 165,
+      "source_index": 164,
+      "game": 1,
+      "seconds": 422
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat responds to Breaker: needs the opponent effect link/target and four-token availability. Empty draft chain cannot establish that response.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000165.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000165",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/164"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000172",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 172,
+      "source_index": 171,
+      "game": 1,
+      "seconds": 450
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000172.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000172",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/171"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000173",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 173,
+      "source_index": 172,
+      "game": 1,
+      "seconds": 452
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000173",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000175",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 175,
+      "source_index": 174,
+      "game": 1,
+      "seconds": 454
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000175",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/174"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000180",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 180,
+      "source_index": 179,
+      "game": 1,
+      "seconds": 460
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000180",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/179"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000187",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 187,
+      "source_index": 186,
+      "game": 1,
+      "seconds": 471
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000187.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000187",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/186"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000190",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 190,
+      "source_index": 189,
+      "game": 1,
+      "seconds": 479
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Premature Burial needs 800 LP cost, GY target and equip relationship; token positions/stats from Scapegoat must first be made complete.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000190.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000190",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/189"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000196",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 196,
+      "source_index": 195,
+      "game": 1,
+      "seconds": 487
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 189, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000196",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/195"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000198",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 198,
+      "source_index": 197,
+      "game": 1,
+      "seconds": 489
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000198.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000198",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/197"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000200",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 200,
+      "source_index": 199,
+      "game": 1,
+      "seconds": 494
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Search selection within effect at source 197. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "Complete own deck contents at this boundary",
+      "Reviewed resolving effect and filtered search-choice packet",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000200.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000200",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/199"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000203",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 203,
+      "source_index": 202,
+      "game": 1,
+      "seconds": 501
+    },
+    "actor": "sdesowitz02",
+    "play": "Remove Token",
+    "status": "excluded",
+    "blockers": [
+      "First recorded token removal for the Plasma three-monster summoning procedure; group sources 202,203,205 and208 atomically before a summon response."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000203",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/202"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000204",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 204,
+      "source_index": 203,
+      "game": 1,
+      "seconds": 503
+    },
+    "actor": "sdesowitz02",
+    "play": "Remove Token",
+    "status": "excluded",
+    "blockers": [
+      "Second token removal for the same Plasma procedure (202,203,205,208); not an independent free remove-token action."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000204",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/203"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000206",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 206,
+      "source_index": 205,
+      "game": 1,
+      "seconds": 503
+    },
+    "actor": "sdesowitz02",
+    "play": "To GY",
+    "status": "excluded",
+    "blockers": [
+      "Stratos is the third monster for Plasma procedure (202,203,205,208); Premature Burial attachment/destruction bookkeeping is also required."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000206",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/205"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000209",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 209,
+      "source_index": 208,
+      "game": 1,
+      "seconds": 505
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Plasma procedure spans 202,203,205,208. Current before-state has already removed materials; use the pre-procedure boundary and complete tokens/equip relationships.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000209.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000209",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/208"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000210",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 210,
+      "source_index": 209,
+      "game": 1,
+      "seconds": 511
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Plasma absorption needs target/once-per-turn usage and equip relationship; tokens still lack position/stats in the draft.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000210.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000210",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/209"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000211",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 211,
+      "source_index": 210,
+      "game": 1,
+      "seconds": 512
+    },
+    "actor": "sdesowitz02",
+    "play": "Target card",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Target is an opponent hidden M3, not a publicly known Dekoichi. Bind to source-209 absorption and preserve owner across control/equip movement.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000211.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000211",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/210"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000215",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 215,
+      "source_index": 214,
+      "game": 1,
+      "seconds": 519
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Phoenix Blade recovery requires two Warrior banish costs (215,216) on activation and correct GY ownership; no half-paid open state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000215.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000215",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/214"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000216",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 216,
+      "source_index": 215,
+      "game": 1,
+      "seconds": 522
+    },
+    "actor": "sdesowitz02",
+    "play": "Banish",
+    "status": "excluded",
+    "blockers": [
+      "First cost payment for source-214 Phoenix Blade recovery; merge both Warrior costs into the same activation."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000216",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/215"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000217",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 217,
+      "source_index": 216,
+      "game": 1,
+      "seconds": 525
+    },
+    "actor": "sdesowitz02",
+    "play": "Banish",
+    "status": "excluded",
+    "blockers": [
+      "Second cost payment for source-214 recovery; pair with 215 and activation214, not a separate unconstrained choice."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000217",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/216"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000225",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 225,
+      "source_index": 224,
+      "game": 1,
+      "seconds": 553
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Dimension Fusion needs 2000 LP cost, simultaneous summon choices, proper prior-summon eligibility and response bookkeeping; source order is manual serialization.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000225.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000225",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/224"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000228",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 228,
+      "source_index": 227,
+      "game": 1,
+      "seconds": 557
+    },
+    "actor": "Aco77",
+    "play": "SS DEF",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 224, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000228",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/227"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000231",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 231,
+      "source_index": 230,
+      "game": 1,
+      "seconds": 562
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 224, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000231",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/230"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000234",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 234,
+      "source_index": 233,
+      "game": 1,
+      "seconds": 568
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 224, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000234",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/233"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000236",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 236,
+      "source_index": 235,
+      "game": 1,
+      "seconds": 571
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "DMOC trigger occurs within the Dimension Fusion resolution: require historical trigger timing and review optional Stratos trigger interactions before creating a free decision.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships",
+      "Sourced historical card ruling for this affected action (currently deferred)"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000236.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000236",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/235"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000246",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 246,
+      "source_index": 245,
+      "game": 1,
+      "seconds": 655
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "excluded",
+    "blockers": [
+      "Recovery outcome for DMOC source235; Dimension Fusion is logged directly from S4 to hand rather than GY. Reconcile missing GY transition and select a trigger-target boundary."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000246",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/245"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000247",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 247,
+      "source_index": 246,
+      "game": 1,
+      "seconds": 656
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000247.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000247",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/246"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000249",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 249,
+      "source_index": 248,
+      "game": 1,
+      "seconds": 663
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Search selection within effect at source 246. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "Complete own deck contents at this boundary",
+      "Reviewed resolving effect and filtered search-choice packet",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000249.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000249",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/248"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000253",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 253,
+      "source_index": 252,
+      "game": 1,
+      "seconds": 672
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Dasher Tribute ignition cost and temporary ATK/End-Phase DEF obligation must be represented with once-per-turn usage.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000253.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000253",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/252"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000254",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 254,
+      "source_index": 253,
+      "game": 1,
+      "seconds": 675
+    },
+    "actor": "sdesowitz02",
+    "play": "Banish",
+    "status": "excluded",
+    "blockers": [
+      "Dasher cost from source252 sends/banishes DMOC via its historical replacement; group it into effect activation, not a free banish choice."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000254",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/253"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000256",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 256,
+      "source_index": 255,
+      "game": 1,
+      "seconds": 684
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Second Dimension Fusion: needs cost, DMOC summon history/replacement and complete ongoing Plasma equip/token state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000256.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000256",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/255"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000259",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 259,
+      "source_index": 258,
+      "game": 1,
+      "seconds": 691
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 255, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000259",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/258"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000262",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 262,
+      "source_index": 261,
+      "game": 1,
+      "seconds": 693
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "DMOC historical summon trigger following source258; recover target at264 is not an independent free action.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships",
+      "Sourced historical card ruling for this affected action (currently deferred)"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000262.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000262",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/261"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000265",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 265,
+      "source_index": 264,
+      "game": 1,
+      "seconds": 723
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "excluded",
+    "blockers": [
+      "Monster Gate is the recovery outcome of source261. The target-choice boundary is the summon trigger, not the later To-hand operation."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000265",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/264"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000267",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 267,
+      "source_index": 266,
+      "game": 1,
+      "seconds": 725
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Monster Gate Tribute token at267 is activation cost; current state also lacks token attributes, Plasma equip relationship and Dasher temporary obligations.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000267.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000267",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/266"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000268",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 268,
+      "source_index": 267,
+      "game": 1,
+      "seconds": 727
+    },
+    "actor": "sdesowitz02",
+    "play": "Remove Token",
+    "status": "excluded",
+    "blockers": [
+      "Token Tribute cost of Monster Gate source266; merge it into the activation rather than score token removal separately."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000268",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/267"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000272",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 272,
+      "source_index": 271,
+      "game": 1,
+      "seconds": 734
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 266, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000272",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/271"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000275",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 275,
+      "source_index": 274,
+      "game": 1,
+      "seconds": 744
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter BP",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000275.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000275",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/274"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000276",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 276,
+      "source_index": 275,
+      "game": 1,
+      "seconds": 749
+    },
+    "actor": "sdesowitz02",
+    "play": "Attack",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000276.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000276",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/275"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000278",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 278,
+      "source_index": 277,
+      "game": 1,
+      "seconds": 758
+    },
+    "actor": "sdesowitz02",
+    "play": "Attack",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000278.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000278",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/277"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000286",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 286,
+      "source_index": 285,
+      "game": 1,
+      "seconds": 777
+    },
+    "actor": "sdesowitz02",
+    "play": "To DEF",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Dasher battle-position change must respect the summon/position-change history and its temporary effect obligation; the draft has no verified usage record.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000286.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000286",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/285"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000287",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 287,
+      "source_index": 286,
+      "game": 1,
+      "seconds": 778
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M2",
+    "status": "excluded",
+    "blockers": [
+      "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000287",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/286"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000288",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 288,
+      "source_index": 287,
+      "game": 1,
+      "seconds": 780
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Phoenix Blade equip activation has no logged equip target at that moment; Plasma and absorbed Dekoichi relationship/ATK contributions also need verification.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000288.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000288",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/287"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000290",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 290,
+      "source_index": 289,
+      "game": 1,
+      "seconds": 784
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter EP",
+    "status": "excluded",
+    "blockers": [
+      "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000290",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/289"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000291",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 291,
+      "source_index": 290,
+      "game": 1,
+      "seconds": 784
+    },
+    "actor": "sdesowitz02",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000291.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000291",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/290"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000293",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 293,
+      "source_index": 292,
+      "game": 1,
+      "seconds": 789
+    },
+    "actor": "Aco77",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000293",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000295",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 295,
+      "source_index": 294,
+      "game": 1,
+      "seconds": 791
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000295",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/294"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000296",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 296,
+      "source_index": 295,
+      "game": 1,
+      "seconds": 792
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000296",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/295"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000302",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 302,
+      "source_index": 301,
+      "game": 1,
+      "seconds": 832
+    },
+    "actor": "Aco77",
+    "play": "Set monster",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Morphing Jar Normal Set is locally legal but unchanged opponent state has an unresolved Plasma equip relationship, token attributes and Dasher usage/temporary effects.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000302.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000302",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/301"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000303",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 303,
+      "source_index": 302,
+      "game": 1,
+      "seconds": 834
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Mirror Force Set is locally legal; the same unresolved opponent equip/token/usage roots prevent complete state grading.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000303.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000303",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/302"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000304",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 304,
+      "source_index": 303,
+      "game": 1,
+      "seconds": 835
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000304.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000304",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/303"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000305",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 305,
+      "source_index": 304,
+      "game": 1,
+      "seconds": 838
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000305",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000307",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 307,
+      "source_index": 306,
+      "game": 1,
+      "seconds": 840
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000307",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/306"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000308",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 308,
+      "source_index": 307,
+      "game": 1,
+      "seconds": 840
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000308",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/307"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000312",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 312,
+      "source_index": 311,
+      "game": 1,
+      "seconds": 849
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Giant Trunade returns absorbed Dekoichi at313 to the logged controller instead of its owner; this changes hidden inventories and needs adjudication, not silent repair.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000312.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000312",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/311"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000318",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 318,
+      "source_index": 317,
+      "game": 1,
+      "seconds": 857
+    },
+    "actor": "sdesowitz02",
+    "play": "To ATK",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Source313 ownership conflict changes hand inventory; Dasher position/attack usage and earlier End-Phase obligation must also be reviewed.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships",
+      "Adjudicate source gaps [313]"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000318.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000318",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/317"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000319",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 319,
+      "source_index": 318,
+      "game": 1,
+      "seconds": 859
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Source313 ownership conflict plus Plasma absorption usage/attachment history; do not certify this draft.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships",
+      "Adjudicate source gaps [313]"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000319.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000319",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/318"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000320",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 320,
+      "source_index": 319,
+      "game": 1,
+      "seconds": 860
+    },
+    "actor": "sdesowitz02",
+    "play": "Target card",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Source313 ownership conflict. The pointed M3 is hidden to Plasma controller; do not use privately logged Morphing Jar as the player target identity.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Token position/stats and equip/control relationships",
+      "Adjudicate source gaps [313]"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000320.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000320",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/319"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000321",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 321,
+      "source_index": 320,
+      "game": 1,
+      "seconds": 861
+    },
+    "actor": "Aco77",
+    "play": "Admit defeat",
+    "status": "excluded",
+    "blockers": [
+      "Surrender is outside this action-initiation pilot",
+      "Resolve recorded transition gaps and their downstream effects"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000321",
+    "origin": "supplemental_choice_or_setup_work_item"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000328",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 328,
+      "source_index": 327,
+      "game": 2,
+      "seconds": 910
+    },
+    "actor": "Aco77",
+    "play": "Pick first",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Between-game choice: requires match-result/side-deck and starter-selection context, not a mid-duel checkpoint.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000328.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000328",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/327"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000331",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 331,
+      "source_index": 330,
+      "game": 2,
+      "seconds": 918
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000331",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/330"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000332",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 332,
+      "source_index": 331,
+      "game": 2,
+      "seconds": 919
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000332",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/331"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000334",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 334,
+      "source_index": 333,
+      "game": 2,
+      "seconds": 931
+    },
+    "actor": "Aco77",
+    "play": "Set monster",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000334.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000334",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000335",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 335,
+      "source_index": 334,
+      "game": 2,
+      "seconds": 932
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000335.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000335",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000336",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 336,
+      "source_index": 335,
+      "game": 2,
+      "seconds": 934
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000336.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000336",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000337",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 337,
+      "source_index": 336,
+      "game": 2,
+      "seconds": 948
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000337.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000337",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000338",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 338,
+      "source_index": 337,
+      "game": 2,
+      "seconds": 949
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000338.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000338",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/337"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000339",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 339,
+      "source_index": 338,
+      "game": 2,
+      "seconds": 951
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000339",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000341",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 341,
+      "source_index": 340,
+      "game": 2,
+      "seconds": 951
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000341",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/340"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000342",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 342,
+      "source_index": 341,
+      "game": 2,
+      "seconds": 954
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000342",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/341"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000344",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 344,
+      "source_index": 343,
+      "game": 2,
+      "seconds": 958
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Destiny Draw activation and Dasher discard cost at344 are one decision. Author a bundled cost/chain endpoint; do not use the post-activation draft as a free cost choice.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000344.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000344",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/343"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000345",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 345,
+      "source_index": 344,
+      "game": 2,
+      "seconds": 964
+    },
+    "actor": "sdesowitz02",
+    "play": "To GY",
+    "status": "excluded",
+    "blockers": [
+      "Discard at344 is Destiny Draw activation cost for343, not a separate free action. Merge into343."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000345",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/344"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000352",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 352,
+      "source_index": 351,
+      "game": 2,
+      "seconds": 978
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Emergency Call is a no-target search Spell; scope activation before response or supply a reviewed own-deck search list for resolution. The current draft has no authored chain endpoint.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000352.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000352",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/351"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000354",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 354,
+      "source_index": 353,
+      "game": 2,
+      "seconds": 987
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "excluded",
+    "blockers": [
+      "Re-declares the Emergency Call already activated at source 351; not a second Spell activation."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000354",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/353"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000356",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 356,
+      "source_index": 355,
+      "game": 2,
+      "seconds": 992
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Search selection within effect at source 351. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "Complete own deck contents at this boundary",
+      "Reviewed resolving effect and filtered search-choice packet",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000356.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000356",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/355"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000360",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 360,
+      "source_index": 359,
+      "game": 2,
+      "seconds": 996
+    },
+    "actor": "sdesowitz02",
+    "play": "Normal Summon",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000360.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000360",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/359"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000361",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 361,
+      "source_index": 360,
+      "game": 2,
+      "seconds": 999
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Optional Stratos trigger choice needs trigger-response timing and a complete own-deck HERO choice list; post-search hindsight must not supply the pre-search menu.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000361.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000361",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/360"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000365",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 365,
+      "source_index": 364,
+      "game": 2,
+      "seconds": 1029
+    },
+    "actor": "sdesowitz02",
+    "play": "To hand",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Search selection within effect at source 360. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "Complete own deck contents at this boundary",
+      "Reviewed resolving effect and filtered search-choice packet",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000365.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000365",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/364"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000368",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 368,
+      "source_index": 367,
+      "game": 2,
+      "seconds": 1037
+    },
+    "actor": "sdesowitz02",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000368.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000368",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/367"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000369",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 369,
+      "source_index": 368,
+      "game": 2,
+      "seconds": 1037
+    },
+    "actor": "sdesowitz02",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000369.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000369",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/368"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000370",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 370,
+      "source_index": 369,
+      "game": 2,
+      "seconds": 1038
+    },
+    "actor": "sdesowitz02",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000370.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000370",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/369"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000371",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 371,
+      "source_index": 370,
+      "game": 2,
+      "seconds": 1041
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter BP",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000371.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000371",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/370"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000372",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 372,
+      "source_index": 371,
+      "game": 2,
+      "seconds": 1042
+    },
+    "actor": "sdesowitz02",
+    "play": "Attack",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000372.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000372",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/371"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000375",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 375,
+      "source_index": 374,
+      "game": 2,
+      "seconds": 1061
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M2",
+    "status": "excluded",
+    "blockers": [
+      "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000375",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/374"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000376",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 376,
+      "source_index": 375,
+      "game": 2,
+      "seconds": 1061
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter EP",
+    "status": "excluded",
+    "blockers": [
+      "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000376",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/375"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000377",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 377,
+      "source_index": 376,
+      "game": 2,
+      "seconds": 1062
+    },
+    "actor": "sdesowitz02",
+    "play": "End turn",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000377.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000377",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/376"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000378",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 378,
+      "source_index": 377,
+      "game": 2,
+      "seconds": 1068
+    },
+    "actor": "Aco77",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000378",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000380",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 380,
+      "source_index": 379,
+      "game": 2,
+      "seconds": 1070
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000380",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/379"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000381",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 381,
+      "source_index": 380,
+      "game": 2,
+      "seconds": 1071
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000381",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/380"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000384",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 384,
+      "source_index": 383,
+      "game": 2,
+      "seconds": 1099
+    },
+    "actor": "Aco77",
+    "play": "Normal Summon",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000384.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000384",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/383"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000386",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 386,
+      "source_index": 385,
+      "game": 2,
+      "seconds": 1109
+    },
+    "actor": "Aco77",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Game2 Breaker has no logged counter placement or removal (383–386). Reconstruct/certify the trigger and cost before accepting its destruction effect.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000386.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000386",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/385"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000387",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 387,
+      "source_index": 386,
+      "game": 2,
+      "seconds": 1110
+    },
+    "actor": "Aco77",
+    "play": "Target card",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Target M/S4 is hidden to Breaker controller. Counter cost and chain from385 are missing; privately logged MST cannot be the visible target label.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000387.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000387",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/386"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000388",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 388,
+      "source_index": 387,
+      "game": 2,
+      "seconds": 1112
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "MST is a response to Breaker effect; counter/cost/chain provenance is missing. Record target selection at activation, not later as a free action.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000388.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000388",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/387"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000389",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 389,
+      "source_index": 388,
+      "game": 2,
+      "seconds": 1114
+    },
+    "actor": "sdesowitz02",
+    "play": "Target card",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "MST target is opponent hidden S4; bind it to387 and use the visible location, not privately logged Dark Bribe.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000389.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000389",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/388"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000391",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 391,
+      "source_index": 390,
+      "game": 2,
+      "seconds": 1117
+    },
+    "actor": "Aco77",
+    "play": "Enter BP",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Phase request precedes sending resolving MST to GY at391. Draft still has an unresolved chain and lacks Breaker counter bookkeeping.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000391.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000391",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/390"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000393",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 393,
+      "source_index": 392,
+      "game": 2,
+      "seconds": 1118
+    },
+    "actor": "Aco77",
+    "play": "Attack directly",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Direct attack is observable, but Breaker counter trigger/removal were not logged; ATK and attack-use/response endpoint need certification.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000393.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000393",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/392"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000395",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 395,
+      "source_index": 394,
+      "game": 2,
+      "seconds": 1122
+    },
+    "actor": "Aco77",
+    "play": "Enter M2",
+    "status": "excluded",
+    "blockers": [
+      "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000395",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/394"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000396",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 396,
+      "source_index": 395,
+      "game": 2,
+      "seconds": 1123
+    },
+    "actor": "Aco77",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Dimensional Fissure activation itself is plausible; unchanged Breaker counter/effect usage roots are missing and chain endpoint is unauthored.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000396.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000396",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/395"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000397",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 397,
+      "source_index": 396,
+      "game": 2,
+      "seconds": 1124
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Cannot assert a fully settled End Phase while Breaker counter/usage history remains unreviewed.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000397.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000397",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/396"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000398",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 398,
+      "source_index": 397,
+      "game": 2,
+      "seconds": 1126
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000398",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000400",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 400,
+      "source_index": 399,
+      "game": 2,
+      "seconds": 1128
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000400",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/399"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000401",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 401,
+      "source_index": 400,
+      "game": 2,
+      "seconds": 1129
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000401",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/400"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000408",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 408,
+      "source_index": 407,
+      "game": 2,
+      "seconds": 1201
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Brain Control current API text differs from historical text. Needs sourced historical target condition plus 800 LP cost, target and temporary control return record.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Sourced historical card ruling for this affected action (currently deferred)"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000408.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000408",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/407"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000410",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 410,
+      "source_index": 409,
+      "game": 2,
+      "seconds": 1207
+    },
+    "actor": "sdesowitz02",
+    "play": "Target card",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Target belongs to Brain Control407; cost/chain/historical target restrictions and return obligation must be represented, not a separate free pointer.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Sourced historical card ruling for this affected action (currently deferred)"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000410.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000410",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/409"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000413",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 413,
+      "source_index": 412,
+      "game": 2,
+      "seconds": 1212
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Monster Gate must Tribute controlled Breaker at activation; preserve original owner and Dimensional Fissure replacement. Brain Control return/counter state is unresolved.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000413.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000413",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/412"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000438",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 438,
+      "source_index": 437,
+      "game": 2,
+      "seconds": 1249
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 412, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000438",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/437"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000443",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 443,
+      "source_index": 442,
+      "game": 2,
+      "seconds": 1256
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Card Destruction resolution is a joint discard/draw transaction under Dimensional Fissure. Complete source owner/deck outcomes and an activation-response endpoint; avoid independently scoring its substeps.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000443.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000443",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/442"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000454",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 454,
+      "source_index": 453,
+      "game": 2,
+      "seconds": 1285
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter BP",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000454.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000454",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/453"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000455",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 455,
+      "source_index": 454,
+      "game": 2,
+      "seconds": 1287
+    },
+    "actor": "sdesowitz02",
+    "play": "Attack directly",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000455.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000455",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/454"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000461",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 461,
+      "source_index": 460,
+      "game": 2,
+      "seconds": 1306
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M2",
+    "status": "excluded",
+    "blockers": [
+      "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000461",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/460"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000462",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 462,
+      "source_index": 461,
+      "game": 2,
+      "seconds": 1309
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter EP",
+    "status": "excluded",
+    "blockers": [
+      "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000462",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/461"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000463",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 463,
+      "source_index": 462,
+      "game": 2,
+      "seconds": 1310
+    },
+    "actor": "sdesowitz02",
+    "play": "End turn",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000463.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000463",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/462"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000464",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 464,
+      "source_index": 463,
+      "game": 2,
+      "seconds": 1312
+    },
+    "actor": "Aco77",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000464",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000466",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 466,
+      "source_index": 465,
+      "game": 2,
+      "seconds": 1314
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000466",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/465"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000467",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 467,
+      "source_index": 466,
+      "game": 2,
+      "seconds": 1317
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000467",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/466"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000468",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 468,
+      "source_index": 467,
+      "game": 2,
+      "seconds": 1320
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000468.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000468",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/467"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000469",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 469,
+      "source_index": 468,
+      "game": 2,
+      "seconds": 1321
+    },
+    "actor": "Aco77",
+    "play": "Set ST",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000469.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000469",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/468"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000470",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 470,
+      "source_index": 469,
+      "game": 2,
+      "seconds": 1322
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000470.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000470",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/469"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000471",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 471,
+      "source_index": 470,
+      "game": 2,
+      "seconds": 1325
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000471",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000473",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 473,
+      "source_index": 472,
+      "game": 2,
+      "seconds": 1327
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000473",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/472"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000474",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 474,
+      "source_index": 473,
+      "game": 2,
+      "seconds": 1329
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000474",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/473"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000484",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 484,
+      "source_index": 483,
+      "game": 2,
+      "seconds": 1372
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter BP",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000484.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000484",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/483"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000485",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 485,
+      "source_index": 484,
+      "game": 2,
+      "seconds": 1373
+    },
+    "actor": "sdesowitz02",
+    "play": "Attack directly",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000485.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000485",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/484"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000486",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 486,
+      "source_index": 485,
+      "game": 2,
+      "seconds": 1376
+    },
+    "actor": "Aco77",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000486.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000486",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/485"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000489",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 489,
+      "source_index": 488,
+      "game": 2,
+      "seconds": 1380
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M2",
+    "status": "excluded",
+    "blockers": [
+      "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000489",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/488"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000490",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 490,
+      "source_index": 489,
+      "game": 2,
+      "seconds": 1382
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter EP",
+    "status": "excluded",
+    "blockers": [
+      "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000490",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/489"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000491",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 491,
+      "source_index": 490,
+      "game": 2,
+      "seconds": 1382
+    },
+    "actor": "sdesowitz02",
+    "play": "End turn",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000491.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000491",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/490"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000492",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 492,
+      "source_index": 491,
+      "game": 2,
+      "seconds": 1383
+    },
+    "actor": "Aco77",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000492",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000494",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 494,
+      "source_index": 493,
+      "game": 2,
+      "seconds": 1385
+    },
+    "actor": "Aco77",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000494",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/493"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000495",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 495,
+      "source_index": 494,
+      "game": 2,
+      "seconds": 1387
+    },
+    "actor": "Aco77",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000495",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/494"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000496",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 496,
+      "source_index": 495,
+      "game": 2,
+      "seconds": 1391
+    },
+    "actor": "Aco77",
+    "play": "End turn",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000496.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000496",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/495"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000497",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 497,
+      "source_index": 496,
+      "game": 2,
+      "seconds": 1392
+    },
+    "actor": "sdesowitz02",
+    "play": "Start turn",
+    "status": "excluded",
+    "blockers": [
+      "Automatic turn progression, not an independent human choice"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000497",
+    "origin": "native_candidate"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000499",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 499,
+      "source_index": 498,
+      "game": 2,
+      "seconds": 1394
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter SP",
+    "status": "excluded",
+    "blockers": [
+      "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000499",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/498"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000500",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 500,
+      "source_index": 499,
+      "game": 2,
+      "seconds": 1396
+    },
+    "actor": "sdesowitz02",
+    "play": "Enter M1",
+    "status": "excluded",
+    "blockers": [
+      "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000500",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/499"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000502",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 502,
+      "source_index": 501,
+      "game": 2,
+      "seconds": 1403
+    },
+    "actor": "sdesowitz02",
+    "play": "Normal Summon",
+    "status": "approved_scoped",
+    "blockers": [],
+    "packet": "player-packets/db-json-40753-85958923-before-000502.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000502",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/501"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000508",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 508,
+      "source_index": 507,
+      "game": 2,
+      "seconds": 1480
+    },
+    "actor": "Aco77",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Solemn Judgment responds in summon-negation window to Snipe Hunter501. Need attempted-versus-successful summon state and half-LP cost bundled on activation; priority chat is not an effect activation.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000508.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000508",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/507"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000526",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 526,
+      "source_index": 525,
+      "game": 2,
+      "seconds": 1533
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Return from the Different Dimension needs half-LP cost, simultaneous subset selection, summon eligibility and End-Phase banish obligations; serialize sources530–534 only after grouping.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000526.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000526",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/525"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000531",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 531,
+      "source_index": 530,
+      "game": 2,
+      "seconds": 1547
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000531",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/530"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000532",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 532,
+      "source_index": 531,
+      "game": 2,
+      "seconds": 1549
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000532",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/531"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000533",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 533,
+      "source_index": 532,
+      "game": 2,
+      "seconds": 1550
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000533",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/532"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000534",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 534,
+      "source_index": 533,
+      "game": 2,
+      "seconds": 1551
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000534",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/533"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000535",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 535,
+      "source_index": 534,
+      "game": 2,
+      "seconds": 1553
+    },
+    "actor": "sdesowitz02",
+    "play": "SS ATK",
+    "status": "excluded",
+    "blockers": [
+      "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case."
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000535",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/534"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000538",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 538,
+      "source_index": 537,
+      "game": 2,
+      "seconds": 1558
+    },
+    "actor": "sdesowitz02",
+    "play": "Declare",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "DMOC historical trigger follows simultaneous Return summons, with Stratos optional trigger ordering and next End-Phase banish obligations; current empty-effect draft is incomplete.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+      "Sourced historical card ruling for this affected action (currently deferred)"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000538.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000538",
+    "origin": "native_candidate",
+    "review_finding": "review-decisions.json#items/537"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000542",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 542,
+      "source_index": 541,
+      "game": 2,
+      "seconds": 1568
+    },
+    "actor": "sdesowitz02",
+    "play": "Target card",
+    "status": "reviewed_blocked",
+    "blockers": [
+      "Pointer to opponent hidden S3 follows ambiguous spell/trap chat at539. Identify which effect/target choice it belongs to; do not turn the private Mirror Force name into player knowledge.",
+      "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+    ],
+    "packet": "player-packets/db-json-40753-85958923-before-000542.json",
+    "grading": "evaluator.json#db-json-40753-85958923-before-000542",
+    "origin": "supplemental_choice_or_setup_work_item",
+    "review_finding": "review-decisions.json#items/541"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000544",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 544,
+      "source_index": 543,
+      "game": 2,
+      "seconds": 1572
+    },
+    "actor": "Aco77",
+    "play": "Admit defeat",
+    "status": "excluded",
+    "blockers": [
+      "Surrender is outside this action-initiation pilot"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000544",
+    "origin": "supplemental_choice_or_setup_work_item"
+  },
+  {
+    "id": "db-json-40753-85958923-before-000552",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_sequence": 552,
+      "source_index": 551,
+      "game": 2,
+      "seconds": 1586
+    },
+    "actor": "sdesowitz02",
+    "play": "Activate ST",
+    "status": "excluded",
+    "blockers": [
+      "After recorded concession; not a live decision"
+    ],
+    "packet": null,
+    "grading": "evaluator.json#db-json-40753-85958923-before-000552",
+    "origin": "native_candidate"
+  }
+]

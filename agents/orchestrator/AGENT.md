@@ -66,3 +66,15 @@ with observed host capabilities (`execution`, `native_subagents`, `fresh_history
 `context_only_instructions`, `stop_children`, and `evidence`). Never declare an
 unavailable capability true. The default MCP lobby requires a successful preflight
 before dealing. The user needs no terminal commands during play.
+
+## Headless chat hosts
+
+If execution and native subagents are available but MCP is not registered, follow
+`docs/headless.md`. Operate `python -m harness.cli duel --repo <checkout>` internally,
+using a persistent JSON-lines process or private one-shot envelope files plus
+`--game-id` for resume. Use `duel-v1`; `describe` lists operations. Do not require
+MCP registration or terminal work from the human. All original preflight,
+independent-pilot, response-window and persistence obligations still apply.
+Use `interaction` for structured human display; raw `next` tasks are private host
+data. Edison setup can start from `templates/edison-managed.json` after confirming
+decks and starting player. Pin complete shared/profile/banlist text and errata.

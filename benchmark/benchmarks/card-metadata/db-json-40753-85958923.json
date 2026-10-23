@@ -1,0 +1,963 @@
+{
+  "schema_version": "1.0",
+  "adapter": "ygoprodeck-card-reference-v1",
+  "source_replay": "db-json-40753-85958923",
+  "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+  "provider": "ygoprodeck",
+  "endpoint": "https://db.ygoprodeck.com/api/v7/cardinfo.php",
+  "request_url": "https://db.ygoprodeck.com/api/v7/cardinfo.php?id=213326%2C4929256%2C5318639%2C7572887%2C13093792%2C19613556%2C23557835%2C27174286%2C29228529%2C31423101%2C32807846%2C33508719%2C38120068%2C40044918%2C40737112%2C41006930%2C41420027%2C42703248%2C43040603%2C44095762%2C45809008%2C45939841%2C48092532%2C51452091%2C58577036%2C68005187%2C70342110%2C70828912%2C71413901%2C72892473%2C73125233%2C73915051%2C75500286%2C77538567%2C81674782%2C81866673%2C82112775%2C83965310%2C84290642%2C87621407%2C87910978%2C98494543",
+  "retrieved_at": "2026-10-08T10:26:22Z",
+  "response_bytes_sha256": "b07b7cc60d19c1e9c5909288565ca1a4401830c39c9cadb62c4aa31c8d766a89",
+  "selected_api_cards_sha256": "8976808a05543108f175179397ecfa827fd67356821cdaa1bef5ab559522f36c",
+  "text_scope": "current_api_snapshot_not_historical_rules",
+  "historical_rules_verified": false,
+  "complete_named_decklists": false,
+  "requested_distinct_passcodes": 42,
+  "matched_distinct_passcodes": 42,
+  "missing_passcodes": [],
+  "unresolved_definitions": [],
+  "cards": [
+    {
+      "passcode": "00213326",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "E - Emergency Call"
+      ],
+      "replay_texts": [
+        "Add 1 \"Elemental HERO\" monster from your Deck to your hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 213326,
+        "name": "E - Emergency Call",
+        "desc": "Add 1 \"Elemental HERO\" monster from your Deck to your hand.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/e-emergency-call-21"
+      }
+    },
+    {
+      "passcode": "04929256",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Mobius the Frost Monarch"
+      ],
+      "replay_texts": [
+        "When this card is Tribute Summoned: You can target up to 2 Spells/Traps on the field; destroy those targets."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 4929256,
+        "name": "Mobius the Frost Monarch",
+        "desc": "When this card is Tribute Summoned: You can target up to 2 Spell/Trap Cards on the field; destroy those targets.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Aqua",
+        "atk": 2400,
+        "def": 1000,
+        "level": 6,
+        "attribute": "WATER",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/mobius-the-frost-monarch-439"
+      }
+    },
+    {
+      "passcode": "05318639",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Mystical Space Typhoon"
+      ],
+      "replay_texts": [
+        "Target 1 Spell/Trap on the field; destroy that target."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 5318639,
+        "name": "Mystical Space Typhoon",
+        "desc": "Target 1 Spell/Trap on the field; destroy that target.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Quick-Play",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/mystical-space-typhoon-470"
+      }
+    },
+    {
+      "passcode": "07572887",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "D.D. Warrior Lady"
+      ],
+      "replay_texts": [
+        "After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 7572887,
+        "name": "D.D. Warrior Lady",
+        "desc": "After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Warrior",
+        "atk": 1500,
+        "def": 1600,
+        "level": 4,
+        "attribute": "LIGHT",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/d-d-warrior-lady-648"
+      }
+    },
+    {
+      "passcode": "13093792",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Destiny HERO - Diamond Dude"
+      ],
+      "replay_texts": [
+        "Once per turn: You can excavate the top card of your Deck, and if it is a Normal Spell, send it to the GY, otherwise place it on the bottom of your Deck. During the Main Phase of your next turn, you can activate the effect of that Spell in your GY (even if you no longer control this face-up card)."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 13093792,
+        "name": "Destiny HERO - Diamond Dude",
+        "desc": "Once per turn: You can excavate the top card of your Deck, and if it is a Normal Spell, send it to the GY, otherwise place it on the bottom of your Deck. During the Main Phase of your next turn, you can activate the effect of that Spell in your GY (even if you no longer control this face-up card).",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Warrior",
+        "atk": 1400,
+        "def": 1600,
+        "level": 4,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/destiny-hero-diamond-dude-1129"
+      }
+    },
+    {
+      "passcode": "19613556",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Heavy Storm"
+      ],
+      "replay_texts": [
+        "Destroy all Spell and Trap Cards on the field."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 19613556,
+        "name": "Heavy Storm",
+        "desc": "Destroy all Spell and Trap Cards on the field.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/heavy-storm-1690"
+      }
+    },
+    {
+      "passcode": "23557835",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Dimension Fusion"
+      ],
+      "replay_texts": [
+        "Pay 2000 LP; each player Special Summons as many of their banished monsters as possible."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 23557835,
+        "name": "Dimension Fusion",
+        "desc": "Pay 2000 Life Points. Both players Special Summon as many of their removed from play monsters as possible.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/dimension-fusion-2029"
+      }
+    },
+    {
+      "passcode": "27174286",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Return from the Different Dimension"
+      ],
+      "replay_texts": [
+        "Pay half your LP; Special Summon as many of your banished monsters as possible. During the End Phase, banish all monsters that were Special Summoned by this effect."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 27174286,
+        "name": "Return from the Different Dimension",
+        "desc": "Pay half your Life Points; Special Summon as many of your banished monsters as possible. During the End Phase, banish all monsters that were Special Summoned by this effect.",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/return-from-the-different-dimension-2324"
+      }
+    },
+    {
+      "passcode": "29228529",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Spell Reproduction"
+      ],
+      "replay_texts": [
+        "Send 2 Spells from your hand to the GY, then target 1 Spell in your GY; add it to your hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 29228529,
+        "name": "Spell Reproduction",
+        "desc": "Send 2 Spells from your hand to the GY, then target 1 Spell in your GY; add it to your hand.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/spell-reproduction-2481"
+      }
+    },
+    {
+      "passcode": "31423101",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Divine Sword - Phoenix Blade"
+      ],
+      "replay_texts": [
+        "Equip only to a Warrior monster. It gains 300 ATK. During your Main Phase, if this card is in your GY: You can banish 2 Warrior monsters from your GY; add this card to your hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 31423101,
+        "name": "Divine Sword - Phoenix Blade",
+        "desc": "Equip only to a Warrior monster. It gains 300 ATK. During your Main Phase, if this card is in your GY: You can banish 2 Warrior monsters from your GY; add this card to your hand.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Equip",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/divine-sword-phoenix-blade-2662"
+      }
+    },
+    {
+      "passcode": "32807846",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Reinforcement of the Army"
+      ],
+      "replay_texts": [
+        "Add 1 Level 4 or lower Warrior monster from your Deck to your hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 32807846,
+        "name": "Reinforcement of the Army",
+        "desc": "Add 1 Level 4 or lower Warrior monster from your Deck to your hand.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/reinforcement-of-the-army-2794"
+      }
+    },
+    {
+      "passcode": "33508719",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Morphing Jar"
+      ],
+      "replay_texts": [
+        "FLIP: Both players discard as many cards as possible from their hands, then each player draws 5 cards."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 33508719,
+        "name": "Morphing Jar",
+        "desc": "FLIP: Both players discard as many cards as possible from their hands, then each player draws 5 cards.",
+        "type": "Flip Effect Monster",
+        "frameType": "effect",
+        "race": "Rock",
+        "atk": 700,
+        "def": 600,
+        "level": 2,
+        "attribute": "EARTH",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/morphing-jar-2843"
+      }
+    },
+    {
+      "passcode": "38120068",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Trade-In"
+      ],
+      "replay_texts": [
+        "Discard 1 Level 8 monster; draw 2 cards."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 38120068,
+        "name": "Trade-In",
+        "desc": "Discard 1 Level 8 monster; draw 2 cards.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/trade-in-3232"
+      }
+    },
+    {
+      "passcode": "40044918",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Elemental HERO Stratos"
+      ],
+      "replay_texts": [
+        "When this card is Normal or Special Summoned: You can activate 1 of these effects;\n●Destroy Spells/Traps on the field, up to the number of \"HERO\" monsters you control, except this card.\n●Add 1 \"HERO\" monster from your Deck to your hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 40044918,
+        "name": "Elemental HERO Stratos",
+        "desc": "When this card is Normal or Special Summoned: You can activate 1 of these effects.\r\n● Destroy Spells/Traps on the field, up to the number of \"HERO\" monsters you control, except this card.\r\n● Add 1 \"HERO\" monster from your Deck to your hand.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Warrior",
+        "atk": 1800,
+        "def": 300,
+        "level": 4,
+        "attribute": "WIND",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/elemental-hero-stratos-3400"
+      }
+    },
+    {
+      "passcode": "40737112",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Dark Magician of Chaos"
+      ],
+      "replay_texts": [
+        "During the End Phase, if this card was Normal or Special Summoned this turn: You can target 1 Spell in your GY; add it to your hand. You can only use this effect of \"Dark Magician of Chaos\" once per turn. If this card destroys an opponent's monster by battle, after damage calculation: Banish that opponent's monster. If this face-up card would leave the field, banish it instead."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 40737112,
+        "name": "Dark Magician of Chaos",
+        "desc": "During the End Phase, if this card was Normal or Special Summoned this turn: You can target 1 Spell in your GY; add it to your hand. You can only use this effect of \"Dark Magician of Chaos\" once per turn. If this card destroys an opponent's monster by battle, after damage calculation: Banish that opponent's monster. If this face-up card would leave the field, banish it instead.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Spellcaster",
+        "atk": 2800,
+        "def": 2600,
+        "level": 8,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/dark-magician-of-chaos-3468"
+      }
+    },
+    {
+      "passcode": "41006930",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Strike Ninja"
+      ],
+      "replay_texts": [
+        "(Quick Effect): You can banish 2 DARK monsters from your GY; banish this face-up card until the End Phase. You can only use this effect of \"Strike Ninja\" once per turn."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 41006930,
+        "name": "Strike Ninja",
+        "desc": "(Quick Effect): You can banish 2 DARK monsters from your GY; banish this face-up card until the End Phase. You can only use this effect of \"Strike Ninja\" once per turn.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Warrior",
+        "atk": 1700,
+        "def": 1200,
+        "level": 4,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/strike-ninja-3491"
+      }
+    },
+    {
+      "passcode": "41420027",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Solemn Judgment"
+      ],
+      "replay_texts": [
+        "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 41420027,
+        "name": "Solemn Judgment",
+        "desc": "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card.",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "race": "Counter",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/solemn-judgment-3537"
+      }
+    },
+    {
+      "passcode": "42703248",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Giant Trunade"
+      ],
+      "replay_texts": [
+        "Return all Spell and Trap Cards on the field to the hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 42703248,
+        "name": "Giant Trunade",
+        "desc": "Return all Spell and Trap Cards on the field to the hand.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/giant-trunade-3644"
+      }
+    },
+    {
+      "passcode": "43040603",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Monster Gate"
+      ],
+      "replay_texts": [
+        "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the GY."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 43040603,
+        "name": "Monster Gate",
+        "desc": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the GY.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/monster-gate-3672"
+      }
+    },
+    {
+      "passcode": "44095762",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Mirror Force"
+      ],
+      "replay_texts": [
+        "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 44095762,
+        "name": "Mirror Force",
+        "desc": "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/mirror-force-3764"
+      }
+    },
+    {
+      "passcode": "45809008",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Destiny Draw"
+      ],
+      "replay_texts": [
+        "Discard 1 \"Destiny HERO\" card; draw 2 cards."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 45809008,
+        "name": "Destiny Draw",
+        "desc": "Discard 1 \"Destiny HERO\" card; draw 2 cards.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/destiny-draw-3901"
+      }
+    },
+    {
+      "passcode": "45939841",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Twister"
+      ],
+      "replay_texts": [
+        "Pay 500 LP, then target 1 face-up Spell/Trap on the field; destroy that target."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 45939841,
+        "name": "Twister",
+        "desc": "Pay 500 LP, then target 1 face-up Spell/Trap on the field; destroy that target.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Quick-Play",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/twister-3912"
+      }
+    },
+    {
+      "passcode": "48092532",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "D.D. Survivor"
+      ],
+      "replay_texts": [
+        "During the End Phase, if this card was banished while face-up on your field, this turn: Special Summon this banished card. This effect can only activate once per turn."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 48092532,
+        "name": "D.D. Survivor",
+        "desc": "During the End Phase, if this card was banished while face-up, on your side of the field, this turn: Special Summon this banished card. This effect can only activate once per turn.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Warrior",
+        "atk": 1800,
+        "def": 200,
+        "level": 4,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/d-d-survivor-4104"
+      }
+    },
+    {
+      "passcode": "51452091",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Royal Decree"
+      ],
+      "replay_texts": [
+        "Negate all other Trap effects on the field."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 51452091,
+        "name": "Royal Decree",
+        "desc": "Negate all other Trap effects on the field.",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "race": "Continuous",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/royal-decree-4379"
+      }
+    },
+    {
+      "passcode": "58577036",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Reasoning"
+      ],
+      "replay_texts": [
+        "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the GY. If not, Special Summon the excavated monster, also send the remaining cards to the GY."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 58577036,
+        "name": "Reasoning",
+        "desc": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the GY. If not, Special Summon the excavated monster, also send the remaining cards to the GY.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/reasoning-4982"
+      }
+    },
+    {
+      "passcode": "68005187",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Soul Exchange"
+      ],
+      "replay_texts": [
+        "Target 1 monster your opponent controls; this turn, if you Tribute a monster, you must Tribute that target, as if you controlled it. You cannot conduct your Battle Phase the turn you activate this card."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 68005187,
+        "name": "Soul Exchange",
+        "desc": "Target 1 monster your opponent controls; this turn, if you Tribute a monster, you must Tribute that target, as if you controlled it. You cannot conduct your Battle Phase the turn you activate this card.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/soul-exchange-5715"
+      }
+    },
+    {
+      "passcode": "70342110",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Dimensional Prison"
+      ],
+      "replay_texts": [
+        "When an opponent's monster declares an attack: Target that attacking monster; banish that target."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 70342110,
+        "name": "Dimensional Prison",
+        "desc": "When an opponent's monster declares an attack: Target that attacking monster; banish that target.",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/dimensional-prison-5917"
+      }
+    },
+    {
+      "passcode": "70828912",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Premature Burial"
+      ],
+      "replay_texts": [
+        "Activate this card by paying 800 LP, then target 1 monster in your GY; Special Summon it in Attack Position and equip it with this card. When this card is destroyed, destroy the equipped monster."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 70828912,
+        "name": "Premature Burial",
+        "desc": "Activate this card by paying 800 LP, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. When this card is destroyed, destroy the equipped monster.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Equip",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/premature-burial-5948"
+      }
+    },
+    {
+      "passcode": "71413901",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Breaker the Magical Warrior"
+      ],
+      "replay_texts": [
+        "If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1). Gains 300 ATK for each Spell Counter on it. You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 71413901,
+        "name": "Breaker the Magical Warrior",
+        "desc": "If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1). Gains 300 ATK for each Spell Counter on it. You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Spellcaster",
+        "atk": 1600,
+        "def": 1000,
+        "level": 4,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/breaker-the-magical-warrior-5997"
+      }
+    },
+    {
+      "passcode": "72892473",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Card Destruction"
+      ],
+      "replay_texts": [
+        "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 72892473,
+        "name": "Card Destruction",
+        "desc": "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/card-destruction-6117"
+      }
+    },
+    {
+      "passcode": "73125233",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Raiza the Storm Monarch"
+      ],
+      "replay_texts": [
+        "If this card is Tribute Summoned: Target 1 card on the field; place that target on the top of the Deck."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 73125233,
+        "name": "Raiza the Storm Monarch",
+        "desc": "If this card is Tribute Summoned: Target 1 card on the field; place that target on the top of the Deck.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Winged Beast",
+        "atk": 2400,
+        "def": 1000,
+        "level": 6,
+        "attribute": "WIND",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/raiza-the-storm-monarch-6138"
+      }
+    },
+    {
+      "passcode": "73915051",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Scapegoat"
+      ],
+      "replay_texts": [
+        "Special Summon 4 \"Sheep Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set)."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 73915051,
+        "name": "Scapegoat",
+        "desc": "Special Summon 4 \"Sheep Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Quick-Play",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/scapegoat-6212"
+      }
+    },
+    {
+      "passcode": "75500286",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Gold Sarcophagus"
+      ],
+      "replay_texts": [
+        "Banish 1 card from your Deck, face-up. During your 2nd Standby Phase after this card's activation, add that card to the hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 75500286,
+        "name": "Gold Sarcophagus",
+        "desc": "Banish 1 card from your Deck, face-up. During your second Standby Phase after this card's activation, add that card to the hand.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/gold-sarcophagus-6356"
+      }
+    },
+    {
+      "passcode": "77538567",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Dark Bribe"
+      ],
+      "replay_texts": [
+        "When your opponent activates a Spell/Trap Card: Your opponent draws 1 card, also negate the Spell/Trap activation, and if you do, destroy it."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 77538567,
+        "name": "Dark Bribe",
+        "desc": "When your opponent activates a Spell/Trap Card: Your opponent draws 1 card, also negate the Spell/Trap activation, and if you do, destroy it.",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "race": "Counter",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/dark-bribe-6520"
+      }
+    },
+    {
+      "passcode": "81674782",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Dimensional Fissure"
+      ],
+      "replay_texts": [
+        "Any monster sent to the GY is banished instead."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 81674782,
+        "name": "Dimensional Fissure",
+        "desc": "Any monster sent to the Graveyard is banished instead.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Continuous",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/dimensional-fissure-6856"
+      }
+    },
+    {
+      "passcode": "81866673",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Destiny HERO - Dasher"
+      ],
+      "replay_texts": [
+        "Once per turn: You can Tribute 1 other monster; this card gains 1000 ATK until the end of this turn. If this card attacks, change it to Defense Position at the end of the Battle Phase. Once, while this card is in your GY, when you draw a monster during your Draw Phase: You can reveal it; Special Summon it. This card must be in the GY to activate and to resolve this effect."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 81866673,
+        "name": "Destiny HERO - Dasher",
+        "desc": "Once per turn: You can Tribute 1 other monster; this card gains 1000 ATK until the End Phase. If this card attacks, change it to Defense Position at the end of the Battle Phase. One time only, when you draw a Monster Card during your Draw Phase while this card is in your Graveyard: You can reveal it; Special Summon it. This card must be in the Graveyard to activate and to resolve this effect.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Warrior",
+        "atk": 2100,
+        "def": 1000,
+        "level": 6,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/destiny-hero-dasher-6872"
+      }
+    },
+    {
+      "passcode": "82112775",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "D.D.M. - Different Dimension Master"
+      ],
+      "replay_texts": [
+        "Once per turn: You can discard 1 Spell, then target 1 of your banished monsters; Special Summon that target."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": false,
+      "api_card": {
+        "id": 82112775,
+        "name": "D.D.M. - Different Dimension Master",
+        "desc": "Once per turn, you can discard 1 Spell Card to Special Summon 1 of your removed from play monsters.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Spellcaster",
+        "atk": 1700,
+        "def": 1500,
+        "level": 5,
+        "attribute": "LIGHT",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/d-d-m-different-dimension-master-6903"
+      }
+    },
+    {
+      "passcode": "83965310",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Destiny HERO - Plasma"
+      ],
+      "replay_texts": [
+        "Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 3 monsters. Negate the effects of face-up monsters while your opponent controls them. Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). Gains ATK equal to half the original ATK of the monster equipped to it by this effect."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 83965310,
+        "name": "Destiny HERO - Plasma",
+        "desc": "Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 3 monsters. Negate the effects of face-up monsters while your opponent controls them. Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). Gains ATK equal to half the original ATK of the monster equipped to it by this effect.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Warrior",
+        "atk": 1900,
+        "def": 600,
+        "level": 8,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/destiny-hero-plasma-7038"
+      }
+    },
+    {
+      "passcode": "84290642",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Snipe Hunter"
+      ],
+      "replay_texts": [
+        "You can discard 1 card, then target 1 card on the field; roll a six-sided die, and destroy that target unless you roll a 1 or 6."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 84290642,
+        "name": "Snipe Hunter",
+        "desc": "You can discard 1 card, then target 1 card on the field; roll a six-sided die, and destroy that target unless you roll a 1 or 6.",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "race": "Fiend",
+        "atk": 1500,
+        "def": 600,
+        "level": 4,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/snipe-hunter-7069"
+      }
+    },
+    {
+      "passcode": "87621407",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Dekoichi the Battlechanted Locomotive"
+      ],
+      "replay_texts": [
+        "FLIP: Draw 1 card, then draw 1 additional card for each face-up \"Bokoichi the Freightening Car\" you control."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 87621407,
+        "name": "Dekoichi the Battlechanted Locomotive",
+        "desc": "FLIP: Draw 1 card, then draw 1 additional card for each face-up \"Bokoichi the Freightening Car\" you control.",
+        "type": "Flip Effect Monster",
+        "frameType": "effect",
+        "race": "Machine",
+        "atk": 1400,
+        "def": 1000,
+        "level": 4,
+        "attribute": "DARK",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/dekoichi-the-battlechanted-locomotive-7335"
+      }
+    },
+    {
+      "passcode": "87910978",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Brain Control"
+      ],
+      "replay_texts": [
+        "Pay 800 LP, then target 1 face-up monster your opponent controls that can be Normal Summoned/Set; take control of that target until the End Phase."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 87910978,
+        "name": "Brain Control",
+        "desc": "Pay 800 LP, then target 1 face-up monster your opponent controls that can be Normal Summoned/Set; take control of that target until the End Phase.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/brain-control-7353"
+      }
+    },
+    {
+      "passcode": "98494543",
+      "match_basis": "exact_serial_number_to_api_id",
+      "replay_names": [
+        "Magical Stone Excavation"
+      ],
+      "replay_texts": [
+        "Discard 2 cards, then target 1 Spell in your GY; add it to your hand."
+      ],
+      "name_matches_all_observations": true,
+      "text_matches_all_observations": true,
+      "api_card": {
+        "id": 98494543,
+        "name": "Magical Stone Excavation",
+        "desc": "Discard 2 cards, then target 1 Spell in your GY; add it to your hand.",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "race": "Normal",
+        "ygoprodeck_url": "https://ygoprodeck.com/card/magical-stone-excavation-8184"
+      }
+    }
+  ]
+}

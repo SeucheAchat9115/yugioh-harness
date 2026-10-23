@@ -1,0 +1,1 @@
+{"actor":"p2","game":1,"kind":"communication","payload":{"card_names":[],"elapsed_seconds":766,"native":{"action":"Duel","color":"0000FF","id":8,"log":{"id":8,"public_log":"\"yes it is\"","type":"chat","username":"sdesowitz02"},"message":"yes it is","play":"Duel message","seconds":766,"username":"sdesowitz02"},"play":"Duel message","turn":7},"sequence":280,"source_index":279}

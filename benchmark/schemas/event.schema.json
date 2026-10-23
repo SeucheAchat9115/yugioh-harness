@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "event",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "game": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "kind": {
+      "type": "string"
+    },
+    "actor": {
+      "enum": [
+        "p1",
+        "p2",
+        null
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "required": [
+        "play"
+      ],
+      "properties": {
+        "play": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "required": [
+    "sequence",
+    "source_index",
+    "game",
+    "kind",
+    "actor",
+    "payload"
+  ]
+}

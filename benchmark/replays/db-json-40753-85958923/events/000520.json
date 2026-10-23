@@ -1,0 +1,1 @@
+{"actor":"p1","game":2,"kind":"information_observation","payload":{"card_names":[],"elapsed_seconds":1526,"native":{"action":"Duel","log":{"public_log":"Stopped viewing Opponent's Banished","type":"duel","username":"Aco77"},"play":"Stop viewing","seconds":1526,"username":"Aco77","viewing":"Opponent's Banished"},"play":"Stop viewing","turn":8},"sequence":520,"source_index":519}

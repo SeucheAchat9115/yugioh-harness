@@ -1,0 +1,25 @@
+{
+  "protocol": "static-reviewed-checkpoints-v1-cooperative-native-subagents",
+  "completed_at": "2026-10-09T20:11:02.115319+00:00",
+  "source_run": "native-luna-20261009/static",
+  "source_file_sha256": {
+    "run.json": "a33ae78375d90533d8aac48eaa24b9f6157881c75dad4cf8001286d15db83e0d",
+    "score.json": "86d0b0672ecf031e502185f31b7160956dad27a7779439ecfcba10f01f7c6ae0",
+    "report.json": "665588e13ebf971e6da21cfefa069cc059ead5a065b48399baba91549c2fa663"
+  },
+  "source_prompt_hashes_verified": 36,
+  "distinct_player_handles": 36,
+  "checkpoints": 18,
+  "completed_tasks": 36,
+  "missing_tasks": 0,
+  "ungraded_tasks": 0,
+  "execution_failures": 1,
+  "corrective_player_dispatches": 1,
+  "performance_selected_retries": 0,
+  "excluded_referee_transport_trials": 5,
+  "isolation": "Cooperative; no enforced sandbox.",
+  "provider_model_id": null,
+  "referees": "First three selected gpt-6.1-sol; remaining reviewers inherited the native host model. Provider IDs unavailable.",
+  "delivery_evidence": "Reconstructed submitted literals; direct host trace unavailable.",
+  "verification": "Independent score_kpis replay of authoritative journals reproduced the saved score. Private journals and raw model logs remain ignored."
+}

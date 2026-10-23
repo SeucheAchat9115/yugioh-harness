@@ -4,15 +4,18 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yugioh-harness"
-version = "0.1.0"
+version = "0.2.0"
 description = "Conversational agentic Yu-Gi-Oh duel orchestration and replay"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
-license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "benchmark/LICENSE", "benchmark/THIRD_PARTY_NOTICES.md"]
 authors = [{name = "Yu-Gi-Oh Harness contributors"}]
 classifiers = ["Programming Language :: Python :: 3", "Operating System :: POSIX", "Operating System :: Microsoft :: Windows"]
 dependencies = []
+
+[project.optional-dependencies]
+plotting = ["matplotlib>=3.8"]
 
 [project.urls]
 Repository = "https://github.com/SeucheAchat9115/yugioh-harness"
@@ -20,6 +23,11 @@ Issues = "https://github.com/SeucheAchat9115/yugioh-harness/issues"
 
 [project.scripts]
 yugioh-harness = "harness.cli:main"
+yugioh-benchmark = "yugioh_benchmark.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["harness*"]
+where = [".", "benchmark/src"]
+include = ["harness*", "yugioh_benchmark*"]
+
+[tool.setuptools.package-dir]
+yugioh_benchmark = "benchmark/src/yugioh_benchmark"

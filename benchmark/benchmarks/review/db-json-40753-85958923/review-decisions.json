@@ -1,0 +1,2550 @@
+{
+  "schema_version": "1.0",
+  "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+  "reviewed_previous_pending": 185,
+  "scope": "Complete disposition pass; blocked/excluded items are reviewed, not certified runnable; fixed-checkpoint approvals do not validate preceding effect resolutions.",
+  "items": {
+    "3": {
+      "source_index": 3,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a3fbc2daade566e97cba1747bda963c3283343ab4677c61661d3a2de53d6c2b0",
+      "recorded_action_sha256": "1672e681b95f055bd61accee03d4bc790b4dd2f25aea7ca584378b7cdc3b11cb",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Pre-game choice: initial hands do not yet exist in the before-state; a separate match-setup contract is needed.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "6": {
+      "source_index": 6,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5504fdfeaf713354f41c94d86ef08d7e8d8c2d48f613b3b83a44bce026c7a769",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "7": {
+      "source_index": 7,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b0bf822197f45ec5e4a6c8ef0c36188de1f4780f84b2d6242cc910a737ec6e83",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "10": {
+      "source_index": 10,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5449ea7c6e3cd43be66c8532b7d3edc09b062999a31c7e2381538a48f102f130",
+      "recorded_action_sha256": "df42d331dcab634c10f7d4608f6887d1062c29c2b005ef5308b11daf62425529",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Reasoning activation can be scoped before resolution, but requires an authored activation/chain-response endpoint and reviewed deck eligibility; the present draft has neither.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "13": {
+      "source_index": 13,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5a20aed83f3569d72e0aa22e370fbe6f40bec76e2f83c627610627b425792af1",
+      "recorded_action_sha256": "3ce7e584ca5e20333ae94356e9eccd69d22cc9308e7911d5c4dddf9f004e36a0",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "The level-4 declaration belongs to the resolving Reasoning from source 10. Bind the level choice to that effect; the current empty-chain draft loses the obligation.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "18": {
+      "source_index": 18,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b4217e2c654c0d02ac21465318474565cfeb22c3c48645fad783d8b633bcb195",
+      "recorded_action_sha256": "38b21502fd6c4f667fa1b448ba533c4ad09c62bab7da20940734672d856d5222",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 10, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "20": {
+      "source_index": 20,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "eec01c57de9f421a7ae8bad88487a5e2239c6af2d9ac23fb868591acfc0b5ee6",
+      "recorded_action_sha256": "e6f57946228f0ecc8ac3f9500dc86e435c811feefe91b4c2c2422179003a2bdb",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Dark Magician of Chaos summon trigger timing and GY target must use historical text. Source 21 returns Reasoning directly from S3 rather than recording it in GY first; reconcile the missing resolution step.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Sourced historical card ruling for this affected action (currently deferred)"
+      ],
+      "certifies_whole_game": false
+    },
+    "21": {
+      "source_index": 21,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "eec01c57de9f421a7ae8bad88487a5e2239c6af2d9ac23fb868591acfc0b5ee6",
+      "recorded_action_sha256": "52f4cf59dc55a08994df0854145b3115c2b0592d346e6a1e20a5dfd285f5d443",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "This is a recovery outcome of the source-20 effect; source 21 moves Reasoning directly from S3. It is not a fresh free-action choice or a certified GY target selection.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "24": {
+      "source_index": 24,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "97d6cd4a6cd62d8fca90437b17ee1d3e681325e9a37f9e0ba710bf65df851931",
+      "recorded_action_sha256": "22f571ec7d43f28619750ae2f6f61589ea2595d57f30d4e76db65f065a720312",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Basic Set is locally legal, but the preceding DMOC recovery at 20\u201321 has an unrecorded Reasoning-to-GY/trigger boundary. Establish settled checkpoint effects before asserting empty pending effects.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "25": {
+      "source_index": 25,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "762d35b66ab4c147ad9595cbe6f4918471b43ed438d71a5b08ca6500f615ee2d",
+      "recorded_action_sha256": "03c793393cba8d0afd862712d64dd5b1b4cb3f9845da1c4aea556d8db07f760e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "26": {
+      "source_index": 26,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "c85f8a1fae3dd28a03412f474f877271b71eb30490b55d980a7b0c8791bb57c7",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Earlier DMOC/Reasoning recovery20\u201321 is not a certified settled chain. Add the missing GY/trigger boundary before grading unchanged state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "29": {
+      "source_index": 29,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b42ca8116b4bd4d3f4fbeb16880eeb176a6d776291523bd39e9918a3887e3273",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "30": {
+      "source_index": 30,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b7c20dbd1f0039d4252414ca5401c4576f6585e77af1d15ea4b1c24f96bc28fb",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "32": {
+      "source_index": 32,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "2aa6eb2c893a3008d53d111e0999167ae0b64de35671d9276c3a20b634fcc4e9",
+      "recorded_action_sha256": "871677d9d25fca4e15248b4d15832f3ce20c85a7ac560498414b6785622451b6",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Basic Normal Set is locally legal; the carried DMOC recovery discrepancy at 20\u201321 has not been adjudicated. This draft cannot yet certify all unchanged gameplay roots.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "33": {
+      "source_index": 33,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "268f1fb7a7630f93a7b4fb7178df220c7a5b516479edc077f9e3ef0dd3b13aa2",
+      "recorded_action_sha256": "93d2915a63862ebb6064f40a07be32377f0f25ea4e053a2eb6adfecae92fd85a",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Basic Trap Set is locally legal; resolve the carried DMOC checkpoint discrepancy from 20\u201321 before declaring a complete initial state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "34": {
+      "source_index": 34,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a0c16a26200dffaeb9a58e7384afa38df0b8666ec8e6975ebb1c322465b95c34",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Earlier DMOC/Reasoning recovery20\u201321 is not a certified settled chain. Add the missing GY/trigger boundary before grading unchanged state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "37": {
+      "source_index": 37,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "2767aa4d6c94cf5c4128b6b9c217f8b14ff3ae2c2791f245c44c640b2b23c05f",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "38": {
+      "source_index": 38,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "c87b9e21795d94b9acf90f691afd23d7b749227ebe344e5b77e9d65278218ac8",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "40": {
+      "source_index": 40,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "7e7d1d0ef8dcbe1b99827451dcb40d659e7b36480ca5e6bb26fbc62054674834",
+      "recorded_action_sha256": "529f4ac4b6b085b16a471775de643d982d07af3936a9734d899144ef245b0b03",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Gold Sarcophagus requires a banished-card selection and a two-own-Standby countdown; the draft has no persistent effect record or complete own-deck choice list.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "47": {
+      "source_index": 47,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "f72751db0f90e1cf07b1ae9a28527653533788aceac07863b8d0f99d55086bd4",
+      "recorded_action_sha256": "79b5b1ff2d49fc20ec614ea370efd38a453faa8405125150df7f240c56af2cc3",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Requires the earlier Gold Sarcophagus countdown (source 43) plus a reviewed Reasoning chain boundary and deck-resolution scope.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "48": {
+      "source_index": 48,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "75c46e2153020f63edad09dcf51f707e3b617d1b5d936b6d4cfe9e1cc830724a",
+      "recorded_action_sha256": "fb07aa2611cf71ae314a5499de4656bfceb127783a86935abf563aceba186ec3",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "The level-6 declaration belongs to the resolving Reasoning from source 47. Bind it to that effect and the appropriate player perspective.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "54": {
+      "source_index": 54,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "8dddef83ca00868c766a3b6be334a23a11d1cd9316dc6e5863078ea0a73a059e",
+      "recorded_action_sha256": "d8db5c690c87f00ee326d74eed72468f655f7ff27b23c1d6203c2e9d707936e3",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 47, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "57": {
+      "source_index": 57,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "38159ccb4803523467fee107d5d52fc0ab51dd04e7510cc5a69dbcec77e8d9e3",
+      "recorded_action_sha256": "5190e17109d985d93e72e4c6b132ec13dc28f2b6141d237c4f7d4779b69ffc34",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Diamond Dude requires a once-per-turn effect/next-turn entitlement record and reviewed reveal-versus-mill semantics; the draft contains no such bookkeeping.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "66": {
+      "source_index": 66,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "38159ccb4803523467fee107d5d52fc0ab51dd04e7510cc5a69dbcec77e8d9e3",
+      "recorded_action_sha256": "a9761a178c8765603d3b486264bb891b0c0f3a3fd93aa261e51c679abf007708",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Equip target for Phoenix Blade is not logged at this activation; cannot certify attachment, bonus or later destruction relationship.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "67": {
+      "source_index": 67,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "476eaa7525ebbf4d48b2e5f2a2311e90db5af6794f483c61746553ba699c13cf",
+      "recorded_action_sha256": "70bca0c91c2c16edc671ecef46fc198093d74fc47191a4fa950b58bcd17a2895",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Monster Gate must pay its Tribute when activated (later source 68); Phoenix Blade attachment from source 66 is unresolved. Bundle the cost with activation instead of presenting a half-paid open state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "77": {
+      "source_index": 77,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "102731cb2ac06026a6c396141d72f3b76d7308ba80179cc4800884ec92116125",
+      "recorded_action_sha256": "01fef32b8f3eb36c7bbd51622d104687f10ed7abbc930b1ca201281fa0ada2e0",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 67, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "80": {
+      "source_index": 80,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "e9c706bd92578589ce8a6d42ffd9d8322b944bab1062add18ba04b8ba97d0ec8",
+      "recorded_action_sha256": "8de5485863a7e8bc2e5d7262c3e552e50e829ed2ee5f2da699c6c819b368a8b1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "81": {
+      "source_index": 81,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "95364260fd23c4115d3d064af035165f0bc57519b6408383a559ea7d7e258d62",
+      "recorded_action_sha256": "3736bf123c26abf3c1fc336f6e19a77fac1ac3dc3f4491985423649c94f32666",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "82": {
+      "source_index": 82,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "95364260fd23c4115d3d064af035165f0bc57519b6408383a559ea7d7e258d62",
+      "recorded_action_sha256": "6a5883301fed505f402bfff057986f5a7f761f03295e22a232fc8d36fc8f785a",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "85": {
+      "source_index": 85,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b40a95399f55dc7343f4d1adc76fa1eb1ce9737f9f19c4e0838ee886377a135e",
+      "recorded_action_sha256": "8909b6b1eedd759460efd5e8f15c40a23c9338b410551f44d09e9c69da810389",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "92": {
+      "source_index": 92,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "752156114e8e3ef0f59b89e844c5d27ce6c48e2210b53922c10d0f4b987597f4",
+      "recorded_action_sha256": "92442113c5621bafea3d12cde9fd0e952e0e509094229bbc0438af0b437c7be2",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "95": {
+      "source_index": 95,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "c59ab293916728d511045f667398b5b2ddcd3bf693f8637c85fbacb3605e4f5d",
+      "recorded_action_sha256": "03c793393cba8d0afd862712d64dd5b1b4cb3f9845da1c4aea556d8db07f760e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "96": {
+      "source_index": 96,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "ce947edcfb48297586949462b14faea3f90b83460684bfa2e76e2ebc525b0e48",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "99": {
+      "source_index": 99,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "6b556c174f5dcdaf666ea8362aa95529e9fd5a4a91fcfadd9497c495182ccd3a",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "101": {
+      "source_index": 101,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "81dacac89e2f4526126a1b53461966986428e32593d4619f34ec0c3212334b27",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "109": {
+      "source_index": 109,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5c13f8854f3c0380ff29505eb9267b7ad2f8e3b643aaea2610e7c90d3e57a187",
+      "recorded_action_sha256": "32f79036afd3183825292175e76d6995df2c2db1450b74a8734920b0f6584069",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Gold Sarcophagus is still counting own Standby Phases toward turn 7; the draft omits that persistent effect. Add the source-43 countdown before certifying otherwise straightforward Normal Set.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "110": {
+      "source_index": 110,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "2f8f2d677c09e652e649ae851edf977dadbe43a97d2d62881c68a7c927cce528",
+      "recorded_action_sha256": "c20d96364f7fc21b5e673e517dfeb7e3829712e778ae51d64dc69600a7b342dd",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Same missing Gold Sarcophagus source-43 countdown; a legal Set alone cannot certify the complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "111": {
+      "source_index": 111,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "2e5b8d0e0b60d483851efcc2725a314c438e0411e23da59afbe666c0f363696b",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "117": {
+      "source_index": 117,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "87b0b821d80a2cf05331c6a6a2380852f2c78485fbfde0ea06dcf552f8a28db2",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "119": {
+      "source_index": 119,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "462e5f2a16d5ed8bfff51488851c416fea69830107eb9ccaaf597a4a74bd6bc6",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "121": {
+      "source_index": 121,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "1e2156572334cbf8068e0722082bc0f58efe7308a83e4b4a7fc50312ca99bf33",
+      "recorded_action_sha256": "b63aa62d82543cbe66ba0c6b2291444bcce18bea127ee562ce23ea4452dd9067",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "122": {
+      "source_index": 122,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "057d22a6e34cc69aaf814e797a5a3819d7ea11ab446bdd882a760e14bed089f9",
+      "recorded_action_sha256": "c005fd97d8b3d20ed136e16445235d1ac9cc8b3c20f68de5a325e17bb911c2df",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "duplicate_effect_declaration",
+      "finding": "Re-declares the Emergency Call already activated at source 121; not a second Spell activation.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "125": {
+      "source_index": 125,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "057d22a6e34cc69aaf814e797a5a3819d7ea11ab446bdd882a760e14bed089f9",
+      "recorded_action_sha256": "5526204779a4f63de7274eee22f723ec745ba3b70db418f8c61f2e62645b7ac5",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "effect_search_choice",
+      "finding": "Search selection within effect at source 121. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "required_next_steps": [
+        "Complete own deck contents at this boundary",
+        "Reviewed resolving effect and filtered search-choice packet",
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "129": {
+      "source_index": 129,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "217b53b8336c4db54c94acfa584995d04ba26d5422fa5de18480a8545b48b49c",
+      "recorded_action_sha256": "1778023123fb2a4ecc0f7158b1aa9e2d49f7201a3580225977b1fbf5e552bf55",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "130": {
+      "source_index": 130,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "810f7d3f5dc3617e1b5942b58e43d1e4a468b4162001a5bac4c14f6e367ff433",
+      "recorded_action_sha256": "f4fc1cf1405f8892864f3cf46da3ad032273fd514fa24a2c98225cf9dda18a1d",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "133": {
+      "source_index": 133,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "810f7d3f5dc3617e1b5942b58e43d1e4a468b4162001a5bac4c14f6e367ff433",
+      "recorded_action_sha256": "4c42a99c89641a73bacd91631ef59947d23d971aa07ede29b863988e48255fdb",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "effect_search_choice",
+      "finding": "Search selection within effect at source 130. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "required_next_steps": [
+        "Complete own deck contents at this boundary",
+        "Reviewed resolving effect and filtered search-choice packet",
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "136": {
+      "source_index": 136,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "e5a05b4ce1a3dfccbf79a9f463e3f3d3280cb1fae2e6010e476f43b9be37bc7c",
+      "recorded_action_sha256": "df88c51a0bc7f10b486fc385ddd518035132d8cc7bbec5307850beb46d5f0828",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Destiny Draw discard at source 137 is activation cost, not a later independent action; bundle cost with activation and preserve the pending Gold Sarcophagus record.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "137": {
+      "source_index": 137,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "21d6502383c44553b42f52b9d01ad5d042ec2e0da6a92858c624fd811945165e",
+      "recorded_action_sha256": "430721ec8cc3484a8d6e2af864ac8f0a63a6cd043ee1f0075d50c509b8cb6838",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "Recorded Destiny Draw discard cost for source 136. Merge into that activation rather than score it as an independent free move.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "147": {
+      "source_index": 147,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d8ca54a618384f6455b832dacaa8f831fa3e9daa6b515de1c145da995cdf28a2",
+      "recorded_action_sha256": "03c793393cba8d0afd862712d64dd5b1b4cb3f9845da1c4aea556d8db07f760e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "148": {
+      "source_index": 148,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "e0ecd1ba3b9f27d877597a8c06a5b37a2359e26bb4153bd074314a32d3b40b12",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "151": {
+      "source_index": 151,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5e127065e5d3ca81046469a34ed8f69fbfa6f8e6d673111d3d491fc60f80e284",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "152": {
+      "source_index": 152,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "41e6b0ce668551631e5ea751025f546bb32361142e3fd77cbea84c9443c32e2a",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "154": {
+      "source_index": 154,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "17f235dac5176493bf0fd20dddda316276b8c73ce02f02821d0b83f87b415196",
+      "recorded_action_sha256": "9c471efab9ce0155ae8d691953d1b5b9a59340046db13d63f2615b06f1054526",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "157": {
+      "source_index": 157,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b6ef56c7847f89b1470d4f6390ef165322814340cda6f06f4bcd770854234fad",
+      "recorded_action_sha256": "8de5485863a7e8bc2e5d7262c3e552e50e829ed2ee5f2da699c6c819b368a8b1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "158": {
+      "source_index": 158,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "7b42bc56902ab6fad204d2de1ab7b8a0cc1668bb6a7c76087dd4f946428c75d8",
+      "recorded_action_sha256": "a429d5e51ee69c250b91315745a5642ff2ccfc4bbc0b5050f1627789abcdeb36",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "160": {
+      "source_index": 160,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "3f8808797fd490b9d0d4add92965b081869e3351daa654b43c4c3ba8bbe511fe",
+      "recorded_action_sha256": "92442113c5621bafea3d12cde9fd0e952e0e509094229bbc0438af0b437c7be2",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "163": {
+      "source_index": 163,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "641e57515abb70aafd145fe7d051385a601044b3a922e3fc27b3fdf172fed787",
+      "recorded_action_sha256": "42c39a0b46d43266fbd0715344b4af7e8a3919e670f6e3a6b0be7873dc02d853",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Breaker target choice is attached to the earlier counter removal at source 162. The target is an opponent face-down S3; use its visible location, not the privately logged Scapegoat identity.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "164": {
+      "source_index": 164,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "641e57515abb70aafd145fe7d051385a601044b3a922e3fc27b3fdf172fed787",
+      "recorded_action_sha256": "7a940968a001f3ac6c7c93280379fadb6e04f0247184c5e0ca61df8b9f999170",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat responds to Breaker: needs the opponent effect link/target and four-token availability. Empty draft chain cannot establish that response.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "171": {
+      "source_index": 171,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "cd7636742c96e7664ee896d6c52da056036ad8944b6afc6e098ac0542ebe2944",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Carry Gold Sarcophagus source43 two-own-Standby countdown until return176; audit intervening equip, summon-trigger and battle bookkeeping instead of empty pending-effects scaffolding.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "174": {
+      "source_index": 174,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5eade0d20794aa957f11f27f5c9139de24ab84193e6e8f46a9b127836356e53f",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "179": {
+      "source_index": 179,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a272e7ecdbddd5d2a5721ce10ae01c191ed8dd0f7382cefdfb5f4f484774284a",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "186": {
+      "source_index": 186,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "9f10540544b81e57d926be4619531bdfe5e3faa3a973f9e79ff3ef2a67c81e5d",
+      "recorded_action_sha256": "c588e1950b56e22580f3effbd7cc6e65981be7a39565e2cc3c795825a0e5b8a6",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "189": {
+      "source_index": 189,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5b858d7ac4b18f95ccae0d0e30320ecdefef5e63ea3e27428a038ee35c565859",
+      "recorded_action_sha256": "85f3a5870840ebe8b5b5a3a93e4c4cdc946a6fa9c2f08ea3acdc50a0d52ed428",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Premature Burial needs 800 LP cost, GY target and equip relationship; token positions/stats from Scapegoat must first be made complete.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "195": {
+      "source_index": 195,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "86871153fdb309597e71c2a7061963f0ab21fd6c501b226dcfbf784941a1746a",
+      "recorded_action_sha256": "a339bc247de1e701fae6af0b2305cfe032f51c31043eaa58af6a60b385c551da",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 189, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "197": {
+      "source_index": 197,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d3d9c78eebc9edc0e01cffcb2b214ab1918e8b2a1530985712e035ab0bb66eea",
+      "recorded_action_sha256": "08e7d44d77b417b45afa12476c50f8cbb776f8d3e54175b574cbf2be5883c37f",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "199": {
+      "source_index": 199,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d3d9c78eebc9edc0e01cffcb2b214ab1918e8b2a1530985712e035ab0bb66eea",
+      "recorded_action_sha256": "605ae4fd3a3b1fbf87af591fc9cc50c2dfc342f765c1d971ffd2866a11f1b495",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "effect_search_choice",
+      "finding": "Search selection within effect at source 197. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "required_next_steps": [
+        "Complete own deck contents at this boundary",
+        "Reviewed resolving effect and filtered search-choice packet",
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "202": {
+      "source_index": 202,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "dd32ce1ab81cbb82743b0f15ac8c7da07e30ae2c6a1d7656203ea3f84032db26",
+      "recorded_action_sha256": "f120ee48e3b7933aae23ebec840f4182fe096b0718e5a21d6b6363a55c864b41",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "First recorded token removal for the Plasma three-monster summoning procedure; group sources 202,203,205 and208 atomically before a summon response.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "203": {
+      "source_index": 203,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "627f8b431263048a5d284ae31ef2f2b1e2b2ff2aac06fc4987ad0c5b3a396975",
+      "recorded_action_sha256": "7a20aba055737878bcf469e221c6595001ad1c7679f6f9262ddadbfdea3aa9ea",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "Second token removal for the same Plasma procedure (202,203,205,208); not an independent free remove-token action.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "205": {
+      "source_index": 205,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "0a8d932068423079fa90c07b94dc62553bfc592352b1b6474619e85f454afead",
+      "recorded_action_sha256": "30b589332f2caa3bb538aa0de579ba1991eb58c5dfb966b16d2461c78d01c363",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "Stratos is the third monster for Plasma procedure (202,203,205,208); Premature Burial attachment/destruction bookkeeping is also required.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "208": {
+      "source_index": 208,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "97e7d2d841dc2895565f00e315048ac04395f33425bf998dc539a61490755514",
+      "recorded_action_sha256": "44414c2f4e14c93c43fb2ac9dff763a16934b68d871d4164993fe0c86dcd06a1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Plasma procedure spans 202,203,205,208. Current before-state has already removed materials; use the pre-procedure boundary and complete tokens/equip relationships.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "209": {
+      "source_index": 209,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "cb44f44240359c0871c95fbf4c70093e53516b2348f00206bc1edfcc5c324f6c",
+      "recorded_action_sha256": "e0d4385925860170c299dd41e53495d30b08c9e603e3748f77fdda59a96e2447",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Plasma absorption needs target/once-per-turn usage and equip relationship; tokens still lack position/stats in the draft.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "210": {
+      "source_index": 210,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "cb44f44240359c0871c95fbf4c70093e53516b2348f00206bc1edfcc5c324f6c",
+      "recorded_action_sha256": "64bdb01769d08d8554bf75fc499533cb4294e852812915cdb29047c9ed67defd",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Target is an opponent hidden M3, not a publicly known Dekoichi. Bind to source-209 absorption and preserve owner across control/equip movement.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "214": {
+      "source_index": 214,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d0d108baff2180fb52b6776af47c7099c7f04287583b0b7a1e6315de9312bdb8",
+      "recorded_action_sha256": "dd8ba421d03d099a5140c59bd5559111dcb6206e6aa12e3a032c8aadeae0d012",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Phoenix Blade recovery requires two Warrior banish costs (215,216) on activation and correct GY ownership; no half-paid open state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "215": {
+      "source_index": 215,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d0d108baff2180fb52b6776af47c7099c7f04287583b0b7a1e6315de9312bdb8",
+      "recorded_action_sha256": "5e983a05686689e599a5e5a6c66fba6ba496202e3b2992de13a6fd86a622b022",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "First cost payment for source-214 Phoenix Blade recovery; merge both Warrior costs into the same activation.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "216": {
+      "source_index": 216,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b2d6265d24d9c3e872256841bf123364bbeee38811605c345f66a17c40cfc8b0",
+      "recorded_action_sha256": "dde422ed1723f1f7f8995ae9dcbea541662cfcc635a1d8bba53731c1fd30630b",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "Second cost payment for source-214 recovery; pair with 215 and activation214, not a separate unconstrained choice.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "224": {
+      "source_index": 224,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b4875dd469478ffa2e96ffaea0dd7c9e6de1970ddffdcf04b0bca033c34ee3d0",
+      "recorded_action_sha256": "fa68ae9bb8449bf131028f135fee9fc2c210de6999c1532f02b3e43b803c4ee8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Dimension Fusion needs 2000 LP cost, simultaneous summon choices, proper prior-summon eligibility and response bookkeeping; source order is manual serialization.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "227": {
+      "source_index": 227,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "f61ee239f246d8f270792406865cb6d216faf0b1e9eef0c643354237c60c6c61",
+      "recorded_action_sha256": "aaa7c2d304fe341f235c1dc0dd62f63d3bed107b61d75d29d68407be3db86731",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 224, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "230": {
+      "source_index": 230,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b7807d647755557f64c5ec54dedba0e2e163a96733842461e36a6ba12b354ef3",
+      "recorded_action_sha256": "88c24e569bf7bd7729bfcf1cb96d020766a982175f54e02f6c5977da0800329a",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 224, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "233": {
+      "source_index": 233,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "bc7685f967891140731950aef7e85d10d1bb1ef3a8b1661d195a6d13f666907f",
+      "recorded_action_sha256": "d605a40244219fbc90549c76c258a522f88582872b2b72c6cf6d09df4a7ddfa8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 224, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "235": {
+      "source_index": 235,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "dcd31fbe33d47c948841b15b0cfef68dc62f0c31e720349930384723cf9793aa",
+      "recorded_action_sha256": "ebf8a4c24eaebdd244e2aaf4fc6394baa80cefd56ffdff4eead9e10004d57e8d",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "DMOC trigger occurs within the Dimension Fusion resolution: require historical trigger timing and review optional Stratos trigger interactions before creating a free decision.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships",
+        "Sourced historical card ruling for this affected action (currently deferred)"
+      ],
+      "certifies_whole_game": false
+    },
+    "245": {
+      "source_index": 245,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "dcd31fbe33d47c948841b15b0cfef68dc62f0c31e720349930384723cf9793aa",
+      "recorded_action_sha256": "2348557fb4ea26d010d101317ed8d6cd9061e940be5aec1c57fedf961bc2cd98",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Recovery outcome for DMOC source235; Dimension Fusion is logged directly from S4 to hand rather than GY. Reconcile missing GY transition and select a trigger-target boundary.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "246": {
+      "source_index": 246,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a1eaab3be0899621c38f37d70404c05fe64aabc852d00bd701811aab05c21cd9",
+      "recorded_action_sha256": "b7ba8446202ddcece9d982d4541654f0cb3017958933d1f28c039c17179bd418",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "248": {
+      "source_index": 248,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "05d6bc1d94c4ce0dfcb5083bc2aad96216b56d5fb1d847c899b67c5d21a9421a",
+      "recorded_action_sha256": "65ab825e0c6efa3ea976be3618b397624d6045d35b7b0e9576fc2cc658565c1d",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "effect_search_choice",
+      "finding": "Search selection within effect at source 246. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "required_next_steps": [
+        "Complete own deck contents at this boundary",
+        "Reviewed resolving effect and filtered search-choice packet",
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "252": {
+      "source_index": 252,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "dafe6ade70589ec559fccc922f40cde7e9e914e2e514fe0807dff3130a0376c6",
+      "recorded_action_sha256": "9afa399172bdabcbdbb342709a7dd382e09a6551245b6f7038c5d92a62c97ee8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Dasher Tribute ignition cost and temporary ATK/End-Phase DEF obligation must be represented with once-per-turn usage.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "253": {
+      "source_index": 253,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "dafe6ade70589ec559fccc922f40cde7e9e914e2e514fe0807dff3130a0376c6",
+      "recorded_action_sha256": "8991ed3eb2adfc06bbbd13beb7db6ff85525548789279949ac578bb1fdd120b7",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "Dasher cost from source252 sends/banishes DMOC via its historical replacement; group it into effect activation, not a free banish choice.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "255": {
+      "source_index": 255,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "0e2a3f14cac51751e97e862335f2071e2ba4c23d22d48b802ae89b0eaa3f7ce8",
+      "recorded_action_sha256": "bc55ee22fd2e2abcdbe33170541c4f00f91249167cc7fe76d26b91e3416900d8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Second Dimension Fusion: needs cost, DMOC summon history/replacement and complete ongoing Plasma equip/token state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "258": {
+      "source_index": 258,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a30088f694e2241b1474a1c07f1f4789746fa1eac59b99e446d747cac721ad50",
+      "recorded_action_sha256": "9ecb9e89e6b73c327763047ce717bcfd655b5764b78c634abd8dfe9b5ed8274f",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 255, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "261": {
+      "source_index": 261,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "6481dc3db42cf082cbd3bfae05e28f855d959f1e024d0aa37db0129a6b888b59",
+      "recorded_action_sha256": "ebf8a4c24eaebdd244e2aaf4fc6394baa80cefd56ffdff4eead9e10004d57e8d",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "DMOC historical summon trigger following source258; recover target at264 is not an independent free action.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships",
+        "Sourced historical card ruling for this affected action (currently deferred)"
+      ],
+      "certifies_whole_game": false
+    },
+    "264": {
+      "source_index": 264,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "6481dc3db42cf082cbd3bfae05e28f855d959f1e024d0aa37db0129a6b888b59",
+      "recorded_action_sha256": "5418dc96cb0f647651ca28c8a93519e3baac58e5bdb9c091543cf2c98123fa4b",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Monster Gate is the recovery outcome of source261. The target-choice boundary is the summon trigger, not the later To-hand operation.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "266": {
+      "source_index": 266,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "188565ce9f5e43968fc13be46c6e4ea9103116195d969f11ddb8ddcabd8420c1",
+      "recorded_action_sha256": "d0bd1db3c94aa494670f50f0b1c6cdc9537fdb8b772e9d99c848107ea9bec678",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Monster Gate Tribute token at267 is activation cost; current state also lacks token attributes, Plasma equip relationship and Dasher temporary obligations.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "267": {
+      "source_index": 267,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "10695969293c61d4be4ff7f3a3c01d21e2b9f1537873fcee1b480ebe5c92b732",
+      "recorded_action_sha256": "5da72ac2d0a037847c199d4db151d1f67f4f2216bb6eb48b2f67dc4c3a6a5d5f",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "Token Tribute cost of Monster Gate source266; merge it into the activation rather than score token removal separately.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "271": {
+      "source_index": 271,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a53f41d1e82a546be11966b6eb22b32449ce9e0e784f1b1b10969ffab3748f1e",
+      "recorded_action_sha256": "84ca7aa8a0ba9da83dc35de5889d6b58366448dd5500c0c69eff70a2b047ab7a",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 266, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "274": {
+      "source_index": 274,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "be229ca57488892bd4fc510ccf0a447fbd386d10fd1fdfecf725d3dec523db5d",
+      "recorded_action_sha256": "8de5485863a7e8bc2e5d7262c3e552e50e829ed2ee5f2da699c6c819b368a8b1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "275": {
+      "source_index": 275,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a73356e6f3cdd2d8554c25356964270fb61918f6823af30da5f4e4ca3e077fa7",
+      "recorded_action_sha256": "d002da3556f3b23e1ea821ebb38e9b6e1c7b46ce6912d6fe19067f962bfbf6cd",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "277": {
+      "source_index": 277,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "2f563ed93d75331fc635ee8a0b3c7e7721fad8f7c38adcc828818c78400bc246",
+      "recorded_action_sha256": "88821d4c9e4629c432c4d71315fd184af3171c06e0a4544da9f964dfed15288f",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "285": {
+      "source_index": 285,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d28a6a29167985322fb47521db1126d62df9626158b319907f3ddfae6661d911",
+      "recorded_action_sha256": "8e615aee48e0708251c765d5f33558525ae4114f2921c7236bc342fbad83beaa",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Dasher battle-position change must respect the summon/position-change history and its temporary effect obligation; the draft has no verified usage record.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "286": {
+      "source_index": 286,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "8176961ae5284c1217a8fedecae8b92d2f5bd6b08b610f9bd7a382a385017059",
+      "recorded_action_sha256": "92442113c5621bafea3d12cde9fd0e952e0e509094229bbc0438af0b437c7be2",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "287": {
+      "source_index": 287,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "753b5ca5b30f9179a1ace3655495f521811d0286184e2a9b8d31a44f258e2572",
+      "recorded_action_sha256": "2041c467401695e4ac350dadcc864f17703fd5c0c16d514af14a2fff9a64adcd",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Phoenix Blade equip activation has no logged equip target at that moment; Plasma and absorbed Dekoichi relationship/ATK contributions also need verification.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "289": {
+      "source_index": 289,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "2bb95501010216c5967e466ff0d09ad02e0a04b5316cb5f0bfaca708790ce0bb",
+      "recorded_action_sha256": "03c793393cba8d0afd862712d64dd5b1b4cb3f9845da1c4aea556d8db07f760e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "290": {
+      "source_index": 290,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "ee656522fe9d01955e99a38021184ae9d75ed60c5ab944013647f1dcd383c2d7",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "294": {
+      "source_index": 294,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "1231b4e73418b07a6d93a63d9ae31f76b1e4b66a8731153a6987bdcb80319f98",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "295": {
+      "source_index": 295,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "8a9215629df587296f92004ac7453c143472df9b159c8954f2a6f65523ef1805",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "301": {
+      "source_index": 301,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "af9d82f03b124563049b81cfd4fff059ff4bf8eea7089894428d4ece9b58a87e",
+      "recorded_action_sha256": "e9c885ff89867f0cf4edbc5b78907692b81e66a1d8852baf40971a4afa3ad1a5",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Morphing Jar Normal Set is locally legal but unchanged opponent state has an unresolved Plasma equip relationship, token attributes and Dasher usage/temporary effects.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "302": {
+      "source_index": 302,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "0c7a896161637b637943546575f79e8465cb97ad8e663aa5e31719252c813e60",
+      "recorded_action_sha256": "50838dbf1b6f51d601fc743053e8dac5df2f7e100eae793b7c9290071c6028df",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Mirror Force Set is locally legal; the same unresolved opponent equip/token/usage roots prevent complete state grading.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "303": {
+      "source_index": 303,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "0aac33f26a7d8799c4dc226d14ac9a1a2252405260d1b66a716e20e2435998ed",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Scapegoat tokens require known position/stats and summon restrictions; later Plasma/Premature Burial equip, Dasher temporary ATK/usage, and DMOC historical replacement/trigger facts must be authored for a complete state.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "306": {
+      "source_index": 306,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "dc42f23f30ba82bd2ab618e08b758fd85c41df9cb27340574db4ea9c4bbf9664",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "307": {
+      "source_index": 307,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "e0407313ff2fc2c1fb7c233099d56c8a1954d273abddac0bc7fbd35e4415544c",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "311": {
+      "source_index": 311,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "3d5e7582cc0497ce62b598e223b9d063eac46588a7d003da0bd90908d584c70c",
+      "recorded_action_sha256": "9666df5e7ee8fcc7c77b11ec041863f6f5d8d7087b3df15f6ee2ab8d429f906a",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Giant Trunade returns absorbed Dekoichi at313 to the logged controller instead of its owner; this changes hidden inventories and needs adjudication, not silent repair.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships"
+      ],
+      "certifies_whole_game": false
+    },
+    "317": {
+      "source_index": 317,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "af593eddd58fb8739d823a6cface757b857d5c518d003756e9f1ed0deea04b34",
+      "recorded_action_sha256": "23e9216247a11502e4aa121d1418dfa9fe8277b3f63a9a52c0961f69b55636ee",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Source313 ownership conflict changes hand inventory; Dasher position/attack usage and earlier End-Phase obligation must also be reviewed.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships",
+        "Adjudicate source gaps [313]"
+      ],
+      "certifies_whole_game": false
+    },
+    "318": {
+      "source_index": 318,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "22ed92cec7ce73f6be2763d9605e989b2884a5c576397e5ced0111bb7ebcce78",
+      "recorded_action_sha256": "e0d4385925860170c299dd41e53495d30b08c9e603e3748f77fdda59a96e2447",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Source313 ownership conflict plus Plasma absorption usage/attachment history; do not certify this draft.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships",
+        "Adjudicate source gaps [313]"
+      ],
+      "certifies_whole_game": false
+    },
+    "319": {
+      "source_index": 319,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "22ed92cec7ce73f6be2763d9605e989b2884a5c576397e5ced0111bb7ebcce78",
+      "recorded_action_sha256": "1bcb1fa46d17484b1fbc77b7a3308bc0805c086c860843e58ab6f0f96aec5984",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Source313 ownership conflict. The pointed M3 is hidden to Plasma controller; do not use privately logged Morphing Jar as the player target identity.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Token position/stats and equip/control relationships",
+        "Adjudicate source gaps [313]"
+      ],
+      "certifies_whole_game": false
+    },
+    "327": {
+      "source_index": 327,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "39d7e4fe5507cd152dd8867cfc5d7f000d05c52cc8a505db4e1633ba082aa3fa",
+      "recorded_action_sha256": "1672e681b95f055bd61accee03d4bc790b4dd2f25aea7ca584378b7cdc3b11cb",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Between-game choice: requires match-result/side-deck and starter-selection context, not a mid-duel checkpoint.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "330": {
+      "source_index": 330,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "1389514b6a36a467b84a5e2b91bfe347c811945e8c795fc1f9e3a79f65dc0d5b",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "331": {
+      "source_index": 331,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "f0435d4bf8125c45e46ba67c79b04576a828f441caf7035a2c0b380ef8ef5d9a",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "337": {
+      "source_index": 337,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "4186ed8f6f20dd8cf20c080d06be5a254afc7fd86ac7617cc504464c8602800b",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "end_turn",
+        "card": null,
+        "zone": null,
+        "slot": null
+      }
+    },
+    "340": {
+      "source_index": 340,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "55c2bbfad35e0a59ed171025ef239f5c3260f3dc6c765cd2afc96e3515c5d80a",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "341": {
+      "source_index": 341,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "92a654fc40984c76f9c16bc84cb2a8bd2699306b09c043de69ce5b4948cbf3f7",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "343": {
+      "source_index": 343,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "ac877d2ca31743032dbb1133ed6a33afd1610c175ba44dfdadf07c7524d1606a",
+      "recorded_action_sha256": "ebf53de4c7dc2a5aade7dfba2195ee6e0b2028221931f23161e6309e16cbab76",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Destiny Draw activation and Dasher discard cost at344 are one decision. Author a bundled cost/chain endpoint; do not use the post-activation draft as a free cost choice.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "344": {
+      "source_index": 344,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "66f079277d91a18ac4bad7dfc7f6f586a904941791cca5c7c95de85bb930ffa4",
+      "recorded_action_sha256": "663c539b59b2e69d6900aee912e9c60dd086244ffbabb9b0441f277232947dd0",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "cost_or_procedure_substep",
+      "finding": "Discard at344 is Destiny Draw activation cost for343, not a separate free action. Merge into343.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "351": {
+      "source_index": 351,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "3dee910ad10b0be056d09ae501146ba0332d7f9668d97bfb7dc8b690954c026c",
+      "recorded_action_sha256": "2630365186d08312ceb3fb0cccdcd06b1f03ef75de4c8bdaf1a4f3c5018163c4",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Emergency Call is a no-target search Spell; scope activation before response or supply a reviewed own-deck search list for resolution. The current draft has no authored chain endpoint.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "353": {
+      "source_index": 353,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "474dcba4bf6fb947754aa6ba2d556d25450267f11f9f3c37146adb1238c4ef7d",
+      "recorded_action_sha256": "828a833dceedbce12fedc492edacdbf5d766b77d8b8735bc9b7f4aff5699c02d",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "duplicate_effect_declaration",
+      "finding": "Re-declares the Emergency Call already activated at source 351; not a second Spell activation.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "355": {
+      "source_index": 355,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "474dcba4bf6fb947754aa6ba2d556d25450267f11f9f3c37146adb1238c4ef7d",
+      "recorded_action_sha256": "d1c49152cad92d2aafec5535a12b0b4cec3e7acc408e62880aa8ac786670c1b6",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "effect_search_choice",
+      "finding": "Search selection within effect at source 351. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "required_next_steps": [
+        "Complete own deck contents at this boundary",
+        "Reviewed resolving effect and filtered search-choice packet",
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "359": {
+      "source_index": 359,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "46b8145d0ff86c12aed840fcadf05c6197ca640b753bb1b8d0275e84efe3e1f1",
+      "recorded_action_sha256": "47f79f0e18641c59556e13b083f79c7c26150e320326abb3306dd4dbf394d63b",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Stop before summon confirmation/optional Stratos trigger and search.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "normal_summon",
+        "card": "Elemental HERO Stratos",
+        "zone": "monster_zones",
+        "slot": 2
+      }
+    },
+    "360": {
+      "source_index": 360,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "95532426b767f778b46251148516bea2f383477826c4acc1506238d34fbf9d54",
+      "recorded_action_sha256": "d15b78f96166c069680fdb4f440b7208b7c241b3a1ba0926fcf95a668e9902c5",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Optional Stratos trigger choice needs trigger-response timing and a complete own-deck HERO choice list; post-search hindsight must not supply the pre-search menu.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "364": {
+      "source_index": 364,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "95532426b767f778b46251148516bea2f383477826c4acc1506238d34fbf9d54",
+      "recorded_action_sha256": "8f13345478e9cbc152ef133f987d2b78910a9b1f9b6217636f7ca4140067b0e8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "effect_search_choice",
+      "finding": "Search selection within effect at source 360. Requires the full remaining own-deck eligible-card list at that moment and correct resolving effect/target semantics; the later observed choice cannot reconstruct that list.",
+      "required_next_steps": [
+        "Complete own deck contents at this boundary",
+        "Reviewed resolving effect and filtered search-choice packet",
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "367": {
+      "source_index": 367,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b2f8897eaf6e694fb1e6649e0deee9bdeee4501d92d0a9de69897a0b95ea8b99",
+      "recorded_action_sha256": "9835eb85e7b1d3ff67b5539a595b4160322f86d78e3402ca92fb2b2fca63c642",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Destiny Draw outcome347\u2013349, Emergency Call search355\u2013358 and Stratos search364\u2013366 are already recorded and finished; no persistent activated effect remains.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "set",
+        "card": "Return from the Different Dimension",
+        "zone": "spell_trap_zones",
+        "slot": 2
+      }
+    },
+    "368": {
+      "source_index": 368,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "4659099fcd8dbad58d5399f5215a73a25cc1be90118dd9ba46c4dc02d7362e66",
+      "recorded_action_sha256": "742d0e8f9f69dc22c736b6d46d21ba664bab770e09706e3d856e04d9ce78fed3",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Destiny Draw outcome347\u2013349, Emergency Call search355\u2013358 and Stratos search364\u2013366 are already recorded and finished; no persistent activated effect remains.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "set",
+        "card": "Mystical Space Typhoon",
+        "zone": "spell_trap_zones",
+        "slot": 3
+      }
+    },
+    "369": {
+      "source_index": 369,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "50d9f8c09a0cc01bde5fa79ca9b2311a7dc2dab826747fc1fe36deb27145ff0a",
+      "recorded_action_sha256": "b8313a6e70910de81e597dbced638907071062a580e984ab1d512300a17d09e8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Destiny Draw outcome347\u2013349, Emergency Call search355\u2013358 and Stratos search364\u2013366 are already recorded and finished; no persistent activated effect remains.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "set",
+        "card": "Monster Gate",
+        "zone": "spell_trap_zones",
+        "slot": 1
+      }
+    },
+    "370": {
+      "source_index": 370,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "658c21cf5e2595cd00e353bd16c60f1b4ccd1e4bb844d576f837461aa0d9813f",
+      "recorded_action_sha256": "8de5485863a7e8bc2e5d7262c3e552e50e829ed2ee5f2da699c6c819b368a8b1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "371": {
+      "source_index": 371,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "cded0cdf6ab96d1f48ca3a6f3612c06a194462a75e4abf9bb44ad89db1f884e5",
+      "recorded_action_sha256": "a5f56dfae11f3adc223d564453d1ff76f0a203df91802cac728c590e827c0cd4",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "374": {
+      "source_index": 374,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "401dd7dcf794b4bef06e38366ee34dd8527339638f6b34a2842698c0e646d4ba",
+      "recorded_action_sha256": "92442113c5621bafea3d12cde9fd0e952e0e509094229bbc0438af0b437c7be2",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "375": {
+      "source_index": 375,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "73dd8584fc6203f2e9354bea49247ded916d2628383df50f9b5ea4c09ac66c2b",
+      "recorded_action_sha256": "03c793393cba8d0afd862712d64dd5b1b4cb3f9845da1c4aea556d8db07f760e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "376": {
+      "source_index": 376,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "cbccf4b32b0a79d0b996945ad75a7d53078170ea917584490a1fa3d47254976e",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "end_turn",
+        "card": null,
+        "zone": null,
+        "slot": null
+      }
+    },
+    "379": {
+      "source_index": 379,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "fec3701f42fe193811e9ace9257502fddff92dd135353e962fd6d8f426a22bd7",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "380": {
+      "source_index": 380,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b7b0d3f6d337239f727813b6fe9990c7c42033f709d4e4fafbde8139575a5096",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "383": {
+      "source_index": 383,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a11eacc9be40fcb7afbfcefcc789e9add7f74cbb63d134bfa78c3e2c22f32e7f",
+      "recorded_action_sha256": "8748678e8497dd0530d3c9d596772cb947ecc42cdb75004a04f0f990952f27fb",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Stop before summon confirmation: do not invent the later missing Breaker counter updates.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "normal_summon",
+        "card": "Breaker the Magical Warrior",
+        "zone": "monster_zones",
+        "slot": 2
+      }
+    },
+    "385": {
+      "source_index": 385,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "f4d23335e834cfe5852078da965e4ddea604539e150d0254715f18180ae35e61",
+      "recorded_action_sha256": "92ee4dd1dee108f18d9cea111a494ef4269d3f610f95a27653b7fc3869573000",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Game2 Breaker has no logged counter placement or removal (383\u2013386). Reconstruct/certify the trigger and cost before accepting its destruction effect.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "386": {
+      "source_index": 386,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "f4d23335e834cfe5852078da965e4ddea604539e150d0254715f18180ae35e61",
+      "recorded_action_sha256": "2199d1264987147eae8b58d2b903e545ff431786e0752bf1623cfcc53f3799e5",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Target M/S4 is hidden to Breaker controller. Counter cost and chain from385 are missing; privately logged MST cannot be the visible target label.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "387": {
+      "source_index": 387,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "f4d23335e834cfe5852078da965e4ddea604539e150d0254715f18180ae35e61",
+      "recorded_action_sha256": "5b12c9753e00e73fcf4e275d99219a4bae88f351320a45c51c53e785501c26ad",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "MST is a response to Breaker effect; counter/cost/chain provenance is missing. Record target selection at activation, not later as a free action.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "388": {
+      "source_index": 388,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "e3ef81ed2ee0b920ef21d2c1e3da6d8d3293c36be725a6b59658d13d02ba9ca8",
+      "recorded_action_sha256": "659f15b3c4b180fa393044ec4cfc9f5ff88b0d0584e882e7673cae0e57463326",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "MST target is opponent hidden S4; bind it to387 and use the visible location, not privately logged Dark Bribe.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "390": {
+      "source_index": 390,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "baf1d6202bfd909434a3674e1f15c0b6b39d5e1867a595776722e0c2e29764e9",
+      "recorded_action_sha256": "8de5485863a7e8bc2e5d7262c3e552e50e829ed2ee5f2da699c6c819b368a8b1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Phase request precedes sending resolving MST to GY at391. Draft still has an unresolved chain and lacks Breaker counter bookkeeping.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "392": {
+      "source_index": 392,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b08a5e7510f768044dfe1bc50dcf44b14fa03cc33201ef5c5fa41d6bfcc5526f",
+      "recorded_action_sha256": "da94f6b25f142f6333469f935aab556c017f1f53e05dca0092d1ab34719cddae",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Direct attack is observable, but Breaker counter trigger/removal were not logged; ATK and attack-use/response endpoint need certification.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "394": {
+      "source_index": 394,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "570115a37633b56903f7c45ae3ed15e0855d9d1f27ebdd42c1d09f07a71e01f2",
+      "recorded_action_sha256": "92442113c5621bafea3d12cde9fd0e952e0e509094229bbc0438af0b437c7be2",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "395": {
+      "source_index": 395,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "7fbe33b406dd3162cfbb7a86440a39aa7280e1bd84e8f36844074ddc271b2230",
+      "recorded_action_sha256": "726ff97ede7a4099b957d7cd573c5cc5fff7202165a6cafb0687c4937fc976a9",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Dimensional Fissure activation itself is plausible; unchanged Breaker counter/effect usage roots are missing and chain endpoint is unauthored.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "396": {
+      "source_index": 396,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5c6ca0089348f40557bd8ba5765b0a184bdeab84922d904142512b31ca744fbf",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Cannot assert a fully settled End Phase while Breaker counter/usage history remains unreviewed.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "399": {
+      "source_index": 399,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "18a99d3ca69fcd63b50a6f91b210f0c6db826cea60a0f2be5515d27c1ee822f4",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "400": {
+      "source_index": 400,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "421efb276cf99b677ec88ecee32131bd5f4c7fd17130dfe081dc270a919fa4c7",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "407": {
+      "source_index": 407,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "6e42942604c72be4ed7f72f54126a5fdf47de26717636a22f5c8992fa331799f",
+      "recorded_action_sha256": "aa9cddcbb5aaa6ed40268d1e98614a6ce69ba543acc2b16fb81b32a2528611c8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Brain Control current API text differs from historical text. Needs sourced historical target condition plus 800 LP cost, target and temporary control return record.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Sourced historical card ruling for this affected action (currently deferred)"
+      ],
+      "certifies_whole_game": false
+    },
+    "409": {
+      "source_index": 409,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b309f42dbb41b430dbdf4b09586dd886491fbc07f4c6fe42a8a229722ece1594",
+      "recorded_action_sha256": "3ea6d7da3dabb588f5e4e476887486b5acbcc86e84c835d178bcda377e1701ce",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Target belongs to Brain Control407; cost/chain/historical target restrictions and return obligation must be represented, not a separate free pointer.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Sourced historical card ruling for this affected action (currently deferred)"
+      ],
+      "certifies_whole_game": false
+    },
+    "412": {
+      "source_index": 412,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "7d25e5d15efbe2ce4acad76acdda1a228ed76eeacfbd3f84080cc1d366bcf462",
+      "recorded_action_sha256": "e415221ccf87b8f0210cea28310cf5cb07a7ebbeefdff1ddee668df4d521b7b5",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Monster Gate must Tribute controlled Breaker at activation; preserve original owner and Dimensional Fissure replacement. Brain Control return/counter state is unresolved.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "437": {
+      "source_index": 437,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "35f22266f7332fe6edde2101987d17d6b065de26b0192f1509b17e3d879fec83",
+      "recorded_action_sha256": "3fd855b87f6bad323515a25c1647c60c41b062dd31f6fe60888151ef827c8539",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 412, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "442": {
+      "source_index": 442,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "ef6df42311ce3b442605323cb845646925fd286673c17072bd996d00eeb14ed0",
+      "recorded_action_sha256": "34f25d1819f3acabceca45abfb5908a74c26523a6f451d725c8ee14b30a24745",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Card Destruction resolution is a joint discard/draw transaction under Dimensional Fissure. Complete source owner/deck outcomes and an activation-response endpoint; avoid independently scoring its substeps.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "453": {
+      "source_index": 453,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5ebae0eb4970f52da66d7927e844803275ae5e04d50beeed4759e3507ee7335d",
+      "recorded_action_sha256": "8de5485863a7e8bc2e5d7262c3e552e50e829ed2ee5f2da699c6c819b368a8b1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "454": {
+      "source_index": 454,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "8b30edfaf9a7143efb35816d6b87b1c2434d724248dbcbb957037cad46449c30",
+      "recorded_action_sha256": "afbf403895183eb1a01328e45f8694fb85ac90a801eda263f1f4fbd9ab806916",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "460": {
+      "source_index": 460,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "e1d7fd5655bae972dfa6ef61d86bfa956523cb55609693f586f7549ba576462a",
+      "recorded_action_sha256": "92442113c5621bafea3d12cde9fd0e952e0e509094229bbc0438af0b437c7be2",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "461": {
+      "source_index": 461,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "703c954103accb22ad031b69d189ffd8be0074af4f21aef1097db2570696115d",
+      "recorded_action_sha256": "03c793393cba8d0afd862712d64dd5b1b4cb3f9845da1c4aea556d8db07f760e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "462": {
+      "source_index": 462,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "a0f518deb9963eadce085f69dbc01d61650dfd5f6526ac52866f02ce0e3cb528",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Brain Control target Breaker already left the field at414, so its return obligation has no surviving controlled target; later inventory uses recorded Card Destruction draws, not guessed deck order. Dimensional Fissure stays face-up; no replacement is resolved by this scoped task.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "end_turn",
+        "card": null,
+        "zone": null,
+        "slot": null
+      }
+    },
+    "465": {
+      "source_index": 465,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "205a4af8afb6906fe568b4f53a42d331d58fdbc2abed4003fa6b3d3575e0099c",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "466": {
+      "source_index": 466,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5f6a6a0470a127c2e33c896fdeb73eeb9ca26de410aba26a1e1d95b298d7f306",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "467": {
+      "source_index": 467,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "23e05f79678228c4e906ac7cffd13ad9533884b6f1ed3898b8b7506ad8436e2b",
+      "recorded_action_sha256": "1b8fbb12f6cc6cd8cbf8b31b3cb5560495dc206772576641fbaccf3dd20fce90",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Brain Control target Breaker already left the field at414, so its return obligation has no surviving controlled target; later inventory uses recorded Card Destruction draws, not guessed deck order. Dimensional Fissure stays face-up; no replacement is resolved by this scoped task.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "set",
+        "card": "Solemn Judgment",
+        "zone": "spell_trap_zones",
+        "slot": 4
+      }
+    },
+    "468": {
+      "source_index": 468,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5f6e78f358fcde9d344571c786c59f89a98cc5951163f9464b8521200a74622a",
+      "recorded_action_sha256": "d0dc746d17d4d1479a61c12e3661bd6bc5111531f560d26da48f126eed5a290e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Brain Control target Breaker already left the field at414, so its return obligation has no surviving controlled target; later inventory uses recorded Card Destruction draws, not guessed deck order. Dimensional Fissure stays face-up; no replacement is resolved by this scoped task.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "set",
+        "card": "Dimensional Prison",
+        "zone": "spell_trap_zones",
+        "slot": 0
+      }
+    },
+    "469": {
+      "source_index": 469,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "61fdc4884b4cdb4fde85cc1d69c973124c8f5c3a68e43e57b88233608c6d7947",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Brain Control target Breaker already left the field at414, so its return obligation has no surviving controlled target; later inventory uses recorded Card Destruction draws, not guessed deck order. Dimensional Fissure stays face-up; no replacement is resolved by this scoped task.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "end_turn",
+        "card": null,
+        "zone": null,
+        "slot": null
+      }
+    },
+    "472": {
+      "source_index": 472,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "414a606f31aca45d4a89a65f6cc70d4be178645fac81ed2871dc47e0983b55a8",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "473": {
+      "source_index": 473,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b80c99aff7f2d7534db12e2bcd7188cf47a046ac77a340524593cd30ebe39cc7",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "483": {
+      "source_index": 483,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "cfb6668f82d5d5a479aa066f834c9ad1a02c14f46896b272d95605d3a49edbdb",
+      "recorded_action_sha256": "8de5485863a7e8bc2e5d7262c3e552e50e829ed2ee5f2da699c6c819b368a8b1",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "484": {
+      "source_index": 484,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "70b22e0b6e7a49f571048913b4e3f8bc64c001d516aba6889556c79ccb0442b4",
+      "recorded_action_sha256": "afbf403895183eb1a01328e45f8694fb85ac90a801eda263f1f4fbd9ab806916",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "485": {
+      "source_index": 485,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "70b22e0b6e7a49f571048913b4e3f8bc64c001d516aba6889556c79ccb0442b4",
+      "recorded_action_sha256": "6ea278f0f30e6e7ff081227c8bdb831d59e4d5f38a17d8493bcbfdb7494a2ff9",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Attack/phase or later effect decision needs a reviewed battle-use/response endpoint and persistent/once-per-turn usage ledger; source movement order alone does not establish those windows.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "488": {
+      "source_index": 488,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d9cd5d4e038fc1dbc015f393f45c89e6a7171c1fd040771b28dc10614b2603c1",
+      "recorded_action_sha256": "92442113c5621bafea3d12cde9fd0e952e0e509094229bbc0438af0b437c7be2",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M2 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "489": {
+      "source_index": 489,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "218d46cf13c5f624b97ff7beeadcaba68845dbd05832b4269256ae74b03f789c",
+      "recorded_action_sha256": "03c793393cba8d0afd862712d64dd5b1b4cb3f9845da1c4aea556d8db07f760e",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter EP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "490": {
+      "source_index": 490,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "2719b713fad2b42f67e7f223c4a5437dfbe1bc0d9ecd3654d2f3c8046d17d535",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Brain Control target Breaker already left the field at414, so its return obligation has no surviving controlled target; later inventory uses recorded Card Destruction draws, not guessed deck order. Dimensional Fissure stays face-up; no replacement is resolved by this scoped task.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "end_turn",
+        "card": null,
+        "zone": null,
+        "slot": null
+      }
+    },
+    "493": {
+      "source_index": 493,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "1a858d2564e1bd1fc6d51fd78f4f498dcf3aab9e9db0b1172e139685258a7fde",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "494": {
+      "source_index": 494,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "cf7f6a11a469cccaa9e302b84b4133188c3338fab1c05536dedbe0db288944f2",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "495": {
+      "source_index": 495,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "dc44b6c3788d1cf91e37154cbff7ec36bdb0db77464603d0f18ae4ecdef71830",
+      "recorded_action_sha256": "1f18707b941dd68108dc95659c6b3cd84b4651a6bc02e3bf7a4c0efb177e4797",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Brain Control target Breaker already left the field at414, so its return obligation has no surviving controlled target; later inventory uses recorded Card Destruction draws, not guessed deck order. Dimensional Fissure stays face-up; no replacement is resolved by this scoped task.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "end_turn",
+        "card": null,
+        "zone": null,
+        "slot": null
+      }
+    },
+    "498": {
+      "source_index": 498,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "d6146e871f6fbf3f055012f258b8ebac80d341243d1f82e5ef4db9f3e071f39c",
+      "recorded_action_sha256": "8b6cb037233caec4304d64386e901a88f77a4e5e701f54ad48855d0b811c10f8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter SP is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "499": {
+      "source_index": 499,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "0f7da3c123df3c5a77854f2ed695ec339ba92ab84ae2d828672c260db8c1e7de",
+      "recorded_action_sha256": "b2178daf1b0645327d93fec83d45678e1fa9a73fec5cd4f8cf71072d50975a19",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "phase_bookkeeping",
+      "finding": "Enter M1 is omitted from this action-initiation score to avoid inflating it with phase bookkeeping; retain in full timeline and do not claim the transition has no response opportunities.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "501": {
+      "source_index": 501,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "af0e540dad9805b3704a75921896902eb2556f8fc9ad642a89675c96d702bfd8",
+      "recorded_action_sha256": "d2e0f479a6189b72030a0d443c76c51f91a8f3b558d533f02eea73ca1700490d",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "approved_scoped",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Observed settled game-2 checkpoint; scope stops before opponent response, effect activation/resolution or turn advancement. Brain Control target Breaker already left the field at414, so its return obligation has no surviving controlled target; later inventory uses recorded Card Destruction draws, not guessed deck order. Dimensional Fissure stays face-up; no replacement is resolved by this scoped task. Stop before Solemn Judgment or ignition priority; no Snipe Hunter effect is activated.",
+      "required_next_steps": [],
+      "certifies_whole_game": false,
+      "contract": {
+        "kind": "normal_summon",
+        "card": "Snipe Hunter",
+        "zone": "monster_zones",
+        "slot": 2
+      }
+    },
+    "507": {
+      "source_index": 507,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "8b2797359bb4fa2ba44761f7b68ffa8d77af78d82848d5ba3691122d0e740859",
+      "recorded_action_sha256": "fc27bd505b10dcbeba1efd2c5f441970d39e3f408b8bdaf1c4f703b4a1416586",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Solemn Judgment responds in summon-negation window to Snipe Hunter501. Need attempted-versus-successful summon state and half-LP cost bundled on activation; priority chat is not an effect activation.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "525": {
+      "source_index": 525,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "b2f5a67259ae206d195c9f4619b9d6df83734688684a778ad660c0c834e21a93",
+      "recorded_action_sha256": "2d724e228e6c0e9f54ad3f3169e02237605b705817ee339a652c5f5acf564384",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Return from the Different Dimension needs half-LP cost, simultaneous subset selection, summon eligibility and End-Phase banish obligations; serialize sources530\u2013534 only after grouping.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    },
+    "530": {
+      "source_index": 530,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "628b266cfda19b05d9c3c73dd85d7dc0441c134037db800c7ce4e4a445daf1cc",
+      "recorded_action_sha256": "209842bb550a451d5cb6c6012eb64ab28130089831cb8f2893929a38eaa91cfe",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "531": {
+      "source_index": 531,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "c71a7521e499c37e202b7fdd8d1e734e540277e5150bd822cbb6ddabb130b9cc",
+      "recorded_action_sha256": "ebabff9b565019b8081df947bf761e8d646904b2d5be4493b6ab932d15cc300f",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "532": {
+      "source_index": 532,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "5a5307b93aa4eb5e4a0a620f05a4e27c8f47c48e7a9e71b633146d19c812ac9f",
+      "recorded_action_sha256": "19fadf22349f40b51017da3436de892b3c879c1ffb0db5f6240ab5258d41f2d9",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "533": {
+      "source_index": 533,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "8517255740843fd0ff3fa34b065ac8c9d5a8e6b8bfabc822c8916f80adbc24d0",
+      "recorded_action_sha256": "228c437612bfe36eaa3b643bc21298268f3d167d3f4d2b3d2b89d0655f0e431b",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "534": {
+      "source_index": 534,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "8fb6a489348b6e5c110ad0785834171e18b2b86c6c9b1338eeb1bcf0d52ad0cb",
+      "recorded_action_sha256": "7fdb36d9047e98863ee3b0a77dc80d4abd436a46c01b9897623f4d2518370dc8",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "excluded",
+      "classification": "effect_resolution_substep",
+      "finding": "Special Summon is a serialized resolution substep of source 525, not a fresh open-state summon choice. Preserve summon placement/selection for a future grouped effect-resolution case.",
+      "required_next_steps": [],
+      "certifies_whole_game": false
+    },
+    "537": {
+      "source_index": 537,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "9b3aca196feef1a200f7a5b0d5edf41ffa5e88ebb45374f0a6e11177953a84b7",
+      "recorded_action_sha256": "d1053052c957f104c9ea6f6e4dd73cc95c0e383ec328acf5c3e6fdd4d4a53b92",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "DMOC historical trigger follows simultaneous Return summons, with Stratos optional trigger ordering and next End-Phase banish obligations; current empty-effect draft is incomplete.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger",
+        "Sourced historical card ruling for this affected action (currently deferred)"
+      ],
+      "certifies_whole_game": false
+    },
+    "541": {
+      "source_index": 541,
+      "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "before_observation_sha256": "9b3aca196feef1a200f7a5b0d5edf41ffa5e88ebb45374f0a6e11177953a84b7",
+      "recorded_action_sha256": "53aed4c6d924f95ca257aa504c54b17c494b72e01ba7b085b05df5cf8f65c339",
+      "reviewer": "Codex evaluator preparation review, 2026-10-08; no external human certification",
+      "status": "reviewed_blocked",
+      "classification": "independent_action_or_effect_choice",
+      "finding": "Pointer to opponent hidden S3 follows ambiguous spell/trap chat at539. Identify which effect/target choice it belongs to; do not turn the private Mirror Force name into player knowledge.",
+      "required_next_steps": [
+        "Evaluator-authored checkpoint/response contract and complete relevant effect/usage ledger"
+      ],
+      "certifies_whole_game": false
+    }
+  }
+}

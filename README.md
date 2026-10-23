@@ -1,6 +1,7 @@
 # Yu-Gi-Oh! Harness
 
-An agentic harness for an LLM to play Yu-Gi-Oh! against a human or another agent.
+An agentic environment for humans and LLMs to play Yu-Gi-Oh!, with a shared
+headless runtime and replay benchmarks in one repository.
 The LLM interprets card text and rules, adjudicates effects and battles, and chooses
 plays. The runtime manages random draws, authoritative state, permitted views,
 local saves, and replay records. A full coded card-rules engine is outside the
@@ -9,6 +10,27 @@ project's scope.
 Current, historical, and custom formats use their own rules profile and banlist.
 Prepared [rules profiles](rules/README.md) cover modern TCG, Edison, Goat, and Perfect Circle,
 with sourced rule summaries, historical changes, and dated banlist JSONs.
+
+## Headless environment and benchmarks
+
+This monorepo includes the former `yugioh-benchmark` project under
+[`benchmark/`](benchmark/README.md), including its pinned source provenance, reviewed cases,
+importers and historical results. Install once from this root:
+
+```sh
+python -m pip install -e .
+yugioh-harness duel --repo .
+yugioh-benchmark inspect benchmark/replays/db-json-40753-85958923
+```
+
+The headless command accepts versioned JSON lines for a trusted host/orchestrator.
+It uses the same persisted decisions and writer as MCP. Execution-capable chat hosts
+can drive it internally, including fresh opponent agents, without the human running
+commands. A GUI can later consume structured filtered `interaction` data.
+See [headless/chat integration](docs/headless.md) and the
+[agreed architecture and staged roadmap](docs/architecture-and-roadmap.md).
+Edison is the first full-duel validation scope; pilots use open intentions.
+RL adapters and the GUI are planned, not implemented.
 
 ## Start a duel
 
@@ -62,7 +84,8 @@ require guide review and a matching JSON hash before the bundle is playable.
 | [decks/](decks/README.md) | Prepared bundles grouped by format and deck name |
 | [rules/](rules/README.md) | Format profiles and ruling sources |
 | `skills/` | Deck preparation and conversational orchestration workflows |
-| `harness/` | Runtime, state updates, player tasks, views, and persistence |
+| `harness/` | Shared environment, runtime, state updates, player tasks, views, and persistence |
+| [`benchmark/`](benchmark/README.md) | Replay sources, reviewed cases, metered evaluation, and historical results |
 | `games/` (ignored) | Local metadata and schema-4 event archives |
 | `snapshots/` (ignored) | Local immutable assets referenced by replay archives |
 | `templates/` | Runtime input skeletons: duel configuration, action, decision, and host capabilities |
@@ -79,7 +102,7 @@ external private save directory. Existing saved modes and archive schemas remain
 See [contributing](CONTRIBUTING.md), [release validation](docs/releases.md),
 [changelog](CHANGELOG.md), [MIT license](LICENSE), and
 [third-party notices](THIRD_PARTY_NOTICES.md).
-Windows CI checks Python 3.11–3.13, runtime tests, packaging, and all three duel
+CI checks Python 3.11–3.13, benchmark integration on Linux/Windows, runtime tests, packaging, and all three duel
 modes through installed stdio smoke tests. These checks verify the harness;
 card legality, tactics, and real host subagent facilities require separate review.
 
