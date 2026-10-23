@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "id": "db-json-40753-85958923-whole-match-review-v2",
+  "source_replay": "db-json-40753-85958923",
+  "source_payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+  "source_events": 554,
+  "games": 2,
+  "decision_work_items": 207,
+  "status_counts": {
+    "reviewed_blocked": 94,
+    "excluded": 95,
+    "approved_scoped": 18
+  },
+  "player_packets": 112,
+  "approved_checkpoints": 18,
+  "suite_cases": 36,
+  "kpi_denominators": {
+    "state_recreation": 18,
+    "human_move_agreement": 18,
+    "rule_correctness": 36
+  },
+  "whole_game_fully_reviewed": false,
+  "whole_game_model_run_completed": false,
+  "suite": "suite.json",
+  "harness_commit": "d3f5a4193cdc81dea033742f9c639b63f21427eb",
+  "reviewer": "Codex evaluator preparation review, 2026-10-08; not an external human certification",
+  "scope": "All 185 previous pending work items received a disposition; scoped fixed-checkpoint actions only, not full match execution",
+  "unknowns": [
+    "Unobserved deck/Extra/Side names/order",
+    "Runtime lineage through shuffles",
+    "Unlogged response windows, chains and pending effects",
+    "Historical texts deferred",
+    "Game 1 ownership conflict at source index 313"
+  ],
+  "rules": {
+    "format": "perfect-circle",
+    "rules_version": "perfect-circle-2026-10-08",
+    "rules_sha256": "e0cfe354e9fbf2d16e25986a401a555cfb5b5448bce756547b3b79fd0f42f5e2",
+    "banlist_sha256": "bdd5cbbac9af362405f2227c3c34ad65a6323a5095f5589b90e64b6723c9e7e6",
+    "card_text_sha256": "b4f6a9ddbe10fb3f8816eaa464363af0ec737a0c293e08e83ae297663d2fc2a2",
+    "historical_card_text_complete": false,
+    "legality_scope": "case-local action initiation; historical-text-dependent alternatives provisional"
+  },
+  "asset_provenance": {
+    "harness_commit": "d3f5a4193cdc81dea033742f9c639b63f21427eb",
+    "common_sha256": "296c2c6aab52e51575be964b7535cbb11b75dec65a934643c47cdacbcffe552e",
+    "profile_sha256": "75c9ae2952d5e0f787dcaf4c12626701639e37137f75a004a14f0371809f1859",
+    "banlist_sha256": "bdd5cbbac9af362405f2227c3c34ad65a6323a5095f5589b90e64b6723c9e7e6",
+    "card_metadata": "../../card-metadata/db-json-40753-85958923.json"
+  },
+  "reviewed_previous_pending": 185,
+  "review_decisions": "review-decisions.json",
+  "review_decisions_sha256": "86d02228e7e5dfbb1b18798e67440b64f45a48f54b359bd85c20c6037e80c998",
+  "disposition_pass_completed": true
+}

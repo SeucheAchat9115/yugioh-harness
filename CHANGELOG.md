@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+- Import benchmark code, datasets, notices and source provenance under `benchmark/`;
+  one root package installs both CLIs and tests them against the same engine.
+- Add `duel-v1` headless JSON-lines and one-shot session resume over the existing
+  orchestrator workflow, plus structured human/spectator data for a future GUI.
+- Share fixed-position initialization with benchmark execution. Document native
+  chat operation, the agreed Edison/open-intention scope, and staged RL roadmap.
+- Preserve existing MCP integrations, saved games, and historical benchmark scores.
+
 ## Unreleased
 
 - Keep games and shared game snapshots local and ignored by Git; existing files

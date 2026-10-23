@@ -1,0 +1,712 @@
+{
+  "schema_version": "1.0",
+  "id": "db-json-40753-85958923-before-000443",
+  "runnable": false,
+  "player_context": {
+    "perspective": "agent",
+    "state": {
+      "game_id": "reference-checkpoint",
+      "mode": "agent-vs-agent",
+      "status": "active",
+      "turn": 4,
+      "active_player": "agent",
+      "phase": "main1",
+      "chain": [],
+      "pending_effects": [],
+      "revision": 0,
+      "pending_decision": {
+        "actor": "agent",
+        "window": "unreviewed_observation"
+      },
+      "players": {
+        "human": {
+          "lp": 8000,
+          "hand_count": 1,
+          "deck_count": 33,
+          "extra_count": 15,
+          "side_count": 15,
+          "monster_zones": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            {
+              "instance_id": "field-ref-713",
+              "owner": "human",
+              "hidden": true
+            },
+            {
+              "instance_id": "field-ref-717",
+              "owner": "human",
+              "hidden": true
+            },
+            {
+              "instance_id": "field-ref-806",
+              "owner": "human",
+              "card_id": 81674782,
+              "hidden": false,
+              "name": "Dimensional Fissure",
+              "type": "Spell Card"
+            },
+            null
+          ],
+          "graveyard": [
+            {
+              "instance_id": "pile-ref-714",
+              "owner": "human",
+              "card_id": 77538567,
+              "hidden": false,
+              "name": "Dark Bribe",
+              "type": "Trap Card"
+            }
+          ],
+          "banished": [
+            {
+              "instance_id": "pile-ref-715",
+              "owner": "human",
+              "card_id": 7572887,
+              "hidden": false,
+              "name": "D.D. Warrior Lady",
+              "atk": 1500,
+              "def": 1600,
+              "level": 4,
+              "attribute": "LIGHT",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "pile-ref-808",
+              "owner": "human",
+              "card_id": 71413901,
+              "hidden": false,
+              "name": "Breaker the Magical Warrior",
+              "atk": 1600,
+              "def": 1000,
+              "level": 4,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            }
+          ],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        },
+        "agent": {
+          "lp": 5600,
+          "hand_count": 3,
+          "deck_count": 13,
+          "extra_count": 15,
+          "side_count": 15,
+          "hand": [
+            {
+              "instance_id": "agent-hand-1",
+              "owner": "agent",
+              "card_id": 72892473,
+              "name": "Card Destruction",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "agent-hand-2",
+              "owner": "agent",
+              "card_id": 40737112,
+              "name": "Dark Magician of Chaos",
+              "atk": 2800,
+              "def": 2600,
+              "level": 8,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "agent-hand-3",
+              "owner": "agent",
+              "card_id": 13093792,
+              "name": "Destiny HERO - Diamond Dude",
+              "atk": 1400,
+              "def": 1600,
+              "level": 4,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            }
+          ],
+          "extra_deck": [
+            {
+              "instance_id": "agent-extra-unknown-1"
+            },
+            {
+              "instance_id": "agent-extra-unknown-2"
+            },
+            {
+              "instance_id": "agent-extra-unknown-3"
+            },
+            {
+              "instance_id": "agent-extra-unknown-4"
+            },
+            {
+              "instance_id": "agent-extra-unknown-5"
+            },
+            {
+              "instance_id": "agent-extra-unknown-6"
+            },
+            {
+              "instance_id": "agent-extra-unknown-7"
+            },
+            {
+              "instance_id": "agent-extra-unknown-8"
+            },
+            {
+              "instance_id": "agent-extra-unknown-9"
+            },
+            {
+              "instance_id": "agent-extra-unknown-10"
+            },
+            {
+              "instance_id": "agent-extra-unknown-11"
+            },
+            {
+              "instance_id": "agent-extra-unknown-12"
+            },
+            {
+              "instance_id": "agent-extra-unknown-13"
+            },
+            {
+              "instance_id": "agent-extra-unknown-14"
+            },
+            {
+              "instance_id": "agent-extra-unknown-15"
+            }
+          ],
+          "monster_zones": [
+            null,
+            null,
+            {
+              "instance_id": "field-ref-789",
+              "owner": "agent",
+              "card_id": 41006930,
+              "position": "ATK",
+              "hidden": false,
+              "name": "Strike Ninja",
+              "atk": 1700,
+              "def": 1200,
+              "level": 4,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            null,
+            {
+              "instance_id": "field-ref-770",
+              "owner": "agent",
+              "card_id": 27174286,
+              "hidden": true,
+              "name": "Return from the Different Dimension",
+              "type": "Trap Card"
+            },
+            null,
+            null
+          ],
+          "graveyard": [
+            {
+              "instance_id": "pile-ref-720",
+              "owner": "agent",
+              "card_id": 81866673,
+              "hidden": false,
+              "name": "Destiny HERO - Dasher",
+              "atk": 2100,
+              "def": 1000,
+              "level": 6,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "pile-ref-722",
+              "owner": "agent",
+              "card_id": 45809008,
+              "hidden": false,
+              "name": "Destiny Draw",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-727",
+              "owner": "agent",
+              "card_id": 213326,
+              "hidden": false,
+              "name": "E - Emergency Call",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-771",
+              "owner": "agent",
+              "card_id": 5318639,
+              "hidden": false,
+              "name": "Mystical Space Typhoon",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-809",
+              "owner": "agent",
+              "card_id": 87910978,
+              "hidden": false,
+              "name": "Brain Control",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-774",
+              "owner": "agent",
+              "card_id": 98494543,
+              "hidden": false,
+              "name": "Magical Stone Excavation",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-775",
+              "owner": "agent",
+              "card_id": 45939841,
+              "hidden": false,
+              "name": "Twister",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-776",
+              "owner": "agent",
+              "card_id": 31423101,
+              "hidden": false,
+              "name": "Divine Sword - Phoenix Blade",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-777",
+              "owner": "agent",
+              "card_id": 19613556,
+              "hidden": false,
+              "name": "Heavy Storm",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-779",
+              "owner": "agent",
+              "card_id": 38120068,
+              "hidden": false,
+              "name": "Trade-In",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-780",
+              "owner": "agent",
+              "card_id": 23557835,
+              "hidden": false,
+              "name": "Dimension Fusion",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-781",
+              "owner": "agent",
+              "card_id": 27174286,
+              "hidden": false,
+              "name": "Return from the Different Dimension",
+              "type": "Trap Card"
+            },
+            {
+              "instance_id": "pile-ref-782",
+              "owner": "agent",
+              "card_id": 38120068,
+              "hidden": false,
+              "name": "Trade-In",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-783",
+              "owner": "agent",
+              "card_id": 51452091,
+              "hidden": false,
+              "name": "Royal Decree",
+              "type": "Trap Card"
+            },
+            {
+              "instance_id": "pile-ref-784",
+              "owner": "agent",
+              "card_id": 51452091,
+              "hidden": false,
+              "name": "Royal Decree",
+              "type": "Trap Card"
+            },
+            {
+              "instance_id": "pile-ref-785",
+              "owner": "agent",
+              "card_id": 45809008,
+              "hidden": false,
+              "name": "Destiny Draw",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-786",
+              "owner": "agent",
+              "card_id": 32807846,
+              "hidden": false,
+              "name": "Reinforcement of the Army",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-787",
+              "owner": "agent",
+              "card_id": 43040603,
+              "hidden": false,
+              "name": "Monster Gate",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-788",
+              "owner": "agent",
+              "card_id": 58577036,
+              "hidden": false,
+              "name": "Reasoning",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-769",
+              "owner": "agent",
+              "card_id": 43040603,
+              "hidden": false,
+              "name": "Monster Gate",
+              "type": "Spell Card"
+            }
+          ],
+          "banished": [
+            {
+              "instance_id": "pile-ref-732",
+              "owner": "agent",
+              "card_id": 40044918,
+              "hidden": false,
+              "name": "Elemental HERO Stratos",
+              "atk": 1800,
+              "def": 300,
+              "level": 4,
+              "attribute": "WIND",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "pile-ref-778",
+              "owner": "agent",
+              "card_id": 83965310,
+              "hidden": false,
+              "name": "Destiny HERO - Plasma",
+              "atk": 1900,
+              "def": 600,
+              "level": 8,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            }
+          ],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        }
+      },
+      "shared_zones": {
+        "extra_monster_zones": []
+      }
+    },
+    "decision": {
+      "actor": "agent",
+      "window": "unreviewed_observation"
+    },
+    "recent_events": [
+      {
+        "id": "prior-439",
+        "kind": "information_observation",
+        "actor": "sdesowitz02",
+        "summary": "Stopped viewing GY"
+      },
+      {
+        "id": "prior-440",
+        "kind": "move",
+        "actor": "sdesowitz02",
+        "summary": "Sent \"Monster Gate\" from S-2 to GY"
+      },
+      {
+        "id": "prior-441",
+        "kind": "information_observation",
+        "actor": "Aco77",
+        "summary": "Viewed Opponent's Graveyard"
+      },
+      {
+        "id": "prior-442",
+        "kind": "information_observation",
+        "actor": "Aco77",
+        "summary": "Stopped viewing Opponent's GY"
+      }
+    ],
+    "cards": {
+      "81674782": {
+        "id": 81674782,
+        "name": "Dimensional Fissure",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Any monster sent to the Graveyard is banished instead.",
+        "race": "Continuous"
+      },
+      "77538567": {
+        "id": 77538567,
+        "name": "Dark Bribe",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "desc": "When your opponent activates a Spell/Trap Card: Your opponent draws 1 card, also negate the Spell/Trap activation, and if you do, destroy it.",
+        "race": "Counter"
+      },
+      "7572887": {
+        "id": 7572887,
+        "name": "D.D. Warrior Lady",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card.",
+        "race": "Warrior",
+        "atk": 1500,
+        "def": 1600,
+        "level": 4,
+        "attribute": "LIGHT"
+      },
+      "71413901": {
+        "id": 71413901,
+        "name": "Breaker the Magical Warrior",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1). Gains 300 ATK for each Spell Counter on it. You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target.",
+        "race": "Spellcaster",
+        "atk": 1600,
+        "def": 1000,
+        "level": 4,
+        "attribute": "DARK"
+      },
+      "72892473": {
+        "id": 72892473,
+        "name": "Card Destruction",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.",
+        "race": "Normal"
+      },
+      "40737112": {
+        "id": 40737112,
+        "name": "Dark Magician of Chaos",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "During the End Phase, if this card was Normal or Special Summoned this turn: You can target 1 Spell in your GY; add it to your hand. You can only use this effect of \"Dark Magician of Chaos\" once per turn. If this card destroys an opponent's monster by battle, after damage calculation: Banish that opponent's monster. If this face-up card would leave the field, banish it instead.",
+        "race": "Spellcaster",
+        "atk": 2800,
+        "def": 2600,
+        "level": 8,
+        "attribute": "DARK"
+      },
+      "13093792": {
+        "id": 13093792,
+        "name": "Destiny HERO - Diamond Dude",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "Once per turn: You can excavate the top card of your Deck, and if it is a Normal Spell, send it to the GY, otherwise place it on the bottom of your Deck. During the Main Phase of your next turn, you can activate the effect of that Spell in your GY (even if you no longer control this face-up card).",
+        "race": "Warrior",
+        "atk": 1400,
+        "def": 1600,
+        "level": 4,
+        "attribute": "DARK"
+      },
+      "27174286": {
+        "id": 27174286,
+        "name": "Return from the Different Dimension",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "desc": "Pay half your Life Points; Special Summon as many of your banished monsters as possible. During the End Phase, banish all monsters that were Special Summoned by this effect.",
+        "race": "Normal"
+      },
+      "41006930": {
+        "id": 41006930,
+        "name": "Strike Ninja",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "(Quick Effect): You can banish 2 DARK monsters from your GY; banish this face-up card until the End Phase. You can only use this effect of \"Strike Ninja\" once per turn.",
+        "race": "Warrior",
+        "atk": 1700,
+        "def": 1200,
+        "level": 4,
+        "attribute": "DARK"
+      },
+      "81866673": {
+        "id": 81866673,
+        "name": "Destiny HERO - Dasher",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "Once per turn: You can Tribute 1 other monster; this card gains 1000 ATK until the End Phase. If this card attacks, change it to Defense Position at the end of the Battle Phase. One time only, when you draw a Monster Card during your Draw Phase while this card is in your Graveyard: You can reveal it; Special Summon it. This card must be in the Graveyard to activate and to resolve this effect.",
+        "race": "Warrior",
+        "atk": 2100,
+        "def": 1000,
+        "level": 6,
+        "attribute": "DARK"
+      },
+      "45809008": {
+        "id": 45809008,
+        "name": "Destiny Draw",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Discard 1 \"Destiny HERO\" card; draw 2 cards.",
+        "race": "Normal"
+      },
+      "213326": {
+        "id": 213326,
+        "name": "E - Emergency Call",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Add 1 \"Elemental HERO\" monster from your Deck to your hand.",
+        "race": "Normal"
+      },
+      "5318639": {
+        "id": 5318639,
+        "name": "Mystical Space Typhoon",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Target 1 Spell/Trap on the field; destroy that target.",
+        "race": "Quick-Play"
+      },
+      "87910978": {
+        "id": 87910978,
+        "name": "Brain Control",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Pay 800 LP, then target 1 face-up monster your opponent controls that can be Normal Summoned/Set; take control of that target until the End Phase.",
+        "race": "Normal"
+      },
+      "98494543": {
+        "id": 98494543,
+        "name": "Magical Stone Excavation",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Discard 2 cards, then target 1 Spell in your GY; add it to your hand.",
+        "race": "Normal"
+      },
+      "45939841": {
+        "id": 45939841,
+        "name": "Twister",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Pay 500 LP, then target 1 face-up Spell/Trap on the field; destroy that target.",
+        "race": "Quick-Play"
+      },
+      "31423101": {
+        "id": 31423101,
+        "name": "Divine Sword - Phoenix Blade",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Equip only to a Warrior monster. It gains 300 ATK. During your Main Phase, if this card is in your GY: You can banish 2 Warrior monsters from your GY; add this card to your hand.",
+        "race": "Equip"
+      },
+      "19613556": {
+        "id": 19613556,
+        "name": "Heavy Storm",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Destroy all Spell and Trap Cards on the field.",
+        "race": "Normal"
+      },
+      "38120068": {
+        "id": 38120068,
+        "name": "Trade-In",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Discard 1 Level 8 monster; draw 2 cards.",
+        "race": "Normal"
+      },
+      "23557835": {
+        "id": 23557835,
+        "name": "Dimension Fusion",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Pay 2000 Life Points. Both players Special Summon as many of their removed from play monsters as possible.",
+        "race": "Normal"
+      },
+      "51452091": {
+        "id": 51452091,
+        "name": "Royal Decree",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "desc": "Negate all other Trap effects on the field.",
+        "race": "Continuous"
+      },
+      "32807846": {
+        "id": 32807846,
+        "name": "Reinforcement of the Army",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Add 1 Level 4 or lower Warrior monster from your Deck to your hand.",
+        "race": "Normal"
+      },
+      "43040603": {
+        "id": 43040603,
+        "name": "Monster Gate",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the GY.",
+        "race": "Normal"
+      },
+      "58577036": {
+        "id": 58577036,
+        "name": "Reasoning",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the GY. If not, Special Summon the excavated monster, also send the remaining cards to the GY.",
+        "race": "Normal"
+      },
+      "40044918": {
+        "id": 40044918,
+        "name": "Elemental HERO Stratos",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "When this card is Normal or Special Summoned: You can activate 1 of these effects.\r\n● Destroy Spells/Traps on the field, up to the number of \"HERO\" monsters you control, except this card.\r\n● Add 1 \"HERO\" monster from your Deck to your hand.",
+        "race": "Warrior",
+        "atk": 1800,
+        "def": 300,
+        "level": 4,
+        "attribute": "WIND"
+      },
+      "83965310": {
+        "id": 83965310,
+        "name": "Destiny HERO - Plasma",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 3 monsters. Negate the effects of face-up monsters while your opponent controls them. Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). Gains ATK equal to half the original ATK of the monster equipped to it by this effect.",
+        "race": "Warrior",
+        "atk": 1900,
+        "def": 600,
+        "level": 8,
+        "attribute": "DARK"
+      }
+    },
+    "rules": {
+      "text": "Perfect Circle 2007 pilot (September 2007 banlist). 8000 LP,\n5 opening cards, first player draws; first-turn Battle Phase is forbidden.\nFive Monster and five Spell/Trap Zones. One Normal Summon OR Normal Set per\nturn; a Level 4 monster can be Normal Summoned/Set without a Tribute. A Normal\nSet is face-down Defense Position. Spell/Trap cards may be Set in empty S/T\nslots during your Main Phase; setting does not activate their effects. A Trap\nor Quick-Play Spell cannot be activated in the turn it was Set. Leave valid\nopponent response opportunities to the moderator. Current supplied card texts\nare provisional for historical-text-dependent effects. This is a single-decision\ncheckpoint, not a complete deck or a continuing duel: unseen deck and Extra/Side\nidentities are unavailable. Do not invent cards; stop before resolving a choice\nthat needs unavailable information. Choose your own next action from the\navailable information; do not try to retrieve the source replay or benchmark.\n",
+      "truncated": false,
+      "format": "perfect-circle",
+      "banlist": "TCG pool 2007-09-01",
+      "rules_version": "perfect-circle-2026-10-08",
+      "settings": {
+        "starting_lp": 8000,
+        "opening_hand_size": 5,
+        "starting_player_draws": true,
+        "starting_player_battle_phase": false
+      }
+    },
+    "guides": {},
+    "context_version": "compact-v1",
+    "context_limits": {
+      "recent_events": 4,
+      "guide_chars_per_deck": 1200,
+      "card_text": "visible hands, board, GYs, banished and pending effects; Extra/Side text on explicit focus",
+      "details": "orchestrator can request full duel_context or focused duel_agent_context before dispatch",
+      "checkpoint_scope": "single next action; unseen identities and chain/effect bookkeeping need review outside approved set cases"
+    }
+  }
+}

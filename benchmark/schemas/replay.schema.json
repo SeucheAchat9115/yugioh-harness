@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "replay",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^db-json-[1-9][0-9]*(?:-[1-9][0-9]*)?$"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "provider",
+        "replay_id",
+        "url",
+        "payload_sha256",
+        "retrieved_at",
+        "adapter"
+      ],
+      "properties": {
+        "provider": {
+          "const": "duelingbook"
+        },
+        "payload_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "adapter": {
+          "const": "duelingbook-json-v1"
+        }
+      }
+    },
+    "format": {
+      "type": "object"
+    },
+    "players": {
+      "type": "object",
+      "required": [
+        "p1",
+        "p2"
+      ]
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "source_events",
+        "hidden_state",
+        "state_reconstruction",
+        "decision_windows",
+        "legality",
+        "strategic_labels"
+      ]
+    },
+    "source_metadata": {
+      "type": "object"
+    },
+    "event_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sequence",
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^events/[0-9]{6,}\\.json$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "source",
+    "format",
+    "players",
+    "coverage",
+    "source_metadata",
+    "event_count",
+    "events"
+  ]
+}

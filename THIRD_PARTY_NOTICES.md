@@ -17,3 +17,12 @@ README files. Rules and rulings retain source links. Contributor-written guides
 are original analysis except where they quote third-party card text or rulings.
 Shared snapshots preserve these original resources; copying them does not change
 their attribution or license status.
+
+## Imported benchmark source data
+
+The `benchmark/` project was imported with its Git history from
+`SeucheAchat9115/yugioh-benchmark` at commit
+`8894fbf6c8afea5c1908113e1317578be15827cf`. See
+[`benchmark/THIRD_PARTY_NOTICES.md`](benchmark/THIRD_PARTY_NOTICES.md) for replay
+fixture attribution and redistribution limits. The root MIT license covers code;
+it does not relicense replay data. Original benchmark licensing is retained.

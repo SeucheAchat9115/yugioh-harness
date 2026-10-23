@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "target_model": "gpt-6.1-sol",
+  "weights": {
+    "state_recreation": 0.3333333333333333,
+    "human_move_agreement": 0.3333333333333333,
+    "rule_correctness": 0.3333333333333333
+  },
+  "source_replay": "db-json-40753-85958923",
+  "source_rules_status": "Perfect Circle profile and dated TCG-pool banlist documented in a pinned harness commit; complete historical text overrides and replay states/legality still require review",
+  "case_preparation_status": "all_previous_pending_dispositioned_18_scoped_checkpoints_approved",
+  "current_agentic_score": null,
+  "last_pilot": {
+    "date": "2026-10-08",
+    "format": "edison",
+    "state_recreation": {
+      "passed": 3,
+      "total": 3,
+      "score": 1.0
+    },
+    "human_move_agreement": {
+      "total": 0,
+      "score": null
+    },
+    "rule_correctness": {
+      "passed": 6,
+      "total": 6,
+      "score": 1.0
+    },
+    "final_score_percent": null,
+    "report": "docs/edison-pilot.md",
+    "scope": "assisted workflow micro-position pilot; no full match or replay agreement"
+  },
+  "source_format_declaration": {
+    "label": "Perfect Circle 2007",
+    "provenance": "user correction in conversation on 2026-10-08",
+    "status": "format_documented_historical_card_text_and_replay_review_pending",
+    "rules_reference": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/perfect-circle.md",
+    "banlist_reference": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/banlists/perfect-circle-2007-09-01.json",
+    "card_text_version": null,
+    "reviewed": false,
+    "user_wording": "perfect cycle 2007",
+    "banlist_candidate": "September 2007"
+  },
+  "source_rules_profile_reference": {
+    "id": "perfect-circle",
+    "version": "perfect-circle-2026-10-08",
+    "harness_commit": "d3f5a4193cdc81dea033742f9c639b63f21427eb",
+    "profile_url": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/perfect-circle.md",
+    "profile_sha256": "75c9ae2952d5e0f787dcaf4c12626701639e37137f75a004a14f0371809f1859",
+    "banlist_url": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/banlists/perfect-circle-2007-09-01.json",
+    "banlist_sha256": "bdd5cbbac9af362405f2227c3c34ad65a6323a5095f5589b90e64b6723c9e7e6",
+    "banlist_effective_date": "2007-09-01",
+    "reference_event": "SJC Orlando, 2008-01-26",
+    "historical_card_text_overrides_complete": false,
+    "replay_legality_reviewed": false
+  },
+  "reviewed_suite": "benchmarks/review/db-json-40753-85958923/suite.json",
+  "preparation_report": "docs/replay-review-stage.md",
+  "whole_match_review_completed": false,
+  "review_disposition_pass_completed": true,
+  "reviewed_blocked_work_items": 94,
+  "approved_scoped_checkpoints": 18,
+  "expanded_suite_model_run_completed": false
+}

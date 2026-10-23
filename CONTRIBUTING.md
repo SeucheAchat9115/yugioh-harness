@@ -1,6 +1,6 @@
 # Contributing
 
-Use Python 3.11–3.13 on Windows, Linux or macOS. CI runs on Windows. Clone the repository, create
+Use Python 3.11–3.13 on Windows, Linux or macOS. Runtime CI runs on Windows; benchmark CI runs on Linux and Windows. Clone the repository, create
 `.venv`, and install with `python -m pip install -e .`. Follow `AGENTS.md`.
 
 Keep the LLM responsible for rules interpretation and tactical play. Contributions
@@ -16,7 +16,8 @@ block direct pushes or merges. Submit changes through pull requests.
 Before a pull request:
 
 - Run `python -m unittest discover -s tests -v` and
-  `python -m unittest discover -s skills/ydk-to-json/tests -v`.
+  `python -m unittest discover -s skills/ydk-to-json/tests -v`, plus
+  `python -m unittest discover -s benchmark/tests -v` after root installation.
 - For packaging/transport changes, build a wheel and run the installed smoke test
   as described in `docs/releases.md`.
 - Explain the behavior change, relevant validation and compatibility impact.

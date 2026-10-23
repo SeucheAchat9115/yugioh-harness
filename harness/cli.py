@@ -1,6 +1,6 @@
 """Installable maintainer commands; the orchestrator runs them during play."""
 import argparse
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 import json
 from pathlib import Path
 import sys
@@ -10,7 +10,11 @@ def main():
     from harness.integration.stdio import configure_utf8
     configure_utf8()
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--version', action='version', version=version('yugioh-harness'))
+    try:
+        release = version('yugioh-harness')
+    except PackageNotFoundError:
+        release = 'source-checkout'
+    parser.add_argument('--version', action='version', version=release)
     commands = parser.add_subparsers(dest='command', required=True)
     doctor = commands.add_parser('doctor', help='Check runtime, resources and host declaration')
     doctor.add_argument('--repo', type=Path, default=Path.cwd())
@@ -20,8 +24,13 @@ def main():
     config = commands.add_parser('host-config', help='Generate stdio MCP configuration')
     config.add_argument('--repo', type=Path, required=True)
     config.add_argument('--host', choices=('codex', 'claude', 'gemini'), required=True)
+    commands.add_parser('duel', help='Run the versioned headless duel API', add_help=False)
     commands.add_parser('mcp', help='Start moderator MCP lobby', add_help=False)
     # Forward MCP flags untouched; legacy python -m harness.integration.mcp remains.
+    if len(sys.argv) > 1 and sys.argv[1] == 'duel':
+        from harness.integration.headless import main as headless_main
+        sys.argv = [sys.argv[0], *sys.argv[2:]]
+        raise SystemExit(headless_main())
     if len(sys.argv) > 1 and sys.argv[1] == 'mcp':
         from harness.integration.mcp import main as mcp_main
         sys.argv = [sys.argv[0], *sys.argv[2:]]

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "replay": "db-json-40753-85958923",
+      "fixture": "fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json",
+      "bundle": "replays/db-json-40753-85958923",
+      "candidates": "benchmarks/candidates/aco77-sdesowitz02-2026-10-07-native.json",
+      "source_url": "https://www.duelingbook.com/replay?id=40753-85958923",
+      "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",
+      "uploaded_payload_sha256": "4f797fc6efc9f0d1802819c220f2f0c22256cf86c7751a2a766a6660254bb7ff",
+      "fixture_sha256": "5eee6f1a372aa321d7f6a4a0e48438b91c2ff73114a170e68723d73a53fc1fda",
+      "adapter": "duelingbook-json-v1",
+      "review_status": "four_scoped_set_checkpoints_approved_whole_match_review_pending",
+      "event_count": 554,
+      "game_count": 2,
+      "candidate_count": 174,
+      "approved_cases": [
+        "db-json-40753-85958923-before-000334-state",
+        "db-json-40753-85958923-before-000334-choice",
+        "db-json-40753-85958923-before-000335-state",
+        "db-json-40753-85958923-before-000335-choice",
+        "db-json-40753-85958923-before-000336-state",
+        "db-json-40753-85958923-before-000336-choice",
+        "db-json-40753-85958923-before-000337-state",
+        "db-json-40753-85958923-before-000337-choice"
+      ],
+      "source_selection": "selected native JSON gameplay export",
+      "card_metadata": "benchmarks/card-metadata/db-json-40753-85958923.json",
+      "format_declaration": {
+        "label": "Perfect Circle 2007",
+        "provenance": "user correction in conversation on 2026-10-08",
+        "status": "format_documented_historical_card_text_and_replay_review_pending",
+        "rules_reference": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/perfect-circle.md",
+        "banlist_reference": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/banlists/perfect-circle-2007-09-01.json",
+        "card_text_version": null,
+        "reviewed": false,
+        "user_wording": "perfect cycle 2007",
+        "banlist_candidate": "September 2007"
+      },
+      "rules_profile_reference": {
+        "id": "perfect-circle",
+        "version": "perfect-circle-2026-10-08",
+        "harness_commit": "d3f5a4193cdc81dea033742f9c639b63f21427eb",
+        "profile_url": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/perfect-circle.md",
+        "profile_sha256": "75c9ae2952d5e0f787dcaf4c12626701639e37137f75a004a14f0371809f1859",
+        "banlist_url": "https://github.com/SeucheAchat9115/yugioh-harness/blob/d3f5a4193cdc81dea033742f9c639b63f21427eb/rules/banlists/perfect-circle-2007-09-01.json",
+        "banlist_sha256": "bdd5cbbac9af362405f2227c3c34ad65a6323a5095f5589b90e64b6723c9e7e6",
+        "banlist_effective_date": "2007-09-01",
+        "reference_event": "SJC Orlando, 2008-01-26",
+        "historical_card_text_overrides_complete": false,
+        "replay_legality_reviewed": false
+      },
+      "review_dataset": "benchmarks/review/db-json-40753-85958923/manifest.json"
+    }
+  ]
+}

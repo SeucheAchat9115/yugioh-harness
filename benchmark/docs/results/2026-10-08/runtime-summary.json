@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "metric": "journal_completion_span",
+  "unit": "seconds",
+  "limitations": [
+    "Intervals run from the first to the last recorded harness action in each batch, not from model dispatch to completion.",
+    "Includes host review, orchestration, tool calls and pauses between attempts. Excludes batch setup and the first attempt before its recorded action.",
+    "Separate subagent start/terminal timestamps are not available in the surviving run artifacts. Model inference latency cannot be isolated.",
+    "Sol reused eight earlier attempts; its two batches must be reported separately. The gap between batches is not runtime."
+  ],
+  "aggregation": "For each model, sum first-to-last recorded action spans within batches; exclude gaps between batches. All four plots use the total across 36 tasks, not KPI-specific latency.",
+  "batches": [
+    {
+      "model_requested": "gpt-6.1-sol",
+      "batch": "original_retained",
+      "attempt_count": 8,
+      "first_recorded_action": "2026-10-08T12:37:36.563434+00:00",
+      "last_recorded_action": "2026-10-08T12:46:50.591428+00:00",
+      "completion_span_seconds": 554.027994,
+      "source_run_file_sha256": "b73e6906ebdafc303c45022a8b004f8e1a58a2d0665c95f7291a8a6f9780194f"
+    },
+    {
+      "model_requested": "gpt-6.1-sol",
+      "batch": "fresh",
+      "attempt_count": 28,
+      "first_recorded_action": "2026-10-08T14:01:31.791401+00:00",
+      "last_recorded_action": "2026-10-08T14:33:53.419804+00:00",
+      "completion_span_seconds": 1941.628403,
+      "source_run_file_sha256": "b73e6906ebdafc303c45022a8b004f8e1a58a2d0665c95f7291a8a6f9780194f"
+    },
+    {
+      "model_requested": "gpt-6-luna",
+      "batch": "fresh",
+      "attempt_count": 36,
+      "first_recorded_action": "2026-10-08T20:34:07.941443+00:00",
+      "last_recorded_action": "2026-10-08T20:52:45.171453+00:00",
+      "completion_span_seconds": 1117.23001,
+      "source_run_file_sha256": "ffdc42f6d3931d3a570e73c9b526afa5074e48b513ed6f79c546e76bff2c7baa"
+    }
+  ],
+  "totals": {
+    "gpt-6.1-sol": {
+      "attempt_count": 36,
+      "recorded_span_seconds": 2495.6563969999997
+    },
+    "gpt-6-luna": {
+      "attempt_count": 36,
+      "recorded_span_seconds": 1117.23001
+    }
+  }
+}

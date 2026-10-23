@@ -1,0 +1,554 @@
+{
+  "schema_version": "1.0",
+  "id": "db-json-40753-85958923-before-000122",
+  "runnable": false,
+  "player_context": {
+    "perspective": "agent",
+    "state": {
+      "game_id": "reference-checkpoint",
+      "mode": "agent-vs-agent",
+      "status": "active",
+      "turn": 5,
+      "active_player": "agent",
+      "phase": "main1",
+      "chain": [],
+      "pending_effects": [],
+      "revision": 0,
+      "pending_decision": {
+        "actor": "agent",
+        "window": "unreviewed_observation"
+      },
+      "players": {
+        "human": {
+          "lp": 8000,
+          "hand_count": 3,
+          "deck_count": 33,
+          "extra_count": 15,
+          "side_count": 15,
+          "monster_zones": [
+            null,
+            null,
+            {
+              "instance_id": "field-ref-567",
+              "owner": "human",
+              "position": "DEF",
+              "hidden": true
+            },
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            null,
+            {
+              "instance_id": "field-ref-564",
+              "owner": "human",
+              "hidden": true
+            },
+            null,
+            null
+          ],
+          "graveyard": [
+            {
+              "instance_id": "pile-ref-517",
+              "owner": "human",
+              "card_id": 70342110,
+              "hidden": false,
+              "name": "Dimensional Prison",
+              "type": "Trap Card"
+            }
+          ],
+          "banished": [
+            {
+              "instance_id": "pile-ref-516",
+              "owner": "human",
+              "card_id": 7572887,
+              "hidden": false,
+              "name": "D.D. Warrior Lady",
+              "atk": 1500,
+              "def": 1600,
+              "level": 4,
+              "attribute": "LIGHT",
+              "type": "Effect Monster"
+            }
+          ],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        },
+        "agent": {
+          "lp": 8000,
+          "hand_count": 3,
+          "deck_count": 20,
+          "extra_count": 15,
+          "side_count": 15,
+          "hand": [
+            {
+              "instance_id": "agent-hand-1",
+              "owner": "agent",
+              "card_id": 45809008,
+              "name": "Destiny Draw",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "agent-hand-2",
+              "owner": "agent",
+              "card_id": 213326,
+              "name": "E - Emergency Call",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "agent-hand-3",
+              "owner": "agent",
+              "card_id": 38120068,
+              "name": "Trade-In",
+              "type": "Spell Card"
+            }
+          ],
+          "extra_deck": [
+            {
+              "instance_id": "agent-extra-unknown-1"
+            },
+            {
+              "instance_id": "agent-extra-unknown-2"
+            },
+            {
+              "instance_id": "agent-extra-unknown-3"
+            },
+            {
+              "instance_id": "agent-extra-unknown-4"
+            },
+            {
+              "instance_id": "agent-extra-unknown-5"
+            },
+            {
+              "instance_id": "agent-extra-unknown-6"
+            },
+            {
+              "instance_id": "agent-extra-unknown-7"
+            },
+            {
+              "instance_id": "agent-extra-unknown-8"
+            },
+            {
+              "instance_id": "agent-extra-unknown-9"
+            },
+            {
+              "instance_id": "agent-extra-unknown-10"
+            },
+            {
+              "instance_id": "agent-extra-unknown-11"
+            },
+            {
+              "instance_id": "agent-extra-unknown-12"
+            },
+            {
+              "instance_id": "agent-extra-unknown-13"
+            },
+            {
+              "instance_id": "agent-extra-unknown-14"
+            },
+            {
+              "instance_id": "agent-extra-unknown-15"
+            }
+          ],
+          "monster_zones": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            null,
+            {
+              "instance_id": "field-ref-512",
+              "owner": "agent",
+              "card_id": 73915051,
+              "hidden": true,
+              "name": "Scapegoat",
+              "type": "Spell Card"
+            },
+            null,
+            null
+          ],
+          "graveyard": [
+            {
+              "instance_id": "pile-ref-77",
+              "owner": "agent",
+              "card_id": 38120068,
+              "hidden": false,
+              "name": "Trade-In",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-78",
+              "owner": "agent",
+              "card_id": 83965310,
+              "hidden": false,
+              "name": "Destiny HERO - Plasma",
+              "atk": 1900,
+              "def": 600,
+              "level": 8,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "pile-ref-519",
+              "owner": "agent",
+              "card_id": 75500286,
+              "hidden": false,
+              "name": "Gold Sarcophagus",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-525",
+              "owner": "agent",
+              "card_id": 45809008,
+              "hidden": false,
+              "name": "Destiny Draw",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-526",
+              "owner": "agent",
+              "card_id": 58577036,
+              "hidden": false,
+              "name": "Reasoning",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-527",
+              "owner": "agent",
+              "card_id": 29228529,
+              "hidden": false,
+              "name": "Spell Reproduction",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-524",
+              "owner": "agent",
+              "card_id": 58577036,
+              "hidden": false,
+              "name": "Reasoning",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-528",
+              "owner": "agent",
+              "card_id": 13093792,
+              "hidden": false,
+              "name": "Destiny HERO - Diamond Dude",
+              "atk": 1400,
+              "def": 1600,
+              "level": 4,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "pile-ref-522",
+              "owner": "agent",
+              "card_id": 31423101,
+              "hidden": false,
+              "name": "Divine Sword - Phoenix Blade",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-530",
+              "owner": "agent",
+              "card_id": 45809008,
+              "hidden": false,
+              "name": "Destiny Draw",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-531",
+              "owner": "agent",
+              "card_id": 32807846,
+              "hidden": false,
+              "name": "Reinforcement of the Army",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-532",
+              "owner": "agent",
+              "card_id": 72892473,
+              "hidden": false,
+              "name": "Card Destruction",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-521",
+              "owner": "agent",
+              "card_id": 43040603,
+              "hidden": false,
+              "name": "Monster Gate",
+              "type": "Spell Card"
+            }
+          ],
+          "banished": [
+            {
+              "instance_id": "pile-ref-108",
+              "owner": "agent",
+              "card_id": 23557835,
+              "hidden": false,
+              "name": "Dimension Fusion",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "pile-ref-79",
+              "owner": "agent",
+              "card_id": 40737112,
+              "hidden": false,
+              "name": "Dark Magician of Chaos",
+              "atk": 2800,
+              "def": 2600,
+              "level": 8,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "pile-ref-533",
+              "owner": "agent",
+              "card_id": 81866673,
+              "hidden": false,
+              "name": "Destiny HERO - Dasher",
+              "atk": 2100,
+              "def": 1000,
+              "level": 6,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            }
+          ],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        }
+      },
+      "shared_zones": {
+        "extra_monster_zones": []
+      }
+    },
+    "decision": {
+      "actor": "agent",
+      "window": "unreviewed_observation"
+    },
+    "recent_events": [
+      {
+        "id": "prior-118",
+        "kind": "phase",
+        "actor": "sdesowitz02",
+        "summary": "Entered Standby Phase"
+      },
+      {
+        "id": "prior-119",
+        "kind": "communication",
+        "actor": "sdesowitz02",
+        "summary": "\"1/2\""
+      },
+      {
+        "id": "prior-120",
+        "kind": "phase",
+        "actor": "sdesowitz02",
+        "summary": "Entered Main Phase 1"
+      },
+      {
+        "id": "prior-121",
+        "kind": "shuffle",
+        "actor": "sdesowitz02",
+        "summary": "Shuffled hand"
+      }
+    ],
+    "cards": {
+      "70342110": {
+        "id": 70342110,
+        "name": "Dimensional Prison",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "desc": "When an opponent's monster declares an attack: Target that attacking monster; banish that target.",
+        "race": "Normal"
+      },
+      "7572887": {
+        "id": 7572887,
+        "name": "D.D. Warrior Lady",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card.",
+        "race": "Warrior",
+        "atk": 1500,
+        "def": 1600,
+        "level": 4,
+        "attribute": "LIGHT"
+      },
+      "45809008": {
+        "id": 45809008,
+        "name": "Destiny Draw",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Discard 1 \"Destiny HERO\" card; draw 2 cards.",
+        "race": "Normal"
+      },
+      "213326": {
+        "id": 213326,
+        "name": "E - Emergency Call",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Add 1 \"Elemental HERO\" monster from your Deck to your hand.",
+        "race": "Normal"
+      },
+      "38120068": {
+        "id": 38120068,
+        "name": "Trade-In",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Discard 1 Level 8 monster; draw 2 cards.",
+        "race": "Normal"
+      },
+      "73915051": {
+        "id": 73915051,
+        "name": "Scapegoat",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Special Summon 4 \"Sheep Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).",
+        "race": "Quick-Play"
+      },
+      "83965310": {
+        "id": 83965310,
+        "name": "Destiny HERO - Plasma",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 3 monsters. Negate the effects of face-up monsters while your opponent controls them. Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). Gains ATK equal to half the original ATK of the monster equipped to it by this effect.",
+        "race": "Warrior",
+        "atk": 1900,
+        "def": 600,
+        "level": 8,
+        "attribute": "DARK"
+      },
+      "75500286": {
+        "id": 75500286,
+        "name": "Gold Sarcophagus",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Banish 1 card from your Deck, face-up. During your second Standby Phase after this card's activation, add that card to the hand.",
+        "race": "Normal"
+      },
+      "58577036": {
+        "id": 58577036,
+        "name": "Reasoning",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the GY. If not, Special Summon the excavated monster, also send the remaining cards to the GY.",
+        "race": "Normal"
+      },
+      "29228529": {
+        "id": 29228529,
+        "name": "Spell Reproduction",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Send 2 Spells from your hand to the GY, then target 1 Spell in your GY; add it to your hand.",
+        "race": "Normal"
+      },
+      "13093792": {
+        "id": 13093792,
+        "name": "Destiny HERO - Diamond Dude",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "Once per turn: You can excavate the top card of your Deck, and if it is a Normal Spell, send it to the GY, otherwise place it on the bottom of your Deck. During the Main Phase of your next turn, you can activate the effect of that Spell in your GY (even if you no longer control this face-up card).",
+        "race": "Warrior",
+        "atk": 1400,
+        "def": 1600,
+        "level": 4,
+        "attribute": "DARK"
+      },
+      "31423101": {
+        "id": 31423101,
+        "name": "Divine Sword - Phoenix Blade",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Equip only to a Warrior monster. It gains 300 ATK. During your Main Phase, if this card is in your GY: You can banish 2 Warrior monsters from your GY; add this card to your hand.",
+        "race": "Equip"
+      },
+      "32807846": {
+        "id": 32807846,
+        "name": "Reinforcement of the Army",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Add 1 Level 4 or lower Warrior monster from your Deck to your hand.",
+        "race": "Normal"
+      },
+      "72892473": {
+        "id": 72892473,
+        "name": "Card Destruction",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.",
+        "race": "Normal"
+      },
+      "43040603": {
+        "id": 43040603,
+        "name": "Monster Gate",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the GY.",
+        "race": "Normal"
+      },
+      "23557835": {
+        "id": 23557835,
+        "name": "Dimension Fusion",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Pay 2000 Life Points. Both players Special Summon as many of their removed from play monsters as possible.",
+        "race": "Normal"
+      },
+      "40737112": {
+        "id": 40737112,
+        "name": "Dark Magician of Chaos",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "During the End Phase, if this card was Normal or Special Summoned this turn: You can target 1 Spell in your GY; add it to your hand. You can only use this effect of \"Dark Magician of Chaos\" once per turn. If this card destroys an opponent's monster by battle, after damage calculation: Banish that opponent's monster. If this face-up card would leave the field, banish it instead.",
+        "race": "Spellcaster",
+        "atk": 2800,
+        "def": 2600,
+        "level": 8,
+        "attribute": "DARK"
+      },
+      "81866673": {
+        "id": 81866673,
+        "name": "Destiny HERO - Dasher",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "Once per turn: You can Tribute 1 other monster; this card gains 1000 ATK until the End Phase. If this card attacks, change it to Defense Position at the end of the Battle Phase. One time only, when you draw a Monster Card during your Draw Phase while this card is in your Graveyard: You can reveal it; Special Summon it. This card must be in the Graveyard to activate and to resolve this effect.",
+        "race": "Warrior",
+        "atk": 2100,
+        "def": 1000,
+        "level": 6,
+        "attribute": "DARK"
+      }
+    },
+    "rules": {
+      "text": "Perfect Circle 2007 pilot (September 2007 banlist). 8000 LP,\n5 opening cards, first player draws; first-turn Battle Phase is forbidden.\nFive Monster and five Spell/Trap Zones. One Normal Summon OR Normal Set per\nturn; a Level 4 monster can be Normal Summoned/Set without a Tribute. A Normal\nSet is face-down Defense Position. Spell/Trap cards may be Set in empty S/T\nslots during your Main Phase; setting does not activate their effects. A Trap\nor Quick-Play Spell cannot be activated in the turn it was Set. Leave valid\nopponent response opportunities to the moderator. Current supplied card texts\nare provisional for historical-text-dependent effects. This is a single-decision\ncheckpoint, not a complete deck or a continuing duel: unseen deck and Extra/Side\nidentities are unavailable. Do not invent cards; stop before resolving a choice\nthat needs unavailable information. Choose your own next action from the\navailable information; do not try to retrieve the source replay or benchmark.\n",
+      "truncated": false,
+      "format": "perfect-circle",
+      "banlist": "TCG pool 2007-09-01",
+      "rules_version": "perfect-circle-2026-10-08",
+      "settings": {
+        "starting_lp": 8000,
+        "opening_hand_size": 5,
+        "starting_player_draws": true,
+        "starting_player_battle_phase": false
+      }
+    },
+    "guides": {},
+    "context_version": "compact-v1",
+    "context_limits": {
+      "recent_events": 4,
+      "guide_chars_per_deck": 1200,
+      "card_text": "visible hands, board, GYs, banished and pending effects; Extra/Side text on explicit focus",
+      "details": "orchestrator can request full duel_context or focused duel_agent_context before dispatch",
+      "checkpoint_scope": "single next action; unseen identities and chain/effect bookkeeping need review outside approved set cases"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+include AGENTS.md CLAUDE.md GEMINI.md CHANGELOG.md CONTRIBUTING.md
+recursive-include agents *.md
+recursive-include decks *.md *.json *.ydk
+recursive-include docs *.md *.svg *.py
+recursive-include rules *.md *.json
+recursive-include skills *.md *.py
+recursive-include templates *.json
+recursive-include tests *.py
+include benchmark/README.md benchmark/AGENTS.md benchmark/CONTRIBUTING.md benchmark/CHANGELOG.md benchmark/LICENSE benchmark/THIRD_PARTY_NOTICES.md
+recursive-include benchmark/docs *.md *.json *.py *.png *.svg
+recursive-include benchmark/tests *.py
+recursive-include benchmark/schemas *.json
+recursive-include benchmark/fixtures *.json *.md
+recursive-include benchmark/benchmarks *.json *.md
+recursive-include benchmark/replays *.json *.md
+recursive-include benchmark/scripts *.py
+prune benchmark/imports
+prune benchmark/inspection
+prune benchmark/runs
+global-exclude *.py[cod]

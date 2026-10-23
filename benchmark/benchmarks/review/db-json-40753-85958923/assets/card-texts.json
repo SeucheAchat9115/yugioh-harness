@@ -1,0 +1,398 @@
+{
+  "E - Emergency Call": {
+    "id": 213326,
+    "name": "E - Emergency Call",
+    "desc": "Add 1 \"Elemental HERO\" monster from your Deck to your hand.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Mobius the Frost Monarch": {
+    "id": 4929256,
+    "name": "Mobius the Frost Monarch",
+    "desc": "When this card is Tribute Summoned: You can target up to 2 Spell/Trap Cards on the field; destroy those targets.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Aqua",
+    "atk": 2400,
+    "def": 1000,
+    "level": 6,
+    "attribute": "WATER"
+  },
+  "Mystical Space Typhoon": {
+    "id": 5318639,
+    "name": "Mystical Space Typhoon",
+    "desc": "Target 1 Spell/Trap on the field; destroy that target.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Quick-Play"
+  },
+  "D.D. Warrior Lady": {
+    "id": 7572887,
+    "name": "D.D. Warrior Lady",
+    "desc": "After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Warrior",
+    "atk": 1500,
+    "def": 1600,
+    "level": 4,
+    "attribute": "LIGHT"
+  },
+  "Destiny HERO - Diamond Dude": {
+    "id": 13093792,
+    "name": "Destiny HERO - Diamond Dude",
+    "desc": "Once per turn: You can excavate the top card of your Deck, and if it is a Normal Spell, send it to the GY, otherwise place it on the bottom of your Deck. During the Main Phase of your next turn, you can activate the effect of that Spell in your GY (even if you no longer control this face-up card).",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Warrior",
+    "atk": 1400,
+    "def": 1600,
+    "level": 4,
+    "attribute": "DARK"
+  },
+  "Heavy Storm": {
+    "id": 19613556,
+    "name": "Heavy Storm",
+    "desc": "Destroy all Spell and Trap Cards on the field.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Dimension Fusion": {
+    "id": 23557835,
+    "name": "Dimension Fusion",
+    "desc": "Pay 2000 Life Points. Both players Special Summon as many of their removed from play monsters as possible.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Return from the Different Dimension": {
+    "id": 27174286,
+    "name": "Return from the Different Dimension",
+    "desc": "Pay half your Life Points; Special Summon as many of your banished monsters as possible. During the End Phase, banish all monsters that were Special Summoned by this effect.",
+    "type": "Trap Card",
+    "frameType": "trap",
+    "race": "Normal"
+  },
+  "Spell Reproduction": {
+    "id": 29228529,
+    "name": "Spell Reproduction",
+    "desc": "Send 2 Spells from your hand to the GY, then target 1 Spell in your GY; add it to your hand.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Divine Sword - Phoenix Blade": {
+    "id": 31423101,
+    "name": "Divine Sword - Phoenix Blade",
+    "desc": "Equip only to a Warrior monster. It gains 300 ATK. During your Main Phase, if this card is in your GY: You can banish 2 Warrior monsters from your GY; add this card to your hand.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Equip"
+  },
+  "Reinforcement of the Army": {
+    "id": 32807846,
+    "name": "Reinforcement of the Army",
+    "desc": "Add 1 Level 4 or lower Warrior monster from your Deck to your hand.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Morphing Jar": {
+    "id": 33508719,
+    "name": "Morphing Jar",
+    "desc": "FLIP: Both players discard as many cards as possible from their hands, then each player draws 5 cards.",
+    "type": "Flip Effect Monster",
+    "frameType": "effect",
+    "race": "Rock",
+    "atk": 700,
+    "def": 600,
+    "level": 2,
+    "attribute": "EARTH"
+  },
+  "Trade-In": {
+    "id": 38120068,
+    "name": "Trade-In",
+    "desc": "Discard 1 Level 8 monster; draw 2 cards.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Elemental HERO Stratos": {
+    "id": 40044918,
+    "name": "Elemental HERO Stratos",
+    "desc": "When this card is Normal or Special Summoned: You can activate 1 of these effects.\r\n● Destroy Spells/Traps on the field, up to the number of \"HERO\" monsters you control, except this card.\r\n● Add 1 \"HERO\" monster from your Deck to your hand.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Warrior",
+    "atk": 1800,
+    "def": 300,
+    "level": 4,
+    "attribute": "WIND"
+  },
+  "Dark Magician of Chaos": {
+    "id": 40737112,
+    "name": "Dark Magician of Chaos",
+    "desc": "During the End Phase, if this card was Normal or Special Summoned this turn: You can target 1 Spell in your GY; add it to your hand. You can only use this effect of \"Dark Magician of Chaos\" once per turn. If this card destroys an opponent's monster by battle, after damage calculation: Banish that opponent's monster. If this face-up card would leave the field, banish it instead.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Spellcaster",
+    "atk": 2800,
+    "def": 2600,
+    "level": 8,
+    "attribute": "DARK"
+  },
+  "Strike Ninja": {
+    "id": 41006930,
+    "name": "Strike Ninja",
+    "desc": "(Quick Effect): You can banish 2 DARK monsters from your GY; banish this face-up card until the End Phase. You can only use this effect of \"Strike Ninja\" once per turn.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Warrior",
+    "atk": 1700,
+    "def": 1200,
+    "level": 4,
+    "attribute": "DARK"
+  },
+  "Solemn Judgment": {
+    "id": 41420027,
+    "name": "Solemn Judgment",
+    "desc": "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card.",
+    "type": "Trap Card",
+    "frameType": "trap",
+    "race": "Counter"
+  },
+  "Giant Trunade": {
+    "id": 42703248,
+    "name": "Giant Trunade",
+    "desc": "Return all Spell and Trap Cards on the field to the hand.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Monster Gate": {
+    "id": 43040603,
+    "name": "Monster Gate",
+    "desc": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the GY.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Mirror Force": {
+    "id": 44095762,
+    "name": "Mirror Force",
+    "desc": "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
+    "type": "Trap Card",
+    "frameType": "trap",
+    "race": "Normal"
+  },
+  "Destiny Draw": {
+    "id": 45809008,
+    "name": "Destiny Draw",
+    "desc": "Discard 1 \"Destiny HERO\" card; draw 2 cards.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Twister": {
+    "id": 45939841,
+    "name": "Twister",
+    "desc": "Pay 500 LP, then target 1 face-up Spell/Trap on the field; destroy that target.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Quick-Play"
+  },
+  "D.D. Survivor": {
+    "id": 48092532,
+    "name": "D.D. Survivor",
+    "desc": "During the End Phase, if this card was banished while face-up, on your side of the field, this turn: Special Summon this banished card. This effect can only activate once per turn.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Warrior",
+    "atk": 1800,
+    "def": 200,
+    "level": 4,
+    "attribute": "DARK"
+  },
+  "Royal Decree": {
+    "id": 51452091,
+    "name": "Royal Decree",
+    "desc": "Negate all other Trap effects on the field.",
+    "type": "Trap Card",
+    "frameType": "trap",
+    "race": "Continuous"
+  },
+  "Reasoning": {
+    "id": 58577036,
+    "name": "Reasoning",
+    "desc": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the GY. If not, Special Summon the excavated monster, also send the remaining cards to the GY.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Soul Exchange": {
+    "id": 68005187,
+    "name": "Soul Exchange",
+    "desc": "Target 1 monster your opponent controls; this turn, if you Tribute a monster, you must Tribute that target, as if you controlled it. You cannot conduct your Battle Phase the turn you activate this card.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Dimensional Prison": {
+    "id": 70342110,
+    "name": "Dimensional Prison",
+    "desc": "When an opponent's monster declares an attack: Target that attacking monster; banish that target.",
+    "type": "Trap Card",
+    "frameType": "trap",
+    "race": "Normal"
+  },
+  "Premature Burial": {
+    "id": 70828912,
+    "name": "Premature Burial",
+    "desc": "Activate this card by paying 800 LP, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. When this card is destroyed, destroy the equipped monster.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Equip"
+  },
+  "Breaker the Magical Warrior": {
+    "id": 71413901,
+    "name": "Breaker the Magical Warrior",
+    "desc": "If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1). Gains 300 ATK for each Spell Counter on it. You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Spellcaster",
+    "atk": 1600,
+    "def": 1000,
+    "level": 4,
+    "attribute": "DARK"
+  },
+  "Card Destruction": {
+    "id": 72892473,
+    "name": "Card Destruction",
+    "desc": "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Raiza the Storm Monarch": {
+    "id": 73125233,
+    "name": "Raiza the Storm Monarch",
+    "desc": "If this card is Tribute Summoned: Target 1 card on the field; place that target on the top of the Deck.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Winged Beast",
+    "atk": 2400,
+    "def": 1000,
+    "level": 6,
+    "attribute": "WIND"
+  },
+  "Scapegoat": {
+    "id": 73915051,
+    "name": "Scapegoat",
+    "desc": "Special Summon 4 \"Sheep Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Quick-Play"
+  },
+  "Gold Sarcophagus": {
+    "id": 75500286,
+    "name": "Gold Sarcophagus",
+    "desc": "Banish 1 card from your Deck, face-up. During your second Standby Phase after this card's activation, add that card to the hand.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Dark Bribe": {
+    "id": 77538567,
+    "name": "Dark Bribe",
+    "desc": "When your opponent activates a Spell/Trap Card: Your opponent draws 1 card, also negate the Spell/Trap activation, and if you do, destroy it.",
+    "type": "Trap Card",
+    "frameType": "trap",
+    "race": "Counter"
+  },
+  "Dimensional Fissure": {
+    "id": 81674782,
+    "name": "Dimensional Fissure",
+    "desc": "Any monster sent to the Graveyard is banished instead.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Continuous"
+  },
+  "Destiny HERO - Dasher": {
+    "id": 81866673,
+    "name": "Destiny HERO - Dasher",
+    "desc": "Once per turn: You can Tribute 1 other monster; this card gains 1000 ATK until the End Phase. If this card attacks, change it to Defense Position at the end of the Battle Phase. One time only, when you draw a Monster Card during your Draw Phase while this card is in your Graveyard: You can reveal it; Special Summon it. This card must be in the Graveyard to activate and to resolve this effect.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Warrior",
+    "atk": 2100,
+    "def": 1000,
+    "level": 6,
+    "attribute": "DARK"
+  },
+  "D.D.M. - Different Dimension Master": {
+    "id": 82112775,
+    "name": "D.D.M. - Different Dimension Master",
+    "desc": "Once per turn, you can discard 1 Spell Card to Special Summon 1 of your removed from play monsters.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Spellcaster",
+    "atk": 1700,
+    "def": 1500,
+    "level": 5,
+    "attribute": "LIGHT"
+  },
+  "Destiny HERO - Plasma": {
+    "id": 83965310,
+    "name": "Destiny HERO - Plasma",
+    "desc": "Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 3 monsters. Negate the effects of face-up monsters while your opponent controls them. Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). Gains ATK equal to half the original ATK of the monster equipped to it by this effect.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Warrior",
+    "atk": 1900,
+    "def": 600,
+    "level": 8,
+    "attribute": "DARK"
+  },
+  "Snipe Hunter": {
+    "id": 84290642,
+    "name": "Snipe Hunter",
+    "desc": "You can discard 1 card, then target 1 card on the field; roll a six-sided die, and destroy that target unless you roll a 1 or 6.",
+    "type": "Effect Monster",
+    "frameType": "effect",
+    "race": "Fiend",
+    "atk": 1500,
+    "def": 600,
+    "level": 4,
+    "attribute": "DARK"
+  },
+  "Dekoichi the Battlechanted Locomotive": {
+    "id": 87621407,
+    "name": "Dekoichi the Battlechanted Locomotive",
+    "desc": "FLIP: Draw 1 card, then draw 1 additional card for each face-up \"Bokoichi the Freightening Car\" you control.",
+    "type": "Flip Effect Monster",
+    "frameType": "effect",
+    "race": "Machine",
+    "atk": 1400,
+    "def": 1000,
+    "level": 4,
+    "attribute": "DARK"
+  },
+  "Brain Control": {
+    "id": 87910978,
+    "name": "Brain Control",
+    "desc": "Pay 800 LP, then target 1 face-up monster your opponent controls that can be Normal Summoned/Set; take control of that target until the End Phase.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  },
+  "Magical Stone Excavation": {
+    "id": 98494543,
+    "name": "Magical Stone Excavation",
+    "desc": "Discard 2 cards, then target 1 Spell in your GY; add it to your hand.",
+    "type": "Spell Card",
+    "frameType": "spell",
+    "race": "Normal"
+  }
+}

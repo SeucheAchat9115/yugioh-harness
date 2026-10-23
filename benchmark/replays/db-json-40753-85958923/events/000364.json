@@ -1,0 +1,1 @@
+{"actor":"p2","game":2,"kind":"information_observation","payload":{"card_names":[],"elapsed_seconds":1025,"native":{"action":"Duel","log":{"private_log":"Viewed deck","public_log":"Viewed deck","type":"duel","username":"sdesowitz02"},"play":"View deck","seconds":1025,"username":"sdesowitz02","viewing":"Deck"},"play":"View deck","turn":2},"sequence":364,"source_index":363}

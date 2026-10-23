@@ -3,7 +3,7 @@
 ## Supported environment
 
 Python 3.11–3.13 on Windows, Linux or macOS. Windows uses native byte-range
-writer locks; POSIX systems use `flock`. CI runs on Windows only. Runtime dependencies are Python's standard library.
+writer locks; POSIX systems use `flock`. Runtime CI runs on Windows; benchmark CI runs on Linux and Windows. Runtime dependencies are Python's standard library.
 Install/build tools are needed only for setup. Deck conversion additionally needs
 network access to the YGOPRODeck API; prepared decks play offline with respect to
 card data (your model host may still use its own network).
@@ -71,6 +71,15 @@ Execution-capable orchestrators can launch the same backend themselves when MCP
 is not registered. The configuration generator produces usable absolute paths; there is no
 second set of static host configurations to maintain. Models/API credentials belong to
 the host; this project does not require vendor SDKs or collect credentials.
+
+## Headless chat fallback
+
+When MCP is not registered but the host has execution and fresh subagents, the
+orchestrator can operate `python -m harness.cli duel --repo <checkout>` internally.
+The JSON-lines and one-shot request forms use the same workflow as MCP; see
+[headless/chat integration](headless.md). This supports execution-capable chat
+sessions without user terminal steps. The CLI still requires host adjudication
+and independent player dispatch; it is not an unattended LLM client by itself.
 
 ## Verify capabilities before dealing
 

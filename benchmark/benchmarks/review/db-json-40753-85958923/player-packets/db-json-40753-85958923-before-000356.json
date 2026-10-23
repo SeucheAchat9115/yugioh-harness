@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0",
+  "id": "db-json-40753-85958923-before-000356",
+  "runnable": false,
+  "player_context": {
+    "perspective": "agent",
+    "state": {
+      "game_id": "reference-checkpoint",
+      "mode": "agent-vs-agent",
+      "status": "active",
+      "turn": 2,
+      "active_player": "agent",
+      "phase": "main1",
+      "chain": [],
+      "pending_effects": [],
+      "revision": 0,
+      "pending_decision": {
+        "actor": "agent",
+        "window": "unreviewed_observation"
+      },
+      "players": {
+        "human": {
+          "lp": 8000,
+          "hand_count": 2,
+          "deck_count": 34,
+          "extra_count": 15,
+          "side_count": 15,
+          "monster_zones": [
+            null,
+            null,
+            {
+              "instance_id": "field-ref-715",
+              "owner": "human",
+              "position": "DEF",
+              "hidden": true
+            },
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            {
+              "instance_id": "field-ref-713",
+              "owner": "human",
+              "hidden": true
+            },
+            {
+              "instance_id": "field-ref-717",
+              "owner": "human",
+              "hidden": true
+            },
+            {
+              "instance_id": "field-ref-714",
+              "owner": "human",
+              "hidden": true
+            },
+            null
+          ],
+          "graveyard": [],
+          "banished": [],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        },
+        "agent": {
+          "lp": 8000,
+          "hand_count": 5,
+          "deck_count": 32,
+          "extra_count": 15,
+          "side_count": 15,
+          "hand": [
+            {
+              "instance_id": "agent-hand-1",
+              "owner": "agent",
+              "card_id": 87910978,
+              "name": "Brain Control",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "agent-hand-2",
+              "owner": "agent",
+              "card_id": 40737112,
+              "name": "Dark Magician of Chaos",
+              "atk": 2800,
+              "def": 2600,
+              "level": 8,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "agent-hand-3",
+              "owner": "agent",
+              "card_id": 43040603,
+              "name": "Monster Gate",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "agent-hand-4",
+              "owner": "agent",
+              "card_id": 5318639,
+              "name": "Mystical Space Typhoon",
+              "type": "Spell Card"
+            },
+            {
+              "instance_id": "agent-hand-5",
+              "owner": "agent",
+              "card_id": 27174286,
+              "name": "Return from the Different Dimension",
+              "type": "Trap Card"
+            }
+          ],
+          "extra_deck": [
+            {
+              "instance_id": "agent-extra-unknown-1"
+            },
+            {
+              "instance_id": "agent-extra-unknown-2"
+            },
+            {
+              "instance_id": "agent-extra-unknown-3"
+            },
+            {
+              "instance_id": "agent-extra-unknown-4"
+            },
+            {
+              "instance_id": "agent-extra-unknown-5"
+            },
+            {
+              "instance_id": "agent-extra-unknown-6"
+            },
+            {
+              "instance_id": "agent-extra-unknown-7"
+            },
+            {
+              "instance_id": "agent-extra-unknown-8"
+            },
+            {
+              "instance_id": "agent-extra-unknown-9"
+            },
+            {
+              "instance_id": "agent-extra-unknown-10"
+            },
+            {
+              "instance_id": "agent-extra-unknown-11"
+            },
+            {
+              "instance_id": "agent-extra-unknown-12"
+            },
+            {
+              "instance_id": "agent-extra-unknown-13"
+            },
+            {
+              "instance_id": "agent-extra-unknown-14"
+            },
+            {
+              "instance_id": "agent-extra-unknown-15"
+            }
+          ],
+          "monster_zones": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            null,
+            {
+              "instance_id": "field-ref-727",
+              "owner": "agent",
+              "card_id": 213326,
+              "hidden": false,
+              "name": "E - Emergency Call",
+              "type": "Spell Card"
+            },
+            null,
+            null
+          ],
+          "graveyard": [
+            {
+              "instance_id": "pile-ref-720",
+              "owner": "agent",
+              "card_id": 81866673,
+              "hidden": false,
+              "name": "Destiny HERO - Dasher",
+              "atk": 2100,
+              "def": 1000,
+              "level": 6,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "pile-ref-722",
+              "owner": "agent",
+              "card_id": 45809008,
+              "hidden": false,
+              "name": "Destiny Draw",
+              "type": "Spell Card"
+            }
+          ],
+          "banished": [],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        }
+      },
+      "shared_zones": {
+        "extra_monster_zones": []
+      }
+    },
+    "decision": {
+      "actor": "agent",
+      "window": "unreviewed_observation"
+    },
+    "recent_events": [
+      {
+        "id": "prior-352",
+        "kind": "activation_observation",
+        "actor": "sdesowitz02",
+        "summary": "Activated \"E - Emergency Call\" from hand (4/6) to S-3"
+      },
+      {
+        "id": "prior-353",
+        "kind": "communication",
+        "actor": "Aco77",
+        "summary": "Signaled OK"
+      },
+      {
+        "id": "prior-354",
+        "kind": "activation_observation",
+        "actor": "sdesowitz02",
+        "summary": "Declared effect of \"E - Emergency Call\" in S-3"
+      },
+      {
+        "id": "prior-355",
+        "kind": "information_observation",
+        "actor": "sdesowitz02",
+        "summary": "Viewed deck"
+      }
+    ],
+    "cards": {
+      "87910978": {
+        "id": 87910978,
+        "name": "Brain Control",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Pay 800 LP, then target 1 face-up monster your opponent controls that can be Normal Summoned/Set; take control of that target until the End Phase.",
+        "race": "Normal"
+      },
+      "40737112": {
+        "id": 40737112,
+        "name": "Dark Magician of Chaos",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "During the End Phase, if this card was Normal or Special Summoned this turn: You can target 1 Spell in your GY; add it to your hand. You can only use this effect of \"Dark Magician of Chaos\" once per turn. If this card destroys an opponent's monster by battle, after damage calculation: Banish that opponent's monster. If this face-up card would leave the field, banish it instead.",
+        "race": "Spellcaster",
+        "atk": 2800,
+        "def": 2600,
+        "level": 8,
+        "attribute": "DARK"
+      },
+      "43040603": {
+        "id": 43040603,
+        "name": "Monster Gate",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the GY.",
+        "race": "Normal"
+      },
+      "5318639": {
+        "id": 5318639,
+        "name": "Mystical Space Typhoon",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Target 1 Spell/Trap on the field; destroy that target.",
+        "race": "Quick-Play"
+      },
+      "27174286": {
+        "id": 27174286,
+        "name": "Return from the Different Dimension",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "desc": "Pay half your Life Points; Special Summon as many of your banished monsters as possible. During the End Phase, banish all monsters that were Special Summoned by this effect.",
+        "race": "Normal"
+      },
+      "213326": {
+        "id": 213326,
+        "name": "E - Emergency Call",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Add 1 \"Elemental HERO\" monster from your Deck to your hand.",
+        "race": "Normal"
+      },
+      "81866673": {
+        "id": 81866673,
+        "name": "Destiny HERO - Dasher",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "Once per turn: You can Tribute 1 other monster; this card gains 1000 ATK until the End Phase. If this card attacks, change it to Defense Position at the end of the Battle Phase. One time only, when you draw a Monster Card during your Draw Phase while this card is in your Graveyard: You can reveal it; Special Summon it. This card must be in the Graveyard to activate and to resolve this effect.",
+        "race": "Warrior",
+        "atk": 2100,
+        "def": 1000,
+        "level": 6,
+        "attribute": "DARK"
+      },
+      "45809008": {
+        "id": 45809008,
+        "name": "Destiny Draw",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Discard 1 \"Destiny HERO\" card; draw 2 cards.",
+        "race": "Normal"
+      }
+    },
+    "rules": {
+      "text": "Perfect Circle 2007 pilot (September 2007 banlist). 8000 LP,\n5 opening cards, first player draws; first-turn Battle Phase is forbidden.\nFive Monster and five Spell/Trap Zones. One Normal Summon OR Normal Set per\nturn; a Level 4 monster can be Normal Summoned/Set without a Tribute. A Normal\nSet is face-down Defense Position. Spell/Trap cards may be Set in empty S/T\nslots during your Main Phase; setting does not activate their effects. A Trap\nor Quick-Play Spell cannot be activated in the turn it was Set. Leave valid\nopponent response opportunities to the moderator. Current supplied card texts\nare provisional for historical-text-dependent effects. This is a single-decision\ncheckpoint, not a complete deck or a continuing duel: unseen deck and Extra/Side\nidentities are unavailable. Do not invent cards; stop before resolving a choice\nthat needs unavailable information. Choose your own next action from the\navailable information; do not try to retrieve the source replay or benchmark.\n",
+      "truncated": false,
+      "format": "perfect-circle",
+      "banlist": "TCG pool 2007-09-01",
+      "rules_version": "perfect-circle-2026-10-08",
+      "settings": {
+        "starting_lp": 8000,
+        "opening_hand_size": 5,
+        "starting_player_draws": true,
+        "starting_player_battle_phase": false
+      }
+    },
+    "guides": {},
+    "context_version": "compact-v1",
+    "context_limits": {
+      "recent_events": 4,
+      "guide_chars_per_deck": 1200,
+      "card_text": "visible hands, board, GYs, banished and pending effects; Extra/Side text on explicit focus",
+      "details": "orchestrator can request full duel_context or focused duel_agent_context before dispatch",
+      "checkpoint_scope": "single next action; unseen identities and chain/effect bookkeeping need review outside approved set cases"
+    }
+  }
+}

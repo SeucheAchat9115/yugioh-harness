@@ -1,0 +1,1 @@
+{"actor":"p2","game":1,"kind":"field_observation","payload":{"card_names":[],"elapsed_seconds":503,"native":{"action":"Duel","id":624,"log":{"public_log":"Removed \"Token\" from M-2","type":"duel","username":"sdesowitz02"},"play":"Remove Token","seconds":503,"username":"sdesowitz02"},"play":"Remove Token","turn":7},"sequence":204,"source_index":203}

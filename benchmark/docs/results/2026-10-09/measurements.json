@@ -1,0 +1,15 @@
+{
+  "model": "gpt-6-luna",
+  "evaluation_cost_usd": null,
+  "pipeline_cost_usd": null,
+  "input_tokens": null,
+  "output_tokens": null,
+  "evaluation_calls": 36,
+  "referee_calls": 36,
+  "unpriced_evaluation_calls": 36,
+  "runtime_note": "Includes near-zero retrieval of reused artifacts. Not a complete inference latency benchmark; original raw telemetry preserved in archived phases.",
+  "cost_note": "Native subagents expose neither token usage nor billing. Subscription allocation and hypothetical API charges are not measured run costs.",
+  "player_collection_seconds": 23802.765765411004,
+  "player_collection_minutes": 396.71276275685005,
+  "runtime_basis": "Sum of recorded static collector durations for 36 canonical player responses. Includes manual preparation and waiting; reused responses contribute cached lookup time. Excludes referee calls and excluded transport trials. Parallel call durations are cumulative, not elapsed wall time. Not complete inference timing."
+}

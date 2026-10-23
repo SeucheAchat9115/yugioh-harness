@@ -1,0 +1,3656 @@
+[
+  {
+    "id": "db-json-40753-85958923-before-000007",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 7,
+      "source_index": 6
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000008",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 8,
+      "source_index": 7
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000011",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 11,
+      "source_index": 10
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000019",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 19,
+      "source_index": 18
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000021",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 21,
+      "source_index": 20
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000025",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 25,
+      "source_index": 24
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000026",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 26,
+      "source_index": 25
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000027",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 27,
+      "source_index": 26
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000028",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 28,
+      "source_index": 27
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000030",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 30,
+      "source_index": 29
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000031",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 31,
+      "source_index": 30
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000033",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 33,
+      "source_index": 32
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000034",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 34,
+      "source_index": 33
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000035",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 35,
+      "source_index": 34
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000036",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 36,
+      "source_index": 35
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000038",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 38,
+      "source_index": 37
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000039",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 39,
+      "source_index": 38
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000041",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 41,
+      "source_index": 40
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000048",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 48,
+      "source_index": 47
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000055",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 55,
+      "source_index": 54
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000058",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 58,
+      "source_index": 57
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000067",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 67,
+      "source_index": 66
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000068",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 68,
+      "source_index": 67
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000078",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 78,
+      "source_index": 77
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000081",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 81,
+      "source_index": 80
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000082",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 82,
+      "source_index": 81
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000083",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 83,
+      "source_index": 82
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000086",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 86,
+      "source_index": 85
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000093",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 93,
+      "source_index": 92
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000096",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 96,
+      "source_index": 95
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000097",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 97,
+      "source_index": 96
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000098",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 98,
+      "source_index": 97
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000100",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 100,
+      "source_index": 99
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000102",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 102,
+      "source_index": 101
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000110",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 110,
+      "source_index": 109
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000111",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 111,
+      "source_index": 110
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000112",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 112,
+      "source_index": 111
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000116",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 116,
+      "source_index": 115
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000118",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 118,
+      "source_index": 117
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000120",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 120,
+      "source_index": 119
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000122",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 122,
+      "source_index": 121
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000123",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 123,
+      "source_index": 122
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000130",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 130,
+      "source_index": 129
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000131",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 131,
+      "source_index": 130
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000137",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 137,
+      "source_index": 136
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000148",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 148,
+      "source_index": 147
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000149",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 149,
+      "source_index": 148
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000150",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 150,
+      "source_index": 149
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000152",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 152,
+      "source_index": 151
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000153",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 153,
+      "source_index": 152
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000155",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 155,
+      "source_index": 154
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000158",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 158,
+      "source_index": 157
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000159",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 159,
+      "source_index": 158
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000161",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 161,
+      "source_index": 160
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000165",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 165,
+      "source_index": 164
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000172",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 172,
+      "source_index": 171
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000173",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 173,
+      "source_index": 172
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000175",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 175,
+      "source_index": 174
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000180",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 180,
+      "source_index": 179
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000187",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 187,
+      "source_index": 186
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000190",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 190,
+      "source_index": 189
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000196",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 196,
+      "source_index": 195
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000198",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 198,
+      "source_index": 197
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000209",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 209,
+      "source_index": 208
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000210",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 210,
+      "source_index": 209
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000215",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 215,
+      "source_index": 214
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000225",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 225,
+      "source_index": 224
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000228",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 228,
+      "source_index": 227
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000231",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 231,
+      "source_index": 230
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000234",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 234,
+      "source_index": 233
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000236",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 236,
+      "source_index": 235
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000247",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 247,
+      "source_index": 246
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000253",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 253,
+      "source_index": 252
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000256",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 256,
+      "source_index": 255
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000259",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 259,
+      "source_index": 258
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000262",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 262,
+      "source_index": 261
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000267",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 267,
+      "source_index": 266
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000272",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 272,
+      "source_index": 271
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000275",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 275,
+      "source_index": 274
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000276",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 276,
+      "source_index": 275
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000278",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 278,
+      "source_index": 277
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000287",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 287,
+      "source_index": 286
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000288",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 288,
+      "source_index": 287
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000290",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 290,
+      "source_index": 289
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000291",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 291,
+      "source_index": 290
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000293",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 293,
+      "source_index": 292
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000295",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 295,
+      "source_index": 294
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000296",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 296,
+      "source_index": 295
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000302",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 302,
+      "source_index": 301
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000303",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 303,
+      "source_index": 302
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000304",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 304,
+      "source_index": 303
+    },
+    "game": 1,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000305",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 305,
+      "source_index": 304
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000307",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 307,
+      "source_index": 306
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000308",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 308,
+      "source_index": 307
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000312",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 312,
+      "source_index": 311
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000319",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 319,
+      "source_index": 318
+    },
+    "game": 1,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000331",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 331,
+      "source_index": 330
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000332",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 332,
+      "source_index": 331
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000334",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 334,
+      "source_index": 333
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000335",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 335,
+      "source_index": 334
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000336",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 336,
+      "source_index": 335
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000337",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 337,
+      "source_index": 336
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000338",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 338,
+      "source_index": 337
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000339",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 339,
+      "source_index": 338
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000341",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 341,
+      "source_index": 340
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000342",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 342,
+      "source_index": 341
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000344",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 344,
+      "source_index": 343
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000352",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 352,
+      "source_index": 351
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000354",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 354,
+      "source_index": 353
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000360",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 360,
+      "source_index": 359
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000361",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 361,
+      "source_index": 360
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000368",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 368,
+      "source_index": 367
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000369",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 369,
+      "source_index": 368
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000370",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 370,
+      "source_index": 369
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000371",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 371,
+      "source_index": 370
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000372",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 372,
+      "source_index": 371
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000375",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 375,
+      "source_index": 374
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000376",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 376,
+      "source_index": 375
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000377",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 377,
+      "source_index": 376
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000378",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 378,
+      "source_index": 377
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000380",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 380,
+      "source_index": 379
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000381",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 381,
+      "source_index": 380
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000384",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 384,
+      "source_index": 383
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000386",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 386,
+      "source_index": 385
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000388",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 388,
+      "source_index": 387
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000391",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 391,
+      "source_index": 390
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000393",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 393,
+      "source_index": 392
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000395",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 395,
+      "source_index": 394
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000396",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 396,
+      "source_index": 395
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000397",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 397,
+      "source_index": 396
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000398",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 398,
+      "source_index": 397
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000400",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 400,
+      "source_index": 399
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000401",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 401,
+      "source_index": 400
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000408",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 408,
+      "source_index": 407
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000413",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 413,
+      "source_index": 412
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000438",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 438,
+      "source_index": 437
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000443",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 443,
+      "source_index": 442
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000454",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 454,
+      "source_index": 453
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000455",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 455,
+      "source_index": 454
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000461",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 461,
+      "source_index": 460
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000462",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 462,
+      "source_index": 461
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000463",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 463,
+      "source_index": 462
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000464",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 464,
+      "source_index": 463
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000466",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 466,
+      "source_index": 465
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000467",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 467,
+      "source_index": 466
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000468",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 468,
+      "source_index": 467
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000469",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 469,
+      "source_index": 468
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "set",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000470",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 470,
+      "source_index": 469
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000471",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 471,
+      "source_index": 470
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000473",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 473,
+      "source_index": 472
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000474",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 474,
+      "source_index": 473
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000484",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 484,
+      "source_index": 483
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000485",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 485,
+      "source_index": 484
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "attack",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000486",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 486,
+      "source_index": 485
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000489",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 489,
+      "source_index": 488
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000490",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 490,
+      "source_index": 489
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000491",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 491,
+      "source_index": 490
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000492",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 492,
+      "source_index": 491
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000494",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 494,
+      "source_index": 493
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000495",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 495,
+      "source_index": 494
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000496",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 496,
+      "source_index": 495
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000497",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 497,
+      "source_index": 496
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "turn",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000499",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 499,
+      "source_index": 498
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000500",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 500,
+      "source_index": 499
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "phase",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000502",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 502,
+      "source_index": 501
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000508",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 508,
+      "source_index": 507
+    },
+    "game": 2,
+    "actor": "p1",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000526",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 526,
+      "source_index": 525
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000531",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 531,
+      "source_index": 530
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000532",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 532,
+      "source_index": 531
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000533",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 533,
+      "source_index": 532
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000534",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 534,
+      "source_index": 533
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000535",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 535,
+      "source_index": 534
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "summon",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000538",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 538,
+      "source_index": 537
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  },
+  {
+    "id": "db-json-40753-85958923-before-000552",
+    "source": {
+      "replay": "db-json-40753-85958923",
+      "before_sequence": 552,
+      "source_index": 551
+    },
+    "game": 2,
+    "actor": "p2",
+    "observation_kind": "activation_observation",
+    "review": {
+      "status": "unreviewed"
+    },
+    "required_review": [
+      "state",
+      "information_visibility",
+      "rules",
+      "decision_boundary",
+      "grading"
+    ]
+  }
+]

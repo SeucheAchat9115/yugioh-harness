@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0",
+  "id": "db-json-40753-85958923-before-000334",
+  "runnable": true,
+  "player_context": {
+    "perspective": "agent",
+    "state": {
+      "game_id": "reference-checkpoint",
+      "mode": "agent-vs-agent",
+      "status": "active",
+      "turn": 1,
+      "active_player": "agent",
+      "phase": "main1",
+      "chain": [],
+      "pending_effects": [],
+      "revision": 0,
+      "pending_decision": {
+        "actor": "agent",
+        "window": "main_phase_action"
+      },
+      "players": {
+        "agent": {
+          "lp": 8000,
+          "hand_count": 6,
+          "deck_count": 34,
+          "extra_count": 15,
+          "side_count": 15,
+          "hand": [
+            {
+              "instance_id": "agent-hand-1",
+              "owner": "agent",
+              "card_id": 71413901,
+              "name": "Breaker the Magical Warrior",
+              "atk": 1600,
+              "def": 1000,
+              "level": 4,
+              "attribute": "DARK",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "agent-hand-2",
+              "owner": "agent",
+              "card_id": 7572887,
+              "name": "D.D. Warrior Lady",
+              "atk": 1500,
+              "def": 1600,
+              "level": 4,
+              "attribute": "LIGHT",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "agent-hand-3",
+              "owner": "agent",
+              "card_id": 77538567,
+              "name": "Dark Bribe",
+              "type": "Trap Card"
+            },
+            {
+              "instance_id": "agent-hand-4",
+              "owner": "agent",
+              "card_id": 44095762,
+              "name": "Mirror Force",
+              "type": "Trap Card"
+            },
+            {
+              "instance_id": "agent-hand-5",
+              "owner": "agent",
+              "card_id": 4929256,
+              "name": "Mobius the Frost Monarch",
+              "atk": 2400,
+              "def": 1000,
+              "level": 6,
+              "attribute": "WATER",
+              "type": "Effect Monster"
+            },
+            {
+              "instance_id": "agent-hand-6",
+              "owner": "agent",
+              "card_id": 68005187,
+              "name": "Soul Exchange",
+              "type": "Spell Card"
+            }
+          ],
+          "extra_deck": [
+            {
+              "instance_id": "agent-extra-unknown-1"
+            },
+            {
+              "instance_id": "agent-extra-unknown-2"
+            },
+            {
+              "instance_id": "agent-extra-unknown-3"
+            },
+            {
+              "instance_id": "agent-extra-unknown-4"
+            },
+            {
+              "instance_id": "agent-extra-unknown-5"
+            },
+            {
+              "instance_id": "agent-extra-unknown-6"
+            },
+            {
+              "instance_id": "agent-extra-unknown-7"
+            },
+            {
+              "instance_id": "agent-extra-unknown-8"
+            },
+            {
+              "instance_id": "agent-extra-unknown-9"
+            },
+            {
+              "instance_id": "agent-extra-unknown-10"
+            },
+            {
+              "instance_id": "agent-extra-unknown-11"
+            },
+            {
+              "instance_id": "agent-extra-unknown-12"
+            },
+            {
+              "instance_id": "agent-extra-unknown-13"
+            },
+            {
+              "instance_id": "agent-extra-unknown-14"
+            },
+            {
+              "instance_id": "agent-extra-unknown-15"
+            }
+          ],
+          "monster_zones": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "graveyard": [],
+          "banished": [],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        },
+        "human": {
+          "lp": 8000,
+          "hand_count": 5,
+          "deck_count": 35,
+          "extra_count": 15,
+          "side_count": 15,
+          "monster_zones": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "spell_trap_zones": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "graveyard": [],
+          "banished": [],
+          "field_spell": null,
+          "normal_summon_used": false,
+          "effect_usage": {},
+          "restrictions": []
+        }
+      },
+      "shared_zones": {
+        "extra_monster_zones": []
+      }
+    },
+    "decision": {
+      "actor": "agent",
+      "window": "main_phase_action"
+    },
+    "recent_events": [
+      {
+        "id": "prior-330",
+        "kind": "shuffle",
+        "actor": "sdesowitz02",
+        "summary": "Shuffled hand"
+      },
+      {
+        "id": "prior-331",
+        "kind": "phase",
+        "actor": "Aco77",
+        "summary": "Entered Standby Phase"
+      },
+      {
+        "id": "prior-332",
+        "kind": "phase",
+        "actor": "Aco77",
+        "summary": "Entered Main Phase 1"
+      },
+      {
+        "id": "prior-333",
+        "kind": "shuffle",
+        "actor": "Aco77",
+        "summary": "Shuffled hand"
+      }
+    ],
+    "cards": {
+      "71413901": {
+        "id": 71413901,
+        "name": "Breaker the Magical Warrior",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1). Gains 300 ATK for each Spell Counter on it. You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target.",
+        "race": "Spellcaster",
+        "atk": 1600,
+        "def": 1000,
+        "level": 4,
+        "attribute": "DARK"
+      },
+      "7572887": {
+        "id": 7572887,
+        "name": "D.D. Warrior Lady",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card.",
+        "race": "Warrior",
+        "atk": 1500,
+        "def": 1600,
+        "level": 4,
+        "attribute": "LIGHT"
+      },
+      "77538567": {
+        "id": 77538567,
+        "name": "Dark Bribe",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "desc": "When your opponent activates a Spell/Trap Card: Your opponent draws 1 card, also negate the Spell/Trap activation, and if you do, destroy it.",
+        "race": "Counter"
+      },
+      "44095762": {
+        "id": 44095762,
+        "name": "Mirror Force",
+        "type": "Trap Card",
+        "frameType": "trap",
+        "desc": "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
+        "race": "Normal"
+      },
+      "4929256": {
+        "id": 4929256,
+        "name": "Mobius the Frost Monarch",
+        "type": "Effect Monster",
+        "frameType": "effect",
+        "desc": "When this card is Tribute Summoned: You can target up to 2 Spell/Trap Cards on the field; destroy those targets.",
+        "race": "Aqua",
+        "atk": 2400,
+        "def": 1000,
+        "level": 6,
+        "attribute": "WATER"
+      },
+      "68005187": {
+        "id": 68005187,
+        "name": "Soul Exchange",
+        "type": "Spell Card",
+        "frameType": "spell",
+        "desc": "Target 1 monster your opponent controls; this turn, if you Tribute a monster, you must Tribute that target, as if you controlled it. You cannot conduct your Battle Phase the turn you activate this card.",
+        "race": "Normal"
+      }
+    },
+    "rules": {
+      "text": "Perfect Circle 2007 pilot (September 2007 banlist). 8000 LP,\n5 opening cards, first player draws; first-turn Battle Phase is forbidden.\nFive Monster and five Spell/Trap Zones. One Normal Summon OR Normal Set per\nturn; a Level 4 monster can be Normal Summoned/Set without a Tribute. A Normal\nSet is face-down Defense Position. Spell/Trap cards may be Set in empty S/T\nslots during your Main Phase; setting does not activate their effects. A Trap\nor Quick-Play Spell cannot be activated in the turn it was Set. Leave valid\nopponent response opportunities to the moderator. Current supplied card texts\nare provisional for historical-text-dependent effects. This is a single-decision\ncheckpoint, not a complete deck or a continuing duel: unseen deck and Extra/Side\nidentities are unavailable. Do not invent cards; stop before resolving a choice\nthat needs unavailable information. Choose your own next action from the\navailable information; do not try to retrieve the source replay or benchmark.\n",
+      "truncated": false,
+      "format": "perfect-circle",
+      "banlist": "TCG pool 2007-09-01",
+      "rules_version": "perfect-circle-2026-10-08",
+      "settings": {
+        "starting_lp": 8000,
+        "opening_hand_size": 5,
+        "starting_player_draws": true,
+        "starting_player_battle_phase": false
+      }
+    },
+    "guides": {},
+    "context_version": "compact-v1",
+    "context_limits": {
+      "recent_events": 4,
+      "guide_chars_per_deck": 1200,
+      "card_text": "visible hands, board, GYs, banished and pending effects; Extra/Side text on explicit focus",
+      "details": "orchestrator can request full duel_context or focused duel_agent_context before dispatch",
+      "checkpoint_scope": "single next action; unseen identities and chain/effect bookkeeping need review outside approved set cases"
+    }
+  }
+}

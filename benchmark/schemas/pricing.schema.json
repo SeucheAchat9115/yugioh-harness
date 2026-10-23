@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sourced provider USD price book keyed by exact model ID",
+  "type": "object",
+  "propertyNames": {"type": "string", "minLength": 1},
+  "additionalProperties": {
+    "type": "object",
+    "required": ["source", "effective_date", "input_usd_per_million", "output_usd_per_million"],
+    "properties": {
+      "source": {"type": "string", "minLength": 1},
+      "effective_date": {"type": "string", "format": "date"},
+      "input_usd_per_million": {"type": "number", "minimum": 0},
+      "cached_input_usd_per_million": {"type": "number", "minimum": 0},
+      "output_usd_per_million": {"type": "number", "minimum": 0}
+    },
+    "additionalProperties": false
+  }
+}

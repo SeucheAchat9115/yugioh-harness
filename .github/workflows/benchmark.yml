@@ -1,0 +1,38 @@
+name: Test monorepo benchmark
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install ".[plotting]"
+      - run: python -m unittest discover -s benchmark/tests -v
+      - run: yugioh-benchmark inspect benchmark/replays/db-json-40753-85958923
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install build
+      - run: python -m build
+      - name: Install both packages from the single wheel
+        run: python -m pip install --force-reinstall --no-deps dist/*.whl
+      - name: Test installed imports outside the checkout
+        working-directory: /tmp
+        run: python -I -c "import harness.environment, yugioh_benchmark; from harness.environment import PROTOCOL; assert PROTOCOL == 'duel-v1'"
+      - run: python -m unittest discover -s benchmark/tests -v
+      - run: yugioh-benchmark inspect benchmark/replays/db-json-40753-85958923

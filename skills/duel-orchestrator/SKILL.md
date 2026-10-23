@@ -17,8 +17,8 @@ moderator instructions, and the human-duel or agent-duel policy.
    Use enforced when requested, requiring a tool-free transport or actual sandbox.
    Preserve the selected policy on resume; legacy missing settings mean enforced.
    Use a configured conversational MCP service if available. Otherwise the
-   orchestrator can launch that service through its own execution tools and use
-   the local stdio MCP protocol. Keep one process/writer alive for the session.
+   orchestrator can use the versioned JSON-lines headless CLI through its own
+   execution tools (see `docs/headless.md`), or launch the local stdio MCP service. Keep one process/writer alive for the session.
    This is internal automation; do not give the user commands to execute.
 2. Use `managed` or `self` for human games. Managed loads the selected human
    bundle and coaches their choices, but keeps their hidden cards private from

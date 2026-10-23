@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "evaluation_date": "2026-10-08",
+  "source_replay": "https://www.duelingbook.com/replay?id=40753-85958923",
+  "source_suite_sha256": "55ca1fb3c58dd77b84c0a176cc9909a4b5b7a6c0ff597afed608f4ccd6b8aa99",
+  "benchmark_commit": "f6bf899903b1285ec5b0aacdd2bf5776a417b958",
+  "scope": "assisted cooperative checkpoint pilot",
+  "models": {
+    "sol": {
+      "model": "gpt-6.1-sol",
+      "suite_sha256": "c3ac6e1427f704ef870a0161cbc028b0b7d10c8dd6542bd10f936d94a9743822",
+      "agent_instructions_sha256": "ccb442c8d99bf2445a323828105b305cb54c554e16552ba1d185cf87ddabcb37",
+      "harness_fingerprint_sha256": "68e4deaeeffd7d0b879ce395323a7c1be088b3f1a56db2d19492c347c1b194cf",
+      "attempt_count": 36,
+      "new_model_attempts": 28,
+      "reused_original_attempts": 8,
+      "retries": 0,
+      "run_file_sha256": "b73e6906ebdafc303c45022a8b004f8e1a58a2d0665c95f7291a8a6f9780194f"
+    },
+    "luna": {
+      "model": "gpt-6-luna",
+      "suite_sha256": "af95392f246226e842157868af291f64c40f08407b955b04266cb066347a28a9",
+      "agent_instructions_sha256": "acc691cb5b0e482cd9cc5a55c0b0ae3f85be4e4a0860cac631151e68ee5886ca",
+      "harness_fingerprint_sha256": "68e4deaeeffd7d0b879ce395323a7c1be088b3f1a56db2d19492c347c1b194cf",
+      "attempt_count": 36,
+      "new_model_attempts": 36,
+      "reused_original_attempts": 0,
+      "retries": 0,
+      "run_file_sha256": "ffdc42f6d3931d3a570e73c9b526afa5074e48b513ed6f79c546e76bff2c7baa"
+    }
+  },
+  "model_attestation": "Model requested through native Codex subagents; provider model/version and token usage not independently exposed.",
+  "delivery": "Manually condensed prompts, not byte-identical across models. Shared capabilities forbidden by instructions; no enforced sandbox.",
+  "evidence": "Score summaries only. Raw model logs, authoritative journals and harness saves remain local and are required for independent rescoring.",
+  "runtime_summary": "runtime-summary.json",
+  "runtime_metric": "Sum of batch first-to-last harness action spans across all 36 tasks; host work included, setup and initial attempt before first action excluded. Not model inference latency."
+}

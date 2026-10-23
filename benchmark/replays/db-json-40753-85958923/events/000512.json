@@ -1,0 +1,1 @@
+{"actor":"p2","game":2,"kind":"result_observation","payload":{"card_names":[],"elapsed_seconds":1501,"native":{"action":"Duel","log":{"public_log":"Went offline","type":"duel","username":"sdesowitz02"},"play":"Left duel","seconds":1501,"username":"sdesowitz02"},"play":"Left duel","turn":8},"sequence":512,"source_index":511}

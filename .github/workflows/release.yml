@@ -34,6 +34,8 @@ jobs:
           PY
       - run: python -m unittest discover -s tests -v
       - run: python -m unittest discover -s skills/ydk-to-json/tests -v
+      - run: python -m pip install .
+      - run: python -m unittest discover -s benchmark/tests -v
       - run: python -m pip install build
       - run: python -m build
       - run: python -m pip install --no-deps dist/*.whl

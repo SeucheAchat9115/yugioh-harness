@@ -129,3 +129,21 @@
   Never modify/delete referenced objects. Keep replay revision caches outside Git.
 - Use compact `duel_agent_context` for routine play and focused/full permitted context
   for missing details. Preserve filters before compaction and label decision-evidence gaps.
+
+## Monorepo environment contract
+
+- Install from the root: both `harness` and `yugioh_benchmark` belong to the same
+  distribution. Benchmark assets/tests and source provenance live under `benchmark/`;
+  its `AGENTS.md` adds data-review requirements. Run both test suites. Do not fetch
+  a second harness checkout for current benchmark CI.
+- Follow `docs/architecture-and-roadmap.md`: Edison is the initial full-duel
+  validation scope, with open intentions. Preserve generic profiles and old saves.
+  Headless JSON lines and MCP use the same service/writer; do not build a parallel
+  effect registry. `harness/environment` owns the client boundary.
+- In execution-capable chats without MCP registration, follow `docs/headless.md`
+  and run the headless CLI internally. Never require the human to operate a shell.
+  Preserve fresh native player dispatch and saved isolation policy.
+- Future GUIs receive only `interaction` data, never raw moderator/player tasks.
+  Gymnasium/PettingZoo adapters and a GUI are future work; do not claim they ship.
+- Keep historical benchmark protocols/results intact. New evaluation tracks must
+  distinguish pilot strength, referee correctness and whole-system reliability.

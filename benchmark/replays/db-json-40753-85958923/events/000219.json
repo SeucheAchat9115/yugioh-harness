@@ -1,0 +1,1 @@
+{"actor":"p2","game":1,"kind":"information_observation","payload":{"card_names":[],"elapsed_seconds":528,"native":{"action":"Duel","log":{"public_log":"Stopped viewing GY","type":"duel","username":"sdesowitz02"},"play":"Stop viewing","seconds":528,"username":"sdesowitz02","viewing":"Graveyard"},"play":"Stop viewing","turn":7},"sequence":219,"source_index":218}

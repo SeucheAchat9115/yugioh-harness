@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0",
+  "metric": "agentic_workflow_kpis",
+  "suite": "db-json-40753-85958923-reviewed-actions-v2-cooperative-luna-20261008",
+  "suite_sha256": "af95392f246226e842157868af291f64c40f08407b955b04266cb066347a28a9",
+  "model": "gpt-6-luna",
+  "weights": {
+    "state_recreation": 0.3333333333333333,
+    "human_move_agreement": 0.3333333333333333,
+    "rule_correctness": 0.3333333333333333
+  },
+  "kpis": {
+    "state_recreation": {
+      "total": 18,
+      "graded": 18,
+      "pending": 0,
+      "passed": 7,
+      "score": 0.3888888888888889
+    },
+    "human_move_agreement": {
+      "total": 18,
+      "graded": 18,
+      "pending": 0,
+      "passed": 7,
+      "score": 0.3888888888888889
+    },
+    "rule_correctness": {
+      "total": 36,
+      "graded": 36,
+      "pending": 0,
+      "passed": 31,
+      "score": 0.8611111111111112
+    }
+  },
+  "final_score_percent": 54.629629629629626,
+  "formats": {
+    "perfect-circle": 36
+  },
+  "outcomes": [
+    {
+      "case_id": "db-json-40753-85958923-before-000334-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000334-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000335-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000335-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000336-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000336-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000337-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000337-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 0,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000338-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 0,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000338-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000360-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000360-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000368-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 0,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000368-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000369-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000369-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000370-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000370-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000377-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000377-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000384-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000384-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000463-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000463-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000468-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000468-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000469-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000469-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 0,
+        "state_recreation": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000470-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 0,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000470-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000491-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000491-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000496-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000496-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 1
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000502-choice",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "human_move_agreement": 0
+      },
+      "pending": []
+    },
+    {
+      "case_id": "db-json-40753-85958923-before-000502-state",
+      "format": "perfect-circle",
+      "status": "completed",
+      "scores": {
+        "rule_correctness": 1,
+        "state_recreation": 0
+      },
+      "pending": []
+    }
+  ],
+  "scope": "reviewed task performance; not win rate or competitive-strength certification"
+}
