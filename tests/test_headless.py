@@ -125,6 +125,16 @@ class HeadlessTests(unittest.TestCase):
             self.assertFalse(result['ok'])
             self.assertEqual(result['error']['code'], 'recovery_required')
 
+    def test_source_checkout_cli_does_not_require_installed_metadata(self):
+        source = self.private.parent / 'source-without-metadata'
+        shutil.copytree(fixtures.REPO / 'harness', source / 'harness',
+                        ignore=shutil.ignore_patterns('__pycache__'))
+        completed = subprocess.run([sys.executable, '-S', '-m', 'harness.cli', 'duel', '--repo', str(self.repo)],
+                                   cwd=source, input=json.dumps(self.envelope('describe')) + '\n',
+                                   text=True, encoding='utf-8', capture_output=True, timeout=15)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertEqual(json.loads(completed.stdout)['result']['protocol'], PROTOCOL)
+
     def test_real_cli_stream_and_single_request_resume(self):
         self.prepare()
         command = [sys.executable, '-m', 'harness.cli', 'duel', '--repo', str(self.repo),

@@ -1,6 +1,6 @@
 """Installable maintainer commands; the orchestrator runs them during play."""
 import argparse
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 import json
 from pathlib import Path
 import sys
@@ -10,7 +10,11 @@ def main():
     from harness.integration.stdio import configure_utf8
     configure_utf8()
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--version', action='version', version=version('yugioh-harness'))
+    try:
+        release = version('yugioh-harness')
+    except PackageNotFoundError:
+        release = 'source-checkout'
+    parser.add_argument('--version', action='version', version=release)
     commands = parser.add_subparsers(dest='command', required=True)
     doctor = commands.add_parser('doctor', help='Check runtime, resources and host declaration')
     doctor.add_argument('--repo', type=Path, default=Path.cwd())
