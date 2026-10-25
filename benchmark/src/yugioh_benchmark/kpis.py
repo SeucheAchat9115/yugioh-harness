@@ -50,6 +50,9 @@ def validate_suite(suite):
     if not isinstance(cases, list) or not cases:
         raise ValueError('A nonempty reviewed case list is required')
     ids = set()
+    protocol = suite.get('evaluation_protocol', 'structured-checkpoints-v1')
+    if protocol not in {'structured-checkpoints-v1', 'harness-objectives-v1'}:
+        raise ValueError('Unknown evaluation protocol')
     for case in cases:
         identity = case.get('id')
         if not isinstance(identity, str) or not identity or identity in ids:
@@ -57,7 +60,9 @@ def validate_suite(suite):
         ids.add(identity)
         if not approved(case.get('review')):
             raise ValueError('KPI cases require reviewer approval')
-        if case.get('task') not in {'state_recreation', 'human_move_reproduction', 'rule_correctness'}:
+        tasks = {'objective_choice'} if protocol == 'harness-objectives-v1' else {
+            'state_recreation', 'human_move_reproduction', 'rule_correctness'}
+        if case.get('task') not in tasks:
             raise ValueError('Unknown KPI task')
         rules = case.get('rules', {})
         if (any(field not in rules for field in RULE_FIELDS)
@@ -67,6 +72,14 @@ def validate_suite(suite):
             raise ValueError('Pin the format, rules version, rules, banlist and card-text hashes')
         if not valid_hash(case.get('initial_state_sha256')):
             raise ValueError('Pin the reviewed initial harness state')
+        if case['task'] == 'objective_choice':
+            if (not isinstance(case.get('objective'), str) or not case['objective'].strip()
+                    or not isinstance(case.get('public_facts'), str) or not case['public_facts'].strip()
+                    or not isinstance(case.get('acceptable_moves'), list) or not case['acceptable_moves']
+                    or any(not isinstance(move, dict) or not move.get('kind') for move in case['acceptable_moves'])
+                    or not valid_hash(case.get('player_context_sha256'))
+                    or not valid_hash(case.get('source', {}).get('payload_sha256'))):
+                raise ValueError('Objective cases require public facts, a goal, reviewed answers and source/context pins')
         if case['task'] == 'state_recreation':
             gameplay_state(case.get('expected_state'))
             if not isinstance(case.get('declared_play'), str) or not case['declared_play'].strip():
@@ -99,6 +112,11 @@ def score_kpis(suite, run, weights=None):
     and prevent a final score. Independent grading evidence is mandatory.
     """
     cases = validate_suite(suite)
+    if suite.get('evaluation_protocol') == 'harness-objectives-v1':
+        if weights is not None:
+            raise ValueError('Legacy three-KPI weights do not apply to objective checkpoints')
+        from .objectives import score_objectives
+        return score_objectives(suite, run)
     weights = validate_weights(DEFAULT_WEIGHTS if weights is None else weights)
     if run.get('suite_sha256') != digest(suite):
         raise ValueError('Run must pin the full reviewed suite digest')

@@ -18,6 +18,8 @@ Supported shapes:
 {"action":"activate","card":"instance-id","zone":"S-3","target":"target-instance-id","cost_cards":["tribute-or-discard-id"]}
 For activation, zone is required only when placing a card from hand.
 Optional target and cost_cards must identify your actual chosen target/costs.
+You may activate or pass in your saved response window on either player's turn.
+A self-banish or self-Tribute cost must include the source in cost_cards.
 Do not invent a target, exceed the saved Normal Summon allowance, activate a
 field effect from hand, or assume an opponent response. Choose only one initiation;
 stop before summon confirmation, triggers, chain resolution or turn advance.
@@ -84,17 +86,19 @@ def _costs(state, actor, intent, reviewed):
     for op in operations:
         if op.get("op") == "lp":
             if (op.get("player") != actor or type(op.get("delta")) is not int
-                    or op["delta"] >= 0 or balance + op["delta"] < 0):
+                    or op["delta"] >= 0 or balance + op["delta"] <= 0):
                 raise ValueError("Invalid reviewed LP cost")
             balance += op["delta"]
         elif op.get("op") == "move":
             card = op.get("card")
             path, _ = _card(state, card)
             dest = op.get("to")
-            if (card not in chosen or card == intent.get("card") or card in moved
+            if (card not in chosen or card in moved
                     or path[:2] != ["players", actor] or not isinstance(dest, list)
                     or len(dest) != 3 or dest[:2] != ["players", actor]
-                    or dest[2] not in {"graveyard", "banished"}):
+                    or dest[2] not in {"graveyard", "banished"} or path[2] == dest[2]
+                    or (card == intent.get("card") and path[2] not in
+                        {"monster_zones", "spell_trap_zones", "graveyard"})):
                 raise ValueError("Reviewed costs must consume chosen own cards")
             op["attributes"] = {"hidden": False, "position": None}
             moved.add(card)
@@ -107,12 +111,14 @@ def _costs(state, actor, intent, reviewed):
 def translate_intent(state, intent, *, actor="agent", reviewed_activation=None):
     """Return an UNAPPROVED proposal; execute only after independent rules review."""
     intent = parse_intent(json.dumps(intent))
-    if (actor not in ("agent", "human") or state["active_player"] != actor
+    if (actor not in ("agent", "human")
             or (state.get("pending_decision") or {}).get("actor") != actor
             or state["status"] != "active"):
-        raise ValueError("Not this player's active initiation window")
+        raise ValueError("Not this player's saved decision window")
     opponent = "human" if actor == "agent" else "agent"
     action = intent["action"]
+    if action not in {"activate", "pass"} and state["active_player"] != actor:
+        raise ValueError("Only responses are supported off-turn")
     operations = []
     window = "after_set"
     if action in {"set", "normal_summon"}:
@@ -138,7 +144,7 @@ def translate_intent(state, intent, *, actor="agent", reviewed_activation=None):
         kind = "summon" if action == "normal_summon" else "set"
         summary = "Player attempts a Normal Summon; opponent may negate." if kind == "summon" else "Player sets a card face-down; opponent may respond."
     elif action in {"end_turn", "pass", "phase"}:
-        if state["chain"] or state["pending_effects"]:
+        if action != "pass" and (state["chain"] or state["pending_effects"]):
             raise ValueError("Resolve pending chain/effects before phase initiation")
         if action == "end_turn":
             operations.append({"op": "phase", "value": "end"})
@@ -149,12 +155,10 @@ def translate_intent(state, intent, *, actor="agent", reviewed_activation=None):
             operations.append({"op": "phase", "value": intent["phase"]})
             window = "phase_response"
         else:
-            window = "end_phase_response" if state["phase"] == "end" else "action_response"
+            window = "chain_response" if state["chain"] else "end_phase_response" if state["phase"] == "end" else "action_response"
         kind = "pass" if action == "pass" else "phase"
         summary = "Player requests a phase/priority transition; opponent may respond."
     elif action == "activate":
-        if state["chain"]:
-            raise ValueError("This protocol supports initiations, not chain responses")
         if reviewed_activation is None:
             raise ValueError("Activation needs independent effect/cost review")
         path, card = _card(state, intent["card"])
@@ -175,10 +179,14 @@ def translate_intent(state, intent, *, actor="agent", reviewed_activation=None):
                 raise ValueError("Target is not in a visible selectable zone")
             targets = [{"instance_id": target["instance_id"], "owner": target_path[1],
                         "zone": target_path[2], "index": target_path[-1]}]
-        link = {"id": "intent-chain-1", "actor": actor, "card": intent["card"],
+        existing_ids = {link.get("id") for link in state["chain"]}
+        number = len(state["chain"]) + 1
+        while "intent-chain-" + str(number) in existing_ids:
+            number += 1
+        link = {"id": "intent-chain-" + str(number), "actor": actor, "card": intent["card"],
                 "effect": reviewed_activation.get("effect", "Pending independently reviewed activation"),
                 "targets": targets}
-        operations.append({"op": "chain", "value": [link]})
+        operations.append({"op": "chain", "value": deepcopy(state["chain"]) + [link]})
         window, kind = "chain_response", "activate"
         summary = "Player declares an activation and pays reviewed costs; opponent may respond."
     else:

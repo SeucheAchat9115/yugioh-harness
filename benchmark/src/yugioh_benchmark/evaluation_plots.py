@@ -10,6 +10,8 @@ def comparison_points(comparison, cost_scope='evaluation'):
         raise ValueError('Cost scope must be evaluation or pipeline')
     reports=comparison.get('reports',[])
     if not reports:raise ValueError('At least one report is required')
+    if any(r['score'].get('metric')=='reviewed_objective_success' for r in reports):
+        raise ValueError('Legacy three-KPI plots do not apply to objective checkpoints; read their comparison.json reports')
     first=reports[0]
     for report in reports:
         if (report['protocol_sha256']!=first['protocol_sha256']

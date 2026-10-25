@@ -19,6 +19,12 @@ def summary(replay):
 def main():
     parser = argparse.ArgumentParser(description='Import native Duelingbook JSON and score reviewed agentic KPIs')
     commands = parser.add_subparsers(dest='command', required=True)
+    command = commands.add_parser('inspect-harness', help='Verify a schema-4 archive and list unreviewed decision boundaries')
+    command.add_argument('archive', type=Path)
+    command = commands.add_parser('prepare-harness', help='Build objective checkpoints from explicit pinned scoped reviews')
+    command.add_argument('archive', type=Path)
+    command.add_argument('--reviews', required=True, type=Path)
+    command.add_argument('--output', required=True, type=Path)
     command = commands.add_parser('evaluate', help='Run identical reviewed checkpoints through a metered model transport and real harness')
     command.add_argument('dataset', type=Path)
     command.add_argument('--output', required=True, type=Path)
@@ -58,7 +64,13 @@ def main():
     command.add_argument('--output', required=True, type=Path)
     args = parser.parse_args()
     try:
-        if args.command == 'evaluate':
+        if args.command == 'inspect-harness':
+            from .harness_replay import audit_harness
+            output = audit_harness(args.archive)
+        elif args.command == 'prepare-harness':
+            from .harness_replay import prepare_harness
+            output = prepare_harness(args.archive, json.loads(read_text(args.reviews)), args.output)
+        elif args.command == 'evaluate':
             from .evaluation import evaluate
             from .transports import OpenAICompatible
             transport = OpenAICompatible(args.endpoint, key_env=args.key_env, timeout_seconds=args.timeout,

@@ -113,3 +113,7 @@ For evaluations or structured player clients, the optional
 [intent-v1 interface](docs/structured-intents.md) translates semantic card choices
 into unapproved bookkeeping proposals. Independent rules review and the existing
 persistent moderator workflow still govern execution and response windows.
+
+Recorded harness duels can also supply reviewed single-decision benchmarks.
+The initial six Edison cases use the same persistent writer and player visibility
+boundary as live play. See [checkpoint evaluation](benchmark/docs/harness-checkpoints.md).
