@@ -3,16 +3,18 @@
 The user-supplied `view-replay` response is the source for
 [replay 40753-85958923](https://www.duelingbook.com/replay?id=40753-85958923).
 The selected [JSON fixture](../fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json)
-and [native bundle](../replays/db-json-40753-85958923) are linked in
-[the source registry](../benchmarks/sources.json). Obtain additional responses
+is pinned in [the source registry](../benchmarks/sources.json). The native bundle
+is generated locally rather than stored in Git. Obtain additional responses
 with the [browser inspector guide](acquisition.md).
 
 ## Import
 
+Run from `benchmark/` after installing the monorepo root.
+
 ```sh
-yugioh-benchmark convert-json imports/replay.json --source https://www.duelingbook.com/replay?id=40753-85958923 --output replays/my-native-replay
-yugioh-benchmark inspect replays/db-json-40753-85958923
-yugioh-benchmark candidates replays/db-json-40753-85958923
+yugioh-benchmark convert-json fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json --source https://www.duelingbook.com/replay?id=40753-85958923 --retrieved-at 2026-10-08 --output imports/db-json-40753-85958923
+yugioh-benchmark inspect imports/db-json-40753-85958923
+yugioh-benchmark candidates imports/db-json-40753-85958923
 ```
 
 The importer runs offline without a browser, credentials or a card-effect engine.

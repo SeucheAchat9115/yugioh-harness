@@ -5,6 +5,7 @@ __pycache__/
 build/
 dist/
 imports/
+replays/
 inspection/
 runs/
 harness-source/

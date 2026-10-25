@@ -7,6 +7,7 @@ import sys
 import tempfile
 from yugioh_benchmark.extraction import extract_observations, extraction_summary, write_extraction
 from yugioh_benchmark.native_json import convert_json
+from source_fixture import write_fixture_bundle
 
 SOURCE = Path(__file__).resolve().parents[1]/'fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json'
 URL = 'https://www.duelingbook.com/replay?id=40753-85958923'
@@ -92,8 +93,8 @@ class ExtractionTests(unittest.TestCase):
             self.assertEqual(summary['source_events'],554)
             with self.assertRaises(FileExistsError): write_extraction(self.result,directory)
             self.assertEqual(json.loads((directory/'states-and-actions.json').read_text(encoding='utf-8')),self.result)
-            command=[sys.executable,'-m','yugioh_benchmark','extract',
-                     str(SOURCE.parents[2]/'replays/db-json-40753-85958923'),
+            bundle=write_fixture_bundle(Path(temporary)/'replay')
+            command=[sys.executable,'-m','yugioh_benchmark','extract', str(bundle),
                      '--output',str(Path(temporary)/'cli')]
             run=subprocess.run(command,text=True,capture_output=True)
             self.assertEqual(run.returncode,0,run.stderr)

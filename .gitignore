@@ -12,6 +12,7 @@ dist/
 # Local replay archives and their shared assets.
 games/
 snapshots/
+/benchmark/replays/
 
 # Local benchmark inputs and model output (at any monorepo entry point).
 imports/

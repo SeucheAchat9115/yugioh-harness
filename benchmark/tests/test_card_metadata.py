@@ -6,14 +6,15 @@ import unittest
 from unittest.mock import patch
 
 from yugioh_benchmark.card_metadata import build_metadata, fetch_response, request_url
-from yugioh_benchmark.replay import load_bundle, canonical
+from yugioh_benchmark.replay import canonical
+from source_fixture import fixture_replay, write_fixture_bundle
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class CardMetadataTests(unittest.TestCase):
     def setUp(self):
-        self.replay = load_bundle(ROOT/'replays/db-json-40753-85958923')
+        self.replay = fixture_replay()
         self.selected = json.loads((ROOT/'benchmarks/card-metadata/db-json-40753-85958923.json').read_text(encoding='utf-8'))
         self.response = json.dumps({'data': [c['api_card'] for c in self.selected['cards']]}).encode()
 
@@ -72,7 +73,8 @@ class CardMetadataTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             response, output = Path(tmp)/'response.json', Path(tmp)/'output.json'
             response.write_bytes(self.response)
-            argv = ['benchmark', 'card-metadata', str(ROOT/'replays/db-json-40753-85958923'),
+            bundle = write_fixture_bundle(Path(tmp)/'replay')
+            argv = ['benchmark', 'card-metadata', str(bundle),
                     '--response', str(response), '--retrieved-at', '2026-10-08', '--output', str(output)]
             with patch('sys.argv', argv), patch('builtins.print'):
                 main()
