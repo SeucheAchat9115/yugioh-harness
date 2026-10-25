@@ -13,6 +13,7 @@ recursive-include benchmark/schemas *.json
 recursive-include benchmark/fixtures *.json *.md
 recursive-include benchmark/benchmarks *.json *.md
 recursive-include benchmark/scripts *.py
+include replays/edison/max-edison-20261023/replay.zip
 prune benchmark/imports
 prune benchmark/inspection
 prune benchmark/runs

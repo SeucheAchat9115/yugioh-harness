@@ -1,0 +1,409 @@
+{
+  "adapter": "harness-archive-v1",
+  "id": "edison-chat-objectives-v1",
+  "source_index_sha256": "fe45528272e6b7bc5de852df5148ac0a8c07c6906b4fadf73d663f5a1bb16fcb",
+  "review": {
+    "status": "approved",
+    "reviewer": "Codex scoped checkpoint review, 2026-10-25",
+    "scope": "Exact decision boundary, visibility and single-initiation objective. Automated author review; not independent expert certification."
+  },
+  "banlist_snapshot_marker": "{\n  \"schema_version\": \"1.0\",\n  \"format\": \"edison\",",
+  "banlist": {
+    "schema_version": "1.0",
+    "format": "edison",
+    "region": "TCG",
+    "effective_date": "2010-03-01",
+    "verified_on": "2026-10-06",
+    "default_copy_limit": 3,
+    "copy_limits": {
+      "forbidden": 0,
+      "limited": 1,
+      "semi_limited": 2
+    },
+    "copy_limit_scope": "Main, Extra/Fusion and Side Deck combined; card identity, including names treated as the same name",
+    "card_name_case": "uppercase English source names; compare case-insensitively",
+    "sources": [
+      {
+        "authority": "official-konami",
+        "url": "https://www.yugioh-card.com/en/downloads/alt_format/2010-03-01.pdf"
+      },
+      {
+        "authority": "community-cross-check",
+        "url": "https://edisonrulings.org/rules/banlist"
+      }
+    ],
+    "notes": [
+      "Full Advanced restrictions transcribed from the Konami historical archive, including entries outside the Edison card pool.",
+      "Community Edison lists omit Temple of the Kings, Sixth Sense and Dewloren, Tiger King of the Ice Barrier because they are outside the legal pool; that does not make those cards legal.",
+      "Unlisted cards require separate Edison card-pool verification."
+    ],
+    "forbidden": [
+      "BLACK LUSTER SOLDIER - ENVOY OF THE BEGINNING",
+      "BUTTERFLY DAGGER - ELMA",
+      "CARD OF SAFE RETURN",
+      "CHANGE OF HEART",
+      "CHAOS EMPEROR DRAGON - ENVOY OF THE END",
+      "CONFISCATION",
+      "CRUSH CARD VIRUS",
+      "CYBER JAR",
+      "CYBER-STEIN",
+      "DARK HOLE",
+      "DARK MAGICIAN OF CHAOS",
+      "DARK STRIKE FIGHTER",
+      "DELINQUENT DUO",
+      "DESTINY HERO - DISK COMMANDER",
+      "DIMENSION FUSION",
+      "EXCHANGE OF THE SPIRIT",
+      "FIBER JAR",
+      "GRACEFUL CHARITY",
+      "HARPIE'S FEATHER DUSTER",
+      "IMPERIAL ORDER",
+      "LAST TURN",
+      "LAST WILL",
+      "MAGICAL SCIENTIST",
+      "MAGICIAN OF FAITH",
+      "MAKYURA THE DESTRUCTOR",
+      "METAMORPHOSIS",
+      "MIRAGE OF NIGHTMARE",
+      "MONSTER REBORN",
+      "PAINFUL CHOICE",
+      "POT OF GREED",
+      "PREMATURE BURIAL",
+      "RAIGEKI",
+      "RING OF DESTRUCTION",
+      "SINISTER SERPENT",
+      "SIXTH SENSE",
+      "SNATCH STEAL",
+      "TEMPLE OF THE KINGS",
+      "THE FORCEFUL SENTRY",
+      "THOUSAND-EYES RESTRICT",
+      "TIME SEAL",
+      "TRIBE-INFECTING VIRUS",
+      "TSUKUYOMI",
+      "VICTORY DRAGON",
+      "WITCH OF THE BLACK FOREST",
+      "YATA-GARASU"
+    ],
+    "limited": [
+      "ADVANCED RITUAL ART",
+      "ALLURE OF DARKNESS",
+      "BLACK ROSE DRAGON",
+      "BLACKWING - GALE THE WHIRLWIND",
+      "BRAIN CONTROL",
+      "BRIONAC, DRAGON OF THE ICE BARRIER",
+      "BURIAL FROM A DIFFERENT DIMENSION",
+      "CALL OF THE HAUNTED",
+      "CARD DESTRUCTION",
+      "CARD TROOPER",
+      "CEASEFIRE",
+      "CHAOS SORCERER",
+      "CHARGE OF THE LIGHT BRIGADE",
+      "COLD WAVE",
+      "DARK ARMED DRAGON",
+      "DESTINY DRAW",
+      "ELEMENTAL HERO STRATOS",
+      "EMERGENCY TELEPORT",
+      "EXODIA THE FORBIDDEN ONE",
+      "FOOLISH BURIAL",
+      "FUTURE FUSION",
+      "GIANT TRUNADE",
+      "GLADIATOR BEAST BESTIARI",
+      "GORZ THE EMISSARY OF DARKNESS",
+      "GOYO GUARDIAN",
+      "GRAVITY BIND",
+      "HEAVY STORM",
+      "LEFT ARM OF THE FORBIDDEN ONE",
+      "LEFT LEG OF THE FORBIDDEN ONE",
+      "LEVEL LIMIT - AREA B",
+      "LIMITER REMOVAL",
+      "LUMINA, LIGHTSWORN SUMMONER",
+      "MAGIC CYLINDER",
+      "MAGICAL EXPLOSION",
+      "MARSHMALLON",
+      "MEGAMORPH",
+      "MEZUKI",
+      "MIND CONTROL",
+      "MIND CRUSH",
+      "MIND MASTER",
+      "MIRROR FORCE",
+      "MONSTER GATE",
+      "MORPHING JAR",
+      "MYSTICAL SPACE TYPHOON",
+      "NECRO GARDNA",
+      "NECROFACE",
+      "NEO-SPACIAN GRAND MOLE",
+      "NIGHT ASSAILANT",
+      "OJAMA TRIO",
+      "ONE FOR ONE",
+      "OVERLOAD FUSION",
+      "PLAGUESPREADER ZOMBIE",
+      "REASONING",
+      "REINFORCEMENT OF THE ARMY",
+      "RESCUE CAT",
+      "RETURN FROM THE DIFFERENT DIMENSION",
+      "RIGHT ARM OF THE FORBIDDEN ONE",
+      "RIGHT LEG OF THE FORBIDDEN ONE",
+      "SANGAN",
+      "SCAPEGOAT",
+      "SNIPE HUNTER",
+      "SOLEMN JUDGMENT",
+      "SPIRIT REAPER",
+      "SUMMONER MONK",
+      "SWORDS OF REVEALING LIGHT",
+      "THE TRANSMIGRATION PROPHECY",
+      "TORRENTIAL TRIBUTE",
+      "TRAGOEDIA",
+      "TRAP DUSTSHOOT",
+      "WALL OF REVEALING LIGHT"
+    ],
+    "semi_limited": [
+      "BLACK WHIRLWIND",
+      "BOTTOMLESS TRAP HOLE",
+      "CHAIN STRIKE",
+      "CYBER DRAGON",
+      "DANDYLION",
+      "DEMISE, KING OF ARMAGEDDON",
+      "DESTINY HERO - MALICIOUS",
+      "DEWLOREN, TIGER KING OF THE ICE BARRIER",
+      "GOBLIN ZOMBIE",
+      "GOLD SARCOPHAGUS",
+      "HONEST",
+      "JUDGMENT DRAGON",
+      "LONEFIRE BLOSSOM",
+      "MAGICAL STONE EXCAVATION",
+      "ROYAL DECREE",
+      "ROYAL OPPRESSION",
+      "SKILL DRAIN",
+      "TREEBORN FROG",
+      "ULTIMATE OFFERING",
+      "UNITED WE STAND"
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "edison-mst-restraint",
+      "revision": 18,
+      "player": "human",
+      "objective": "Choose one legal response to this chain while spending no LP and activating no card.",
+      "public_facts": "It is the opponent's Turn 2 Draw Phase. Their Mystical Space Typhoon targets your set card in S-1. Your S-1 and S-2 were set on Turn 1. This is your chain-response window.",
+      "reference_intent": {
+        "action": "pass"
+      },
+      "reference_activation": null,
+      "acceptable_moves": [
+        {
+          "kind": "pass"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped checkpoint review, 2026-10-25",
+        "scope": "Exact decision boundary, visibility and single-initiation objective. Automated author review; not independent expert certification."
+      },
+      "rationale": "Passing preserves LP and uses no card. Solemn Judgment is legal but costs half the player's LP and fails the stated objective. This is a resource-restraint objective, not a claim that passing is strategically optimal.",
+      "evidence": [
+        "Original immutable rules.md snapshot and original card catalog descriptions.",
+        "Archived state and saved decision packet at revision 18.",
+        "https://www.edisonformat.com/rulings/individual-card-rulings-p-r",
+        "https://www.edisonformat.com/rulings/individual-rulings-l-o"
+      ]
+    },
+    {
+      "id": "edison-solemn-flip",
+      "revision": 46,
+      "player": "human",
+      "objective": "Choose one legal initiation that stops the opponent's attempted Flip Summon before its FLIP effect can activate.",
+      "public_facts": "The opponent is attempting to Flip Summon the face-down Ryko in M-2. The face-up representation in this checkpoint is the attempted summon; it has not yet succeeded. This is the summon-negation window, not a FLIP-effect chain. Your three set Spell/Trap cards were set on earlier turns.",
+      "reference_intent": {
+        "action": "activate",
+        "card": "d78a7f1c2b7549d489670bf172893a4f"
+      },
+      "reference_activation": {
+        "effect": "Negate the attempted Flip Summon of Ryko and destroy it.",
+        "cost_operations": [
+          {
+            "op": "lp",
+            "player": "agent",
+            "delta": -4000
+          }
+        ]
+      },
+      "acceptable_moves": [
+        {
+          "kind": "activate",
+          "card": "Solemn Judgment"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped checkpoint review, 2026-10-25",
+        "scope": "Exact decision boundary, visibility and single-initiation objective. Automated author review; not independent expert certification."
+      },
+      "rationale": "Solemn Judgment can negate a Flip Summon, paying half of 8000 LP as activation cost. It does not target. A negated Flip Summon cannot activate the FLIP effect. MST and Starlight Road do not negate this summon.",
+      "evidence": [
+        "Original immutable rules.md snapshot and original card catalog descriptions.",
+        "Archived state and saved decision packet at revision 46.",
+        "https://www.edisonformat.com/rulings/individual-card-rulings-p-r",
+        "https://www.edisonformat.com/rulings/individual-rulings-l-o"
+      ]
+    },
+    {
+      "id": "edison-road-two-cards",
+      "revision": 60,
+      "player": "human",
+      "objective": "Choose one legal response that prevents the current effect from destroying both of your targeted cards, without paying LP.",
+      "public_facts": "The opponent's Celestia effect is Chain Link 1. Its two declared destruction targets are your Armor Master in M-1 and your set card in S-1. The four-card mill cost has already been paid. Your S-1 was set on Turn 3, before this Turn 4 response window.",
+      "reference_intent": {
+        "action": "activate",
+        "card": "a1edfab270c944fb83bfa11a0e9b9c4a"
+      },
+      "reference_activation": {
+        "effect": "Negate the Celestia destruction effect and destroy Celestia; optional Stardust summon is considered only on resolution.",
+        "cost_operations": []
+      },
+      "acceptable_moves": [
+        {
+          "kind": "activate",
+          "card": "Starlight Road"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped checkpoint review, 2026-10-25",
+        "scope": "Exact decision boundary, visibility and single-initiation objective. Automated author review; not independent expert certification."
+      },
+      "rationale": "Celestia would destroy two cards controlled by the evaluated player, so Starlight Road can chain. Road has no activation cost or target. MST would not negate Celestia. Optional Stardust selection and all chain resolution are outside this initiation test.",
+      "evidence": [
+        "Original immutable rules.md snapshot and original card catalog descriptions.",
+        "Archived state and saved decision packet at revision 60.",
+        "https://www.edisonformat.com/rulings/individual-card-rulings-p-r",
+        "https://www.edisonformat.com/rulings/individual-rulings-l-o"
+      ]
+    },
+    {
+      "id": "edison-wulf-restraint",
+      "revision": 67,
+      "player": "human",
+      "objective": "Choose a legal response that negates this revival if your available cards permit one; otherwise pass.",
+      "public_facts": "The opponent's second Wulf trigger is Chain Link 1, pending Special Summon from their GY. Neither player controls another Spell/Trap besides your set card in S-3. That card was set on an earlier turn. This is the response to the effect, before the summon resolves.",
+      "reference_intent": {
+        "action": "pass"
+      },
+      "reference_activation": null,
+      "acceptable_moves": [
+        {
+          "kind": "pass"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped checkpoint review, 2026-10-25",
+        "scope": "Exact decision boundary, visibility and single-initiation objective. Automated author review; not independent expert certification."
+      },
+      "rationale": "Stardust Dragon negates destruction effects, not a Wulf revival. MST cannot target itself and there is no other Spell/Trap. Do not reuse the source packet's erroneous coaching that offered MST targeting itself. The saved state and response boundary are usable even though a separate submitted intention is absent.",
+      "evidence": [
+        "Original immutable rules.md snapshot and original card catalog descriptions.",
+        "Archived state and saved decision packet at revision 67.",
+        "https://www.edisonformat.com/rulings/individual-card-rulings-p-r",
+        "https://www.edisonformat.com/rulings/individual-rulings-l-o"
+      ]
+    },
+    {
+      "id": "edison-stardust-destruction",
+      "revision": 88,
+      "player": "human",
+      "objective": "Choose one legal response that prevents the targeted Spell/Trap from being destroyed by this effect while leaving it on your field.",
+      "public_facts": "The opponent has activated Lyla targeting your set card in S-3. Lyla is still in Attack Position; its change to Defense and destruction occur on resolution. It is Turn 6 Main Phase 1. Your set cards were set on previous turns. Your Stardust was summoned by Starlight Road and was not properly Synchro Summoned.",
+      "reference_intent": {
+        "action": "activate",
+        "card": "dd3f0c24757844f682452c466a73e756",
+        "cost_cards": [
+          "dd3f0c24757844f682452c466a73e756"
+        ]
+      },
+      "reference_activation": {
+        "effect": "Negate the activation of Lyla’s destruction effect and destroy Lyla.",
+        "cost_operations": [
+          {
+            "op": "move",
+            "card": "dd3f0c24757844f682452c466a73e756",
+            "to": [
+              "players",
+              "agent",
+              "graveyard"
+            ]
+          }
+        ]
+      },
+      "acceptable_moves": [
+        {
+          "kind": "activate",
+          "card": "Stardust Dragon",
+          "cost_cards": [
+            "Stardust Dragon"
+          ]
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped checkpoint review, 2026-10-25",
+        "scope": "Exact decision boundary, visibility and single-initiation objective. Automated author review; not independent expert certification."
+      },
+      "rationale": "Lyla activates an effect that would destroy a card; Stardust can negate that activation by Tributing itself as cost, without targeting. Being summoned by Starlight Road does not prevent the negation effect but prevents its later GY Special Summon because it was not properly summoned. Resolution and revival are outside this test. This reviewed goal deliberately need not imitate the recorded human pass.",
+      "evidence": [
+        "Original immutable rules.md, Stardust Dragon and Lyla descriptions, and revision 88 saved decision packet.",
+        "https://www.edisonformat.com/rulings/individual-rulings-l-o",
+        "https://www.edisonformat.com/rulings/individual-card-rulings-p-r"
+      ]
+    },
+    {
+      "id": "edison-gardna-lethal",
+      "revision": 136,
+      "player": "agent",
+      "objective": "Choose one legal response that prevents lethal battle damage from the currently declared attack, while preserving your Garoth.",
+      "public_facts": "The opponent's Stardust Dragon (2500 ATK) has declared an attack on your Attack Position Garoth (1850 ATK). You have 500 LP. This is the attack-response window before the Damage Step. The pending attack record identifies its attacker and defender. No effect resolution has occurred.",
+      "reference_intent": {
+        "action": "activate",
+        "card": "6bed09fc3afb416696ec1084365831d7",
+        "cost_cards": [
+          "6bed09fc3afb416696ec1084365831d7"
+        ]
+      },
+      "reference_activation": {
+        "effect": "Negate the pending Stardust Dragon attack.",
+        "cost_operations": [
+          {
+            "op": "move",
+            "card": "6bed09fc3afb416696ec1084365831d7",
+            "to": [
+              "players",
+              "agent",
+              "banished"
+            ]
+          }
+        ]
+      },
+      "acceptable_moves": [
+        {
+          "kind": "activate",
+          "card": "Necro Gardna",
+          "cost_cards": [
+            "Necro Gardna"
+          ]
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped checkpoint review, 2026-10-25",
+        "scope": "Exact decision boundary, visibility and single-initiation objective. Automated author review; not independent expert certification."
+      },
+      "rationale": "The 650 battle damage would exceed 500 LP. Necro Gardna can activate in the opponent's turn from the GY, banishing itself as cost, without targeting. The exact source card must be selected as its own cost. This test stops after cost payment and opening the response window.",
+      "evidence": [
+        "Original immutable rules.md snapshot and original card catalog descriptions.",
+        "Archived state and saved decision packet at revision 136.",
+        "https://www.edisonformat.com/rulings/individual-card-rulings-p-r",
+        "https://www.edisonformat.com/rulings/individual-rulings-l-o"
+      ]
+    }
+  ]
+}

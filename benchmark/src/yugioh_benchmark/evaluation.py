@@ -66,7 +66,11 @@ def request_for(case, context):
     from harness.players.isolated import model_request
     from harness.runner.intents import POLICY
     context = focused_context(context)
-    context["prompt"] = {"question": case["declared_play"] if case["task"]=="state_recreation" else TASK_QUESTION}
+    if case['task']=='objective_choice':
+        context['context_version']='harness-objectives-v1'
+        context['prompt']={'question':case['objective'], 'public_facts':case['public_facts']}
+    else:
+        context["prompt"] = {"question": case["declared_play"] if case["task"]=="state_recreation" else TASK_QUESTION}
     request = model_request(context)
     request["messages"][0]["content"] += "\n"+POLICY
     return request
@@ -148,11 +152,16 @@ def evaluate(dataset, output, models, transport, *, referee_model, prices=None, 
         bridge,state=load_reviewed_case(dataset,case["id"])
         prepared.append((case,bridge,state,request_for(case,bridge["player_context"])))
     prompt_hashes={case["id"]:digest(req) for case,_,_,req in prepared}
-    config={"protocol":PROTOCOL,"intent_version":VERSION,"prompt_hashes":prompt_hashes,
+    protocol=suite.get('evaluation_protocol',PROTOCOL)
+    config={"protocol":protocol,"intent_version":VERSION,"prompt_hashes":prompt_hashes,
             "options":options,"referee_model":referee_model,"referee_policy_sha256":digest(REFEREE_POLICY),
             "transport":deepcopy(getattr(transport,"config",{})),"timeout_seconds":timeout_seconds,
             "suite_sha256":digest(suite),"harness_fingerprint_sha256":_fingerprint(),
             "pricing_sha256":digest(prices or {})}
+    if protocol=='harness-objectives-v1':
+        package=Path(__file__).parent
+        config['evaluator_fingerprint_sha256']=digest({p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(package.glob('*.py'))})
     output.mkdir(parents=True)
     _write(output/"protocol.json",config);_write(output/"suite.json",suite)
     _write(output/"pricing.json",prices or {})
@@ -161,7 +170,7 @@ def evaluate(dataset, output, models, transport, *, referee_model, prices=None, 
         root=output/f"model-{number+1}";root.mkdir()
         meter=Meter(prices);started=perf_counter()
         run={"suite_sha256":digest(suite),"model":model,"agent_instructions_sha256":digest(config),
-             "harness_fingerprint_sha256":_fingerprint(),"protocol":PROTOCOL,"prompt_manifest":prompt_hashes,
+             "harness_fingerprint_sha256":_fingerprint(),"protocol":protocol,"prompt_manifest":prompt_hashes,
              "results":[],"telemetry":[],"retry_count":0,"referee_model":referee_model}
         _write(root/"run.json",run)  # Preserve interrupted runs even before first terminal result.
         for case,bridge,state,request in prepared:
@@ -170,7 +179,7 @@ def evaluate(dataset, output, models, transport, *, referee_model, prices=None, 
             artifact=root/"attempts"/case["id"];_write(artifact/"request.json",request)
             with DuelRunner(path,game) as runner:
                 runner.workflow.present({"expected_revision":0,"role":"Structured evaluated agent","awaiting_user":True,
-                    "question":case.get("declared_play",TASK_QUESTION),"recommendations":[],"events":[],
+                    "question":case.get("objective",case.get("declared_play",TASK_QUESTION)),"recommendations":[],"events":[],
                     "option_review":{"complete":False}})
                 orch=Orchestrator(runner);task=orch.next()
                 receipt=orch.players.begin(task["task_id"],"dispatch-"+case["id"],boundary,timeout_seconds)
@@ -224,7 +233,7 @@ def evaluate(dataset, output, models, transport, *, referee_model, prices=None, 
                         "operations":[]},"player-task-"+task["task_id"])
                 row["journal"]=deepcopy(runner.journal)
                 row["execution_plan"]=plan
-                if case["task"]=="human_move_reproduction":
+                if case["task"] in {"human_move_reproduction", "objective_choice"}:
                     row["move_normalization_review"]={"status":"approved","reviewer":"Independent deterministic intent-v1 normalizer",
                         "response_sha256":digest(raw),"move_sha256":digest(row["normalized_move"])}
                 if review and review["verdict"]!="uncertain":
@@ -240,7 +249,7 @@ def evaluate(dataset, output, models, transport, *, referee_model, prices=None, 
         run["measurement_summary"]=summarize(meter.calls)
         _write(root/"run.json",run)
         score=score_kpis(suite,run);_write(root/"score.json",score)
-        report={"schema_version":"1.0","protocol":PROTOCOL,"model":model,"score":score,
+        report={"schema_version":"1.0","protocol":protocol,"model":model,"score":score,
                 "protocol_sha256":digest(config),"prompt_manifest":prompt_hashes,
                 "measurement_summary":run["measurement_summary"],"wall_seconds":run["wall_seconds"],
                 "timing_basis":"Monotonic transport-call elapsed time, including network/startup; not provider-only inference.",

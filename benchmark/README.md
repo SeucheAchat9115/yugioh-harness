@@ -149,3 +149,11 @@ derived observations and candidate indexes are source data with separate
 [attribution and rights information](THIRD_PARTY_NOTICES.md); they are not
 relicensed under MIT. A replay URL records provenance, not a redistribution
 license.
+
+## Harness duel checkpoints
+
+The recorded Edison chat duel now supplies six reviewed objective checkpoints.
+They run through the real headless harness with private player views, independent
+legality review, and a separate `harness-objectives-v1` score. See
+[harness checkpoint workflow](docs/harness-checkpoints.md) for import, evaluation,
+review scope and limitations. Existing three-KPI datasets and scores are preserved.

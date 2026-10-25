@@ -38,9 +38,13 @@ def load_reviewed_case(folder, case_id):
     evaluator=_read(folder,'evaluator.json')[entry['id']]
     if digest(evaluator['initial_state'])!=case['initial_state_sha256']:
         raise ValueError('Reviewed checkpoint differs from its suite digest')
-    rules=_read(folder,'assets/rules-snapshot.json')
-    cards=_read(folder,'assets/card-texts.json')
-    banlist=(folder/'assets/perfect-circle-2007-09-01.json').read_bytes()
+    assets=case['rules'].get('assets', {})
+    rules=_read(folder,assets.get('rules','assets/rules-snapshot.json'))
+    cards=_read(folder,assets.get('cards','assets/card-texts.json'))
+    banlist_path=(folder/assets.get('banlist','assets/perfect-circle-2007-09-01.json')).resolve()
+    if not banlist_path.is_relative_to(folder):
+        raise ValueError('Review asset must remain inside its dataset')
+    banlist=banlist_path.read_bytes()
     if (digest(rules)!=case['rules']['rules_sha256'] or digest(cards)!=case['rules']['card_text_sha256']
             or hashlib.sha256(banlist).hexdigest()!=case['rules']['banlist_sha256']):
         raise ValueError('Pinned rules/card assets changed')
@@ -53,6 +57,16 @@ def load_reviewed_case(folder, case_id):
     model_request(context)
     if context.get('decision',{}).get('actor')!='agent':
         raise ValueError('Checkpoint must await the evaluated player')
+    if suite.get('evaluation_protocol') == 'harness-objectives-v1':
+        from .harness_replay import player_context
+        state=evaluator['initial_state']
+        if state.get('player_isolation')!='enforced' or state['mode']!='managed':
+            raise ValueError('Objective checkpoints require a private stateless player boundary')
+        if any(cards.get(key)!=value for owner in state['players'].values()
+               for key,value in owner['cards'].items()):
+            raise ValueError('Checkpoint catalog differs from the pinned card assets')
+        if context != player_context(state, rules, case['public_facts']):
+            raise ValueError('Player packet differs from the live runtime privacy projection')
     bridge={'schema_version':'1.0','id':case_id,'source':deepcopy(case['source']),
             'review':deepcopy(case['review']),'player_context':context,
             'grading':deepcopy(evaluator)}
