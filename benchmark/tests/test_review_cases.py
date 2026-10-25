@@ -6,7 +6,7 @@ import unittest
 from unittest.mock import patch
 
 from yugioh_benchmark.kpis import digest, score_kpis, validate_suite
-from yugioh_benchmark.replay import load_bundle
+from source_fixture import fixture_replay
 from yugioh_benchmark.review_cases import load_reviewed_case
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -19,7 +19,7 @@ class ReviewedCasesTests(unittest.TestCase):
         cls.suite=json.loads((FOLDER/'suite.json').read_text(encoding='utf-8'))
         cls.index=json.loads((FOLDER/'review-index.json').read_text(encoding='utf-8'))
         cls.evaluator=json.loads((FOLDER/'evaluator.json').read_text(encoding='utf-8'))
-        cls.replay=load_bundle(ROOT/'replays/db-json-40753-85958923')
+        cls.replay=fixture_replay()
 
     def test_full_source_coverage_and_no_blanket_approval(self):
         timeline=json.loads((FOLDER/'timeline.json').read_text(encoding='utf-8'))

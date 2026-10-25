@@ -4,7 +4,9 @@
     {
       "replay": "db-json-40753-85958923",
       "fixture": "fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json",
-      "bundle": "replays/db-json-40753-85958923",
+      "bundle": "imports/db-json-40753-85958923",
+      "bundle_storage": "generated_local_only",
+      "retrieved_at": "2026-10-08",
       "candidates": "benchmarks/candidates/aco77-sdesowitz02-2026-10-07-native.json",
       "source_url": "https://www.duelingbook.com/replay?id=40753-85958923",
       "payload_sha256": "d6cb9929bb5b3093ad4dfc47d6c5875be0b875c101f7a816950e04e3384d0356",

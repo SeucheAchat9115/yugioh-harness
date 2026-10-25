@@ -12,7 +12,6 @@ recursive-include benchmark/tests *.py
 recursive-include benchmark/schemas *.json
 recursive-include benchmark/fixtures *.json *.md
 recursive-include benchmark/benchmarks *.json *.md
-recursive-include benchmark/replays *.json *.md
 recursive-include benchmark/scripts *.py
 prune benchmark/imports
 prune benchmark/inspection

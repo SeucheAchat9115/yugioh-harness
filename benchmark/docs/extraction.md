@@ -8,10 +8,10 @@ steps; the commands below are maintainer instructions.
 
 ## Generate the extraction
 
-Install the repository as described in the README. For the bundled replay:
+Install the repository as described in the README. First [rebuild the local bundle](native-json.md#import) from `benchmark/`:
 
 ```sh
-yugioh-benchmark extract replays/db-json-40753-85958923 --output inspection/db-json-40753-85958923
+yugioh-benchmark extract imports/db-json-40753-85958923 --output inspection/db-json-40753-85958923
 ```
 
 For a new match, first follow [replay acquisition](acquisition.md) and

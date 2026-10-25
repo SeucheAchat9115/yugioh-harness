@@ -12,7 +12,7 @@ from types import SimpleNamespace
 
 from yugioh_benchmark.extraction import extract_observations
 from yugioh_benchmark.kpis import digest, validate_suite
-from yugioh_benchmark.replay import load_bundle
+from yugioh_benchmark.native_json import convert_json, parse_export
 from harness.engine.actions import validate_state
 from harness.players.isolated import model_request
 from harness.runner.duel import DuelRunner
@@ -107,7 +107,9 @@ def apply_followup_review(values, packets, records, state_for, context_for, cata
 
 
 def prepared():
-    replay=load_bundle(ROOT/'replays/db-json-40753-85958923')
+    source=json.loads((ROOT/'benchmarks/sources.json').read_text(encoding='utf-8'))['sources'][0]
+    data=parse_export((ROOT/source['fixture']).read_text(encoding='utf-8'))
+    replay=convert_json(data,source['source_url'],source['retrieved_at'])
     extraction=extract_observations(replay); records=extraction['records']
     metadata=json.loads((ROOT/'benchmarks/card-metadata/db-json-40753-85958923.json').read_text(encoding='utf-8'))
     fields={'id','name','type','frameType','desc','race','archetype','atk','def','level','attribute','scale','linkval','linkmarkers','pend_desc','monster_desc'}

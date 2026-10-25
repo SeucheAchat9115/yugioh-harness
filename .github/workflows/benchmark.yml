@@ -18,7 +18,12 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install ".[plotting]"
       - run: python -m unittest discover -s benchmark/tests -v
-      - run: yugioh-benchmark inspect benchmark/replays/db-json-40753-85958923
+      - name: Rebuild the observation bundle in temporary storage
+        run: >-
+          yugioh-benchmark convert-json benchmark/fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json
+          --source https://www.duelingbook.com/replay?id=40753-85958923
+          --retrieved-at 2026-10-08 --output "${{ runner.temp }}/native-replay"
+      - run: yugioh-benchmark inspect "${{ runner.temp }}/native-replay"
   package:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -35,4 +40,9 @@ jobs:
         working-directory: /tmp
         run: python -I -c "import harness.environment, yugioh_benchmark; from harness.environment import PROTOCOL; assert PROTOCOL == 'duel-v1'"
       - run: python -m unittest discover -s benchmark/tests -v
-      - run: yugioh-benchmark inspect benchmark/replays/db-json-40753-85958923
+      - name: Rebuild the observation bundle in temporary storage
+        run: >-
+          yugioh-benchmark convert-json benchmark/fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json
+          --source https://www.duelingbook.com/replay?id=40753-85958923
+          --retrieved-at 2026-10-08 --output "${{ runner.temp }}/native-replay"
+      - run: yugioh-benchmark inspect "${{ runner.temp }}/native-replay"

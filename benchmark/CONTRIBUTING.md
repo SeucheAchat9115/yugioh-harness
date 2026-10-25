@@ -6,10 +6,12 @@ Use Python 3.11 or newer. Install from the monorepo root and test both packages:
 python -m pip install -e .
 python -m unittest discover -s tests -v
 python -m unittest discover -s benchmark/tests -v
-yugioh-benchmark inspect benchmark/replays/db-json-40753-85958923
+yugioh-benchmark --help
 ```
 
-Tests run offline against the same root-installed harness. See the
+Tests rebuild observation bundles in temporary directories from the pinned source
+fixture; generated replay archives are not tracked. Tests run offline against the
+same root-installed harness. See the
 [root contribution guide](../CONTRIBUTING.md) and
 [shared environment](../docs/architecture-and-roadmap.md).
 

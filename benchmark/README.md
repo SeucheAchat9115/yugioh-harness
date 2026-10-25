@@ -76,11 +76,12 @@ incorrect input, with zero performance-selected retries.
 
 The selected [Aco77 vs sdesowitz02 replay](https://www.duelingbook.com/replay?id=40753-85958923)
 now uses the [supplied native JSON](fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json)
-and [native bundle](replays/db-json-40753-85958923) as its primary source:
+as its primary source. Rebuild the native observation bundle locally using the
+commands below; the previous stored archive has been removed:
 **554 source plays, two games, 174 review candidates**. It adds private draw
 observations for both players, card definitions, shuffle references and absolute
 LP updates. The [source registry](benchmarks/sources.json) links the JSON fixture,
-bundle, hashes, card references and review candidates. Its identity is
+the generated local bundle path, hashes, card references and review candidates. Its identity is
 `db-json-40753-85958923`.
 
 The [whole-match review](docs/replay-review-stage.md) covers all 207 work items
@@ -112,10 +113,10 @@ git clone https://github.com/SeucheAchat9115/yugioh-harness.git
 cd yugioh-harness
 python -m pip install .
 cd benchmark
-yugioh-benchmark convert-json imports/replay.json --source https://www.duelingbook.com/replay?id=40753-85958923 --output replays/my-native-match
-yugioh-benchmark inspect replays/db-json-40753-85958923
+yugioh-benchmark convert-json fixtures/duelingbook/aco77-sdesowitz02-2026-10-07.json --source https://www.duelingbook.com/replay?id=40753-85958923 --retrieved-at 2026-10-08 --output imports/db-json-40753-85958923
+yugioh-benchmark inspect imports/db-json-40753-85958923
 # Reconstruct reviewer-only observations; these are not scored cases:
-yugioh-benchmark extract replays/db-json-40753-85958923 --output inspection/db-json-40753-85958923
+yugioh-benchmark extract imports/db-json-40753-85958923 --output inspection/db-json-40753-85958923
 # Score a reviewed suite and its trusted run artifacts:
 yugioh-benchmark score-kpis suite.json run.json
 python -m unittest discover -s tests -v

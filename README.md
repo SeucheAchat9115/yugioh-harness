@@ -20,7 +20,7 @@ importers and historical results. Install once from this root:
 ```sh
 python -m pip install -e .
 yugioh-harness duel --repo .
-yugioh-benchmark inspect benchmark/replays/db-json-40753-85958923
+yugioh-benchmark --help
 ```
 
 The headless command accepts versioned JSON lines for a trusted host/orchestrator.
@@ -31,6 +31,9 @@ See [headless/chat integration](docs/headless.md) and the
 [agreed architecture and staged roadmap](docs/architecture-and-roadmap.md).
 Edison is the first full-duel validation scope; pilots use open intentions.
 RL adapters and the GUI are planned, not implemented.
+
+The explicitly published [chat duel replay](replays/README.md) is available for
+post-game review. Ordinary live saves remain local and ignored.
 
 ## Start a duel
 

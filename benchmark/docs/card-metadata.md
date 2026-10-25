@@ -18,13 +18,14 @@ not establish the replay's format, banlist or pre-errata card texts. In particul
 Dark Magician of Chaos's current text refers to End Phase recovery, whereas this
 replay records immediate recovery. Keep historical rules review pending.
 
+First [rebuild the local bundle](native-json.md#import) from `benchmark/`.
 Maintainer commands:
 
 ```sh
 # One batched network request, cached to a new output path:
-yugioh-benchmark card-metadata replays/db-json-40753-85958923 --retrieved-at 2026-10-08T00:00:00Z --output imports/card-reference.json
+yugioh-benchmark card-metadata imports/db-json-40753-85958923 --retrieved-at 2026-10-08T00:00:00Z --output imports/card-reference.json
 # Use a previously saved cardinfo.php JSON response without network access:
-yugioh-benchmark card-metadata replays/db-json-40753-85958923 --response imports/api-response.json --retrieved-at 2026-10-08T00:00:00Z --output imports/card-reference-offline.json
+yugioh-benchmark card-metadata imports/db-json-40753-85958923 --response imports/api-response.json --retrieved-at 2026-10-08T00:00:00Z --output imports/card-reference-offline.json
 ```
 
 Use the actual response retrieval timestamp. Existing output files are refused;

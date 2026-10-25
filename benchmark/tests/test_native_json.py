@@ -89,7 +89,11 @@ class NativeJsonTests(unittest.TestCase):
 
     def test_primary_registry_fixture_and_candidates(self):
         registry = json.loads((ROOT/'benchmarks/sources.json').read_text(encoding='utf-8'))['sources'][0]
-        loaded = load_bundle(ROOT/registry['bundle'])
+        self.assertEqual(registry['bundle_storage'], 'generated_local_only')
+        with tempfile.TemporaryDirectory() as temporary:
+            folder = Path(temporary)/'bundle'
+            write_bundle(self.replay, folder)
+            loaded = load_bundle(folder)
         self.assertEqual(loaded, self.replay)
         self.assertEqual(registry['payload_sha256'], hashlib.sha256(canonical(self.data)).hexdigest())
         self.assertEqual(registry['fixture_sha256'], hashlib.sha256(FIXTURE.read_bytes()).hexdigest())
