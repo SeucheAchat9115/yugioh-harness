@@ -40,7 +40,7 @@ class HarnessReplayTests(unittest.TestCase):
     def setUpClass(cls):
         cls.fixtures=tempfile.TemporaryDirectory()
         cls.data=Path(cls.fixtures.name)/'reviewed'
-        prepare_harness(ZIP,json.loads(REVIEW.read_text()),cls.data)
+        prepare_harness(ZIP,json.loads(REVIEW.read_text(encoding='utf-8')),cls.data)
 
     @classmethod
     def tearDownClass(cls):
@@ -49,7 +49,7 @@ class HarnessReplayTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)
-        self.spec=json.loads(REVIEW.read_text())
+        self.spec=json.loads(REVIEW.read_text(encoding='utf-8'))
         self.answers=self.spec['checkpoints']
 
     def test_import_reproducible_scoped_and_source_gaps_retained(self):
@@ -60,9 +60,10 @@ class HarnessReplayTests(unittest.TestCase):
         out=self.root/'fresh';report=prepare_harness(ZIP,self.spec,out)
         self.assertEqual(report['cases'],6)
         actual={p.relative_to(out):p.read_bytes() for p in out.rglob('*') if p.is_file()}
+        self.assertTrue(all(b'\r\n' not in value for value in actual.values()))
         expected={p.relative_to(self.data):p.read_bytes() for p in self.data.rglob('*') if p.is_file() and p.suffix=='.json'}
         self.assertEqual(actual,expected)
-        for case in json.loads((out/'suite.json').read_text())['cases']:
+        for case in json.loads((out/'suite.json').read_text(encoding='utf-8'))['cases']:
             bridge,state=load_reviewed_case(out,case['id'])
             self.assertEqual(state['pending_decision']['actor'],'agent')
             self.assertEqual(state['revision'],0)
@@ -101,18 +102,20 @@ class HarnessReplayTests(unittest.TestCase):
     def test_archive_tampering_and_zip_path_traversal_rejected(self):
         for name in ('../game.json','/game.json','C:/game.json','a\\game.json'):
             path=self.root/'bad.zip'
-            with zipfile.ZipFile(path,'w') as archive:archive.writestr(name,'{}')
+            info=zipfile.ZipInfo('entry')
+            info.filename=name  # Preserve adversarial raw separators even on Windows.
+            with zipfile.ZipFile(path,'w') as archive:archive.writestr(info,'{}')
             with self.assertRaises(ValueError):audit_harness(path)
         directory=self.root/'source';directory.mkdir()
         with zipfile.ZipFile(ZIP) as archive:archive.extractall(directory)
-        event=next(directory.rglob('000010.json'));data=json.loads(event.read_text())
+        event=next(directory.rglob('000010.json'));data=json.loads(event.read_text(encoding='utf-8'))
         data['action']['public_summary']='tampered';event.write_text(json.dumps(data))
         with self.assertRaises(ValueError):audit_harness(next(directory.rglob('game.json')).parent)
 
     def test_privacy_projection_checked_even_if_packet_digest_is_recomputed(self):
         data=self.root/'data';shutil.copytree(self.data,data)
-        suite=json.loads((data/'suite.json').read_text());case=suite['cases'][0]
-        path=data/case['player_packet'];packet=json.loads(path.read_text())
+        suite=json.loads((data/'suite.json').read_text(encoding='utf-8'));case=suite['cases'][0]
+        path=data/case['player_packet'];packet=json.loads(path.read_text(encoding='utf-8'))
         hidden=packet['player_context']['state']['players']['human']
         # A malicious hidden identity embedded in an otherwise allowed public field.
         hidden['monster_zones'][0]={'instance_id':'injected','hidden':True,'name':'PRIVATE CANARY'}
@@ -131,7 +134,7 @@ class HarnessReplayTests(unittest.TestCase):
             payload=json.dumps(request)
             for forbidden in ('acceptable_moves','reference_intent','reference_activation','rationale','source_state_sha256','grading'):
                 self.assertNotIn('"'+forbidden+'"',payload)
-        run=json.loads((self.root/'oracle/model-1/run.json').read_text())
+        run=json.loads((self.root/'oracle/model-1/run.json').read_text(encoding='utf-8'))
         for row in run['results']:
             self.assertIsNotNone(row['execution_plan'])
             self.assertEqual(len(row['journal']['events']),1)
@@ -139,7 +142,7 @@ class HarnessReplayTests(unittest.TestCase):
         row=run['results'][1];row['normalized_move']={'kind':'pass'}
         row['move_normalization_review']['move_sha256']=digest(row['normalized_move'])
         row['legality_review']['attempt_sha256']=digest({k:v for k,v in row.items() if k!='legality_review'})
-        with self.assertRaises(ValueError):score_kpis(json.loads((self.data/'suite.json').read_text()),run)
+        with self.assertRaises(ValueError):score_kpis(json.loads((self.data/'suite.json').read_text(encoding='utf-8')),run)
 
     def test_wrong_legal_action_invalid_uncertain_timeout_and_execution_failure(self):
         for label,verdict,fail in [('invalid','invalid',False),('uncertain','uncertain',False),('timeout','valid',True),('wrong','valid',False)]:

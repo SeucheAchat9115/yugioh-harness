@@ -25,7 +25,8 @@ def _json(path):
 
 def _write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
+    # Byte-pinned assets must have identical LF bytes on Windows and POSIX.
+    path.write_bytes((json.dumps(value, indent=2, ensure_ascii=False)+'\n').encode('utf-8'))
 
 
 @contextmanager
@@ -47,13 +48,17 @@ def open_archive(source):
                         raise ValueError('Archive expands beyond import limits')
                     seen = set()
                     for entry in entries:
-                        path = PurePosixPath(entry.filename)
+                        # ZipInfo.filename is already normalized on Windows and
+                        # truncated at NUL; validate the original stored name.
+                        name = entry.orig_filename
+                        path = PurePosixPath(name)
                         mode = entry.external_attr >> 16
-                        if (path.is_absolute() or '..' in path.parts or '\\' in entry.filename
-                                or ':' in entry.filename or not path.parts or path in seen
+                        identity = path.as_posix().casefold()
+                        if (path.is_absolute() or '..' in path.parts or '\\' in name
+                                or ':' in name or '\0' in name or not path.parts or identity in seen
                                 or (mode & 0o170000) == 0o120000):
                             raise ValueError('Unsafe or duplicate ZIP path')
-                        seen.add(path)
+                        seen.add(identity)
                     archive.extractall(temp/'source')
             except zipfile.BadZipFile as exc:
                 raise ValueError('Expected a schema-4 directory or replay ZIP') from exc
