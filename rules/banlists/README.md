@@ -5,6 +5,7 @@ legality validator. A banlist cannot establish release/card-pool legality.
 
 | File | List | Forbidden / Limited / Semi-Limited |
 | --- | --- | --- |
+| [tcg-2026-10-19.json](tcg-2026-10-19.json) | Konami TCG Advanced, verified 2026-11-09 | 156 / 93 / 7 |
 | [tcg-2026-09-21.json](tcg-2026-09-21.json) | Konami TCG Advanced; verified 2026-10-06 | 122 / 95 / 8 |
 | [tcg-2010-03-01.json](tcg-2010-03-01.json) | Full Konami archive, used with Edison pool | 45 / 70 / 20 |
 | [perfect-circle-2007-09-01.json](perfect-circle-2007-09-01.json) | Perfect Circle community TCG pool; archive differences retained | 36 / 56 / 14 |
@@ -23,7 +24,7 @@ legality validator. A banlist cannot establish release/card-pool legality.
 - `sources`: URLs and authority labels. Community references are labeled explicitly.
 - `notes`: scope, source discrepancies, and restrictions that the arrays cannot convey.
 - Optional `date_overrides`: inclusive `from`/`through`, `status`, and `cards`.
-  Apply matching overrides before normal/default limits. The 2026 list retains
+  Apply matching overrides before normal/default limits. The September 2026 list retains
   Mind Master and Elder Entity Norden as Forbidden until September 28.
 - Optional `archive_entries_outside_card_pool`: restrictions printed in the
   official archive but omitted by the selected historical community pool.
