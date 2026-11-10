@@ -1,6 +1,6 @@
 # Modern TCG Advanced
 
-Profile ID `tcg`; version `tcg-2026-10-06`. Checked on **2026-10-06**.
+Profile ID `tcg`, version `tcg-2026-11-09`. Checked on **2026-11-09**.
 Use [shared basics](common.md), the official references below, and current English
 TCG card text. This profile covers the physical TCG Advanced format.
 
@@ -14,7 +14,7 @@ TCG card text. This profile covers the physical TCG Advanced format.
 | Copy limits | 3 normally; dated list overrides, across all decks combined |
 | Field | 5 Main Monster, 5 Spell/Trap, Field Zone, 2 shared Extra Monster Zones |
 | Pendulum Zones | Leftmost/rightmost Spell/Trap Zones while used as Pendulum Zones |
-| Banlist | [TCG Advanced, 2026-09-21](banlists/tcg-2026-09-21.json) |
+| Banlist | [TCG Advanced, 2026-10-19](banlists/tcg-2026-10-19.json) |
 
 The first player normally uses one Extra Monster Zone; occupying both requires
 the applicable Extra Link rules. Fusion/Synchro/Xyz Summons from the face-down
@@ -49,9 +49,11 @@ monsters to the GY at the end. Check activation eligibility separately from timi
 ## Legality and versioning
 
 The linked list was the latest official TCG list verified on the check date.
-Mind Master and Elder Entity Norden stayed Forbidden until **2026-09-28**;
-the JSON records the September 21–27 exception. Verify later official updates
-before a new current-format game; retain the chosen date for resumption.
+Perfectron Hydradrive Dragon becomes Limited at the November 11, 2026 release
+of Magnificent Maestros at Official Tournament Stores. Before then the card is
+unreleased. The [September list](banlists/tcg-2026-09-21.json) remains available
+for games using that date. Verify later official updates before a new
+current-format game and retain the chosen date for resumption.
 Card availability is regional and separate from copy restrictions. A card not
 listed is not automatically released or tournament legal. Do not apply OCG,
 Master Duel, Traditional, Speed Duel, Rush Duel, or Genesys lists to this profile.
@@ -67,5 +69,5 @@ the event's current policy, not an implicit harness timer.
 - [Advanced rules and fast-effect timing](https://www.yugioh-card.com/en/play/advanced-rules/).
 - [English TCG card database](https://www.db.yugioh-card.com/yugiohdb/card_search.action?request_locale=en).
 - [Live list landing page](https://www.yugioh-card.com/en/limited/) and
-  [dated September 21, 2026 list](https://www.yugioh-card.com/en/limited/list_2026-09-21/).
+  [dated October 19, 2026 list](https://www.yugioh-card.com/en/limited/list_2026-10-19/).
 - [Organized-play policy index](https://www.yugioh-card.com/en/events/organizedplay/).

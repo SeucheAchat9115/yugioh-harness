@@ -23,7 +23,8 @@ Store source links/author/import notes in the optional folder `README.md` and or
 YDK header. Generate `deck.json` through the conversion skill; provenance is not
 part of its gameplay-only schema.
 
-Indexes: [Unassigned decks](unassigned/README.md) and [Edison](edison/README.md).
+Browse [TCG Advanced](tcg/README.md), [Edison](edison/README.md), and
+[unassigned decks](unassigned/README.md).
 Both Edison bundles are complete; their guides flag historical text differences.
 Preliminary guides can exist before other imports, but must say that `deck.ydk`/`deck.json`
 are pending; never fabricate those files.

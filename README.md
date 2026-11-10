@@ -68,9 +68,14 @@ verified host restrictions or a tool-free model transport. See
 | Dracotail | 40 / 15 / 15 | [JSON](decks/unassigned/dracotail/deck.json) | [Guide](decks/unassigned/dracotail/guide.md) |
 | Blackwing (Edison) | 40 / 15 / 15 | [JSON](decks/edison/blackwing/deck.json) | [Guide](decks/edison/blackwing/guide.md) |
 | Lightsworn (Edison) | 40 / 15 / 15 | [JSON](decks/edison/lightsworn/deck.json) | [Guide](decks/edison/lightsworn/guide.md) |
+| Ars Magna Elfnote (TCG Advanced) | 40 / 15 / 15 | [JSON](decks/tcg/elfnote/deck.json) | [Guide](decks/tcg/elfnote/guide.md) |
+| Angelechy (TCG Advanced) | 40 / 15 / 15 | [JSON](decks/tcg/angelechy/deck.json) | [Guide](decks/tcg/angelechy/guide.md) |
+| Ars Magna Power Patron Light and Darkness Ritual (TCG Advanced) | 60 / 15 / 15 | [JSON](decks/tcg/light-and-darkness-ritual/deck.json) | [Guide](decks/tcg/light-and-darkness-ritual/guide.md) |
 
 Unassigned decks need an agreed format/banlist or explicit casual rules. Edison
 bundles use the March 2010 banlist; their guides identify historical text differences.
+The [TCG Advanced tournament bundles](decks/tcg/README.md) use the October 19,
+2026 banlist.
 Guides are reasoned advice, not comprehensive proof of combo legality.
 
 To add a deck, use the [YDK conversion skill](skills/ydk-to-json/SKILL.md), then the
