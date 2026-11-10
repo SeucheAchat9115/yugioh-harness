@@ -78,3 +78,10 @@ independent-pilot, response-window and persistence obligations still apply.
 Use `interaction` for structured human display; raw `next` tasks are private host
 data. Edison setup can start from `templates/edison-managed.json` after confirming
 decks and starting player. Pin complete shared/profile/banlist text and errata.
+
+## Optional second screen
+
+Enable Sites board publishing only when the user asks for the iPad board for
+this duel. Follow [the headless board workflow](../../docs/headless.md#optional-ipad-duel-board).
+The conversation remains the decision surface. Keep playing in chat if the
+board is disabled or a publish fails.

@@ -103,6 +103,27 @@ class HeadlessTests(unittest.TestCase):
             self.assertNotIn('PRIVATE_OPPONENT_MENU', json.dumps(display))
             self.assertNotIn('task_id', display)
 
+    def test_optional_board_snapshot_filters_visible_chat_data(self):
+        self.prepare()
+        self.edison['presentation']['show_agent_hand'] = True
+        with DuelEnvironment(self.repo, self.private) as env:
+            self.start(env)
+            interaction = self.call(env, 'interaction')
+            agent = interaction['context']['state']['players']['agent']
+            self.assertIn('hand', agent)
+            board = self.call(env, 'board_snapshot')
+            self.assertEqual(board['schema'], 'duel-board-v1')
+            self.assertEqual(board['revision'], 0)
+            self.assertEqual(len(board['players']['human']['hand']), 5)
+            self.assertTrue(all(card['text'] for card in board['players']['human']['hand']))
+            self.assertNotIn('hand', board['players']['agent'])
+            self.assertNotIn('extra_deck', board['players']['human'])
+            self.assertNotIn('side_deck', board['players']['human'])
+            for forbidden in ('instance_id', 'card_id', 'remaining_deck_order', 'decision'):
+                self.assertNotIn(forbidden, json.dumps(board))
+            open_window(env.service.runner)
+            self.assertGreater(self.call(env, 'board_snapshot')['revision'], board['revision'])
+
     def test_spectator_projection_and_recovery_failure(self):
         self.prepare()
         self.edison['mode'] = 'agent-vs-agent'
@@ -120,6 +141,9 @@ class HeadlessTests(unittest.TestCase):
             self.assertNotIn('PRIVATE_PLAYER_ONE_CHOICE', json.dumps(display))
             for player in display['context']['state']['players'].values():
                 self.assertNotIn('hand', player)
+            board = self.call(env, 'board_snapshot')
+            self.assertTrue(all('hand' not in player for player in board['players'].values()))
+            self.assertNotIn('PRIVATE_PLAYER_ONE_CHOICE', json.dumps(board))
             runner._recovery_required = True
             result = env.request(self.envelope('interaction'))
             self.assertFalse(result['ok'])

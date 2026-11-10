@@ -29,6 +29,7 @@ def compact(runner, context, card_ids=None, recent_limit=4, guide_budget=1200):
                                 for card in player[zone]]
         player['effect_usage'] = {key: usage for key, usage in player['effect_usage'].items()
                                   if usage.get('turn', state['turn']) == state['turn'] or usage.get('kind') != 'attack'}
+    collect(state.get('shared_zones'))
     collect(state.get('chain'))
     collect(state.get('pending_effects'))
     if card_ids is not None:
