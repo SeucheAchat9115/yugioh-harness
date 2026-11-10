@@ -5,6 +5,7 @@ receive only filtered tasks. A GUI receives interaction(), never raw next tasks.
 """
 from copy import deepcopy
 
+from harness.environment.board import board_snapshot
 from harness.integration.mcp import CONVERSATIONAL_TOOLS, TOOLS
 from harness.integration.service import DuelService
 from harness.runner.duel import RecoveryRequired
@@ -22,6 +23,8 @@ def operations():
     result['describe'] = {'description': 'Discover the versioned host contract.', 'properties': {}, 'required': []}
     result['interaction'] = {'description': 'Filtered human/spectator data for chat or a future GUI.',
                              'properties': {}, 'required': []}
+    result['board_snapshot'] = {'description': 'Read a display-only snapshot for an opted-in second screen.',
+                                'properties': {}, 'required': []}
     return result
 
 
@@ -110,9 +113,12 @@ class DuelEnvironment:
                 return {**response, **error}
             if type(value) is int and not rule.get('minimum', value) <= value <= rule.get('maximum', value):
                 return {**response, **error}
-        if request['op'] == 'interaction':
+        if request['op'] in ('interaction', 'board_snapshot'):
             try:
-                return {**response, 'ok': True, 'result': self.interaction()}
+                display = self.interaction()
+                if request['op'] == 'board_snapshot':
+                    display = board_snapshot(display)
+                return {**response, 'ok': True, 'result': display}
             except RecoveryRequired as exc:
                 return {**response, 'ok': False, 'error': {'code': 'recovery_required',
                         'action_status': exc.action_status}}

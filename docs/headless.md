@@ -125,3 +125,27 @@ This local CLI/Python API is a **trusted moderator channel**, not an authenticat
 HTTP service. A future network backend must bind users to sessions and expose
 only filtered reads and their own decision submissions. Existing role-bound arena
 credentials remain the separate option for independent player clients.
+
+## Optional iPad duel board
+
+Chat-only play is the default. The user can opt in for a specific game by asking
+to start or resume that game with the iPad board. A later resume defaults to
+chat-only unless the user requests the board again.
+
+For an opted-in game, the moderator connects the owner's private Duel Board
+Site app and reads the `board_snapshot` operation through this trusted
+transport. Pass only its `result` as JSON text to the Site's
+`publish_duel_board` tool after setup or resume and after each committed board
+update. Share the returned game-specific URL with the user. Read fresh
+snapshots from the existing writer and publish outside the engine operation.
+Never send the full `interaction` response, raw tasks, checkpoints, or archives.
+
+The board includes the human hand in managed play. Self mode shows only known
+cards, and agent-vs-agent uses the spectator perspective. The opponent's hand
+and face-down card identities are excluded even if the chat display has more
+permissions. The Site keeps the latest accepted snapshot for the duel and
+ignores stale revisions. Decisions and authoritative saves stay in the harness.
+
+If the Site tool is unavailable, fails, or the user turns the board off, carry
+on in chat and stop publishing. The last published board can still be visible.
+A later successful publish sends the latest state in one update.
