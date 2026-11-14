@@ -1,4 +1,4 @@
-"""Build a Sites display and human decision from the interaction view."""
+"""Build a read-only Sites display from the interaction view."""
 
 
 def _card(card, cards, reveal=False):
@@ -55,6 +55,5 @@ def board_snapshot(interaction):
         'players': players,
         'extra_monsters': shared,
         'chain': [{'actor': link.get('actor'), 'name': link.get('name')} for link in state['chain']],
-        'decision': interaction.get('decision') if interaction.get('awaiting_input') else None,
         'last_action': events[-1]['summary'] if events else None,
     }

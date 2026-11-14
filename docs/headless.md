@@ -144,12 +144,7 @@ publish the initial snapshot with `artwork_ids` in batches of up to 15 IDs.
 The Site downloads missing YGOPRODeck images into its server-side cache.
 Artwork IDs are not part of the browser snapshot. Later snapshots omit the list.
 
-The current human decision can be submitted from the iPad. While awaiting a
-move, call the Site's `read_duel_move` with the current game and decision IDs.
-Check the returned revision against the live harness and pass the response to
-`human_reply` using a stable request ID derived from the decision ID. Review the
-intention through the usual moderator workflow. A queued move is not an
-execution receipt. A newer decision supersedes a stale app submission.
+The iPad board displays the duel and card text. Players submit moves in chat.
 
 The board includes the human hand in managed play. Self mode shows only known
 cards, and agent-vs-agent uses the spectator perspective. The opponent's hand
