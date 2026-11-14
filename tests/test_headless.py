@@ -119,8 +119,11 @@ class HeadlessTests(unittest.TestCase):
             self.assertNotIn('hand', board['players']['agent'])
             self.assertNotIn('extra_deck', board['players']['human'])
             self.assertNotIn('side_deck', board['players']['human'])
-            for forbidden in ('instance_id', 'card_id', 'remaining_deck_order', 'decision'):
+            for forbidden in ('instance_id', 'remaining_deck_order'):
                 self.assertNotIn(forbidden, json.dumps(board))
+            self.assertNotIn('decision', board)
+            self.assertTrue(all(card['image_id'] in self.call(env, 'board_artwork')
+                                for card in board['players']['human']['hand']))
             open_window(env.service.runner)
             self.assertGreater(self.call(env, 'board_snapshot')['revision'], board['revision'])
 

@@ -1,4 +1,4 @@
-"""Build a read-only Sites snapshot from the existing interaction view."""
+"""Build a read-only Sites display from the interaction view."""
 
 
 def _card(card, cards, reveal=False):
@@ -7,7 +7,7 @@ def _card(card, cards, reveal=False):
     if card.get('hidden') and not reveal:
         return {'hidden': True, 'position': card.get('position')}
     details = cards.get(str(card.get('card_id')), {})
-    return {
+    result = {
         'name': card.get('current_name') or card.get('name') or details.get('name') or 'Card',
         'type': card.get('type') or details.get('type'),
         'text': details.get('desc'),
@@ -17,6 +17,10 @@ def _card(card, cards, reveal=False):
         'position': card.get('position'),
         'hidden': bool(card.get('hidden')),
     }
+    card_id = card.get('card_id')
+    if type(card_id) is int and 0 < card_id <= 999999999:
+        result['image_id'] = card_id
+    return result
 
 
 def board_snapshot(interaction):
