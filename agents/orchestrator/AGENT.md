@@ -83,5 +83,6 @@ decks and starting player. Pin complete shared/profile/banlist text and errata.
 
 Enable Sites board publishing only when the user asks for the iPad board for
 this duel. Follow [the headless board workflow](../../docs/headless.md#optional-ipad-duel-board).
-The conversation remains the decision surface. Keep playing in chat if the
+Read submitted iPad moves through the Site and send them through the same
+reviewed intention path as chat moves. Chat play remains available if the
 board is disabled or a publish fails.

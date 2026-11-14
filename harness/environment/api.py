@@ -25,6 +25,8 @@ def operations():
                              'properties': {}, 'required': []}
     result['board_snapshot'] = {'description': 'Read a display-only snapshot for an opted-in second screen.',
                                 'properties': {}, 'required': []}
+    result['board_artwork'] = {'description': 'Image IDs to prefetch for an opted-in Sites duel.',
+                               'properties': {}, 'required': []}
     return result
 
 
@@ -113,8 +115,16 @@ class DuelEnvironment:
                 return {**response, **error}
             if type(value) is int and not rule.get('minimum', value) <= value <= rule.get('maximum', value):
                 return {**response, **error}
-        if request['op'] in ('interaction', 'board_snapshot'):
+        if request['op'] in ('interaction', 'board_snapshot', 'board_artwork'):
             try:
+                if request['op'] == 'board_artwork':
+                    runner = self.service.runner
+                    if runner is None:
+                        raise ValueError('Start or resume first')
+                    runner._fresh()
+                    ids = {int(card_id) for player in runner.state['players'].values()
+                           for card_id in player.get('cards', {}) if card_id.isascii() and card_id.isdigit()}
+                    return {**response, 'ok': True, 'result': sorted(i for i in ids if 0 < i <= 999999999)}
                 display = self.interaction()
                 if request['op'] == 'board_snapshot':
                     display = board_snapshot(display)
