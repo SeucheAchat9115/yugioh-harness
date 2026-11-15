@@ -49,11 +49,22 @@ def board_snapshot(interaction):
             'card': _card(card, cards, card['owner'] == 'human' and show_hand),
         })
     events = context['recent_events']
+    options = {}
+    decision = interaction.get('decision')
+    if interaction['perspective'] == 'human' and interaction.get('awaiting_input') and decision:
+        options['options'] = {
+            'question': decision['question'],
+            'recommendations': [
+                {key: move[key] for key in ('label', 'reason')}
+                for move in decision['recommendations']
+            ],
+        }
     return {
         'schema': 'duel-board-v1',
         **{key: state[key] for key in ('game_id', 'mode', 'status', 'turn', 'active_player', 'phase', 'revision')},
         'players': players,
         'extra_monsters': shared,
         'chain': [{'actor': link.get('actor'), 'name': link.get('name')} for link in state['chain']],
+        **options,
         'last_action': events[-1]['summary'] if events else None,
     }

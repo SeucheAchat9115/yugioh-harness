@@ -144,7 +144,7 @@ publish the initial snapshot with `artwork_ids` in batches of up to 15 IDs.
 The Site downloads missing YGOPRODeck images into its server-side cache.
 Artwork IDs are not part of the browser snapshot. Later snapshots omit the list.
 
-The iPad board displays the duel and card text. Players submit moves in chat.
+The iPad board displays the duel, card text, and the current human options in chat order. Publish after presenting a human decision so the board shows the saved menu. Players submit moves in chat.
 
 The board includes the human hand in managed play. Self mode shows only known
 cards, and agent-vs-agent uses the spectator perspective. The opponent's hand
