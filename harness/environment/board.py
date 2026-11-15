@@ -39,9 +39,12 @@ def board_snapshot(interaction):
             'monsters': [_card(card, cards, reveal) for card in player['monster_zones']],
             'backrow': [_card(card, cards, reveal) for card in player['spell_trap_zones']],
             'field': _card(player['field_spell'], cards, reveal),
+            'graveyard': [_card(card, cards, reveal) for card in player['graveyard']],
+            'banished': [_card(card, cards, reveal) for card in player['banished']],
         }
         if reveal:
             players[actor]['hand'] = [_card(card, cards, reveal) for card in player['hand']]
+            players[actor]['extra_deck'] = [_card(card, cards, reveal) for card in player['extra_deck']]
     shared = []
     for card in state.get('shared_zones', {}).get('extra_monster_zones', []):
         shared.append(None if card is None else {

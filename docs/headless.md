@@ -146,10 +146,11 @@ Artwork IDs are not part of the browser snapshot. Later snapshots omit the list.
 
 The iPad board displays the duel, card text, and the current human options in chat order. Publish after presenting a human decision so the board shows the saved menu. Players submit moves in chat.
 
-The board includes the human hand in managed play. Self mode shows only known
-cards, and agent-vs-agent uses the spectator perspective. The opponent's hand
-and face-down card identities are excluded even if the chat display has more
-permissions. The Site keeps the latest accepted snapshot for the duel and
+In managed play, the board includes the human hand and remaining Extra Deck.
+Both Main Decks and the opponent's Extra Deck show counts only. Graveyards,
+Field Zones, and banished zones use the permitted player view, with opposing
+face-down cards shown as anonymous backs. Self mode shows only known cards,
+and agent-vs-agent uses a public spectator view. The Site keeps the latest accepted snapshot for the duel and
 ignores stale revisions. The harness owns decisions and authoritative saves.
 
 If the Site tool is unavailable, fails, or the user turns the board off, carry

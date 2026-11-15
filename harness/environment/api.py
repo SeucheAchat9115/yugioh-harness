@@ -52,7 +52,7 @@ class DuelEnvironment:
     def __exit__(self, *_):
         self.close()
 
-    def interaction(self):
+    def interaction(self, *, compact=True):
         """Display data only: no moderator state, opponent menus or task envelopes."""
         runner = self.service.runner
         if runner is None:
@@ -60,7 +60,7 @@ class DuelEnvironment:
         runner._fresh()
         spectator = runner.state['mode'] == 'agent-vs-agent'
         perspective = 'public' if spectator else 'human'
-        context = runner.context(perspective, compact=True)
+        context = runner.context(perspective, compact=compact)
         pending = runner.state.get('pending_decision') or {}
         packet = runner.packet or {}
         own_decision = (not spectator and pending.get('actor') == 'human'
@@ -125,9 +125,10 @@ class DuelEnvironment:
                     ids = {int(card_id) for player in runner.state['players'].values()
                            for card_id in player.get('cards', {}) if card_id.isascii() and card_id.isdigit()}
                     return {**response, 'ok': True, 'result': sorted(i for i in ids if 0 < i <= 999999999)}
-                display = self.interaction()
                 if request['op'] == 'board_snapshot':
-                    display = board_snapshot(display)
+                    display = board_snapshot(self.interaction(compact=False))
+                else:
+                    display = self.interaction()
                 return {**response, 'ok': True, 'result': display}
             except RecoveryRequired as exc:
                 return {**response, 'ok': False, 'error': {'code': 'recovery_required',
