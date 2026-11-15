@@ -83,6 +83,22 @@ To add a deck, use the [YDK conversion skill](skills/ydk-to-json/SKILL.md), then
 `deck.json`, `guide.md`, and optional provenance in `README.md`. Card-data changes
 require guide review and a matching JSON hash before the bundle is playable.
 
+### Print a deck guide
+
+Ask the chat host for a PDF of a named prepared deck, or export it explicitly
+from the checkout. The A4 guide uses the existing playbook and deck list. It
+includes key cards, up to two opening lines, and the complete Main, Extra and
+Side Deck lists. This command is independent of starting or playing a duel.
+
+```sh
+python -m pip install -e '.[pdf]'
+yugioh-harness deck-guide-pdf decks/tcg/angelechy --output Angelechy-Deck-Guide.pdf
+```
+
+YGOPRODeck card images are embedded in the PDF and reused on later exports.
+Use `--art-cache` to point to an existing folder of `<card-id>.jpg` images.
+An unavailable image is reported and its card name remains in the guide.
+
 ## Repository map
 
 | Location | Purpose |

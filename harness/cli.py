@@ -24,6 +24,11 @@ def main():
     config = commands.add_parser('host-config', help='Generate stdio MCP configuration')
     config.add_argument('--repo', type=Path, required=True)
     config.add_argument('--host', choices=('codex', 'claude', 'gemini'), required=True)
+    guide = commands.add_parser('deck-guide-pdf', help='Export a compact A4 deck guide')
+    guide.add_argument('deck', help='Folder containing deck.json, deck.ydk and guide.md')
+    guide.add_argument('--repo', type=Path, default=Path.cwd())
+    guide.add_argument('-o', '--output', type=Path, required=True)
+    guide.add_argument('--art-cache', type=Path, help='Folder of cached YGOPRODeck <card-id>.jpg files')
     commands.add_parser('duel', help='Run the versioned headless duel API', add_help=False)
     commands.add_parser('mcp', help='Start moderator MCP lobby', add_help=False)
     # Forward MCP flags untouched; legacy python -m harness.integration.mcp remains.
@@ -47,6 +52,23 @@ def main():
         print(json.dumps(result, indent=2))
         if not result['runtime_ready'] or (args.host_file is not None and not result['host_ready']) or (args.require_host and not result['ready']):
             raise SystemExit(1)
+    elif args.command == 'deck-guide-pdf':
+        from harness.engine.session import load_bundle
+        try:
+            from harness.rendering.deck_guide_pdf import default_art_cache, export
+        except ModuleNotFoundError as error:
+            if error.name not in {'reportlab', 'PIL'}:
+                raise
+            parser.error("Install the optional PDF support with pip install -e '.[pdf]'")
+        try:
+            folder, deck = load_bundle(args.repo.resolve(), args.deck)
+            missing = export(deck, (folder / 'guide.md').read_text(encoding='utf-8'),
+                             args.output, args.art_cache or default_art_cache())
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            parser.error(f'Cannot export guide: {error}')
+        for card_id in missing:
+            print(f'YGOPRODeck image unavailable for {deck["cards"][str(card_id)]["name"]}', file=sys.stderr)
+        print(args.output)
     else:
         executable = str(Path(sys.executable).absolute())
         argv = ['-m', 'harness.integration.mcp', '--repo', str(args.repo.resolve())]

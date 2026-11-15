@@ -16,6 +16,7 @@ dependencies = []
 
 [project.optional-dependencies]
 plotting = ["matplotlib>=3.8"]
+pdf = ["reportlab>=4"]
 
 [project.urls]
 Repository = "https://github.com/SeucheAchat9115/yugioh-harness"

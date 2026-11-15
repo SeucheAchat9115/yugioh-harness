@@ -79,6 +79,13 @@ Use `interaction` for structured human display; raw `next` tasks are private hos
 data. Edison setup can start from `templates/edison-managed.json` after confirming
 decks and starting player. Pin complete shared/profile/banlist text and errata.
 
+## Deck guide PDF on request
+
+When the user asks for a printable guide, export the named prepared deck with
+`python -m harness.cli deck-guide-pdf <deck-folder> --output <path>.pdf`.
+Use the checked-in bundle. The export does not depend on a live duel.
+Offer the generated PDF and report any missing card images.
+
 ## Optional second screen
 
 Enable Sites board publishing only when the user asks for the iPad board for
