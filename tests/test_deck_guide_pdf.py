@@ -15,6 +15,21 @@ HAS_PDF = importlib.util.find_spec('reportlab') is not None
 
 @unittest.skipUnless(HAS_PDF, 'PDF support is optional')
 class DeckGuidePdfTests(unittest.TestCase):
+    def test_german_source_has_translated_roles_and_matching_deck_hash(self):
+        from harness.rendering.deck_guide_pdf import COPY, combo_lines, read_guide, role_rows
+
+        folder = ROOT / 'decks/tcg/angelechy'
+        guide = read_guide(folder, 'de')
+        german = COPY['de']
+        self.assertEqual(len(list(combo_lines(guide, german['combos']))), 2)
+        self.assertEqual(role_rows(guide, german['roles'])[17782288][0], 'Einstieg und Wiederaufbau')
+        with tempfile.TemporaryDirectory() as directory:
+            translated = Path(directory)
+            (translated / 'guide.de.md').write_text(guide, encoding='utf-8')
+            (translated / 'deck.json').write_text('{}', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'needs review'):
+                read_guide(translated, 'de')
+
     def test_combo_parser_accepts_headings_and_bold_playbook_titles(self):
         from harness.rendering.deck_guide_pdf import combo_lines
         guide = """# Example
