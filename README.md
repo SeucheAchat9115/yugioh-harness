@@ -94,11 +94,15 @@ Side Deck lists. This command is independent of starting or playing a duel.
 ```sh
 python -m pip install -e '.[pdf]'
 yugioh-harness deck-guide-pdf decks/tcg/angelechy --output Angelechy-Deck-Guide.pdf
+yugioh-harness deck-guide-pdf decks/tcg/angelechy --language de --output Angelechy-Deckguide-DE.pdf
 ```
 
 YGOPRODeck card images are embedded in the PDF and reused on later exports.
 Use `--art-cache` to point to an existing folder of `<card-id>.jpg` images.
 An unavailable image is reported and its card name remains in the guide.
+The German export uses the deck's translated `guide.de.md` when available.
+See the finished [English](decks/tcg/angelechy/guide.en.pdf) and
+[German](decks/tcg/angelechy/guide.de.pdf) Angelechy guides.
 
 ## Repository map
 
