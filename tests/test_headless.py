@@ -160,6 +160,29 @@ class HeadlessTests(unittest.TestCase):
             self.assertEqual(opponent['banished'][0], {'hidden': True, 'position': 'face-down'})
             self.assertEqual(opponent['banished'][1]['image_id'], visible['card_id'])
 
+    def test_board_chain_details_use_only_public_source_identity(self):
+        self.prepare()
+        with DuelEnvironment(self.repo, self.private) as env:
+            self.start(env)
+            runner = env.service.runner
+            player = runner.state['players']['agent']
+            revealed, hidden = player['hand'][:2]
+            known = player['cards'][str(revealed['card_id'])]
+            chain = [{'id': 'one', 'actor': 'agent', 'name': known['name'], 'effect': 'Public effect.'},
+                     {'id': 'two', 'actor': 'agent', 'card': hidden['instance_id'], 'effect': 'Unknown source.'}]
+            self.call(env, 'step', request_id='board-chain-fixture', request=plan(runner, [
+                {'op': 'chain', 'value': chain},
+            ]))
+            first, second = self.call(env, 'board_snapshot')['chain']
+            self.assertEqual(first['card']['name'], known['name'])
+            self.assertEqual(first['card']['image_id'], revealed['card_id'])
+            self.assertEqual(first['card']['text'], known['desc'])
+            self.assertEqual(first['effect'], 'Public effect.')
+            self.assertEqual(second['card']['name'], 'Card effect')
+            self.assertNotIn('image_id', second['card'])
+            self.assertNotIn(hidden['instance_id'], json.dumps(second))
+            self.assertIsNone(second['card']['text'])
+
     def test_spectator_projection_and_recovery_failure(self):
         self.prepare()
         self.edison['mode'] = 'agent-vs-agent'

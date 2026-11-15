@@ -126,7 +126,8 @@ class DuelEnvironment:
                            for card_id in player.get('cards', {}) if card_id.isascii() and card_id.isdigit()}
                     return {**response, 'ok': True, 'result': sorted(i for i in ids if 0 < i <= 999999999)}
                 if request['op'] == 'board_snapshot':
-                    display = board_snapshot(self.interaction(compact=False))
+                    interaction = self.interaction(compact=False)
+                    display = board_snapshot(interaction, self.service.runner.state)
                 else:
                     display = self.interaction()
                 return {**response, 'ok': True, 'result': display}

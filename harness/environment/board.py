@@ -23,7 +23,31 @@ def _card(card, cards, reveal=False):
     return result
 
 
-def board_snapshot(interaction):
+def _chain_cards(state, active_state):
+    players = state['players']
+    public_zones = ('monster_zones', 'spell_trap_zones', 'graveyard', 'banished')
+    public_cards = [card for player in players.values() for zone in public_zones for card in player[zone]]
+    public_cards.extend(player['field_spell'] for player in players.values())
+    public_cards.extend(card for cards in state.get('shared_zones', {}).values() for card in cards)
+    by_instance = {card['instance_id']: card for card in public_cards
+                   if card and 'instance_id' in card and not card.get('hidden')}
+
+    links = []
+    for link, active in zip(state['chain'], active_state['chain']):
+        actor = link.get('actor')
+        name = link.get('name')
+        catalog = active_state['players'].get(actor, {}).get('cards', {})
+        source = by_instance.get(active['card']) if isinstance(active.get('card'), str) else None
+        if source is None and isinstance(name, str) and name:
+            # Legacy moderator records carry the public activation name rather than a card reference.
+            source = next(({'card_id': int(key), 'name': name}
+                           for key, card in catalog.items() if card['name'].casefold() == name.casefold()), None)
+        display = _card(source or {'name': name or 'Card effect'}, catalog)
+        links.append({'actor': actor, 'name': display['name'], 'card': display, 'effect': link.get('effect')})
+    return links
+
+
+def board_snapshot(interaction, active_state):
     context = interaction['context']
     state = context['state']
     cards = context['cards']
@@ -67,7 +91,7 @@ def board_snapshot(interaction):
         **{key: state[key] for key in ('game_id', 'mode', 'status', 'turn', 'active_player', 'phase', 'revision')},
         'players': players,
         'extra_monsters': shared,
-        'chain': [{'actor': link.get('actor'), 'name': link.get('name')} for link in state['chain']],
+        'chain': _chain_cards(state, active_state),
         **options,
         'last_action': events[-1]['summary'] if events else None,
     }
