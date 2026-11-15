@@ -11,3 +11,9 @@ the [TCG Advanced profile](../../rules/tcg.md) and its
 | 1 | [Ars Magna Elfnote](elfnote/README.md) | Joseph Bellafiore, 2nd at YCS Orlando | 40 / 15 / 15 |
 | 2 | [Angelechy](angelechy/README.md) | Logan Kite, 1st at YCS Orlando | 40 / 15 / 15 |
 | 3 | [Ars Magna Power Patron Light and Darkness Ritual](light-and-darkness-ritual/README.md) | Samuele Ricca, 1st at the Madrid WCQ Regional | 60 / 15 / 15 |
+
+## Additional prepared decks
+
+| Selectable deck | Source | Main / Extra / Side |
+| --- | --- | --- |
+| [Pure Mitsurugi](mitsurugi/README.md) | Unchained Soul King, post-banlist community list | 40 / 15 / 15 |
