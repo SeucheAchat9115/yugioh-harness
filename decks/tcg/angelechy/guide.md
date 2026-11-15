@@ -86,31 +86,44 @@ choosing an effect, even when the summon itself is permitted.
 
 ## Combo lines
 
-**Problem plus Verdict.** Start with both in hand, no locks, empty zones, and
-Enlisted, Bastion, and Shatranga available in the Extra Deck.
+### Problem plus Verdict
 
-1. Activate Problem, then use its effect and discard Verdict as cost.
-2. If it resolves, summon Enlisted and place Bastion. On the next eligible
-   Chain, use Bastion to place Shatranga.
-3. Use Shatranga's resulting trigger to add Opening from Deck or recover Verdict
-   from GY. End with Enlisted, Problem, two placed Synchros and the chosen Trap.
-   If you recover Verdict, its GY placement is unavailable until it reaches the GY again.
-4. If Problem is stopped, keep the remaining engine cards in Extra. If Verdict
-   reached GY, consider its placement effect only with an eligible Angelechy to
-   send and a free zone.
+Start with Angelechy Problem and Angelechy Verdict in hand, no locks and free
+zones. Keep Enlisted, Bastion and Shatranga available in the Extra Deck.
 
-**Opening on the opponent's first turn.** Start second with Opening in hand,
-an available Extra Monster Zone, and Problem or Endgame Problem available.
-Before making a commitment, evaluate Fuwalos or Purulia while you control no cards.
+1. Activate Angelechy Problem. Once it is face-up, activate its effect and
+   discard Angelechy Verdict as cost.
+2. Special Summon Angelechy Enlisted and place Angelechy Bastion as a Continuous
+   Spell. In the following Chain, use Bastion's placement trigger to place
+   Angelechy Shatranga.
+3. In the next Chain, use Shatranga's trigger to add Angelechy Opening to e4
+   from the Deck or return Verdict from the Graveyard to your hand.
 
-1. In their first Standby Phase, activate Opening from hand.
-2. If it resolves, place Problem from Deck, summon Enlisted to the Extra Monster
-   Zone, and place Bastion. Resolve the Bastion and Shatranga triggers in their
-   own Chains to find a Trap.
-3. Track the Synchro-only restriction through the end of your next turn. The
-   searched Verdict normally waits to be Set and activated legally. If Opening
-   was stopped, hold independent hand interaction and look for Problem access
-   on your turn.
+**Result:** Problem, Enlisted, two placed Synchros and one Trap in hand. Returning
+Verdict removes it from the Graveyard, where its placement effect is available.
+
+**Watch for:** Negation of Problem's effect after the discard leaves Verdict in
+the Graveyard. Its placement effect still needs an eligible Angelechy card to
+send and a free Spell & Trap Zone.
+
+### Opening on the opponent's first turn
+
+Go second with Angelechy Opening to e4 in hand, an available Extra Monster Zone
+and access to Angelechy Problem. Consider any Mulcharmy effect while your field
+is empty.
+
+1. Activate Angelechy Opening to e4 from hand during their first Standby Phase.
+2. Place Angelechy Problem from the Deck, summon Angelechy Enlisted to the Extra
+   Monster Zone and place Angelechy Bastion in a Spell & Trap Zone.
+3. Use Bastion to place Angelechy Shatranga, then use Shatranga to add a Trap.
+   Each placement trigger starts its own Chain.
+
+**Result:** Problem, Enlisted, two placed Synchros and a Trap in hand. Set a
+searched Angelechy Verdict at the next legal opportunity. Opening allows only
+Synchro Summons from the Extra Deck through the end of your next turn.
+
+**Watch for:** If Opening is stopped, keep independent hand interaction and
+look for Problem access on your turn.
 
 ## Going first and going second
 
