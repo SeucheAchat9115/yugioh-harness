@@ -23,6 +23,11 @@ def _card(card, cards, reveal=False):
     return result
 
 
+# A cost label describes a recorded operation without exposing card identities.
+PUBLIC_COSTS = {'discard', 'banish', 'tribute', 'detach', 'pay-lp', 'send-to-graveyard',
+                'return-to-hand', 'return-to-deck', 'destroy', 'reveal', 'shuffle'}
+
+
 def _chain_cards(state, active_state):
     players = state['players']
     public_zones = ('monster_zones', 'spell_trap_zones', 'graveyard', 'banished')
@@ -43,7 +48,14 @@ def _chain_cards(state, active_state):
             source = next(({'card_id': int(key), 'name': name}
                            for key, card in catalog.items() if card['name'].casefold() == name.casefold()), None)
         display = _card(source or {'name': name or 'Card effect'}, catalog)
-        links.append({'actor': actor, 'name': display['name'], 'card': display, 'effect': link.get('effect')})
+        costs = link.get('costs') or []
+        kinds = [(cost['kind'].strip().lower().replace('_', '-').replace(' ', '-'))
+                 for cost in costs if isinstance(cost, dict) and isinstance(cost.get('kind'), str)]
+        links.append({
+            'actor': actor, 'name': display['name'], 'card': display, 'effect': link.get('effect'),
+            'action': 'resolve' if active.get('resolution_started') is True else 'activate',
+            'costs': list(dict.fromkeys(kind for kind in kinds if kind in PUBLIC_COSTS)),
+        })
     return links
 
 

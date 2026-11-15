@@ -168,8 +168,11 @@ class HeadlessTests(unittest.TestCase):
             player = runner.state['players']['agent']
             revealed, hidden = player['hand'][:2]
             known = player['cards'][str(revealed['card_id'])]
-            chain = [{'id': 'one', 'actor': 'agent', 'name': known['name'], 'effect': 'Public effect.'},
-                     {'id': 'two', 'actor': 'agent', 'card': hidden['instance_id'], 'effect': 'Unknown source.'}]
+            chain = [{'id': 'one', 'actor': 'agent', 'name': known['name'], 'effect': 'Public effect.',
+                      'costs': [{'kind': 'discard', 'instance_id': hidden['instance_id']},
+                                {'kind': 'unrecognized-cost'}]},
+                     {'id': 'two', 'actor': 'agent', 'card': hidden['instance_id'],
+                      'effect': 'Unknown source.', 'resolution_started': True}]
             self.call(env, 'step', request_id='board-chain-fixture', request=plan(runner, [
                 {'op': 'chain', 'value': chain},
             ]))
@@ -178,7 +181,12 @@ class HeadlessTests(unittest.TestCase):
             self.assertEqual(first['card']['image_id'], revealed['card_id'])
             self.assertEqual(first['card']['text'], known['desc'])
             self.assertEqual(first['effect'], 'Public effect.')
+            self.assertEqual(first['action'], 'activate')
+            self.assertEqual(first['costs'], ['discard'])
+            self.assertNotIn(hidden['instance_id'], json.dumps(first))
             self.assertEqual(second['card']['name'], 'Card effect')
+            self.assertEqual(second['action'], 'resolve')
+            self.assertEqual(second['costs'], [])
             self.assertNotIn('image_id', second['card'])
             self.assertNotIn(hidden['instance_id'], json.dumps(second))
             self.assertIsNone(second['card']['text'])
