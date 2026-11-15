@@ -28,6 +28,7 @@ def main():
     guide.add_argument('deck', help='Folder containing deck.json, deck.ydk and guide.md')
     guide.add_argument('--repo', type=Path, default=Path.cwd())
     guide.add_argument('-o', '--output', type=Path, required=True)
+    guide.add_argument('--language', choices=('en', 'de'), default='en', help='Language of the printable playbook')
     guide.add_argument('--art-cache', type=Path, help='Folder of cached YGOPRODeck <card-id>.jpg files')
     commands.add_parser('duel', help='Run the versioned headless duel API', add_help=False)
     commands.add_parser('mcp', help='Start moderator MCP lobby', add_help=False)
@@ -55,15 +56,15 @@ def main():
     elif args.command == 'deck-guide-pdf':
         from harness.engine.session import load_bundle
         try:
-            from harness.rendering.deck_guide_pdf import default_art_cache, export
+            from harness.rendering.deck_guide_pdf import default_art_cache, export, read_guide
         except ModuleNotFoundError as error:
             if error.name not in {'reportlab', 'PIL'}:
                 raise
             parser.error("Install the optional PDF support with pip install -e '.[pdf]'")
         try:
             folder, deck = load_bundle(args.repo.resolve(), args.deck)
-            missing = export(deck, (folder / 'guide.md').read_text(encoding='utf-8'),
-                             args.output, args.art_cache or default_art_cache())
+            missing = export(deck, read_guide(folder, args.language), args.output,
+                             args.art_cache or default_art_cache(), language=args.language)
         except (OSError, ValueError, KeyError, TypeError) as error:
             parser.error(f'Cannot export guide: {error}')
         for card_id in missing:

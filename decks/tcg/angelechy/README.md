@@ -12,3 +12,5 @@ Gameplay card data comes from the [YGOPRODeck API](https://db.ygoprodeck.com/api
 Copy counts were checked against the [October 19, 2026 TCG Advanced list](../../../rules/banlists/tcg-2026-10-19.json).
 
 [YDK](deck.ydk) · [Gameplay data](deck.json) · [Playbook](guide.md)
+
+Printable A4 guides: [English PDF](guide.en.pdf) · [German PDF](guide.de.pdf).
