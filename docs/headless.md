@@ -136,8 +136,9 @@ For an opted-in game, the moderator connects the owner's private Duel Board
 Site app and reads the `board_snapshot` operation through this trusted
 transport. Pass its `result` as JSON text to the Site's
 `publish_duel_board` tool after setup or resume and after each committed board
-update. Share the returned game-specific URL with the user. Read fresh
-snapshots from the existing writer and publish outside the engine operation.
+update. Include the returned game-specific URL in every chat message that asks
+the human to choose while the board is enabled. Read fresh snapshots from the
+existing writer and publish outside the engine operation.
 Never send the full `interaction` response, raw tasks, checkpoints, or archives.
 Before the first board update, use the trusted `board_artwork` operation and
 publish the initial snapshot with `artwork_ids` in batches of up to 15 IDs.
