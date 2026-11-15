@@ -11,6 +11,7 @@ from harness.environment import DuelEnvironment, PROTOCOL
 from harness.environment.positions import create_position
 from harness.integration.headless import respond
 from harness.runner.duel import DuelRunner
+from harness.runner.state_tools import build
 import test_session as fixtures
 from test_workflow import open_window, packet, plan
 from smoke_install import HOST
@@ -188,8 +189,48 @@ class HeadlessTests(unittest.TestCase):
             self.assertEqual(second['action'], 'resolve')
             self.assertEqual(second['costs'], [])
             self.assertNotIn('image_id', second['card'])
+            self.assertNotIn('movement', second)
             self.assertNotIn(hidden['instance_id'], json.dumps(second))
             self.assertIsNone(second['card']['text'])
+
+    def test_board_chain_movement_tracks_each_link_at_activation(self):
+        self.prepare()
+        with DuelEnvironment(self.repo, self.private) as env:
+            self.start(env)
+            runner = env.service.runner
+
+            def record(operations, kind='choice'):
+                runner.record(build(runner.state, plan(runner, operations, kind=kind)))
+
+            opponent = runner.state['players']['agent']
+            source = opponent['hand'][0]
+            name = opponent['cards'][str(source['card_id'])]['name']
+            first = {'id': 'first', 'actor': 'agent', 'name': name, 'costs': [{'kind': 'banish'}]}
+            source_ref = source['instance_id']
+            human_card, cost = runner.state['players']['human']['hand'][:2]
+            second = {'id': 'second', 'actor': 'human', 'card': human_card['instance_id'],
+                      'costs': [{'kind': 'discard', 'instance_id': cost['instance_id']}]}
+            record([
+                {'op': 'move', 'card': human_card['instance_id'], 'to': ['players', 'human', 'graveyard']},
+            ])
+            record([
+                {'op': 'move', 'card': source_ref, 'to': ['players', 'agent', 'banished']},
+                {'op': 'chain', 'value': [first]},
+                {'op': 'decision', 'value': {'actor': 'human', 'window': 'chain_response'}},
+            ], kind='activate')
+            record([
+                {'op': 'move', 'card': cost['instance_id'], 'to': ['players', 'human', 'graveyard']},
+                {'op': 'chain', 'value': [first, second]},
+                {'op': 'decision', 'value': {'actor': 'agent', 'window': 'chain_response'}},
+            ], kind='respond')
+            record([
+                {'op': 'move', 'card': source_ref, 'to': ['players', 'agent', 'graveyard']},
+            ])
+            first_display, second_display = self.call(env, 'board_snapshot')['chain']
+            self.assertEqual(first_display['movement'], {'from': 'hand', 'to': 'banished'})
+            self.assertEqual(second_display['movement'], {'from': 'graveyard', 'to': 'graveyard'})
+            self.assertEqual(second_display['costs'], ['discard'])
+            self.assertNotIn(cost['instance_id'], json.dumps(second_display))
 
     def test_spectator_projection_and_recovery_failure(self):
         self.prepare()

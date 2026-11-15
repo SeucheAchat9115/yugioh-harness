@@ -1,4 +1,8 @@
 """Build a read-only Sites display from the interaction view."""
+from copy import deepcopy
+
+from harness.engine.integrity import inventory
+from harness.runner.state_tools import PLAYER_ZONES, locate, parent
 
 
 def _card(card, cards, reveal=False):
@@ -26,6 +30,61 @@ def _card(card, cards, reveal=False):
 # A cost label describes a recorded operation without exposing card identities.
 PUBLIC_COSTS = {'discard', 'banish', 'tribute', 'detach', 'pay-lp', 'send-to-graveyard',
                 'return-to-hand', 'return-to-deck', 'destroy', 'reveal', 'shuffle'}
+
+
+def _source_locations(state, link, card_id):
+    identity = link.get('card')
+    if isinstance(identity, str):
+        identities = [identity]
+    elif card_id is not None:
+        # Some older links only recorded the already-public name of the source.
+        identities = [ref for ref, (code, owner, _) in inventory(state).items()
+                      if code == card_id and owner == link.get('actor')]
+    else:
+        return {}
+    locations = {}
+    for identity in identities:
+        try:
+            path = locate(state, identity)
+        except ValueError:
+            continue
+        zone = 'materials' if 'materials' in path else path[2] if path[0] == 'players' else path[1]
+        if zone in PLAYER_ZONES or zone in ('extra_monster_zones', 'materials'):
+            locations[identity] = zone
+    return locations
+
+
+def _add_chain_movements(links, state, journal):
+    remaining = {index for index, link in enumerate(links) if link['card'].get('image_id')}
+    if not remaining:
+        return
+    active = state['chain']
+    earlier = deepcopy(state)
+    # Walk back to each live link's activation. Later moves can belong to another link.
+    for event in reversed(journal['events']):
+        changes = event['action']['changes']
+        chain = earlier['chain']
+        index = len(chain) - 1
+        candidate = (index in remaining and chain[-1].get('id') == active[index].get('id')
+                     and chain[-1].get('actor') == active[index].get('actor')
+                     and any(change['path'][0] == 'chain' for change in changes))
+        if candidate:
+            card_id = links[index]['card']['image_id']
+            after = _source_locations(earlier, chain[-1], card_id)
+        for change in reversed(changes):
+            container, key = parent(earlier, change['path'])
+            container[key] = deepcopy(change['before'])
+        if candidate and len(earlier['chain']) == index:
+            before = _source_locations(earlier, chain[-1], card_id)
+            routes = [(before[ref], after[ref]) for ref in before.keys() & after.keys()]
+            moved = [route for route in routes if route[0] != route[1]]
+            unique = moved or routes
+            if len(unique) == 1:
+                origin, destination = unique[0]
+                links[index]['movement'] = {'from': origin, 'to': destination}
+            remaining.remove(index)
+            if not remaining:
+                break
 
 
 def _chain_cards(state, active_state):
@@ -59,7 +118,7 @@ def _chain_cards(state, active_state):
     return links
 
 
-def board_snapshot(interaction, active_state):
+def board_snapshot(interaction, active_state, journal):
     context = interaction['context']
     state = context['state']
     cards = context['cards']
@@ -88,6 +147,8 @@ def board_snapshot(interaction, active_state):
             'card': _card(card, cards, card['owner'] == 'human' and show_hand),
         })
     events = context['recent_events']
+    chain = _chain_cards(state, active_state)
+    _add_chain_movements(chain, active_state, journal)
     options = {}
     decision = interaction.get('decision')
     if interaction['perspective'] == 'human' and interaction.get('awaiting_input') and decision:
@@ -103,7 +164,7 @@ def board_snapshot(interaction, active_state):
         **{key: state[key] for key in ('game_id', 'mode', 'status', 'turn', 'active_player', 'phase', 'revision')},
         'players': players,
         'extra_monsters': shared,
-        'chain': _chain_cards(state, active_state),
+        'chain': chain,
         **options,
         'last_action': events[-1]['summary'] if events else None,
     }

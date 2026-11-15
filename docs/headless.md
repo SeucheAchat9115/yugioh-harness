@@ -144,7 +144,7 @@ publish the initial snapshot with `artwork_ids` in batches of up to 15 IDs.
 The Site downloads missing YGOPRODeck images into its server-side cache.
 Artwork IDs are not part of the browser snapshot. Later snapshots omit the list.
 
-The iPad board displays the duel, including inspectable public card activations in chain order with recorded costs shown separately, and the current human options in chat order. Publish after presenting a human decision so the board shows the saved menu. Players submit moves in chat.
+The iPad board displays the duel, including inspectable public card activations in chain order, recorded costs, and the source card’s zone before and after activation when identifiable from the journal. The current human options appear in chat order. Publish after presenting a human decision so the board shows the saved menu. Players submit moves in chat.
 
 In managed play, the board includes the human hand and remaining Extra Deck.
 Both Main Decks and the opponent's Extra Deck show counts only. Graveyards,

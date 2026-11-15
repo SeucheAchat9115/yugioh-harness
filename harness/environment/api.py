@@ -127,7 +127,8 @@ class DuelEnvironment:
                     return {**response, 'ok': True, 'result': sorted(i for i in ids if 0 < i <= 999999999)}
                 if request['op'] == 'board_snapshot':
                     interaction = self.interaction(compact=False)
-                    display = board_snapshot(interaction, self.service.runner.state)
+                    runner = self.service.runner
+                    display = board_snapshot(interaction, runner.state, runner.journal)
                 else:
                     display = self.interaction()
                 return {**response, 'ok': True, 'result': display}
