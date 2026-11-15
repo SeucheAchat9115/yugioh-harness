@@ -1,2 +1,3 @@
 # Preserve deck hashes and UTF-8 resources on Windows checkouts.
 * text=auto eol=lf
+decks/**/guide.*.pdf binary -eol

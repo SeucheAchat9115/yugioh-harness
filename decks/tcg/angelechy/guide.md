@@ -86,44 +86,90 @@ choosing an effect, even when the summon itself is permitted.
 
 ## Combo lines
 
-### Problem plus Verdict
+### Problem plus Verdict going first
 
-Start with Angelechy Problem and Angelechy Verdict in hand, no locks and free
-zones. Keep Enlisted, Bastion and Shatranga available in the Extra Deck.
+Start your first Main Phase with Angelechy Problem and one Angelechy Verdict in
+hand. Your field is empty. The second Verdict and Angelechy Endgame Problem
+are in the Main Deck. Keep Enlisted, Bastion, Shatranga and Destrier in the
+Extra Deck. The following line assumes every activation resolves unopposed.
 
-1. Activate Angelechy Problem. Once it is face-up, activate its effect and
-   discard Angelechy Verdict as cost.
-2. Special Summon Angelechy Enlisted and place Angelechy Bastion as a Continuous
-   Spell. In the following Chain, use Bastion's placement trigger to place
-   Angelechy Shatranga.
-3. In the next Chain, use Shatranga's trigger to add Angelechy Opening to e4
-   from the Deck or return Verdict from the Graveyard to your hand.
+1. Activate Angelechy Problem from hand in the Field Zone. After it resolves,
+   activate its face-up effect on a new Chain and discard Angelechy Verdict
+   as the cost.
+2. Resolve Problem. Special Summon Angelechy Enlisted in Defense Position to
+   Main Monster Zone 3. Place Angelechy Bastion in Spell & Trap Zone 1 as a
+   face-up Continuous Spell during the same resolution.
+3. Activate Bastion's placement trigger in a new Chain to place Angelechy
+   Shatranga in Spell & Trap Zone 2. On the next Chain, resolve Shatranga's
+   trigger and add the second Angelechy Verdict from the Deck to your hand.
+4. Activate the first Angelechy Verdict's Graveyard effect in an open Main
+   Phase window. Banish it as the cost. On resolution, send the face-up
+   Angelechy Problem from your Field Zone to the Graveyard, then place
+   Angelechy Destrier in Spell & Trap Zone 3.
+5. Use Destrier's placement trigger in a new Chain to add Angelechy Endgame
+   Problem from the Deck. Activate it in the empty Field Zone after that
+   Chain resolves.
+6. Set the second Angelechy Verdict in Spell & Trap Zone 4. The three placed
+   Angelechy monsters enable Endgame Problem's permission to activate one
+   Angelechy Trap the turn it was Set, when the Trap is legal to activate.
 
-**Result:** Problem, Enlisted, two placed Synchros and one Trap in hand. Returning
-Verdict removes it from the Graveyard, where its placement effect is available.
+| Zone or resource | End state |
+| --- | --- |
+| Field Zone | Angelechy Endgame Problem |
+| Main Monster Zone 3 | Angelechy Enlisted in face-up Defense Position |
+| Spell & Trap Zones | 1 Bastion, 2 Shatranga, 3 Destrier (all face-up Continuous Spells). 4 Angelechy Verdict (Set). 5 empty. |
+| Hand | Your three other opening cards |
+| Graveyard | Angelechy Problem |
+| Banished | The first Angelechy Verdict, face-up |
+| Extra Deck and Normal Summon | 11 cards remaining. Normal Summon unused. |
+| Verdict | Four Angelechy Monster Cards on the field. It can negate one face-up card your opponent controls. |
 
-**Watch for:** Negation of Problem's effect after the discard leaves Verdict in
-the Graveyard. Its placement effect still needs an eligible Angelechy card to
-send and a free Spell & Trap Zone.
+### Opening to e4 into your first turn
 
-### Opening on the opponent's first turn
+Go second with Angelechy Opening to e4 in hand and the left Extra Monster
+Zone available during the opponent's first Standby Phase. Both Verdicts, Angelechy
+Problem, Angelechy Endgame Problem and Angelechy Disturbance are in the Main
+Deck. Both Enlisted copies, Bastion, Shatranga, Destrier and Castellan are in
+the Extra Deck. Your field starts empty and stays intact through the start of
+your first Main Phase. The line assumes no interruptions and an unrelated
+card for your normal draw.
 
-Go second with Angelechy Opening to e4 in hand, an available Extra Monster Zone
-and access to Angelechy Problem. Consider any Mulcharmy effect while your field
-is empty.
+1. Activate Angelechy Opening to e4 from hand in the opponent's first Standby
+   Phase. On resolution place Angelechy Problem from Deck in the Field Zone,
+   Special Summon Angelechy Enlisted in Defense Position to the left Extra
+   Monster Zone, and place Angelechy Bastion in Spell & Trap Zone 1.
+2. On a new Chain, resolve Bastion's placement trigger to place Angelechy
+   Shatranga in Spell & Trap Zone 2.
+3. On the next Chain, resolve Shatranga's trigger to add the first Angelechy
+   Verdict from Deck to hand. Opening to e4 is now in the Graveyard. At this
+   checkpoint, Problem, Enlisted, Bastion and Shatranga are on your field.
+4. When your turn begins, draw normally. In your first Main Phase, use
+   Angelechy Problem and discard the searched Angelechy Verdict as the cost.
+   On resolution, Special Summon the second Angelechy Enlisted in Defense
+   Position to Main Monster Zone 3 and place Angelechy Destrier in Spell &
+   Trap Zone 3.
+5. On a new Chain, resolve Destrier's placement trigger to add Angelechy
+   Endgame Problem from Deck. Keep it in hand for now.
+6. Activate Angelechy Verdict's Graveyard effect by banishing it as the cost.
+   On resolution, send the face-up Angelechy Problem to the Graveyard and
+   place Angelechy Castellan in Spell & Trap Zone 4.
+7. Use Castellan's placement trigger in a new Chain to send Angelechy
+   Disturbance from Deck to the Graveyard.
+8. On a new Chain, banish Angelechy Disturbance from the Graveyard as cost
+   for its search effect. Add the second Angelechy Verdict from Deck to hand.
+9. Activate Angelechy Endgame Problem in the Field Zone. Set the second
+   Angelechy Verdict in Spell & Trap Zone 5.
 
-1. Activate Angelechy Opening to e4 from hand during their first Standby Phase.
-2. Place Angelechy Problem from the Deck, summon Angelechy Enlisted to the Extra
-   Monster Zone and place Angelechy Bastion in a Spell & Trap Zone.
-3. Use Bastion to place Angelechy Shatranga, then use Shatranga to add a Trap.
-   Each placement trigger starts its own Chain.
-
-**Result:** Problem, Enlisted, two placed Synchros and a Trap in hand. Set a
-searched Angelechy Verdict at the next legal opportunity. Opening allows only
-Synchro Summons from the Extra Deck through the end of your next turn.
-
-**Watch for:** If Opening is stopped, keep independent hand interaction and
-look for Problem access on your turn.
+| Zone or resource | End state after your first Main Phase |
+| --- | --- |
+| Field Zone | Angelechy Endgame Problem |
+| Monster Zones | Angelechy Enlisted in the left Extra Monster Zone and a second Enlisted in Main Monster Zone 3, both in face-up Defense Position |
+| Spell & Trap Zones | 1 Bastion, 2 Shatranga, 3 Destrier, 4 Castellan (all face-up Continuous Spells). 5 Angelechy Verdict (Set). |
+| Hand | Your four other opening cards and your normal draw |
+| Graveyard | Angelechy Opening to e4 and Angelechy Problem |
+| Banished | The first Angelechy Verdict and Angelechy Disturbance, both face-up |
+| Extra Deck and Normal Summon | 9 cards remaining. Normal Summon unused. Opening's Synchro-only restriction lasts through the end of this turn. |
+| Verdict | Six Angelechy Monster Cards on the field. It can banish all cards your opponent controls. Endgame Problem allows it to be activated the turn it was Set. |
 
 ## Going first and going second
 

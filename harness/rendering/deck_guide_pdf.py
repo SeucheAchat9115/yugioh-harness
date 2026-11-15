@@ -1,7 +1,7 @@
 """Export the deck bundle's existing playbook as a compact, printable A4 PDF."""
 
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from hashlib import sha256
 from io import BytesIO
 from os import environ
@@ -52,6 +52,7 @@ STYLES = {
 COPY = {
     'en': {
         'title': 'Deck Guide', 'key_cards': 'Key cards', 'opening': 'Opening line',
+        'unopposed': 'Uninterrupted', 'continued': 'Continued',
         'inputs': 'Starting position', 'result': 'End board', 'watch': 'Watch for',
         'notes': 'Play notes', 'inventory': 'Card inventory', 'deck_list': 'Complete deck list',
         'main': 'Main Deck', 'extra': 'Extra Deck', 'side': 'Side Deck', 'empty': 'Empty',
@@ -62,6 +63,7 @@ COPY = {
     },
     'de': {
         'title': 'Deckguide', 'key_cards': 'Schlüsselkarten', 'opening': 'Eröffnung',
+        'unopposed': 'Ohne Unterbrechung', 'continued': 'Fortsetzung',
         'inputs': 'Ausgangslage', 'result': 'Endfeld', 'watch': 'Unterbrechungspunkte',
         'notes': 'Spielhinweise', 'inventory': 'Kartenübersicht', 'deck_list': 'Vollständige Deckliste',
         'main': 'Main Deck', 'extra': 'Extra Deck', 'side': 'Side Deck', 'empty': 'Leer',
@@ -79,6 +81,7 @@ class Combo:
     inputs: str
     steps: list[str]
     notes: list[str]
+    end_board: list[tuple[str, str]] = field(default_factory=list)
 
 
 def default_art_cache():
@@ -122,6 +125,7 @@ def combo_lines(guide, heading='Combo lines'):
         steps = []
         inputs = []
         notes = []
+        end_board = []
         for block in re.split(r'\n\s*\n', body):
             numbered = re.split(r'^\s*\d+\. +', block, flags=re.MULTILINE)
             if len(numbered) > 1:
@@ -129,11 +133,18 @@ def combo_lines(guide, heading='Combo lines'):
                     inputs.append(plain(numbered[0]))
                 steps.extend(plain(step) for step in numbered[1:] if step.strip())
             elif steps:
-                notes.append(plain(block))
+                lines = block.splitlines()
+                if lines[0].startswith(('| Zone or resource |', '| Zone oder Ressource |')):
+                    for line in lines[2:]:
+                        cells = line.strip('|').split('|')
+                        if len(cells) == 2:
+                            end_board.append((plain(cells[0]), plain(cells[1])))
+                else:
+                    notes.append(plain(block))
             elif block:
                 inputs.append(plain(block))
         if steps:
-            yield Combo(plain(title[1] or title[2]).rstrip('.'), ' '.join(inputs), steps, notes)
+            yield Combo(plain(title[1] or title[2]).rstrip('.'), ' '.join(inputs), steps, notes, end_board)
 
 
 def role_rows(guide, heading):
@@ -158,11 +169,11 @@ class Artwork:
             with PILImage.open(BytesIO(data)) as image:
                 if image.format != 'JPEG' or max(image.size) > 2500:
                     return None
-                # The largest illustration is 110 points tall. This retains >350 dpi
+                # The largest illustration is 110 points tall. This retains >320 dpi
                 # from a full-size image without embedding the entire source JPEG.
-                image.thumbnail((560, 560), PILImage.Resampling.LANCZOS)
+                image.thumbnail((500, 500), PILImage.Resampling.LANCZOS)
                 optimized = BytesIO()
-                image.convert('RGB').save(optimized, format='JPEG', quality=90, optimize=True)
+                image.convert('RGB').save(optimized, format='JPEG', quality=86, optimize=True)
                 return optimized.getvalue()
         except (OSError, ValueError, SyntaxError, PILImage.DecompressionBombError):
             return None
@@ -311,26 +322,46 @@ def callout(label, text, width, background=PAPER):
 
 
 def combo_page(combo, number, locate, art, width, copy):
-    story = [paragraph(f'{copy["opening"].upper()}  /  {number:02d}', 'label'), Spacer(1, 5),
+    label = f'{copy["opening"].upper()}  /  {number:02d}'
+    if combo.end_board:
+        label += f'  /  {copy["unopposed"].upper()}'
+    story = [paragraph(label, 'label'), Spacer(1, 5),
              paragraph(combo.title, 'heading'), Spacer(1, 16)]
     if combo.inputs:
         story.extend([callout(copy['inputs'].upper(), combo.inputs, width), Spacer(1, 12)])
+    image_width = 31 if combo.end_board else 60
+    padding = 3 if combo.end_board else 10
     for index, text in enumerate(combo.steps, 1):
-        ids = locate(text)[:3]
-        pictures = [card_picture(art.get(card_id), 60) for card_id in ids]
+        if index == 7 and len(combo.steps) > 7 and combo.end_board:
+            story.extend([PageBreak(), paragraph(f'{label}  /  {copy["continued"].upper()}', 'label'),
+                          Spacer(1, 5), paragraph(combo.title, 'heading'), Spacer(1, 16)])
+        ids = locate(text)[:2 if combo.end_board else 3]
+        pictures = [card_picture(art.get(card_id), image_width) for card_id in ids]
         pictures = [image for image in pictures if image is not None]
-        strip = table([pictures], [65] * len(pictures)) if pictures else ''
-        art_width = 65 * len(pictures)
-        row = table([[paragraph(str(index), 'number'), paragraph(text), '', strip]],
+        strip = table([pictures], [image_width + 5] * len(pictures)) if pictures else ''
+        art_width = (image_width + 5) * len(pictures)
+        row = table([[paragraph(str(index), 'number'), paragraph(text, 'deck' if combo.end_board else 'body'), '', strip]],
                     [35, width - 47 - art_width, 12, art_width])
         row.setStyle(TableStyle([
-            ('TOPPADDING', (0, 0), (-1, -1), 10), ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+            ('TOPPADDING', (0, 0), (-1, -1), padding), ('BOTTOMPADDING', (0, 0), (-1, -1), padding),
             ('BACKGROUND', (0, 0), (0, 0), PAPER),
             ('LEFTPADDING', (0, 0), (0, 0), 10), ('LEFTPADDING', (1, 0), (1, 0), 12),
             ('LINEBELOW', (0, 0), (-1, -1), 0.5, LINE),
             ('VALIGN', (1, 0), (1, 0), 'MIDDLE'),
         ]))
         story.append(row)
+    if combo.end_board:
+        rows = [[paragraph(copy['result'].upper(), 'label'), '']]
+        rows.extend([paragraph(zone, 'label'), paragraph(state, 'small')] for zone, state in combo.end_board)
+        board = table(rows, [140, width - 140], repeatRows=1)
+        board.setStyle(TableStyle([
+            ('SPAN', (0, 0), (-1, 0)), ('BACKGROUND', (0, 0), (-1, 0), PAPER),
+            ('LINEBEFORE', (0, 0), (0, -1), 1.5, ACCENT),
+            ('LINEBELOW', (0, 0), (-1, -1), 0.35, LINE),
+            ('LEFTPADDING', (0, 0), (-1, -1), 9), ('RIGHTPADDING', (0, 0), (-1, -1), 9),
+            ('TOPPADDING', (0, 0), (-1, -1), 3), ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ]))
+        story.extend([Spacer(1, 12), board])
     notes = {'result': 'result', 'output': 'result', 'endfeld': 'result',
              'watch for': 'watch', 'failure/fallback': 'watch', 'unterbrechungspunkte': 'watch'}
     for note in combo.notes:
@@ -367,8 +398,10 @@ def export(deck, guide, output, art_cache, *, language='en'):
     ids = list(dict.fromkeys(card_id for name in SECTION_NAMES for card_id in deck[name]))
     locate = card_references(deck, ids)
     art = Artwork(art_cache)
-    key_ids = list(dict.fromkeys(card_id for combo in combos for target in
-                                 [combo.title, combo.inputs, *combo.steps] for card_id in locate(target)))
+    combo_texts = [combo.title for combo in combos] + [
+        target for combo in combos for target in (combo.inputs, *combo.steps)
+    ]
+    key_ids = list(dict.fromkeys(card_id for target in combo_texts for card_id in locate(target)))
     key_ids = list(dict.fromkeys(key_ids + [card_id for card_id in roles if card_id in ids] + ids))[:6]
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=38, rightMargin=38, topMargin=49, bottomMargin=49,
@@ -383,9 +416,10 @@ def export(deck, guide, output, art_cache, *, language='en'):
     turn_plan = plain(section(guide, copy['turn_plan']))
     if turn_plan and not combos:
         story.append(callout(copy['turn_plan'].upper(), turn_plan, width))
+    turn_plan_after = len(combos) if any(combo.end_board for combo in combos) else 1
     for number, combo in enumerate(combos, 1):
         story.extend([PageBreak(), *combo_page(combo, number, locate, art, width, copy)])
-        if number == 1 and turn_plan:
+        if number == turn_plan_after and turn_plan:
             story.extend([Spacer(1, 13), paragraph(copy['turn_plan'].upper(), 'label'),
                           Spacer(1, 4), paragraph(turn_plan, 'small')])
 

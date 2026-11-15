@@ -21,7 +21,10 @@ class DeckGuidePdfTests(unittest.TestCase):
         folder = ROOT / 'decks/tcg/angelechy'
         guide = read_guide(folder, 'de')
         german = COPY['de']
-        self.assertEqual(len(list(combo_lines(guide, german['combos']))), 2)
+        first, second = combo_lines(guide, german['combos'])
+        self.assertEqual([len(first.steps), len(second.steps)], [6, 9])
+        self.assertEqual(dict(first.end_board)['Spielfeldzone'], 'Angelechy Endgame Problem')
+        self.assertIn('Castellan', dict(second.end_board)['Zauber- und Fallenzonen'])
         self.assertEqual(role_rows(guide, german['roles'])[17782288][0], 'Einstieg und Wiederaufbau')
         with tempfile.TemporaryDirectory() as directory:
             translated = Path(directory)
