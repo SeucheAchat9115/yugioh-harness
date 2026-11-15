@@ -25,6 +25,8 @@ def operations():
                              'properties': {}, 'required': []}
     result['board_snapshot'] = {'description': 'Read a display-only snapshot for an opted-in second screen.',
                                 'properties': {}, 'required': []}
+    result['board_artwork'] = {'description': 'Image IDs to prefetch for an opted-in Sites duel.',
+                               'properties': {}, 'required': []}
     return result
 
 
@@ -50,7 +52,7 @@ class DuelEnvironment:
     def __exit__(self, *_):
         self.close()
 
-    def interaction(self):
+    def interaction(self, *, compact=True):
         """Display data only: no moderator state, opponent menus or task envelopes."""
         runner = self.service.runner
         if runner is None:
@@ -58,7 +60,7 @@ class DuelEnvironment:
         runner._fresh()
         spectator = runner.state['mode'] == 'agent-vs-agent'
         perspective = 'public' if spectator else 'human'
-        context = runner.context(perspective, compact=True)
+        context = runner.context(perspective, compact=compact)
         pending = runner.state.get('pending_decision') or {}
         packet = runner.packet or {}
         own_decision = (not spectator and pending.get('actor') == 'human'
@@ -113,11 +115,22 @@ class DuelEnvironment:
                 return {**response, **error}
             if type(value) is int and not rule.get('minimum', value) <= value <= rule.get('maximum', value):
                 return {**response, **error}
-        if request['op'] in ('interaction', 'board_snapshot'):
+        if request['op'] in ('interaction', 'board_snapshot', 'board_artwork'):
             try:
-                display = self.interaction()
+                if request['op'] == 'board_artwork':
+                    runner = self.service.runner
+                    if runner is None:
+                        raise ValueError('Start or resume first')
+                    runner._fresh()
+                    ids = {int(card_id) for player in runner.state['players'].values()
+                           for card_id in player.get('cards', {}) if card_id.isascii() and card_id.isdigit()}
+                    return {**response, 'ok': True, 'result': sorted(i for i in ids if 0 < i <= 999999999)}
                 if request['op'] == 'board_snapshot':
-                    display = board_snapshot(display)
+                    interaction = self.interaction(compact=False)
+                    runner = self.service.runner
+                    display = board_snapshot(interaction, runner.state, runner.journal)
+                else:
+                    display = self.interaction()
                 return {**response, 'ok': True, 'result': display}
             except RecoveryRequired as exc:
                 return {**response, 'ok': False, 'error': {'code': 'recovery_required',

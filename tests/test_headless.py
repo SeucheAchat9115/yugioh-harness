@@ -11,6 +11,7 @@ from harness.environment import DuelEnvironment, PROTOCOL
 from harness.environment.positions import create_position
 from harness.integration.headless import respond
 from harness.runner.duel import DuelRunner
+from harness.runner.state_tools import build
 import test_session as fixtures
 from test_workflow import open_window, packet, plan
 from smoke_install import HOST
@@ -76,6 +77,11 @@ class HeadlessTests(unittest.TestCase):
             before = self.call(env, 'interaction')
             self.assertTrue(before['awaiting_input'])
             self.assertEqual(before['decision']['action_mode'], 'open-intention')
+            board = self.call(env, 'board_snapshot')
+            self.assertEqual(board['options']['recommendations'], before['decision']['recommendations'])
+            self.assertEqual(board['options']['question'], before['decision']['question'])
+            self.assertNotIn('decision_id', board['options'])
+            self.assertNotIn('PRIVATE_EXECUTION_DETAILS', json.dumps(board))
             self.assertNotIn('hand', before['context']['state']['players']['agent'])
             self.assertNotIn('remaining_deck_order', json.dumps(before))
             self.assertNotIn('PRIVATE_EXECUTION_DETAILS', json.dumps(before))
@@ -86,6 +92,7 @@ class HeadlessTests(unittest.TestCase):
             self.assertEqual(first, self.call(env, 'human_reply', **args))
             self.assertEqual(first['intention']['text'], intention)
             self.assertFalse(self.call(env, 'interaction')['awaiting_input'])
+            self.assertNotIn('options', self.call(env, 'board_snapshot'))
             self.assertEqual(self.call(env, 'next')['stage'], 'review_intent')
             request = plan(runner, [{'op': 'decision', 'value': {'actor': 'agent', 'window': 'response'}}])
             self.call(env, 'step', request_id='review', request=request, submission_id='human-free-text')
@@ -117,12 +124,113 @@ class HeadlessTests(unittest.TestCase):
             self.assertEqual(len(board['players']['human']['hand']), 5)
             self.assertTrue(all(card['text'] for card in board['players']['human']['hand']))
             self.assertNotIn('hand', board['players']['agent'])
-            self.assertNotIn('extra_deck', board['players']['human'])
+            self.assertEqual(len(board['players']['human']['extra_deck']), 15)
+            self.assertTrue(all(card['text'] for card in board['players']['human']['extra_deck']))
+            self.assertNotIn('extra_deck', board['players']['agent'])
+            for player in board['players'].values():
+                self.assertNotIn('deck', player)
+                self.assertEqual(player['graveyard'], [])
+                self.assertEqual(player['banished'], [])
             self.assertNotIn('side_deck', board['players']['human'])
-            for forbidden in ('instance_id', 'card_id', 'remaining_deck_order', 'decision'):
+            for forbidden in ('instance_id', 'remaining_deck_order'):
                 self.assertNotIn(forbidden, json.dumps(board))
+            self.assertNotIn('options', board)
+            self.assertNotIn('decision', board)
+            self.assertTrue(all(card['image_id'] in self.call(env, 'board_artwork')
+                                for card in board['players']['human']['hand']))
             open_window(env.service.runner)
             self.assertGreater(self.call(env, 'board_snapshot')['revision'], board['revision'])
+
+    def test_board_snapshot_shows_public_piles_and_hides_face_down_opponent_cards(self):
+        self.prepare()
+        with DuelEnvironment(self.repo, self.private) as env:
+            self.start(env)
+            runner = env.service.runner
+            grave, hidden, visible = runner.state['players']['agent']['hand'][:3]
+            moves = [
+                {'op': 'move', 'card': grave['instance_id'], 'to': ['players', 'agent', 'graveyard']},
+                {'op': 'move', 'card': hidden['instance_id'], 'to': ['players', 'agent', 'banished'],
+                 'attributes': {'hidden': True, 'position': 'face-down'}},
+                {'op': 'move', 'card': visible['instance_id'], 'to': ['players', 'agent', 'banished'],
+                 'attributes': {'hidden': False, 'position': 'face-up'}},
+            ]
+            self.call(env, 'step', request_id='board-zone-fixture', request=plan(runner, moves))
+            opponent = self.call(env, 'board_snapshot')['players']['agent']
+            self.assertEqual(opponent['graveyard'][0]['image_id'], grave['card_id'])
+            self.assertTrue(opponent['graveyard'][0]['text'])
+            self.assertEqual(opponent['banished'][0], {'hidden': True, 'position': 'face-down'})
+            self.assertEqual(opponent['banished'][1]['image_id'], visible['card_id'])
+
+    def test_board_chain_details_use_only_public_source_identity(self):
+        self.prepare()
+        with DuelEnvironment(self.repo, self.private) as env:
+            self.start(env)
+            runner = env.service.runner
+            player = runner.state['players']['agent']
+            revealed, hidden = player['hand'][:2]
+            known = player['cards'][str(revealed['card_id'])]
+            chain = [{'id': 'one', 'actor': 'agent', 'name': known['name'], 'effect': 'Public effect.',
+                      'costs': [{'kind': 'discard', 'instance_id': hidden['instance_id']},
+                                {'kind': 'unrecognized-cost'}]},
+                     {'id': 'two', 'actor': 'agent', 'card': hidden['instance_id'],
+                      'effect': 'Unknown source.', 'resolution_started': True}]
+            self.call(env, 'step', request_id='board-chain-fixture', request=plan(runner, [
+                {'op': 'chain', 'value': chain},
+            ]))
+            first, second = self.call(env, 'board_snapshot')['chain']
+            self.assertEqual(first['card']['name'], known['name'])
+            self.assertEqual(first['card']['image_id'], revealed['card_id'])
+            self.assertEqual(first['card']['text'], known['desc'])
+            self.assertEqual(first['effect'], 'Public effect.')
+            self.assertEqual(first['action'], 'activate')
+            self.assertEqual(first['costs'], ['discard'])
+            self.assertNotIn(hidden['instance_id'], json.dumps(first))
+            self.assertEqual(second['card']['name'], 'Card effect')
+            self.assertEqual(second['action'], 'resolve')
+            self.assertEqual(second['costs'], [])
+            self.assertNotIn('image_id', second['card'])
+            self.assertNotIn('movement', second)
+            self.assertNotIn(hidden['instance_id'], json.dumps(second))
+            self.assertIsNone(second['card']['text'])
+
+    def test_board_chain_movement_tracks_each_link_at_activation(self):
+        self.prepare()
+        with DuelEnvironment(self.repo, self.private) as env:
+            self.start(env)
+            runner = env.service.runner
+
+            def record(operations, kind='choice'):
+                runner.record(build(runner.state, plan(runner, operations, kind=kind)))
+
+            opponent = runner.state['players']['agent']
+            source = opponent['hand'][0]
+            name = opponent['cards'][str(source['card_id'])]['name']
+            first = {'id': 'first', 'actor': 'agent', 'name': name, 'costs': [{'kind': 'banish'}]}
+            source_ref = source['instance_id']
+            human_card, cost = runner.state['players']['human']['hand'][:2]
+            second = {'id': 'second', 'actor': 'human', 'card': human_card['instance_id'],
+                      'costs': [{'kind': 'discard', 'instance_id': cost['instance_id']}]}
+            record([
+                {'op': 'move', 'card': human_card['instance_id'], 'to': ['players', 'human', 'graveyard']},
+            ])
+            record([
+                {'op': 'move', 'card': source_ref, 'to': ['players', 'agent', 'banished']},
+                {'op': 'chain', 'value': [first]},
+                {'op': 'decision', 'value': {'actor': 'human', 'window': 'chain_response'}},
+            ], kind='activate')
+            record([
+                {'op': 'move', 'card': cost['instance_id'], 'to': ['players', 'human', 'graveyard']},
+                {'op': 'chain', 'value': [first, second]},
+                {'op': 'decision', 'value': {'actor': 'agent', 'window': 'chain_response'}},
+            ], kind='respond')
+            record([
+                {'op': 'move', 'card': source_ref, 'to': ['players', 'agent', 'graveyard']},
+            ])
+            first_display, second_display = self.call(env, 'board_snapshot')['chain']
+            self.assertEqual(first_display['movement'], {'from': 'hand', 'to': 'banished'})
+            self.assertEqual(second_display['movement'], {'from': 'graveyard', 'to': 'graveyard'})
+            self.assertEqual(second_display['costs'], ['discard'])
+            self.assertNotIn(cost['instance_id'], json.dumps(second_display))
 
     def test_spectator_projection_and_recovery_failure(self):
         self.prepare()
@@ -142,8 +250,10 @@ class HeadlessTests(unittest.TestCase):
             for player in display['context']['state']['players'].values():
                 self.assertNotIn('hand', player)
             board = self.call(env, 'board_snapshot')
-            self.assertTrue(all('hand' not in player for player in board['players'].values()))
+            self.assertTrue(all('hand' not in player and 'extra_deck' not in player
+                                for player in board['players'].values()))
             self.assertNotIn('PRIVATE_PLAYER_ONE_CHOICE', json.dumps(board))
+            self.assertNotIn('options', board)
             runner._recovery_required = True
             result = env.request(self.envelope('interaction'))
             self.assertFalse(result['ok'])
