@@ -134,17 +134,25 @@ chat-only unless the user requests the board again.
 
 For an opted-in game, the moderator connects the owner's private Duel Board
 Site app and reads the `board_snapshot` operation through this trusted
-transport. Pass only its `result` as JSON text to the Site's
+transport. Pass its `result` as JSON text to the Site's
 `publish_duel_board` tool after setup or resume and after each committed board
-update. Share the returned game-specific URL with the user. Read fresh
-snapshots from the existing writer and publish outside the engine operation.
+update. Include the returned game-specific URL in every chat message that asks
+the human to choose while the board is enabled. Read fresh snapshots from the
+existing writer and publish outside the engine operation.
 Never send the full `interaction` response, raw tasks, checkpoints, or archives.
+Before the first board update, use the trusted `board_artwork` operation and
+publish the initial snapshot with `artwork_ids` in batches of up to 15 IDs.
+The Site downloads missing YGOPRODeck images into its server-side cache.
+Artwork IDs are not part of the browser snapshot. Later snapshots omit the list.
 
-The board includes the human hand in managed play. Self mode shows only known
-cards, and agent-vs-agent uses the spectator perspective. The opponent's hand
-and face-down card identities are excluded even if the chat display has more
-permissions. The Site keeps the latest accepted snapshot for the duel and
-ignores stale revisions. Decisions and authoritative saves stay in the harness.
+The iPad board displays the duel, including inspectable public card activations in chain order, recorded costs, and the source card’s zone before and after activation when identifiable from the journal. The current human options appear in chat order. Publish after presenting a human decision so the board shows the saved menu. Players submit moves in chat.
+
+In managed play, the board includes the human hand and remaining Extra Deck.
+Both Main Decks and the opponent's Extra Deck show counts only. Graveyards,
+Field Zones, and banished zones use the permitted player view, with opposing
+face-down cards shown as anonymous backs. Self mode shows only known cards,
+and agent-vs-agent uses a public spectator view. The Site keeps the latest accepted snapshot for the duel and
+ignores stale revisions. The harness owns decisions and authoritative saves.
 
 If the Site tool is unavailable, fails, or the user turns the board off, carry
 on in chat and stop publishing. The last published board can still be visible.
