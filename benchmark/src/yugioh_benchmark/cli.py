@@ -25,6 +25,15 @@ def main():
     command.add_argument('archive', type=Path)
     command.add_argument('--reviews', required=True, type=Path)
     command.add_argument('--output', required=True, type=Path)
+    command = commands.add_parser('export-review-boards', help='Export filtered replay cases with three reviewed moves')
+    command.add_argument('archive', type=Path)
+    command.add_argument('--catalog', required=True, type=Path)
+    command.add_argument('--output', required=True, type=Path)
+    command = commands.add_parser('prepare-human-review', help='Use iPad review answers to prepare a replay evaluation')
+    command.add_argument('archive', type=Path)
+    command.add_argument('--catalog', required=True, type=Path)
+    command.add_argument('--answers', required=True, type=Path)
+    command.add_argument('--output', required=True, type=Path)
     command = commands.add_parser('evaluate', help='Run identical reviewed checkpoints through a metered model transport and real harness')
     command.add_argument('dataset', type=Path)
     command.add_argument('--output', required=True, type=Path)
@@ -70,6 +79,17 @@ def main():
         elif args.command == 'prepare-harness':
             from .harness_replay import prepare_harness
             output = prepare_harness(args.archive, json.loads(read_text(args.reviews)), args.output)
+        elif args.command in {'export-review-boards', 'prepare-human-review'}:
+            from .human_review import export_review_boards, prepare_human_review
+            catalog = json.loads(read_text(args.catalog))
+            if args.command == 'export-review-boards':
+                output = export_review_boards(args.archive, catalog)
+                with args.output.open('x', encoding='utf-8', newline='\n') as handle:
+                    json.dump(output, handle, ensure_ascii=False, indent=2)
+                    handle.write('\n')
+                output = {'catalog': str(args.output), 'cases': len(output['cases'])}
+            else:
+                output = prepare_human_review(args.archive, catalog, json.loads(read_text(args.answers)), args.output)
         elif args.command == 'evaluate':
             from .evaluation import evaluate
             from .transports import OpenAICompatible

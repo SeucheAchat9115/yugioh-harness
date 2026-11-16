@@ -20,6 +20,10 @@ remains pending. The separate [small Edison pilot](docs/edison-pilot.md) measure
 state recreation and legality only.
 This project is independent of Duelingbook and the Yu-Gi-Oh rights holders.
 
+The [iPad replay review](docs/human-replay-review.md) collects human choices
+from three reviewed moves at a replay checkpoint. Import exported answers to
+compare pilots on the same board and options.
+
 ## Agentic benchmark score
 
 The benchmark evaluates an agent working through the harness, with three equally

@@ -1,0 +1,433 @@
+{
+  "adapter": "harness-archive-v1",
+  "source_index_sha256": "fe45528272e6b7bc5de852df5148ac0a8c07c6906b4fadf73d663f5a1bb16fcb",
+  "banlist_snapshot_marker": "{\n  \"schema_version\": \"1.0\",\n  \"format\": \"edison\",",
+  "banlist": {
+    "schema_version": "1.0",
+    "format": "edison",
+    "region": "TCG",
+    "effective_date": "2010-03-01",
+    "verified_on": "2026-10-06",
+    "default_copy_limit": 3,
+    "copy_limits": {
+      "forbidden": 0,
+      "limited": 1,
+      "semi_limited": 2
+    },
+    "copy_limit_scope": "Main, Extra/Fusion and Side Deck combined; card identity, including names treated as the same name",
+    "card_name_case": "uppercase English source names; compare case-insensitively",
+    "sources": [
+      {
+        "authority": "official-konami",
+        "url": "https://www.yugioh-card.com/en/downloads/alt_format/2010-03-01.pdf"
+      },
+      {
+        "authority": "community-cross-check",
+        "url": "https://edisonrulings.org/rules/banlist"
+      }
+    ],
+    "notes": [
+      "Full Advanced restrictions transcribed from the Konami historical archive, including entries outside the Edison card pool.",
+      "Community Edison lists omit Temple of the Kings, Sixth Sense and Dewloren, Tiger King of the Ice Barrier because they are outside the legal pool; that does not make those cards legal.",
+      "Unlisted cards require separate Edison card-pool verification."
+    ],
+    "forbidden": [
+      "BLACK LUSTER SOLDIER - ENVOY OF THE BEGINNING",
+      "BUTTERFLY DAGGER - ELMA",
+      "CARD OF SAFE RETURN",
+      "CHANGE OF HEART",
+      "CHAOS EMPEROR DRAGON - ENVOY OF THE END",
+      "CONFISCATION",
+      "CRUSH CARD VIRUS",
+      "CYBER JAR",
+      "CYBER-STEIN",
+      "DARK HOLE",
+      "DARK MAGICIAN OF CHAOS",
+      "DARK STRIKE FIGHTER",
+      "DELINQUENT DUO",
+      "DESTINY HERO - DISK COMMANDER",
+      "DIMENSION FUSION",
+      "EXCHANGE OF THE SPIRIT",
+      "FIBER JAR",
+      "GRACEFUL CHARITY",
+      "HARPIE'S FEATHER DUSTER",
+      "IMPERIAL ORDER",
+      "LAST TURN",
+      "LAST WILL",
+      "MAGICAL SCIENTIST",
+      "MAGICIAN OF FAITH",
+      "MAKYURA THE DESTRUCTOR",
+      "METAMORPHOSIS",
+      "MIRAGE OF NIGHTMARE",
+      "MONSTER REBORN",
+      "PAINFUL CHOICE",
+      "POT OF GREED",
+      "PREMATURE BURIAL",
+      "RAIGEKI",
+      "RING OF DESTRUCTION",
+      "SINISTER SERPENT",
+      "SIXTH SENSE",
+      "SNATCH STEAL",
+      "TEMPLE OF THE KINGS",
+      "THE FORCEFUL SENTRY",
+      "THOUSAND-EYES RESTRICT",
+      "TIME SEAL",
+      "TRIBE-INFECTING VIRUS",
+      "TSUKUYOMI",
+      "VICTORY DRAGON",
+      "WITCH OF THE BLACK FOREST",
+      "YATA-GARASU"
+    ],
+    "limited": [
+      "ADVANCED RITUAL ART",
+      "ALLURE OF DARKNESS",
+      "BLACK ROSE DRAGON",
+      "BLACKWING - GALE THE WHIRLWIND",
+      "BRAIN CONTROL",
+      "BRIONAC, DRAGON OF THE ICE BARRIER",
+      "BURIAL FROM A DIFFERENT DIMENSION",
+      "CALL OF THE HAUNTED",
+      "CARD DESTRUCTION",
+      "CARD TROOPER",
+      "CEASEFIRE",
+      "CHAOS SORCERER",
+      "CHARGE OF THE LIGHT BRIGADE",
+      "COLD WAVE",
+      "DARK ARMED DRAGON",
+      "DESTINY DRAW",
+      "ELEMENTAL HERO STRATOS",
+      "EMERGENCY TELEPORT",
+      "EXODIA THE FORBIDDEN ONE",
+      "FOOLISH BURIAL",
+      "FUTURE FUSION",
+      "GIANT TRUNADE",
+      "GLADIATOR BEAST BESTIARI",
+      "GORZ THE EMISSARY OF DARKNESS",
+      "GOYO GUARDIAN",
+      "GRAVITY BIND",
+      "HEAVY STORM",
+      "LEFT ARM OF THE FORBIDDEN ONE",
+      "LEFT LEG OF THE FORBIDDEN ONE",
+      "LEVEL LIMIT - AREA B",
+      "LIMITER REMOVAL",
+      "LUMINA, LIGHTSWORN SUMMONER",
+      "MAGIC CYLINDER",
+      "MAGICAL EXPLOSION",
+      "MARSHMALLON",
+      "MEGAMORPH",
+      "MEZUKI",
+      "MIND CONTROL",
+      "MIND CRUSH",
+      "MIND MASTER",
+      "MIRROR FORCE",
+      "MONSTER GATE",
+      "MORPHING JAR",
+      "MYSTICAL SPACE TYPHOON",
+      "NECRO GARDNA",
+      "NECROFACE",
+      "NEO-SPACIAN GRAND MOLE",
+      "NIGHT ASSAILANT",
+      "OJAMA TRIO",
+      "ONE FOR ONE",
+      "OVERLOAD FUSION",
+      "PLAGUESPREADER ZOMBIE",
+      "REASONING",
+      "REINFORCEMENT OF THE ARMY",
+      "RESCUE CAT",
+      "RETURN FROM THE DIFFERENT DIMENSION",
+      "RIGHT ARM OF THE FORBIDDEN ONE",
+      "RIGHT LEG OF THE FORBIDDEN ONE",
+      "SANGAN",
+      "SCAPEGOAT",
+      "SNIPE HUNTER",
+      "SOLEMN JUDGMENT",
+      "SPIRIT REAPER",
+      "SUMMONER MONK",
+      "SWORDS OF REVEALING LIGHT",
+      "THE TRANSMIGRATION PROPHECY",
+      "TORRENTIAL TRIBUTE",
+      "TRAGOEDIA",
+      "TRAP DUSTSHOOT",
+      "WALL OF REVEALING LIGHT"
+    ],
+    "semi_limited": [
+      "BLACK WHIRLWIND",
+      "BOTTOMLESS TRAP HOLE",
+      "CHAIN STRIKE",
+      "CYBER DRAGON",
+      "DANDYLION",
+      "DEMISE, KING OF ARMAGEDDON",
+      "DESTINY HERO - MALICIOUS",
+      "DEWLOREN, TIGER KING OF THE ICE BARRIER",
+      "GOBLIN ZOMBIE",
+      "GOLD SARCOPHAGUS",
+      "HONEST",
+      "JUDGMENT DRAGON",
+      "LONEFIRE BLOSSOM",
+      "MAGICAL STONE EXCAVATION",
+      "ROYAL DECREE",
+      "ROYAL OPPRESSION",
+      "SKILL DRAIN",
+      "TREEBORN FROG",
+      "ULTIMATE OFFERING",
+      "UNITED WE STAND"
+    ]
+  },
+  "schema": "harness-human-review-v1",
+  "id": "edison-ipad-review-v1",
+  "title": "Blackwing vs Lightsworn",
+  "format_label": "Edison · March 2010",
+  "review": {
+    "status": "approved",
+    "reviewer": "Codex scoped review of an archived Edison duel",
+    "scope": "Three distinct legal initiations per frozen position. Strategic preference comes from the reviewer."
+  },
+  "checkpoints": [
+    {
+      "id": "edison-3",
+      "revision": 3,
+      "player": "human",
+      "public_facts": "You are going first in Main Phase 1. Your Normal Summon is available and both fields are empty.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped review of an archived Edison duel",
+        "scope": "Three distinct legal initiations per frozen position. Strategic preference comes from the reviewer."
+      },
+      "evidence": "max-edison-20261023 revision 3; exact action window, zones and reveal status reviewed.",
+      "choices": [
+        {
+          "id": "set-bottomless",
+          "label": "Set Bottomless Trap Hole in S-1",
+          "intent": {
+            "action": "set",
+            "card": "9781f9c8c260476fb9a4f877b81ac15f",
+            "zone": "S-1"
+          },
+          "rationale": "A Normal Trap can be Set from hand in the open Main Phase."
+        },
+        {
+          "id": "normal-bora",
+          "label": "Normal Summon Bora to M-1 in Attack Position",
+          "intent": {
+            "action": "normal_summon",
+            "card": "4a4816aae4cc4f3e970d88da323f97d6",
+            "zone": "M-1",
+            "position": "ATK"
+          },
+          "rationale": "Bora is Level 4 and the Normal Summon is available."
+        },
+        {
+          "id": "normal-gale",
+          "label": "Normal Summon Gale to M-1 in Attack Position",
+          "intent": {
+            "action": "normal_summon",
+            "card": "3339d7e58c5a49528a0ff04c5445b0f0",
+            "zone": "M-1",
+            "position": "ATK"
+          },
+          "rationale": "Gale is Level 3 and the Normal Summon is available."
+        }
+      ]
+    },
+    {
+      "id": "edison-32",
+      "revision": 32,
+      "player": "human",
+      "public_facts": "You are in Main Phase 1. The opponent controls one face-down monster. Your two Trap cards are set.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped review of an archived Edison duel",
+        "scope": "Three distinct legal initiations per frozen position. Strategic preference comes from the reviewer."
+      },
+      "evidence": "max-edison-20261023 revision 32; exact action window, zones and reveal status reviewed.",
+      "choices": [
+        {
+          "id": "enter-battle",
+          "label": "Enter the Battle Phase",
+          "intent": {
+            "action": "phase",
+            "phase": "battle"
+          },
+          "rationale": "Turn 3 allows a Battle Phase. The decision is entry only."
+        },
+        {
+          "id": "request-end",
+          "label": "Request to end your turn",
+          "intent": {
+            "action": "end_turn"
+          },
+          "rationale": "The Main Phase is open and can advance to the End Phase."
+        },
+        {
+          "id": "set-mst",
+          "label": "Set Mystical Space Typhoon in S-3",
+          "intent": {
+            "action": "set",
+            "card": "bac1217f53af4432bcf0bc6a21a3aa23",
+            "zone": "S-3"
+          },
+          "rationale": "A Quick-Play Spell can be Set from hand in an open Main Phase."
+        }
+      ]
+    },
+    {
+      "id": "edison-88",
+      "revision": 88,
+      "player": "human",
+      "public_facts": "Lyla is Chain Link 1 and targets your set Mystical Space Typhoon in S-3. Dimensional Prison in S-1 and Typhoon were both set on earlier turns.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped review of an archived Edison duel",
+        "scope": "Three distinct legal initiations per frozen position. Strategic preference comes from the reviewer."
+      },
+      "evidence": "max-edison-20261023 revision 88; exact action window, zones and reveal status reviewed.",
+      "choices": [
+        {
+          "id": "chain-mst",
+          "label": "Chain Mystical Space Typhoon targeting your own Dimensional Prison in S-1",
+          "intent": {
+            "action": "activate",
+            "card": "bac1217f53af4432bcf0bc6a21a3aa23",
+            "target": "45ff468a97ee4e53bd3ae18996b92604"
+          },
+          "rationale": "Typhoon can target another Spell/Trap on either field. It does not negate Lyla.",
+          "activation": {
+            "effect": "Destroy the targeted Spell/Trap.",
+            "cost_operations": []
+          }
+        },
+        {
+          "id": "pass",
+          "label": "Pass without chaining",
+          "intent": {
+            "action": "pass"
+          },
+          "rationale": "The player may decline to respond to this activation."
+        },
+        {
+          "id": "chain-stardust",
+          "label": "Chain Stardust Dragon, Tributing it to respond to Lyla",
+          "intent": {
+            "action": "activate",
+            "card": "dd3f0c24757844f682452c466a73e756",
+            "cost_cards": [
+              "dd3f0c24757844f682452c466a73e756"
+            ]
+          },
+          "rationale": "Stardust can Tribute itself to negate this destruction effect; its method of summon does not bar this activation.",
+          "activation": {
+            "effect": "Negate the activation and destroy that card.",
+            "cost_operations": [
+              {
+                "op": "move",
+                "card": "dd3f0c24757844f682452c466a73e756",
+                "to": [
+                  "players",
+                  "agent",
+                  "graveyard"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "edison-99",
+      "revision": 99,
+      "player": "human",
+      "public_facts": "It is your Main Phase 1. Lyla is face-up in Defense Position. You have 4000 LP and can enter the Battle Phase. In Edison, Brain Control can target any face-up opposing monster.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped review of an archived Edison duel",
+        "scope": "Three distinct legal initiations per frozen position. Strategic preference comes from the reviewer."
+      },
+      "evidence": "max-edison-20261023 revision 99; exact action window, zones and reveal status reviewed.",
+      "choices": [
+        {
+          "id": "brain-control",
+          "label": "Activate Brain Control in S-2, pay 800 LP and target Lyla in M-1",
+          "intent": {
+            "action": "activate",
+            "card": "9eb7423884e8438799b0ae15baf48b14",
+            "target": "f1d144ef42384ff4910e6b0fb22f0c8c",
+            "zone": "S-2"
+          },
+          "rationale": "Lyla is a face-up monster you can target under the pinned Edison Brain Control text. You have enough LP and an open Monster Zone.",
+          "activation": {
+            "effect": "Take control of the targeted monster until the End Phase.",
+            "cost_operations": [
+              {
+                "op": "lp",
+                "player": "agent",
+                "delta": -800
+              }
+            ]
+          }
+        },
+        {
+          "id": "set-heavy",
+          "label": "Set Heavy Storm in S-2",
+          "intent": {
+            "action": "set",
+            "card": "8a204974a9d043b5bfbbac8656cbdc52",
+            "zone": "S-2"
+          },
+          "rationale": "A Normal Spell can be Set from hand in the open Main Phase."
+        },
+        {
+          "id": "enter-battle",
+          "label": "Enter the Battle Phase",
+          "intent": {
+            "action": "phase",
+            "phase": "battle"
+          },
+          "rationale": "The Battle Phase is available. This choice declares no attack yet."
+        }
+      ]
+    },
+    {
+      "id": "edison-165",
+      "revision": 165,
+      "player": "human",
+      "public_facts": "It is your Main Phase 1. Your field is empty and your Normal Summon or Set is available.",
+      "review": {
+        "status": "approved",
+        "reviewer": "Codex scoped review of an archived Edison duel",
+        "scope": "Three distinct legal initiations per frozen position. Strategic preference comes from the reviewer."
+      },
+      "evidence": "max-edison-20261023 revision 165; exact action window, zones and reveal status reviewed.",
+      "choices": [
+        {
+          "id": "set-shura",
+          "label": "Set Shura face-down in M-1",
+          "intent": {
+            "action": "set",
+            "card": "2182549a2a244f1f95a5b37af37139f2",
+            "zone": "M-1"
+          },
+          "rationale": "Shura is a Level 4 monster and can be Normal Set from hand."
+        },
+        {
+          "id": "request-end",
+          "label": "Request to end your turn",
+          "intent": {
+            "action": "end_turn"
+          },
+          "rationale": "There is no unresolved chain or effect preventing entry to the End Phase."
+        },
+        {
+          "id": "normal-shura",
+          "label": "Normal Summon Shura to M-1 in Attack Position",
+          "intent": {
+            "action": "normal_summon",
+            "card": "2182549a2a244f1f95a5b37af37139f2",
+            "zone": "M-1",
+            "position": "ATK"
+          },
+          "rationale": "Shura is Level 4 and can be Normal Summoned without Tributing."
+        }
+      ]
+    }
+  ]
+}
